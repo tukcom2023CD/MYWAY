@@ -1,6 +1,13 @@
 # MSA 기반 Agile 성과 분석 시스템 
 
 # 서비스 개요
+개요 머라쓰지 이게 첫마디가 중요한디
+
+# Server
+### Deployment Server(Not publish) : https://www.tukoreamyway.shop
+
+### Alpha Test Server : http://223.255.205.62:30123
+
 
 # 아키텍처 다이어그램
 <img width="1113" alt="image" src="https://user-images.githubusercontent.com/55674648/209564860-d1cacb42-1f3d-4606-bddd-0cf55ea45f7f.png">
