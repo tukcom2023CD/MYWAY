@@ -3,10 +3,10 @@
 # 서비스 개요
 개요 머라쓰지 이게 첫마디가 중요한디
 
-# Server
-### Deployment Server(Not publish) : https://www.tukoreamyway.shop
+# Service Link
+### Deployment Link(Not publish) : https://www.tukoreamyway.shop
 
-### Alpha Test Server : http://223.255.205.62:30123
+### Alpha Test Link : http://223.255.205.62:30123
 
 
 # 아키텍처 다이어그램
