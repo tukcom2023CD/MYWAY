@@ -1,10 +1,10 @@
-name: frontend - dev
-on: 
-  branches: 
+name: frontend - main
+on:
+  branches:
     - frontend/main/**
     - frontend/release/**
     - frontend/hotfix/**
-  
+
 defaults:
   run:
     shell: bash

@@ -1,4 +1,4 @@
-name: frontend - dev
+name: frontend - feat
 on: 
   branches: 
     - frontend/feat/**
