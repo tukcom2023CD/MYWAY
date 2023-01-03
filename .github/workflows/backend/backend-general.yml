@@ -1,0 +1,15 @@
+name: backend general
+on: [push, pull_request]
+defaults:
+  run:
+    shell: bash
+    working-directory: ./backend
+
+  replace-google-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: '--replace'
+          github-token: ${{ secrets.GITHUB_TOKEN }}

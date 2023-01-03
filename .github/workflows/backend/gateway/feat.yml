@@ -1,0 +1,19 @@
+name: OWL-FOREST Github Actions
+on: 
+  branches: [ gateway/feat/** ]
+  
+defaults:
+  run:
+    shell: bash
+    working-directory: ./backend/gateway
+jobs:
+  integration-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          architecture: x64
+      - run: gradle test
