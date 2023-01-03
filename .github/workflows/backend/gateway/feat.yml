@@ -1,7 +1,8 @@
 name: gateway - feat
 on: 
-  branches: [ gateway/feat/** ]
-
+  branches: 
+    - gateway/feat/**
+    - gateway/feature/**
 defaults:
   run:
     shell: bash

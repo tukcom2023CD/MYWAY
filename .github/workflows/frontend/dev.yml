@@ -1,0 +1,10 @@
+name: frontend - dev
+on: 
+  branches: 
+    - frontend/dev/**
+    - frontend/develop/**
+  
+defaults:
+  run:
+    shell: bash
+    working-directory: ./frontend
