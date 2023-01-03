@@ -8,6 +8,15 @@
 
 ### Alpha Test Link : http://223.255.205.62:30123
 
+# 기술 스택
+## FRONTEND
+<img width="851" alt="image" src="https://user-images.githubusercontent.com/55674648/210301227-8725526b-3ce7-4430-8766-d32569ff1769.png">
+
+## BACKEND
+<img width="843" alt="image" src="https://user-images.githubusercontent.com/55674648/210301242-08b628e8-2579-4b70-8fad-6cfcae67caae.png">
+
+## INFRA/DevOps
+<img width="848" alt="image" src="https://user-images.githubusercontent.com/55674648/210301256-13823662-dd40-46f3-8e0c-ba98d3ac9113.png">
 
 # 아키텍처 다이어그램
 ## 퍼블리싱 환경
