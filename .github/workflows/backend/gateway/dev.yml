@@ -1,4 +1,4 @@
-name: OWL-FOREST Github Actions
+name: gateway - dev
 on: 
   branches: 
     - gateway/dev/**

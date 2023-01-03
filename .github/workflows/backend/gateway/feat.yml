@@ -1,7 +1,7 @@
-name: OWL-FOREST Github Actions
+name: gateway - feat
 on: 
   branches: [ gateway/feat/** ]
-  
+
 defaults:
   run:
     shell: bash
