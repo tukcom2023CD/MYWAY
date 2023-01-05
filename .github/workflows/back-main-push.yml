@@ -1,0 +1,15 @@
+name: backend - main
+on: 
+  push: 
+    branches: 
+      - back/main/**
+      - backend/main/**
+defaults:
+  run:
+    shell: bash
+    working-directory: ./back
+jobs:
+  helloworld:
+    runs-on: ubuntu-latest
+    steps:
+      - run : echo "push main"

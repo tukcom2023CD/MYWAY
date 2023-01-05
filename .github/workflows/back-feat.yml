@@ -1,10 +1,17 @@
 name: backend - feat
 on: 
-  branches: 
-    - back/feat/**
-    - back/feature/**
-    - backend/feat/**
-    - backend/feature/**
+  push: 
+    branches: 
+      - back/feat/**
+      - back/feature/**
+      - backend/feat/**
+      - backend/feature/**
+  pull_request: 
+    branches: 
+      - back/feat/**
+      - back/feature/**
+      - backend/feat/**
+      - backend/feature/**
 defaults:
   run:
     shell: bash

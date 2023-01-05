@@ -1,0 +1,20 @@
+name: frontend - main
+on:
+  push: 
+    branches:
+      - front/main/**
+      - front/release/**
+      - front/hotfix/**
+      - frontend/main/**
+      - frontend/release/**
+      - frontend/hotfix/**
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./frontend
+jobs:
+  helloworld:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "frontend into main"
