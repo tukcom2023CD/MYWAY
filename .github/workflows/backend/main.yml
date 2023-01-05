@@ -1,0 +1,13 @@
+name: backend - main
+on: 
+  branches: 
+    - back/main/**
+    - backend/main/**
+    - back/hotfix/**
+    - backend/hotfix/**
+    - back/release/**
+    - backend/release/**
+defaults:
+  run:
+    shell: bash
+    working-directory: ./back

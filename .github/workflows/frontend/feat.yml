@@ -1,6 +1,8 @@
 name: frontend - feat
 on: 
   branches: 
+    - front/feat/**
+    - front/feature/**
     - frontend/feat/**
     - frontend/feature/**
   

@@ -1,6 +1,8 @@
 name: frontend - dev
 on: 
-  branches: 
+  branches:
+    - front/dev/**
+    - front/develop/** 
     - frontend/dev/**
     - frontend/develop/**
   

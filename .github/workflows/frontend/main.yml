@@ -1,6 +1,9 @@
 name: frontend - main
 on:
   branches:
+    - front/main/**
+    - front/release/**
+    - front/hotfix/**
     - frontend/main/**
     - frontend/release/**
     - frontend/hotfix/**

@@ -1,5 +1,10 @@
-name: backend general
-on: [push, pull_request]
+name: backend - dev
+on: 
+  branches: 
+    - back/dev/**
+    - back/develop/**
+    - backend/dev/**
+    - backend/develop/**
 defaults:
   run:
     shell: bash
