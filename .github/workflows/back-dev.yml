@@ -1,0 +1,19 @@
+name: backend - dev
+on: 
+  push: 
+    branches: 
+      - back/dev/**
+      - back/develop/**
+      - backend/dev/**
+      - backend/develop/**
+defaults:
+  run:
+    shell: bash
+    working-directory: ./back
+
+jobs:
+  build-docker-image:
+    uses: ./.github/workflows/build-back-docker-img.yml
+    secrets: inherit
+  replace-google-format:
+    uses: ./.github/workflows/reformat-google-java-convenction.yml

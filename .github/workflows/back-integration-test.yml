@@ -1,12 +1,12 @@
-name: gateway - feat
+name: build and push backend docker image
 on: 
-  branches: 
-    - gateway/feat/**
-    - gateway/feature/**
+  workflow_call:
+
 defaults:
   run:
     shell: bash
-    working-directory: ./backend/gateway
+    working-directory: ./back
+
 jobs:
   integration-test:
     runs-on: ubuntu-latest

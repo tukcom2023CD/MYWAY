@@ -1,10 +1,13 @@
-name: backend general
-on: [push, pull_request]
+name: reformat google java convenction
+on: 
+  workflow_call:
+
 defaults:
   run:
     shell: bash
-    working-directory: ./backend
+    working-directory: ./back
 
+jobs:
   replace-google-format:
     runs-on: ubuntu-latest
     steps:
@@ -12,4 +15,3 @@ defaults:
       - uses: axel-op/googlejavaformat-action@v3
         with:
           args: '--replace'
-          github-token: ${{ secrets.GITHUB_TOKEN }}

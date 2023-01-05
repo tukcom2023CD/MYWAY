@@ -1,0 +1,35 @@
+name: build and push backend docker image
+on: 
+  workflow_call:
+    secrets:
+      DOCKER_USERNAME:
+        required: true
+      DOCKER_PASSWORD:
+        required: true
+      DOCKER_BACK_IMAGE_NAME:
+        required: true
+
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./back
+
+jobs:
+  build-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v4
+      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          architecture: x64
+      - run: gradle build
+      - run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_BACK_IMAGE_NAME }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_BACK_IMAGE_NAME }}
+  
