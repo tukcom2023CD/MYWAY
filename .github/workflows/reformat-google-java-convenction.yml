@@ -1,13 +1,6 @@
 name: reformat google java convenction
 on: 
   workflow_call:
-    secrets:
-      DOCKER_USERNAME:
-        required: true
-      DOCKER_PASSWORD:
-        required: true
-      DOCKER_BACK_IMAGE_NAME:
-        required: true
 
 defaults:
   run:
@@ -22,4 +15,3 @@ jobs:
       - uses: axel-op/googlejavaformat-action@v3
         with:
           args: '--replace'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
