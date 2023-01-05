@@ -1,0 +1,25 @@
+name: reformat google java convenction
+on: 
+  workflow_call:
+    secrets:
+      DOCKER_USERNAME:
+        required: true
+      DOCKER_PASSWORD:
+        required: true
+      DOCKER_BACK_IMAGE_NAME:
+        required: true
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./back
+
+jobs:
+  replace-google-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: '--replace'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
