@@ -14,5 +14,6 @@ defaults:
 jobs:
   build-docker-image:
     uses: ./.github/workflows/build-back-docker-img.yml
+    secrets: inherit
   replace-google-format:
     uses: ./.github/workflows/reformat-google-java-convenction.yml
