@@ -1,9 +1,9 @@
 package shop.tukoreamyway.back.sample.member;
 
-//@Service
-//@Transactional
-//@RequiredArgsConstructor
-//public class MemberService {
+// @Service
+// @Transactional
+// @RequiredArgsConstructor
+// public class MemberService {
 //    private final MemberRepository memberRepository;
 //
 //    public void save() {
@@ -24,4 +24,4 @@ package shop.tukoreamyway.back.sample.member;
 //    public List<Member> getAll() {
 //        return memberRepository.findAll();
 //    }
-//}
+// }

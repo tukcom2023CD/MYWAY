@@ -1,10 +1,10 @@
 package shop.tukoreamyway.back.sample.member;
 
-//@Slf4j
-//@RestController
-//@RequiredArgsConstructor
-//@RequestMapping("api/members")
-//public class MemberController {
+// @Slf4j
+// @RestController
+// @RequiredArgsConstructor
+// @RequestMapping("api/members")
+// public class MemberController {
 //
 //    private final MemberService memberService;
 //
@@ -32,4 +32,4 @@ package shop.tukoreamyway.back.sample.member;
 //        log.info("{}", end - start);
 //        return result;
 //    }
-//}
+// }

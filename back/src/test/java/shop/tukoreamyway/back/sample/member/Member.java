@@ -1,18 +1,18 @@
 package shop.tukoreamyway.back.sample.member;
 
-//import lombok.AccessLevel;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
+// import lombok.AccessLevel;
+// import lombok.Getter;
+// import lombok.NoArgsConstructor;
 //
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.Id;
-//import java.io.Serializable;
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.Id;
+// import java.io.Serializable;
 //
-//@Entity
-//@Getter
-//@NoArgsConstructor(access = AccessLevel.PROTECTED)
-//public class Member implements Serializable {
+// @Entity
+// @Getter
+// @NoArgsConstructor(access = AccessLevel.PROTECTED)
+// public class Member implements Serializable {
 //    @Id
 //    @GeneratedValue
 //    private Long id;
@@ -23,4 +23,4 @@ package shop.tukoreamyway.back.sample.member;
 //        this.name = name;
 //        this.age = age;
 //    }
-//}
+// }

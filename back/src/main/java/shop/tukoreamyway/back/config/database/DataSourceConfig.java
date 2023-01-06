@@ -1,6 +1,10 @@
 package shop.tukoreamyway.back.config.database;
 
 import com.zaxxer.hikari.HikariDataSource;
+import java.util.HashMap;
+import java.util.Map;
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -22,11 +26,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
-
 @Configuration
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 @EnableTransactionManagement
@@ -34,6 +33,7 @@ import java.util.Map;
 @EnableJpaRepositories(basePackages = {"shop.tukoreamyway.back"})
 public class DataSourceConfig {
   private final Environment env;
+
   @Bean
   @ConfigurationProperties(prefix = "spring.datasource.hikari.master")
   public DataSource masterDataSource() {
@@ -78,10 +78,10 @@ public class DataSourceConfig {
     em.setPackagesToScan("shop.tukoreamyway.back");
 
     Map<String, Object> properties = new HashMap<>();
-    properties.put("hibernate.physical_naming_strategy",
-            SpringPhysicalNamingStrategy.class.getName());
-    properties.put("hibernate.implicit_naming_strategy",
-            SpringImplicitNamingStrategy.class.getName());
+    properties.put(
+        "hibernate.physical_naming_strategy", SpringPhysicalNamingStrategy.class.getName());
+    properties.put(
+        "hibernate.implicit_naming_strategy", SpringImplicitNamingStrategy.class.getName());
     properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
     em.setJpaPropertyMap(properties);
 
@@ -90,8 +90,7 @@ public class DataSourceConfig {
 
   @Primary
   @Bean
-  public PlatformTransactionManager transactionManager(
-          EntityManagerFactory entityManagerFactory) {
+  public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
     JpaTransactionManager transactionManager = new JpaTransactionManager();
     transactionManager.setEntityManagerFactory(entityManagerFactory);
 

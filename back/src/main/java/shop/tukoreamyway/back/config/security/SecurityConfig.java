@@ -11,17 +11,12 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-    @Bean
-    public SecurityFilterChain configure(HttpSecurity http) throws Exception {
-        return http.authorizeHttpRequests(
-                        requests ->
-                                requests
-                                        .antMatchers("/**")
-                                        .permitAll()
-                )
-                // .formLogin().disable()
-                .csrf()
-                .disable()
-                .build();
-    }
+  @Bean
+  public SecurityFilterChain configure(HttpSecurity http) throws Exception {
+    return http.authorizeHttpRequests(requests -> requests.antMatchers("/**").permitAll())
+        // .formLogin().disable()
+        .csrf()
+        .disable()
+        .build();
+  }
 }
