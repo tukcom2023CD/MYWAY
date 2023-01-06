@@ -25,6 +25,15 @@ spring:
     baseline-on-migrate: true
     locations: classpath:db/migration/local
 
+  cache:
+    type: redis
+    redis:
+      time-to-live: 60000
+      cache-null-values: true
+  redis:
+    host: localhost
+    port: 6379
+
   security:
     oauth2:
       client:

@@ -54,6 +54,7 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
 
     compileOnly 'org.projectlombok:lombok'
