@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  db-master:
+    image: mysql:latest
+    volumes: 
+      - ./mysql-init-files/:/docker-entrypoint-initdb.d/
+      - ./mysql-config-files/:/etc/mysql/conf.d
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=lupin_killer
+    ports:
+      - 3306
+    expose:
+      - 3306
+  db-salve:
+    image: mysql:latest
+    volumes: 
+      - ./mysql-init-files/:/docker-entrypoint-initdb.d/
+      - ./mysql-config-files/:/etc/mysql/conf.d
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=lupin_killer
+    depends_on:
+      - db-master
+    ports:
+      - 3307:3306
+    expose:
+      - 3307
+  redis:
+    image: redis:latest
+    ports: 
+      - 6379
+    expose:
+      - 6379
