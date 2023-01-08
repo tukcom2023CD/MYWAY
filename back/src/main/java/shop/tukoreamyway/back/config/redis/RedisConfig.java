@@ -46,7 +46,7 @@ public class RedisConfig extends CachingConfigurerSupport {
             .serializeValuesWith(
                 RedisSerializationContext.SerializationPair.fromSerializer(
                     new GenericJackson2JsonRedisSerializer()))
-            .prefixKeysWith("prefix:")
+            .prefixCacheNameWith("prefix:")
             .entryTtl(Duration.ofHours(5L));
 
     builder.cacheDefaults(configuration);
