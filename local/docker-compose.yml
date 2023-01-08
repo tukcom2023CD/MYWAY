@@ -9,9 +9,9 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=1234
-      - MYSQL_DATABASE=lupin_killer
+      - MYSQL_DATABASE=crew_ship
     ports:
-      - 3306
+      - 3306:3306
     expose:
       - 3306
   db-salve:
@@ -22,7 +22,7 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=1234
-      - MYSQL_DATABASE=lupin_killer
+      - MYSQL_DATABASE=crew_ship
     depends_on:
       - db-master
     ports:
@@ -32,6 +32,6 @@ services:
   redis:
     image: redis:latest
     ports: 
-      - 6379
+      - 6379:6379
     expose:
       - 6379
