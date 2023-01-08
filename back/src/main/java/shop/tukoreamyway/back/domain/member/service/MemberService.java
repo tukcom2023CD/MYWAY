@@ -10,11 +10,10 @@ import shop.tukoreamyway.back.domain.member.repository.MemberRepository;
 @RequiredArgsConstructor
 public class MemberService {
 
-    private final MemberRepository memberRepository;
+  private final MemberRepository memberRepository;
 
-
-    @Transactional
-    public void save(Member member) {
-        memberRepository.save(member);
-    }
+  @Transactional
+  public void save(Member member) {
+    memberRepository.save(member);
+  }
 }

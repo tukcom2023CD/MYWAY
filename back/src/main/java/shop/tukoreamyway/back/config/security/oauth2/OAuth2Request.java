@@ -1,10 +1,8 @@
 package shop.tukoreamyway.back.config.security.oauth2;
 
-
+import java.util.Optional;
 import lombok.Getter;
 import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
-
-import java.util.Optional;
 
 /** Oauth2 로그인 시 받아올 수 있는 */
 @Getter

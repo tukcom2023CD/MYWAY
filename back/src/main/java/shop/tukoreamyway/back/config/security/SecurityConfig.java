@@ -41,19 +41,19 @@ public class SecurityConfig {
   @Bean
   public SecurityFilterChain configure(HttpSecurity http) throws Exception {
     return http.authorizeHttpRequests(
-                    requests ->
-                            requests
-                                    .antMatchers("/api/auth/login/**")
-                                    .permitAll()
-                                    .antMatchers("api/test/**")
-                                    .authenticated())
-            // .formLogin().disable()
-            .oauth2Login(setOAuth2Config())
-            .sessionManagement(setSessionManagementConfig())
-            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-            .csrf()
-            .disable()
-            .build();
+            requests ->
+                requests
+                    .antMatchers("/api/auth/login/**")
+                    .permitAll()
+                    .antMatchers("api/test/**")
+                    .authenticated())
+        // .formLogin().disable()
+        .oauth2Login(setOAuth2Config())
+        .sessionManagement(setSessionManagementConfig())
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+        .csrf()
+        .disable()
+        .build();
   }
 
   /**
@@ -72,9 +72,9 @@ public class SecurityConfig {
    */
   private Customizer<OAuth2LoginConfigurer<HttpSecurity>> setOAuth2Config() {
     return o ->
-            o.authorizationEndpoint(auth -> auth.baseUri("/api/auth/login"))
-                    .userInfoEndpoint(e -> e.userService(oAuthUserService))
-                    .successHandler(successHandler);
+        o.authorizationEndpoint(auth -> auth.baseUri("/api/auth/login"))
+            .userInfoEndpoint(e -> e.userService(oAuthUserService))
+            .successHandler(successHandler);
   }
 
   /**

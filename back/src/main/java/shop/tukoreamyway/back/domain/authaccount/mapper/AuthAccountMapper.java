@@ -1,10 +1,9 @@
 package shop.tukoreamyway.back.domain.authaccount.mapper;
 
-import org.springframework.stereotype.Component;
-import shop.tukoreamyway.back.domain.authaccount.entity.AuthAccount;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.springframework.stereotype.Component;
+import shop.tukoreamyway.back.domain.authaccount.entity.AuthAccount;
 
 @Component
 public class AuthAccountMapper {

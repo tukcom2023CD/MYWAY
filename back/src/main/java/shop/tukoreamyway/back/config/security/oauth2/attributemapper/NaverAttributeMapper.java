@@ -1,11 +1,9 @@
 package shop.tukoreamyway.back.config.security.oauth2.attributemapper;
 
-
+import java.util.Map;
 import org.springframework.stereotype.Component;
 import shop.tukoreamyway.back.config.security.oauth2.OAuth2Request;
 import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
-
-import java.util.Map;
 
 /**
  * @author Hyeonjun Park

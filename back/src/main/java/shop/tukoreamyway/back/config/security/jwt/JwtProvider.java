@@ -1,15 +1,13 @@
 package shop.tukoreamyway.back.config.security.jwt;
 
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import java.security.Key;
+import java.util.Date;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
-
-import java.security.Key;
-import java.util.Date;
 
 /**
  * jwt token을 생성

@@ -1,11 +1,10 @@
 package shop.tukoreamyway.back.domain.member.entity;
 
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 
 @Entity
 @Getter
@@ -24,7 +23,6 @@ public class Member {
   @Embedded MemberDetail memberDetail = new MemberDetail();
 
   @Embedded MemberPrivacy memberPrivacy = new MemberPrivacy();
-
 
   @Builder
   public Member(String name, String nickname, String email) {

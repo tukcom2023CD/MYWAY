@@ -1,9 +1,8 @@
 package shop.tukoreamyway.back.config.security.oauth2;
 
 import io.jsonwebtoken.Claims;
-import lombok.Getter;
-
 import java.util.UUID;
+import lombok.Getter;
 
 /**
  * login 유저정보에 대한 dto

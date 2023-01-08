@@ -1,8 +1,10 @@
 package shop.tukoreamyway.back.config.security.jwt;
 
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import java.security.Key;
+import java.util.Collection;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,10 +13,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import shop.tukoreamyway.back.domain.authaccount.service.AuthAccountService;
-
-import java.security.Key;
-import java.util.Collection;
-import java.util.UUID;
 
 /**
  * jwt token을 검증

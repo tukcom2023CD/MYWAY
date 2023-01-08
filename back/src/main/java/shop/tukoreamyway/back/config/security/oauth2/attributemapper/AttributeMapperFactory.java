@@ -1,11 +1,9 @@
 package shop.tukoreamyway.back.config.security.oauth2.attributemapper;
 
-
-import org.springframework.stereotype.Component;
-import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
-
 import java.util.EnumMap;
 import java.util.Map;
+import org.springframework.stereotype.Component;
+import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
 
 /**
  * 각 소셜 별로 Mapper을 생성해서 제공하는 Factory

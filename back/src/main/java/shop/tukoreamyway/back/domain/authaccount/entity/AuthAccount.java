@@ -1,5 +1,9 @@
 package shop.tukoreamyway.back.domain.authaccount.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,11 +11,6 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import shop.tukoreamyway.back.domain.member.entity.Member;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Getter

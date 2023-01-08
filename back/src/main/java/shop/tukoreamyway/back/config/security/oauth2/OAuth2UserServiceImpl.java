@@ -1,6 +1,6 @@
 package shop.tukoreamyway.back.config.security.oauth2;
 
-
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -13,8 +13,6 @@ import shop.tukoreamyway.back.domain.authaccount.entity.AuthAccount;
 import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
 import shop.tukoreamyway.back.domain.authaccount.mapper.AuthAccountMapper;
 import shop.tukoreamyway.back.domain.authaccount.service.AuthAccountService;
-
-import java.util.Map;
 
 /**
  * User 인증 후 계정이 있으면 그대로 불러오고, 없으면 신규 생성하여 유저를 불러옴

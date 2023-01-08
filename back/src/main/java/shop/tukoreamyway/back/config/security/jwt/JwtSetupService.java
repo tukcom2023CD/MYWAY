@@ -1,13 +1,11 @@
 package shop.tukoreamyway.back.config.security.jwt;
 
-
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Client의 cookie로 token을 설정
