@@ -1,7 +1,12 @@
 import React from 'react';
+import Btn from '../../components/btn';
 
 function MainPage() {
-  return <div>MainPage</div>;
+  return (
+    <div>
+      <Btn />
+    </div>
+  );
 }
 
 export default MainPage;
