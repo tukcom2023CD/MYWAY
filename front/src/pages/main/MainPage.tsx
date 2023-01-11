@@ -1,10 +1,10 @@
 import React from 'react';
-import Btn from '../../components/btn';
+import Header from '../../components/Header';
 
 function MainPage() {
   return (
     <div>
-      <Btn />
+      <Header />
     </div>
   );
 }
