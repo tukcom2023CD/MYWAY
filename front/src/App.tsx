@@ -19,25 +19,26 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/** 메인 페이지 및 로그인 페이지 */}
         <Route path='/' element={<Main />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Register' element={<Register />} />
-
+        {/** 프로젝트 생성 페이지 */}
         <Route path='/ProjectMain' element={<ProjectMain />} />
         <Route path='/ProjectMake' element={<ProjectMake />} />
-
+        {/** 스프린트 생성 페이지 */}
         <Route path='/SprintMain' element={<SprintMain />} />
         <Route path='/SprintMake' element={<SprintMake />} />
-
+        {/** 태스크 생성 페이지 */}
         <Route path='/TaskMain' element={<TaskMain />} />
         <Route path='/TaskMake' element={<TaskMake />} />
-
+        {/** 티켓 생성 페이지 */}
         <Route path='/TicketMain' element={<TicketMain />} />
         <Route path='/TicketMake' element={<TicketMake />} />
-
+        {/** 일정/스크럼 페이지 */}
         <Route path='/Daily' element={<Daily />} />
         <Route path='/Scrum' element={<Scrum />} />
-
+        {/** 성과분석 결과 페이지 */}
         <Route path='/Result' element={<Result />} />
       </Routes>
     </BrowserRouter>
