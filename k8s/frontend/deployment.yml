@@ -21,16 +21,16 @@ spec:
         - name: myway-frontend
           image: phjppo0918/myway-frontend:latest
           imagePullPolicy: Always
-          env:
-            - name: SERVER_URL
-              valueFrom:
-                secretKeyRef:
-                  name: server-secret
-                  key: server.url
-            - name: SERVER_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: server-secret
-                  key: server.port
+          # env:
+          #   - name: SERVER_URL
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: server-secret
+          #         key: server.url
+          #   - name: SERVER_PORT
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: server-secret
+          #         key: server.port
           ports:
             - containerPort: 80

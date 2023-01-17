@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - "main"
+      - "dev"
+      - "develop"
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./k8s
+
+jobs:
+  build-back-docker-img:
+    uses: ./.github/workflows/build-back-docker-img.yml
+  build-front-docker-img:
+    uses: ./.github/workflows/build-front-docker-img.yml
+  deploy-frontend:
+    name: Deploy-frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: get pods
+      - run: |
+          kubectl delete secret database-secret
+          kubectl create secret generic database-secret \
+            --from-literal=server=1234 \
+            --from-literal=server=1234 \
+      - run: |
+          kubectl delete svc myway-frontend
+          kubectl delete deploy myway-frontend
+          kubectl apply -k ./frontend
