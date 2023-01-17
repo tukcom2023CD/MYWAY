@@ -1,3 +1,4 @@
+name: cd - dev 
 on:
   push:
     branches:

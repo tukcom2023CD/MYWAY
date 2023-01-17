@@ -1,14 +1,6 @@
 name: build and push backend docker image
 on: 
   workflow_call:
-    secrets:
-      DOCKER_USERNAME:
-        required: true
-      DOCKER_PASSWORD:
-        required: true
-      DOCKER_BACK_IMAGE_NAME:
-        required: true
-
 
 defaults:
   run:
