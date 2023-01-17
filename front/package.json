@@ -29,7 +29,7 @@
       "react-app",
       "react-app/jest"
     ],
-    "rules": { "no-console": "off" }
+    "rules": { "no-console": 0 }
   },
   "browserslist": {
     "production": [
