@@ -1,6 +1,13 @@
 name: build and push frontend docker image
 on: 
   workflow_call:
+    secrets:
+      DOCKER_USERNAME:
+        required: true
+      DOCKER_PASSWORD:
+        required: true
+      DOCKER_FRONT_IMAGE_NAME:
+        required: true
 
 defaults:
   run:

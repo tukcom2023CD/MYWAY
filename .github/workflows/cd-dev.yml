@@ -12,14 +12,26 @@ defaults:
     working-directory: ./k8s
 
 jobs:
-  build-back-docker-img:
-    uses: ./.github/workflows/build-back-docker-img.yml
-  build-front-docker-img:
-    uses: ./.github/workflows/build-front-docker-img.yml
-  deploy-frontend:
+  build-and-deploy-back-docker-img:
+    name: Deploy-back
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/build-back-docker-img.yml
+        with:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+   
+          
+  build-and-deploy-front-docker-img:
     name: Deploy-frontend
     runs-on: ubuntu-latest
     steps:
+      - uses: ./.github/workflows/build-front-docker-img.yml
+        with:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_FRONT_IMAGE_NAME: ${{ secrets.DOCKER_FRONT_IMAGE_NAME }}
+   
       - uses: actions/checkout@v3
       - uses: actions-hub/kubectl@master
         env:
@@ -34,4 +46,4 @@ jobs:
       - run: |
           kubectl delete svc myway-frontend
           kubectl delete deploy myway-frontend
-          kubectl apply -k ./frontend
+          kubectl apply -k ./frontend    
