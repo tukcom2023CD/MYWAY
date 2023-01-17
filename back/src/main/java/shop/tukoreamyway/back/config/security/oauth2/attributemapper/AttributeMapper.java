@@ -1,10 +1,13 @@
 package shop.tukoreamyway.back.config.security.oauth2.attributemapper;
 
-import java.util.Map;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Component;
+
 import shop.tukoreamyway.back.config.security.oauth2.OAuth2Request;
 import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
+
+import java.util.Map;
 
 /**
  * attribute값을 dto로, user을 attribute로 변환해주는 클래스
@@ -15,9 +18,9 @@ import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
 @RequiredArgsConstructor
 public class AttributeMapper {
 
-  private final AttributeMapperFactory attributeMapperFactory;
+    private final AttributeMapperFactory attributeMapperFactory;
 
-  public OAuth2Request mapToUser(AuthProvider provider, Map<String, Object> attributes) {
-    return attributeMapperFactory.get(provider).mapToDTO(attributes);
-  }
+    public OAuth2Request mapToUser(AuthProvider provider, Map<String, Object> attributes) {
+        return attributeMapperFactory.get(provider).mapToDTO(attributes);
+    }
 }

@@ -1,7 +1,7 @@
 package shop.tukoreamyway.back.config.redis;
 
-import java.time.Duration;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -17,39 +17,42 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+import java.time.Duration;
+
 @Configuration
 @EnableCaching
 @EnableRedisRepositories
 @RequiredArgsConstructor
 public class RedisConfig extends CachingConfigurerSupport {
-  private final RedisProperties redisProperties;
+    private final RedisProperties redisProperties;
 
-  @Bean
-  public RedisConnectionFactory redisConnectionFactory() {
-    return new LettuceConnectionFactory(redisProperties.getHost(), redisProperties.getPort());
-  }
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory(redisProperties.getHost(), redisProperties.getPort());
+    }
 
-  @Bean
-  public RedisTemplate<?, ?> redisTemplate() {
-    RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
-    redisTemplate.setConnectionFactory(redisConnectionFactory());
-    redisTemplate.setKeySerializer(new StringRedisSerializer());
-    return redisTemplate;
-  }
+    @Bean
+    public RedisTemplate<?, ?> redisTemplate() {
+        RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory());
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        return redisTemplate;
+    }
 
-  @Override
-  public CacheManager cacheManager() {
-    RedisCacheManager.RedisCacheManagerBuilder builder =
-        RedisCacheManager.RedisCacheManagerBuilder.fromConnectionFactory(redisConnectionFactory());
-    RedisCacheConfiguration configuration =
-        RedisCacheConfiguration.defaultCacheConfig()
-            .serializeValuesWith(
-                RedisSerializationContext.SerializationPair.fromSerializer(
-                    new GenericJackson2JsonRedisSerializer()))
-            .prefixCacheNameWith("prefix:")
-            .entryTtl(Duration.ofHours(5L));
+    @Override
+    public CacheManager cacheManager() {
+        RedisCacheManager.RedisCacheManagerBuilder builder =
+                RedisCacheManager.RedisCacheManagerBuilder.fromConnectionFactory(
+                        redisConnectionFactory());
+        RedisCacheConfiguration configuration =
+                RedisCacheConfiguration.defaultCacheConfig()
+                        .serializeValuesWith(
+                                RedisSerializationContext.SerializationPair.fromSerializer(
+                                        new GenericJackson2JsonRedisSerializer()))
+                        .prefixCacheNameWith("prefix:")
+                        .entryTtl(Duration.ofHours(5L));
 
-    builder.cacheDefaults(configuration);
-    return builder.build();
-  }
+        builder.cacheDefaults(configuration);
+        return builder.build();
+    }
 }

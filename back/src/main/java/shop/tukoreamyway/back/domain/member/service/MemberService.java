@@ -1,8 +1,10 @@
 package shop.tukoreamyway.back.domain.member.service;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.repository.MemberRepository;
 
@@ -10,10 +12,10 @@ import shop.tukoreamyway.back.domain.member.repository.MemberRepository;
 @RequiredArgsConstructor
 public class MemberService {
 
-  private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
-  @Transactional
-  public void save(Member member) {
-    memberRepository.save(member);
-  }
+    @Transactional
+    public void save(Member member) {
+        memberRepository.save(member);
+    }
 }
