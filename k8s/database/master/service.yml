@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crewship-mysql-master
+spec:
+  ports:
+    - name: crewship-mysql-master
+      port: 3307
+      targetPort: 3306
+      protocol: TCP
+  selector:
+    app: crewship-mysql-master
+    component: crewship-mysql-master
+  clusterIP: None
