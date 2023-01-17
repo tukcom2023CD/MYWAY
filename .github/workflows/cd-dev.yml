@@ -16,6 +16,7 @@ jobs:
     name: Deploy-back
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/workflows/build-back-docker-img.yml
         with:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -26,6 +27,7 @@ jobs:
     name: Deploy-frontend
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/workflows/build-front-docker-img.yml
         with:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
