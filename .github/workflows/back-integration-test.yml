@@ -1,4 +1,4 @@
-name: build and push backend docker image
+name: backend integration test
 on: 
   workflow_call:
 
