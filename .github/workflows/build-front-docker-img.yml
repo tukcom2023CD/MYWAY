@@ -17,9 +17,6 @@ defaults:
 jobs:
    build-docker-image:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./front
     steps:
       - uses: actions/setup-node@v3
         with:

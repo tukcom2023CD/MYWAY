@@ -10,9 +10,6 @@ on:
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./back
     steps:
       - uses: actions/setup-node@v3
         with:

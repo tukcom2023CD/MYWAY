@@ -15,6 +15,9 @@ jobs:
   build-and-deploy-back-docker-img:
     name: Deploy-back
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./back
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/build-back-docker-img.yml
@@ -26,6 +29,9 @@ jobs:
   build-and-deploy-front-docker-img:
     name: Deploy-frontend
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/workflows/build-front-docker-img.yml
