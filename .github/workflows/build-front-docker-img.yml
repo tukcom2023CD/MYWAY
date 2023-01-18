@@ -1,5 +1,5 @@
 name: build and push frontend docker image
-on: 
+on:
   workflow_call:
     secrets:
       DOCKER_USERNAME:
@@ -15,7 +15,7 @@ defaults:
     working-directory: ./front
 
 jobs:
-   build-docker-image:
+  build-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v3
@@ -27,5 +27,5 @@ jobs:
           yarn build
       - run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_FRONT_IMAGE_NAME }}
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_FRONT_IMAGE_NAME }} .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_FRONT_IMAGE_NAME }}
