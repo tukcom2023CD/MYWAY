@@ -1,0 +1,11 @@
+name: prod - main
+on:
+  push:
+    branches:
+      - main/**
+      - main/**
+jobs:
+  helloworld:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "prod into main"
