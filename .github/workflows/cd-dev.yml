@@ -6,11 +6,6 @@ on:
       - "dev"
       - "develop"
 
-defaults:
-  run:
-    shell: bash
-    working-directory: ./k8s
-
 jobs:
   build-back-docker-img:
     uses: ./.github/workflows/build-back-docker-img.yml
@@ -42,4 +37,4 @@ jobs:
 
         # - uses: actions-hub/kubectl@master
         with:
-          args: apply -k ./frontend
+          args: apply -k ./k8s/frontend
