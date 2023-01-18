@@ -6,45 +6,34 @@ on:
       - "dev"
       - "develop"
 
-# defaults:
-#   run:
-#     shell: bash
-#     working-directory: ./k8s
+defaults:
+  run:
+    shell: bash
+    working-directory: ./k8s
 
 jobs:
-  build-and-deploy-back-docker-img:
-    name: Deploy-back
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./back
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/build-back-docker-img.yml
-        with:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  build-back-docker-img:
+    uses: ./.github/workflows/build-back-docker-img.yml
+    with:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
-  build-and-deploy-front-docker-img:
-    name: Deploy-frontend
+  build-front-docker-img:
+    uses: ./.github/workflows/build-front-docker-img.yml
+    with:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOCKER_FRONT_IMAGE_NAME: ${{ secrets.DOCKER_FRONT_IMAGE_NAME }}
+  deploy:
+    needs: build-front-docker-img
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./front
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/workflows/build-front-docker-img.yml
-        with:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_FRONT_IMAGE_NAME: ${{ secrets.DOCKER_FRONT_IMAGE_NAME }}
-
       - uses: actions/checkout@v3
       - uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
-          args: get pods
+            args: get pods
       - run: |
           kubectl delete secret database-secret
           kubectl create secret generic database-secret \

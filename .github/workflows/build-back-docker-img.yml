@@ -6,7 +6,10 @@ on:
         required: true
       DOCKER_PASSWORD:
         required: true
-
+defaults:
+   run:
+      shell: bash
+      working-directory: ./back
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
