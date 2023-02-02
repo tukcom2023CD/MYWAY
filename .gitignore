@@ -1,0 +1,4 @@
+.idea/
+.vscode/
+**/.DS_Store
+/k8s/secret.yml
