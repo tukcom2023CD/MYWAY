@@ -43,7 +43,7 @@ public class SecurityConfig {
     return http.authorizeHttpRequests(
             requests ->
                 requests
-                    .antMatchers("/api/auth/login/**")
+                    .antMatchers("auth/login/**")
                     .permitAll()
                     .antMatchers("api/test/**")
                     .authenticated())
@@ -72,7 +72,7 @@ public class SecurityConfig {
    */
   private Customizer<OAuth2LoginConfigurer<HttpSecurity>> setOAuth2Config() {
     return o ->
-        o.authorizationEndpoint(auth -> auth.baseUri("/api/auth/login"))
+        o.authorizationEndpoint(auth -> auth.baseUri("/auth/login"))
             .userInfoEndpoint(e -> e.userService(oAuthUserService))
             .successHandler(successHandler);
   }
