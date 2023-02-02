@@ -1,3 +1,7 @@
+server:
+  servlet:
+    context-path: /api/v1
+
 spring:
   datasource:
     hikari:
@@ -44,7 +48,7 @@ spring:
             redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
             scope: email, profile
           kakao:
-            client-id: zzzzzz
+            client-id: 7029b0d7943efeee68a5f2d0ec6c50a6
             client-name: Kakao
             redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
             client-authentication-method: POST
@@ -74,3 +78,6 @@ jwt:
   access-header: Authorization
   refresh-header: Refresh
   secret: asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf
+client:
+  url: http://localhost:3000
+  host: localhost

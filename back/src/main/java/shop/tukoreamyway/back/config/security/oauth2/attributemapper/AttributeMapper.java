@@ -1,10 +1,11 @@
 package shop.tukoreamyway.back.config.security.oauth2.attributemapper;
 
-import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import shop.tukoreamyway.back.config.security.oauth2.OAuth2Request;
-import shop.tukoreamyway.back.domain.authaccount.entity.AuthProvider;
+import shop.tukoreamyway.back.member.command.domain.AuthProvider;
+
+import java.util.Map;
 
 /**
  * attribute값을 dto로, user을 attribute로 변환해주는 클래스
