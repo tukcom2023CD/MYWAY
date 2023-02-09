@@ -14,6 +14,9 @@ import TicketMake from './pages/ticket/TicketMake';
 import Daily from './pages/scrum/DailyPage';
 import Scrum from './pages/scrum/ScrumPage';
 import Result from './pages/graph/Result';
+import IssueMain from './pages/issue/IssueMain';
+import IssueMake from './pages/issue/IssueMake';
+import IssueManage from './pages/issue/IssueManage';
 
 function App() {
   return (
@@ -40,6 +43,10 @@ function App() {
         <Route path='/Scrum' element={<Scrum />} />
         {/** 성과분석 결과 페이지 */}
         <Route path='/Result' element={<Result />} />
+        {/** 이슈 페이지 */}
+        <Route path='/IssueMain' element={<IssueMain />} />
+        <Route path='/IssueMake' element={<IssueMake />} />
+        <Route path='/IssueManage' element={<IssueManage />} />
       </Routes>
     </BrowserRouter>
   );
