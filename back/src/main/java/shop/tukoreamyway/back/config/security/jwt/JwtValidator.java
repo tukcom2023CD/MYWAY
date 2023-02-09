@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUserMapper;
-import shop.tukoreamyway.back.member.command.domain.Member;
+import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.member.query.infra.MemberDao;
 
 import javax.persistence.EntityNotFoundException;

@@ -1,7 +1,7 @@
 package shop.tukoreamyway.back.config.security.oauth2;
 
 import lombok.Getter;
-import shop.tukoreamyway.back.member.command.domain.AuthProvider;
+import shop.tukoreamyway.back.member.domain.AuthProvider;
 
 import java.util.Optional;
 

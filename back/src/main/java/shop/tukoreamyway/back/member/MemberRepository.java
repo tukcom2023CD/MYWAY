@@ -1,8 +1,8 @@
-package shop.tukoreamyway.back.member.command.infra;
+package shop.tukoreamyway.back.member;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import shop.tukoreamyway.back.member.command.domain.Member;
-import shop.tukoreamyway.back.member.command.domain.MemberId;
+import shop.tukoreamyway.back.member.domain.Member;
+import shop.tukoreamyway.back.member.domain.MemberId;
 
 import java.util.Optional;
 

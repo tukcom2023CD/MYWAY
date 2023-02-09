@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.member.command.domain;
+package shop.tukoreamyway.back.member.domain;
 
 public enum AuthProvider {
     NONE,

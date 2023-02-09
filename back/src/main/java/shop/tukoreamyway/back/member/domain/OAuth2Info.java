@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.member.command.domain;
+package shop.tukoreamyway.back.member.domain;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

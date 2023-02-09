@@ -1,22 +1,28 @@
-package shop.tukoreamyway.back.member.command.domain;
+package shop.tukoreamyway.back.member.domain;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
+@Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
-
-    @Getter
-    @EmbeddedId private MemberId id;
-
+    @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(columnDefinition = "BINARY(16)")
+    private UUID id;
+    @Setter
+    private String name;
+    @Setter
+    private String email;
+    private Rank rank;
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private List<Role> role = new ArrayList<>(List.of(Role.ROLE_USER));
@@ -29,8 +35,7 @@ public class Member {
     }
 
     @Builder
-    public Member(MemberId id, OAuth2Info oAuth2Info) {
-        this.id = id;
+    public Member(OAuth2Info oAuth2Info) {
         this.oAuth2Info = oAuth2Info;
     }
 }

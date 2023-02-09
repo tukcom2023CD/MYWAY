@@ -14,7 +14,7 @@ spring:
         username: root
         password: 1234
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://localhost:3307/crew_ship?serverTimezone=Asia/Seoul
+        jdbc-url: jdbc:mysql://localhost:3306/crew_ship?serverTimezone=Asia/Seoul
   jpa:
     show-sql: true
     hibernate:
