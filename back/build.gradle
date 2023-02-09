@@ -59,6 +59,8 @@ dependencies {
     implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     annotationProcessor "com.querydsl:querydsl-apt:${queryDslVersion}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.1.Final"
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
 
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
@@ -96,4 +98,12 @@ tasks.named('test') {
 tasks.named('asciidoctor') {
     inputs.dir snippetsDir
     dependsOn test
+}
+
+compileJava {
+    options.compilerArgs += [
+            '-Amapstruct.suppressGeneratorTimestamp=true',
+            '-Amapstruct.suppressGeneratorVersionInfoComment=true',
+            '-Amapstruct.verbose=true'
+    ]
 }
