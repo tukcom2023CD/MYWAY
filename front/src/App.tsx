@@ -17,6 +17,7 @@ import Result from './pages/graph/Result';
 import IssueMain from './pages/issue/IssueMain';
 import IssueMake from './pages/issue/IssueMake';
 import IssueManage from './pages/issue/IssueManage';
+import StatusMain from './pages/status/StatusMain';
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
         <Route path='/IssueMain' element={<IssueMain />} />
         <Route path='/IssueMake' element={<IssueMake />} />
         <Route path='/IssueManage' element={<IssueManage />} />
+        {/** 역량 페이지 */}
+        <Route path='/StatusMain' element={<StatusMain />} />
       </Routes>
     </BrowserRouter>
   );
