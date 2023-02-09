@@ -1,0 +1,10 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+= CREW-SHIP API
+
+include::organization.adoc[]
