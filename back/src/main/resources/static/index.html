@@ -462,6 +462,12 @@
               <li><a href="#_organization_초대_http_response">HTTP response</a></li>
             </ul>
           </li>
+          <li><a href="#_organization_초대_요청_수락">organization 초대 요청 수락</a>
+            <ul class="sectlevel3">
+              <li><a href="#_organization_초대_요청_수락_http_request">HTTP request</a></li>
+              <li><a href="#_organization_초대_요청_수락_http_response">HTTP response</a></li>
+            </ul>
+          </li>
           <li><a href="#_로그인_유저의_초대된_그룸_목록_요청">로그인 유저의 초대된 그룸 목록 요청</a>
             <ul class="sectlevel3">
               <li><a href="#_로그인_유저의_초대된_그룸_목록_요청_http_request">HTTP request</a></li>
@@ -538,6 +544,26 @@ Host: 223.255.205.62:30505
           <div class="listingblock">
             <div class="content">
               <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 201 Created</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sect2">
+        <h3 id="_organization_초대_요청_수락"><a class="link" href="#_organization_초대_요청_수락">organization 초대 요청 수락</a></h3>
+        <div class="sect3">
+          <h4 id="_organization_초대_요청_수락_http_request"><a class="link" href="#_organization_초대_요청_수락_http_request">HTTP request</a></h4>
+          <div class="listingblock">
+            <div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /organization-members/5/accept HTTP/1.1
+Host: 223.255.205.62:30505</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="sect3">
+          <h4 id="_organization_초대_요청_수락_http_response"><a class="link" href="#_organization_초대_요청_수락_http_response">HTTP response</a></h4>
+          <div class="listingblock">
+            <div class="content">
+              <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 204 No Content</code></pre>
             </div>
           </div>
         </div>
