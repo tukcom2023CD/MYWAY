@@ -3,10 +3,7 @@ package shop.tukoreamyway.back.organization;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import shop.tukoreamyway.back.organization.dto.OrganizationRequest;
 import shop.tukoreamyway.back.organization.dto.OrganizationResponse;
 

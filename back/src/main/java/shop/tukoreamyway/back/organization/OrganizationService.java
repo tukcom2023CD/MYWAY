@@ -8,6 +8,8 @@ import shop.tukoreamyway.back.organization.domain.Organization;
 import shop.tukoreamyway.back.organization.dto.OrganizationRequest;
 import shop.tukoreamyway.back.organization.dto.OrganizationResponse;
 
+import javax.persistence.EntityNotFoundException;
+
 @Service
 @RequiredArgsConstructor
 public class OrganizationService {
@@ -20,5 +22,9 @@ public class OrganizationService {
         Member loginUser = authService.getLoginUser();
         Organization organization = organizationRepository.save(organizationMapper.toEntity(dto, loginUser));
         return organizationMapper.toResponse(organization);
+    }
+
+    public Organization getEntity(Long id) {
+        return organizationRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }
