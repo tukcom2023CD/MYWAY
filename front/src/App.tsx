@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Main from './pages/main/MainPage';
 import Login from './pages/main/Login';
 import Register from './pages/main/Register';
+import FindId from './pages/main/Findid';
+import FindPassword from './pages/main/Findpassword';
 import ProjectMain from './pages/project/ProjectMain';
 import SprintMain from './pages/sprint/SprintMain';
 import SprintMake from './pages/sprint/SprintMake';
@@ -26,6 +28,8 @@ function App() {
         <Route path='/' element={<Main />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Register' element={<Register />} />
+        <Route path='/FindId' element={<FindId />} />
+        <Route path='/FindPassword' element={<FindPassword />} />
         {/** 프로젝트 생성 페이지 */}
         <Route path='/ProjectMain' element={<ProjectMain />} />
         {/** 스프린트 생성 페이지 */}
