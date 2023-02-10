@@ -6,7 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
-import shop.tukoreamyway.back.member.dto.MemberSummany;
+import shop.tukoreamyway.back.member.dto.MemberSummary;
 import shop.tukoreamyway.back.organization.domain.IndustryGroup;
 import shop.tukoreamyway.back.organization.dto.OrganizationRequest;
 import shop.tukoreamyway.back.organization.dto.OrganizationResponse;
@@ -35,7 +35,7 @@ class OrganizationControllerTest extends RestDocumentTest {
     void successSave() throws Exception {
         //given
         OrganizationRequest requestBody = new OrganizationRequest("순양 그룹", IndustryGroup.IT);
-        OrganizationResponse expected = new OrganizationResponse(1L, "순양 그룹", new MemberSummany(UUID.randomUUID(), "진양철"), IndustryGroup.IT.getName());
+        OrganizationResponse expected = new OrganizationResponse(1L, "순양 그룹", new MemberSummary(UUID.randomUUID(), "진양철"), IndustryGroup.IT.getName());
         when(organizationService.create(any())).thenReturn(expected);
         //when
         ResultActions perform = mockMvc.perform(post("/organizations")
