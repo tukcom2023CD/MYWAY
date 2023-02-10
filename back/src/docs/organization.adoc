@@ -6,5 +6,5 @@
 
 
 == Organization
-=== 북리뷰 생성
+=== Organization 생성
 operation::create organization[snippets='http-request,http-response']

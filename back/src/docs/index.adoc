@@ -8,3 +8,4 @@
 = CREW-SHIP API
 
 include::organization.adoc[]
+include::organization-member.adoc[]
