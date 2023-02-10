@@ -4,7 +4,6 @@ import Main from './pages/main/MainPage';
 import Login from './pages/main/Login';
 import Register from './pages/main/Register';
 import ProjectMain from './pages/project/ProjectMain';
-import ProjectMake from './pages/project/ProjectMake';
 import SprintMain from './pages/sprint/SprintMain';
 import SprintMake from './pages/sprint/SprintMake';
 import TaskMain from './pages/task/TaskMain';
@@ -29,7 +28,6 @@ function App() {
         <Route path='/Register' element={<Register />} />
         {/** 프로젝트 생성 페이지 */}
         <Route path='/ProjectMain' element={<ProjectMain />} />
-        <Route path='/ProjectMake' element={<ProjectMake />} />
         {/** 스프린트 생성 페이지 */}
         <Route path='/SprintMain' element={<SprintMain />} />
         <Route path='/SprintMake' element={<SprintMake />} />
