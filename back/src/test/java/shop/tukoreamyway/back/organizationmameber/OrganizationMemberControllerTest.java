@@ -73,6 +73,20 @@ class OrganizationMemberControllerTest extends RestDocumentTest {
     }
 
     @Test
+    @DisplayName("그룸 초대 수락을 제대로 수행하는가")
+    void successAcceptInvite() throws Exception {
+        //given
+        //when
+        ResultActions perform = mockMvc.perform(post("/organization-members/{id}/accept", 5));
+        // then
+        perform.andExpect(status().isNoContent());
+        // docs
+        perform.andDo(print())
+                .andDo(document("accept invite", getDocumentRequest(), getDocumentResponse()));
+    }
+
+
+    @Test
     @DisplayName("그룹에 속한 맴버들을 가져오는가")
     void successGetByOrganizationId() throws Exception {
         //given
