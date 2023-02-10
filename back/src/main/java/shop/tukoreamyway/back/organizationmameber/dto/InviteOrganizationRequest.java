@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.organization.organizationmameber;
+package shop.tukoreamyway.back.organizationmameber.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

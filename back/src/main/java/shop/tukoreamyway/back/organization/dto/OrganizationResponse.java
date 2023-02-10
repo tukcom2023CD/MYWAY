@@ -3,7 +3,7 @@ package shop.tukoreamyway.back.organization.dto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import shop.tukoreamyway.back.member.dto.MemberSummany;
+import shop.tukoreamyway.back.member.dto.MemberSummary;
 
 @Getter
 @Builder
@@ -11,6 +11,6 @@ import shop.tukoreamyway.back.member.dto.MemberSummany;
 public class OrganizationResponse {
     private Long id;
     private String name;
-    private MemberSummany owner;
+    private MemberSummary owner;
     private String industryGroup;
 }

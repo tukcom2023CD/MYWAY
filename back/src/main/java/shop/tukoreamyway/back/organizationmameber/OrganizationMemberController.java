@@ -1,11 +1,15 @@
-package shop.tukoreamyway.back.organization.organizationmameber;
+package shop.tukoreamyway.back.organizationmameber;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import shop.tukoreamyway.back.organizationmameber.dto.InviteOrganizationRequest;
+import shop.tukoreamyway.back.organizationmameber.dto.InviteResponse;
+import shop.tukoreamyway.back.organizationmameber.dto.OrganizationMemberResponse;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,7 +29,14 @@ public class OrganizationMemberController {
         return ResponseEntity.noContent().build();
     }
 
-    // 요청온 organization 내역 보기 TODO
+    @GetMapping("auth-user")
+    public ResponseEntity<List<InviteResponse>> getInvites() {
+        return ResponseEntity.ok(organizationMemberService.findLoginUserInvites());
+    }
 
-    // organization에 속한 사람들 보가 TODO
+    @GetMapping
+    public ResponseEntity<OrganizationMemberResponse> getByOrganizationId(
+            @RequestParam(name = "organization-id") Long organizationId) {
+        return ResponseEntity.ok(organizationMemberService.findByOrganizationId(organizationId));
+    }
 }

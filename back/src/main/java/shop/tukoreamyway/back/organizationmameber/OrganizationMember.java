@@ -1,12 +1,14 @@
-package shop.tukoreamyway.back.organization.organizationmameber;
+package shop.tukoreamyway.back.organizationmameber;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.organization.domain.Organization;
 
 import javax.persistence.*;
 
+@Getter
 @Entity
 @RequiredArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrganizationMember {

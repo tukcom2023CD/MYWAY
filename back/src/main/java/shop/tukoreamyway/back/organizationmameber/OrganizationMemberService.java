@@ -1,22 +1,28 @@
-package shop.tukoreamyway.back.organization.organizationmameber;
+package shop.tukoreamyway.back.organizationmameber;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import shop.tukoreamyway.back.member.AuthService;
 import shop.tukoreamyway.back.member.MemberService;
+import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.organization.OrganizationService;
 import shop.tukoreamyway.back.organization.domain.Organization;
+import shop.tukoreamyway.back.organizationmameber.dto.InviteOrganizationRequest;
+import shop.tukoreamyway.back.organizationmameber.dto.InviteResponse;
+import shop.tukoreamyway.back.organizationmameber.dto.OrganizationMemberResponse;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class OrganizationMemberService {
     private final OrganizationMemberRepository organizationMemberRepository;
+    private final OrganizationMemberMapper organizationMemberMapper;
     private final OrganizationService organizationService;
     private final MemberService memberService;
+    private final AuthService authService;
 
     @Transactional
     public void invite(InviteOrganizationRequest dto) {
@@ -36,11 +42,15 @@ public class OrganizationMemberService {
         return organizationMemberRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<OrganizationMember> findByMemberId(UUID memberId){
-        return organizationMemberRepository.findAllByMemberId(memberId);
+    public List<InviteResponse> findLoginUserInvites(){
+        Member loginUser = authService.getLoginUser();
+        return organizationMemberRepository.findAllByMember(loginUser).stream().map(organizationMemberMapper::toInviteResponse).toList();
     }
 
-    public  List<OrganizationMember> findByOrganizationId(Long organizationId) {
-        return  organizationMemberRepository.findAllByOrganizationId(organizationId);
+    public OrganizationMemberResponse findByOrganizationId(Long organizationId) {
+        Organization organization = organizationService.getEntity(organizationId);
+        List<Member> members = organizationMemberRepository.findAllByOrganizationId(organizationId).stream().map(OrganizationMember::getMember).toList();
+        organizationMemberMapper.toResponse(organization, members);
+        return  organizationMemberMapper.toResponse(organization, members);
     }
 }

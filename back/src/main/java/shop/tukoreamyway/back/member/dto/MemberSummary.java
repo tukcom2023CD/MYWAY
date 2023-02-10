@@ -9,7 +9,7 @@ import java.util.UUID;
 @Getter
 @Builder
 @AllArgsConstructor
-public class MemberSummany {
+public class MemberSummary {
     private UUID id;
     private String name;
 }
