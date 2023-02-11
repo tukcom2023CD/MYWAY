@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Findpassword() {
-  return <div>Findpassword</div>;
+function FindPassword() {
+  return <div>FindPassword</div>;
 }
 
-export default Findpassword;
+export default FindPassword;

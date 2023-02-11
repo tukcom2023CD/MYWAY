@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Findid() {
-  return <div>Findid</div>;
+function FindId() {
+  return <div>FindId</div>;
 }
 
-export default Findid;
+export default FindId;
