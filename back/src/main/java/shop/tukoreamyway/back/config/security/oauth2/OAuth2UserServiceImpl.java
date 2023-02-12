@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import shop.tukoreamyway.back.config.security.oauth2.attributemapper.AttributeMapper;
 import shop.tukoreamyway.back.member.domain.AuthProvider;
 import shop.tukoreamyway.back.member.domain.Member;
-import shop.tukoreamyway.back.member.MemberService;
+import shop.tukoreamyway.back.member.service.MemberService;
 
 /**
  * User 인증 후 계정이 있으면 그대로 불러오고, 없으면 신규 생성하여 유저를 불러옴

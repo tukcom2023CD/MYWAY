@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.staff;
+package shop.tukoreamyway.back.staff.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -20,6 +20,8 @@ public class Staff {
     private Member member;
     private Boolean isAccept = false;
 
+    @Enumerated(EnumType.STRING)
+    private Rank rank;
     public void accept() {
         isAccept = true;
     }

@@ -22,7 +22,6 @@ public class Member {
     private String name;
     @Setter
     private String email;
-    private Rank rank;
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private List<Role> role = new ArrayList<>(List.of(Role.ROLE_USER));

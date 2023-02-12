@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.member;
+package shop.tukoreamyway.back.member.service;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

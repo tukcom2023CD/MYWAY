@@ -2,7 +2,7 @@ package shop.tukoreamyway.back.team;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import shop.tukoreamyway.back.member.AuthService;
+import shop.tukoreamyway.back.member.service.AuthService;
 import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.team.domain.Team;
 import shop.tukoreamyway.back.team.dto.TeamRequest;

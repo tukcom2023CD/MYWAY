@@ -1,9 +1,10 @@
-package shop.tukoreamyway.back.member;
+package shop.tukoreamyway.back.member.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shop.tukoreamyway.back.config.security.oauth2.OAuth2Request;
+import shop.tukoreamyway.back.member.MemberRepository;
 import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.member.domain.OAuth2Info;
 
