@@ -1,11 +1,13 @@
 package shop.tukoreamyway.back.sprint;
 
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.tukoreamyway.back.staff.domain.Staff;
 
 import javax.persistence.*;
 
+@Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Sprint {
@@ -18,7 +20,12 @@ public class Sprint {
     @Column(nullable = false)
     private Integer round;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "leader_id")
-    private Staff leader;
+    private Long leaderId;
+
+    @Builder
+    public Sprint(Long projectId, Integer round, Long leaderId) {
+        this.projectId = projectId;
+        this.round = round;
+        this.leaderId = leaderId;
+    }
 }

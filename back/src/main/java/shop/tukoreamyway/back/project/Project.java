@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.project;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,7 @@ public class Project {
     private Integer sprintDays = 7;
     private Long managerId;
 
+    @Builder
     public Project(String name, LocalDateTime startAt, LocalDateTime endAt, Long teamId, Integer sprintDays, Long managerId) {
         this.name = name;
         this.startAt = startAt;

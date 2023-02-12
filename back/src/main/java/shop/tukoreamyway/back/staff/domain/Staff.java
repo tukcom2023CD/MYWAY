@@ -7,6 +7,7 @@ import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.team.domain.Team;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Getter
 @Entity
@@ -29,5 +30,9 @@ public class Staff {
     public Staff(Team team, Member member) {
         this.team = team;
         this.member = member;
+    }
+
+    public boolean isHost(UUID memberId) {
+        return member.getId().equals(memberId);
     }
 }

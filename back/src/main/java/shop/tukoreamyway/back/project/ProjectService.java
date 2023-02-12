@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import shop.tukoreamyway.back.project.dto.ProjectRequest;
 import shop.tukoreamyway.back.project.dto.ProjectResponse;
 import shop.tukoreamyway.back.project.dto.ProjectSummary;
-import shop.tukoreamyway.back.staff.StaffRepository;
+import shop.tukoreamyway.back.staff.StaffService;
 import shop.tukoreamyway.back.staff.domain.Staff;
 import shop.tukoreamyway.back.team.TeamService;
 import shop.tukoreamyway.back.team.domain.Team;
@@ -19,9 +19,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProjectService {
     private final ProjectRepository projectRepository;
-    private final StaffRepository staffRepository;
+    private final StaffService staffService;
     private final ProjectMapper projectMapper;
-
     private final TeamService teamService;
 
     @Transactional
@@ -30,15 +29,14 @@ public class ProjectService {
         return projectMapper.toSummary(project);
     }
 
-    private Project getEntity(Long id) {
+    public Project getEntity(Long id) {
         return projectRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
     public ProjectResponse findById(Long id) {
         Project project = getEntity(id);
         Team team = teamService.getEntity(project.getTeamId());
-        Staff manager = staffRepository.findById(project.getManagerId())
-                .orElseThrow(EntityNotFoundException::new);
+        Staff manager = staffService.getEntity(project.getManagerId());
 
         return projectMapper.toResponse(project, team, manager);
     }
