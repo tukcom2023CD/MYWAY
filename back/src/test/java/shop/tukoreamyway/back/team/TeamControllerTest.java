@@ -10,7 +10,8 @@ import shop.tukoreamyway.back.member.dto.MemberSummary;
 import shop.tukoreamyway.back.team.domain.IndustryGroup;
 import shop.tukoreamyway.back.team.dto.*;
 import shop.tukoreamyway.back.support.docs.RestDocumentTest;
-import shop.tukoreamyway.back.team.staff.domain.Rank;
+import shop.tukoreamyway.back.staff.StaffSummary;
+import shop.tukoreamyway.back.staff.domain.Rank;
 
 import java.util.List;
 import java.util.Set;

@@ -13,8 +13,8 @@ import shop.tukoreamyway.back.team.domain.Team;
 import shop.tukoreamyway.back.team.dto.InviteRequest;
 import shop.tukoreamyway.back.team.dto.TeamRequest;
 import shop.tukoreamyway.back.team.dto.TeamResponse;
-import shop.tukoreamyway.back.team.staff.StaffRepository;
-import shop.tukoreamyway.back.team.staff.domain.Staff;
+import shop.tukoreamyway.back.staff.StaffRepository;
+import shop.tukoreamyway.back.staff.domain.Staff;
 
 import java.util.List;
 import java.util.Set;

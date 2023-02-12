@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.team.dto;
+package shop.tukoreamyway.back.staff;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

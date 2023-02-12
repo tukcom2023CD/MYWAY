@@ -5,7 +5,8 @@ import org.mapstruct.Mapping;
 import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.team.domain.Team;
 import shop.tukoreamyway.back.team.dto.*;
-import shop.tukoreamyway.back.team.staff.domain.Staff;
+import shop.tukoreamyway.back.staff.StaffSummary;
+import shop.tukoreamyway.back.staff.domain.Staff;
 
 import java.util.List;
 

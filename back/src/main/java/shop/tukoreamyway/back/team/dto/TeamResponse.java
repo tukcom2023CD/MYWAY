@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import shop.tukoreamyway.back.member.dto.MemberSummary;
+import shop.tukoreamyway.back.staff.StaffSummary;
 
 import java.util.List;
 
