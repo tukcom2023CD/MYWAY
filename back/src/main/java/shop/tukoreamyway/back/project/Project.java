@@ -2,7 +2,7 @@ package shop.tukoreamyway.back.project;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import shop.tukoreamyway.back.staff.domain.Staff;
+import shop.tukoreamyway.back.team.staff.domain.Staff;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

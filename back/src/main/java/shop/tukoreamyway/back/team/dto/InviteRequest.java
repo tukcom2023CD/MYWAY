@@ -1,18 +1,15 @@
-package shop.tukoreamyway.back.staff.dto;
+package shop.tukoreamyway.back.team.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotNull;
 import java.util.Set;
 import java.util.UUID;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class InviteTeamRequest {
-    @NotNull
-    private Long teamId;
+public class InviteRequest {
     private Set<UUID> members;
 }

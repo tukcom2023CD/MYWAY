@@ -1,17 +1,15 @@
-package shop.tukoreamyway.back.staff.dto;
+package shop.tukoreamyway.back.team.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import shop.tukoreamyway.back.member.dto.MemberSummary;
 import shop.tukoreamyway.back.team.dto.TeamSummary;
-
-import java.util.List;
 
 @Getter
 @Builder
 @AllArgsConstructor
-public class StaffResponse {
+public class InviteResponse {
+    private Long id;
     private TeamSummary team;
-    private List<MemberSummary> members;
 }
+
