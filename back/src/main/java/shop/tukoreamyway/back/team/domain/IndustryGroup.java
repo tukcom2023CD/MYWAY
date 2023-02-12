@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.organization.domain;
+package shop.tukoreamyway.back.team.domain;
 
 import lombok.Getter;
 

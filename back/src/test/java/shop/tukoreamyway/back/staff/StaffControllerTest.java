@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.organizationmameber;
+package shop.tukoreamyway.back.staff;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,11 +7,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.ResultActions;
 import shop.tukoreamyway.back.member.dto.MemberSummary;
-import shop.tukoreamyway.back.organization.domain.IndustryGroup;
-import shop.tukoreamyway.back.organization.dto.OrganizationSummary;
-import shop.tukoreamyway.back.organizationmameber.dto.InviteOrganizationRequest;
-import shop.tukoreamyway.back.organizationmameber.dto.InviteResponse;
-import shop.tukoreamyway.back.organizationmameber.dto.OrganizationMemberResponse;
+import shop.tukoreamyway.back.staff.dto.StaffResponse;
+import shop.tukoreamyway.back.team.domain.IndustryGroup;
+import shop.tukoreamyway.back.team.dto.TeamSummary;
+import shop.tukoreamyway.back.staff.dto.InviteTeamRequest;
+import shop.tukoreamyway.back.staff.dto.InviteResponse;
 import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 
 import java.util.List;
@@ -28,19 +28,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
 import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
 
-@WebMvcTest(OrganizationMemberController.class)
-@DisplayName("OrganizationMemberController에서")
-class OrganizationMemberControllerTest extends RestDocumentTest {
+@WebMvcTest(StaffController.class)
+@DisplayName("StaffControllerTest에서")
+class StaffControllerTest extends RestDocumentTest {
     @MockBean
-    private OrganizationMemberService organizationMemberService;
+    private StaffService staffService;
 
     @Test
     @DisplayName("invite를 수행하는가")
     void successSave() throws Exception {
         //given
-        InviteOrganizationRequest requestBody = new InviteOrganizationRequest(5L, Set.of(UUID.randomUUID(), UUID.randomUUID()));
+        InviteTeamRequest requestBody = new InviteTeamRequest(5L, Set.of(UUID.randomUUID(), UUID.randomUUID()));
         //when
-        ResultActions perform = mockMvc.perform(post("/organization-members")
+        ResultActions perform = mockMvc.perform(post("/staffs")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(toRequestBody(requestBody)));
         // then
@@ -48,7 +48,7 @@ class OrganizationMemberControllerTest extends RestDocumentTest {
 
         // docs
         perform.andDo(print())
-                .andDo(document("invite organization", getDocumentRequest(), getDocumentResponse()));
+                .andDo(document("invite team", getDocumentRequest(), getDocumentResponse()));
     }
 
     @Test
@@ -56,14 +56,14 @@ class OrganizationMemberControllerTest extends RestDocumentTest {
     void successGetInvites() throws Exception {
         //given
         List<InviteResponse> expected = List.of(
-                new InviteResponse(1L, new OrganizationSummary(2L, "네이버", IndustryGroup.IT.getName())),
-                new InviteResponse(2L, new OrganizationSummary(4L, "카카오", IndustryGroup.IT.getName())),
-                new InviteResponse(3L, new OrganizationSummary(6L, "라인", IndustryGroup.IT.getName())),
-                new InviteResponse(4L, new OrganizationSummary(8L, "배민", IndustryGroup.IT.getName()))
+                new InviteResponse(1L, new TeamSummary(2L, "네이버", IndustryGroup.IT.getName())),
+                new InviteResponse(2L, new TeamSummary(4L, "카카오", IndustryGroup.IT.getName())),
+                new InviteResponse(3L, new TeamSummary(6L, "라인", IndustryGroup.IT.getName())),
+                new InviteResponse(4L, new TeamSummary(8L, "배민", IndustryGroup.IT.getName()))
         );
-        when(organizationMemberService.findLoginUserInvites()).thenReturn(expected);
+        when(staffService.findLoginUserInvites()).thenReturn(expected);
         //when
-        ResultActions perform = mockMvc.perform(get("/organization-members/auth-user"));
+        ResultActions perform = mockMvc.perform(get("/staffs/auth-user"));
         // then
         perform.andExpect(status().isOk());
 
@@ -77,7 +77,7 @@ class OrganizationMemberControllerTest extends RestDocumentTest {
     void successAcceptInvite() throws Exception {
         //given
         //when
-        ResultActions perform = mockMvc.perform(post("/organization-members/{id}/accept", 5));
+        ResultActions perform = mockMvc.perform(post("/staffs/{id}/accept", 5));
         // then
         perform.andExpect(status().isNoContent());
         // docs
@@ -90,24 +90,24 @@ class OrganizationMemberControllerTest extends RestDocumentTest {
     @DisplayName("그룹에 속한 맴버들을 가져오는가")
     void successGetByOrganizationId() throws Exception {
         //given
-        OrganizationMemberResponse expected = new OrganizationMemberResponse
-                (new OrganizationSummary(5L, "카카오", IndustryGroup.IT.getName()),
+        StaffResponse expected = new StaffResponse
+                (new TeamSummary(5L, "카카오", IndustryGroup.IT.getName()),
                         List.of(
                                 new MemberSummary(UUID.randomUUID(), "홍길동"),
                                 new MemberSummary(UUID.randomUUID(), "춘향"),
                                 new MemberSummary(UUID.randomUUID(), "라이언")
                         )
                 );
-        when(organizationMemberService.findByOrganizationId(any())).thenReturn(expected);
+        when(staffService.findByOrganizationId(any())).thenReturn(expected);
         //when
-        ResultActions perform = mockMvc.perform(get("/organization-members")
-                .param("organization-id", "5"));
+        ResultActions perform = mockMvc.perform(get("/staffs")
+                .param("team-id", "5"));
         // then
         perform.andExpect(status().isOk());
 
         // docs
         perform.andDo(print())
-                .andDo(document("get organization member list", getDocumentRequest(), getDocumentResponse()));
+                .andDo(document("get staff list", getDocumentRequest(), getDocumentResponse()));
 
     }
 

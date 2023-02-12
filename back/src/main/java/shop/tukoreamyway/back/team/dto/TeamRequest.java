@@ -1,9 +1,9 @@
-package shop.tukoreamyway.back.organization.dto;
+package shop.tukoreamyway.back.team.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.tukoreamyway.back.organization.domain.IndustryGroup;
+import shop.tukoreamyway.back.team.domain.IndustryGroup;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrganizationRequest {
+public class TeamRequest {
     @NotBlank
     private String name;
     @NotNull

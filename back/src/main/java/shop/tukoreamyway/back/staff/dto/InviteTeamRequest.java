@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.organizationmameber.dto;
+package shop.tukoreamyway.back.staff.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,8 +11,8 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class InviteOrganizationRequest {
+public class InviteTeamRequest {
     @NotNull
-    private Long organizationId;
+    private Long teamId;
     private Set<UUID> members;
 }

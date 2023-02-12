@@ -3,9 +3,8 @@
 :source-highlighter: highlightjs
 :toc: left
 :toclevels: 4
-:sectlinks:
 
-= CREW-SHIP API
 
-include::Team.adoc[]
-include::Staff.adoc[]
+== Team
+=== Team 생성
+operation::create team[snippets='http-request,http-response']

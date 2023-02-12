@@ -456,13 +456,13 @@
       </li>
       <li><a href="#_organization_member">Organization-member</a>
         <ul class="sectlevel2">
-          <li><a href="#_organization_초대">organization 초대</a>
+          <li><a href="#_organization_초대">team 초대</a>
             <ul class="sectlevel3">
               <li><a href="#_organization_초대_http_request">HTTP request</a></li>
               <li><a href="#_organization_초대_http_response">HTTP response</a></li>
             </ul>
           </li>
-          <li><a href="#_organization_초대_요청_수락">organization 초대 요청 수락</a>
+          <li><a href="#_organization_초대_요청_수락">team 초대 요청 수락</a>
             <ul class="sectlevel3">
               <li><a href="#_organization_초대_요청_수락_http_request">HTTP request</a></li>
               <li><a href="#_organization_초대_요청_수락_http_response">HTTP response</a></li>
@@ -495,7 +495,7 @@
           <h4 id="_organization_생성_http_request"><a class="link" href="#_organization_생성_http_request">HTTP request</a></h4>
           <div class="listingblock">
             <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /organization-members HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /team-members HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 124
 Host: 223.255.205.62:30505
@@ -522,12 +522,12 @@ Host: 223.255.205.62:30505
     <h2 id="_organization_member"><a class="link" href="#_organization_member">Organization-member</a></h2>
     <div class="sectionbody">
       <div class="sect2">
-        <h3 id="_organization_초대"><a class="link" href="#_organization_초대">organization 초대</a></h3>
+        <h3 id="_organization_초대"><a class="link" href="#_organization_초대">team 초대</a></h3>
         <div class="sect3">
           <h4 id="_organization_초대_http_request"><a class="link" href="#_organization_초대_http_request">HTTP request</a></h4>
           <div class="listingblock">
             <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /organization-members HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /team-members HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 124
 Host: 223.255.205.62:30505
@@ -549,12 +549,12 @@ Host: 223.255.205.62:30505
         </div>
       </div>
       <div class="sect2">
-        <h3 id="_organization_초대_요청_수락"><a class="link" href="#_organization_초대_요청_수락">organization 초대 요청 수락</a></h3>
+        <h3 id="_organization_초대_요청_수락"><a class="link" href="#_organization_초대_요청_수락">team 초대 요청 수락</a></h3>
         <div class="sect3">
           <h4 id="_organization_초대_요청_수락_http_request"><a class="link" href="#_organization_초대_요청_수락_http_request">HTTP request</a></h4>
           <div class="listingblock">
             <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /organization-members/5/accept HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /team-members/5/accept HTTP/1.1
 Host: 223.255.205.62:30505</code></pre>
             </div>
           </div>
@@ -574,7 +574,7 @@ Host: 223.255.205.62:30505</code></pre>
           <h4 id="_로그인_유저의_초대된_그룸_목록_요청_http_request"><a class="link" href="#_로그인_유저의_초대된_그룸_목록_요청_http_request">HTTP request</a></h4>
           <div class="listingblock">
             <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /organization-members/auth-user HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /team-members/auth-user HTTP/1.1
 Host: 223.255.205.62:30505</code></pre>
             </div>
           </div>
@@ -589,28 +589,28 @@ Content-Length: 432
 
 [ {
   "id" : 1,
-  "organization" : {
+  "team" : {
     "id" : 2,
     "name" : "네이버",
     "industryGroup" : "IT"
   }
 }, {
   "id" : 2,
-  "organization" : {
+  "team" : {
     "id" : 4,
     "name" : "카카오",
     "industryGroup" : "IT"
   }
 }, {
   "id" : 3,
-  "organization" : {
+  "team" : {
     "id" : 6,
     "name" : "라인",
     "industryGroup" : "IT"
   }
 }, {
   "id" : 4,
-  "organization" : {
+  "team" : {
     "id" : 8,
     "name" : "배민",
     "industryGroup" : "IT"
@@ -626,7 +626,7 @@ Content-Length: 432
           <h4 id="_organization에_속한_맴버_목록_요청_http_request"><a class="link" href="#_organization에_속한_맴버_목록_요청_http_request">HTTP request</a></h4>
           <div class="listingblock">
             <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /organization-members?organization-id=5 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /team-members?team-id=5 HTTP/1.1
 Host: 223.255.205.62:30505</code></pre>
             </div>
           </div>
@@ -640,7 +640,7 @@ Content-Type: application/json;charset=UTF-8
 Content-Length: 359
 
 {
-  "organization" : {
+  "team" : {
     "id" : 5,
     "name" : "카카오",
     "industryGroup" : "IT"

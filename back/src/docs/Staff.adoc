@@ -1,0 +1,19 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+
+
+== staff
+=== team 초대
+operation::invite team[snippets='http-request,http-response']
+
+=== team 초대 요청 수락
+operation::accept invite[snippets='http-request,http-response']
+
+=== 로그인 유저의 초대된 그룸 목록 요청
+operation::get invite list[snippets='http-request,http-response']
+
+=== team에 속한 스태프 목록 요청
+operation::get staff list[snippets='http-request,http-response']
