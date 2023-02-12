@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.task;
+package shop.tukoreamyway.back.task.domain;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

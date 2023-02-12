@@ -1,12 +1,15 @@
 package shop.tukoreamyway.back.project;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.tukoreamyway.back.staff.domain.Staff;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Project {
@@ -18,9 +21,16 @@ public class Project {
 
     private LocalDateTime startAt;
     private LocalDateTime endAt;
+    private Long teamId;
     private Integer sprintDays = 7;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false, name = "manager_id")
-    private Staff manager;
+    private Long managerId;
 
+    public Project(String name, LocalDateTime startAt, LocalDateTime endAt, Long teamId, Integer sprintDays, Long managerId) {
+        this.name = name;
+        this.startAt = startAt;
+        this.endAt = endAt;
+        this.teamId = teamId;
+        this.sprintDays = sprintDays;
+        this.managerId = managerId;
+    }
 }

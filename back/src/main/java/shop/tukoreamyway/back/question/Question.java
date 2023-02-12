@@ -3,7 +3,7 @@ package shop.tukoreamyway.back.question;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import shop.tukoreamyway.back.staff.domain.Staff;
-import shop.tukoreamyway.back.task.Task;
+import shop.tukoreamyway.back.task.domain.Task;
 
 import javax.persistence.*;
 

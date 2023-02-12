@@ -2,7 +2,6 @@ package shop.tukoreamyway.back.sprint;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import shop.tukoreamyway.back.project.Project;
 import shop.tukoreamyway.back.staff.domain.Staff;
 
 import javax.persistence.*;
@@ -14,9 +13,7 @@ public class Sprint {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Project project;
+    private Long projectId;
 
     @Column(nullable = false)
     private Integer round;
