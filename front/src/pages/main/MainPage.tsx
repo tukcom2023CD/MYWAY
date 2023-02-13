@@ -1,7 +1,10 @@
 import React from 'react';
-import Menu from '../../components/Sidebar';
-import Profile from '../../components/Profile';
+import Menu from '../../components/project/Sidebar';
+import Profile from '../../components/project/Profile';
 import CheckList from '../../components/main/CheckList';
+import Progress from '../../components/project/ProjectProgress';
+import Contribution from '../../components/project/ProjectContribution';
+import Schedule from '../../components/project/Schedule';
 
 function MainPage() {
   return (
@@ -10,6 +13,13 @@ function MainPage() {
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px]'>
         <Profile />
         <CheckList />
+        <div className='flex justify-center items-center m-auto'>
+          <div className='flex flex-col justify-center items-left w-[512px] h-[450px]'>
+            <Progress />
+            <Contribution />
+          </div>
+          <Schedule />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from '../../components/Sidebar';
+import Menu from '../../components/project/Sidebar';
 
 function Project() {
   return (

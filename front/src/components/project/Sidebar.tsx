@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import menu from '../images/menu.png';
-import dashboard from '../images/dashboard.png';
-import project from '../images/project.png';
-import dailyscrum from '../images/dailyscrum.png';
-import members from '../images/members.png';
+import menu from '../../images/menu.png';
+import dashboard from '../../images/dashboard.png';
+import project from '../../images/project.png';
+import dailyscrum from '../../images/dailyscrum.png';
+import members from '../../images/members.png';
 
 function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
