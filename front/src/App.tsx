@@ -37,7 +37,7 @@ function App() {
         <Route path='/TicketMain' element={<TicketMain />} />
         <Route path='/TicketMake' element={<TicketMake />} />
         {/** 일정/스크럼 페이지 */}
-        <Route path='/Daily' element={<DailyScrum />} />
+        <Route path='/DailyScrum' element={<DailyScrum />} />
         {/** 성과분석 결과 페이지 */}
         <Route path='/Result' element={<Result />} />
         {/** 이슈 페이지 */}
