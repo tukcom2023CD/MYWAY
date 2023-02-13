@@ -16,7 +16,11 @@ public class Ability {
     @Enumerated(EnumType.STRING)
     private AbilityCategory category;
 
+    @Enumerated(EnumType.STRING)
+    private AbilityStatus status;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
-    private Staff staff;
+    private Staff player;
+
 }
