@@ -1,4 +1,9 @@
 package shop.tukoreamyway.back.task;
 
-public class TaskMapper {
+import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
+
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+public interface TaskMapper {
+
 }
