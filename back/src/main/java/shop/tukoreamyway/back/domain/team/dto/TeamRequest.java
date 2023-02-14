@@ -3,7 +3,6 @@ package shop.tukoreamyway.back.domain.team.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import shop.tukoreamyway.back.domain.staff.dto.TeamLeaderRequest;
 import shop.tukoreamyway.back.domain.team.entity.IndustryGroup;
 
 import javax.validation.constraints.NotBlank;
@@ -17,7 +16,4 @@ public class TeamRequest {
     private String name;
     @NotNull
     private IndustryGroup industryGroup;
-    @NotNull
-    private Boolean isUseNickname;
-    private TeamLeaderRequest leader;
 }

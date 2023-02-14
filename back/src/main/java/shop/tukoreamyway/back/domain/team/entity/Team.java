@@ -25,13 +25,9 @@ public class Team {
     @Enumerated(EnumType.STRING)
     private IndustryGroup industryGroup;
 
-    @Column(nullable = false)
-    private Boolean isUseNickname;
-
-    public Team(String name, Member leader, IndustryGroup industryGroup, Boolean isUseNickname) {
+    public Team(String name, Member leader, IndustryGroup industryGroup) {
         this.name = name;
         this.leader = leader;
         this.industryGroup = industryGroup;
-        this.isUseNickname = isUseNickname;
     }
 }

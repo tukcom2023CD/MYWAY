@@ -23,19 +23,24 @@ public class Staff {
     private Member member;
 
     @Column(nullable = false)
-    private String name;
+    private String nickname;
     @Column(nullable = false)
     private Boolean isAcceptMember = false;
     @Column(nullable = false)
     private Boolean isAcceptTeam = false;
 
     @Enumerated(EnumType.STRING)
-    private Rank rank;
+    private Rank rank = Rank.CLERK;
 
-    public Staff(Team team, Member member, String name, Rank rank) {
+    public Staff(Team team, Member member) {
         this.team = team;
         this.member = member;
-        this.name = name;
+        this.nickname = member.getName();
+    }
+    public void changeNickname(String nickname) {
+        this.nickname = nickname;
+    }
+    public void changeRank(Rank rank) {
         this.rank = rank;
     }
 
