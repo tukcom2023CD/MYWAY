@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: owl-forest-backend-dev
+spec:
+  selector:
+    matchLabels:
+      app: owl-forest-backend-dev
+      component: owl-forest-backend-dev
+      tier: back
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: owl-forest-backend-dev
+        component: owl-forest-backend-dev
+        tier: back
+    spec:
+      containers:
+        - name: owl-forest-backend-dev
+          image: phjppo0918/owl-forest-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: dev
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-database-secret
+                  key: database.username
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-database-secret
+                  key: database.password
+            - name: DATABASE_URL
+              value: owlforest-mysql-dev:3306
+            - name: DATABASE_SCHEMA
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-database-secret
+                  key: database.schema
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-database-secret
+                  key: redis.host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-database-secret
+                  key: redis.port
+
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret
+                  key: google.client.id
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret
+                  key: google.client.secret
+            - name: KAKAO_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret
+                  key: kakao.client.id
+            - name: NAVER_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret
+                  key: naver.client.id
+            - name: NAVER_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret
+                  key: naver.client.secret
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret
+                  key: jwt.secret
+            - name: CLIENT_URL
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret-dev
+                  key: client.url
+            - name: CLIENT_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-server-secret-dev
+                  key: client.host

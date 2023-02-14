@@ -5,10 +5,10 @@ import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
-import shop.tukoreamyway.back.member.domain.Member;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * login 유저정보에 대한 dto
@@ -18,13 +18,13 @@ import java.util.Map;
 @Getter
 @AllArgsConstructor
 public class LoginUser implements UserDetails, OAuth2User {
-  private Member member;
+  private UUID memberId;
   private Map<String, Object> attribute;
   private Collection<? extends GrantedAuthority> authorities;
 
   @Override
   public String getName() {
-    return member.getId().toString();
+    return memberId.toString();
   }
 
   @Override
@@ -44,7 +44,7 @@ public class LoginUser implements UserDetails, OAuth2User {
 
   @Override
   public String getUsername() {
-    return member.getName();
+    return memberId.toString();
   }
 
   @Override

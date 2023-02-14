@@ -20,10 +20,10 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import shop.tukoreamyway.back.config.security.jwt.JwtAuthenticationFilter;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
-import shop.tukoreamyway.back.member.domain.Member;
 import shop.tukoreamyway.back.support.filter.MockSecurityFilter;
 
 import java.security.Principal;
+import java.util.UUID;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
@@ -41,7 +41,7 @@ public abstract class RestDocumentTest {
 
     protected Principal loginUser =
             new UsernamePasswordAuthenticationToken(
-                    new LoginUser(Member.builder().build(), null, null), null);
+                    new LoginUser(UUID.randomUUID(), null, null), null);
     @MockBean private JwtAuthenticationFilter jwtAuthenticationFilter;
     @MockBean private JpaMetamodelMappingContext jpaMetamodelMappingContext;
 
