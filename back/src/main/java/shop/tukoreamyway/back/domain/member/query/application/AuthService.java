@@ -2,14 +2,14 @@ package shop.tukoreamyway.back.domain.member.query.application;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Service;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
 import shop.tukoreamyway.back.domain.member.entity.Member;
+import shop.tukoreamyway.back.global.QueryService;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.UUID;
 
-@Service
+@QueryService
 @RequiredArgsConstructor
 public class AuthService {
     private final MemberQueryRepository memberQueryRepository;

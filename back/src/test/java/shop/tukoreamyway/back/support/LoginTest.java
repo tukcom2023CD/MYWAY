@@ -26,6 +26,7 @@ public abstract class LoginTest {
     private void setup() {
         Member member = new Member(new OAuth2Info(AuthProvider.KAKAO, "1234adsf"));
         loginUser = memberRepository.save(member);
-        when(authService.getLoginUser()).thenReturn(loginUser);
+        when(authService.getLoginUserEntity()).thenReturn(loginUser);
+        when(authService.getLoginUserId()).thenReturn(loginUser.getId());
     }
 }
