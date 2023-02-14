@@ -1,14 +1,25 @@
 package shop.tukoreamyway.back.domain.member.query.application;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
 import shop.tukoreamyway.back.domain.member.entity.Member;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.UUID;
+
 @Service
+@RequiredArgsConstructor
 public class AuthService {
-    public Member getLoginUser() {
+    private final MemberQueryRepository memberQueryRepository;
+    public UUID getLoginUserId() {
         return ((LoginUser) (SecurityContextHolder.getContext().getAuthentication().getPrincipal()))
-                .getMember();
+                .getMemberId();
+    }
+
+    public Member getLoginUserEntity() {
+        return memberQueryRepository.findById(getLoginUserId())
+                .orElseThrow(EntityNotFoundException::new);
     }
 }
