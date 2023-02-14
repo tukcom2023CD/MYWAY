@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: owlforest-mysql-dev
+spec:
+  selector:
+    matchLabels:
+      app: owlforest-mysql-dev
+      component: owlforest-mysql-dev
+      tier: back
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: owlforest-mysql-dev
+        component: owlforest-mysql-dev
+        tier: back
+    spec:
+      containers:
+        - name: owlforest-mysql-dev
+          image: mysql:latest
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-database-secret
+                  key: database.password
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: owl-forest-database-secret
+                  key: database.schema

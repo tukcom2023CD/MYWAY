@@ -20,7 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import shop.tukoreamyway.back.config.security.jwt.JwtAuthenticationFilter;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
-import shop.tukoreamyway.back.member.domain.Member;
+import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.support.filter.MockSecurityFilter;
 
 import java.security.Principal;

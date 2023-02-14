@@ -8,8 +8,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
 import shop.tukoreamyway.back.config.security.oauth2.LoginUserMapper;
-import shop.tukoreamyway.back.member.query.application.MemberQueryService;
-import shop.tukoreamyway.back.member.domain.Member;
+import shop.tukoreamyway.back.domain.member.query.application.MemberQueryService;
+import shop.tukoreamyway.back.domain.member.entity.Member;
 
 import java.security.Key;
 import java.util.UUID;

@@ -1,6 +1,6 @@
 package shop.tukoreamyway.back.support.fixture;
 
-import shop.tukoreamyway.back.member.domain.Member;
+import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.team.domain.IndustryGroup;
 import shop.tukoreamyway.back.team.domain.Team;
 
