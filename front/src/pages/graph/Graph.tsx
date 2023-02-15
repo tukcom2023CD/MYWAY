@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   LineChart,
   Line,
@@ -13,50 +13,59 @@ import TaskList from '../../components/graph/TaskList';
 
 const data = [
   {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
+    date: '2022.02.01',
+    최정훈: 15,
+    권순호: 0,
+    박현준: 20,
+    염종협: 10,
   },
   {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    date: '2022.02.03',
+    최정훈: 0,
+    권순호: 20,
+    박현준: 10,
+    염종협: 10,
   },
   {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    date: '2022.02.08',
+    최정훈: 15,
+    권순호: 10,
+    박현준: 15,
+    염종협: 20,
   },
   {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    date: '2022.02.13',
+    최정훈: 5,
+    권순호: 15,
+    박현준: 0,
+    염종협: 0,
   },
   {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    date: '2022.02.15',
+    최정훈: 15,
+    권순호: 20,
+    박현준: 15,
+    염종협: 20,
   },
 ];
 
 function Graph() {
+  const [points, setPoints] = useState(data);
+
+  const newData = {
+    date: '2022.02.16',
+    최정훈: 30,
+    권순호: 0,
+    박현준: 0,
+    염종협: 0,
+  };
+
+  const onClick = () => {
+    const addPoints = points.concat(newData);
+    console.log(addPoints);
+    setPoints(addPoints);
+  };
+
   return (
     <div className='flex m-auto w-[1440px] h-[100vh] bg-[#D8F1FF]'>
       <Menu />
@@ -65,7 +74,7 @@ function Graph() {
           className='flex justify-center items-center m-auto'
           width={800}
           height={400}
-          data={data}
+          data={points}
           margin={{
             top: 5,
             right: 30,
@@ -74,19 +83,28 @@ function Graph() {
           }}
         >
           <CartesianGrid strokeDasharray='3 3' />
-          <XAxis dataKey='name' />
+          <XAxis dataKey='date' />
           <YAxis />
           <Tooltip />
           <Legend />
           <Line
             type='monotone'
-            dataKey='pv'
+            dataKey='최정훈'
             stroke='#8884d8'
             activeDot={{ r: 8 }}
           />
-          <Line type='monotone' dataKey='uv' stroke='#82ca9d' />
+          <Line type='monotone' dataKey='권순호' stroke='#82ca9d' />
+          <Line type='monotone' dataKey='박현준' stroke='#db951e' />
+          <Line type='monotone' dataKey='염종협' stroke='#12bbdd' />
         </LineChart>
         <TaskList />
+        <button
+          type='button'
+          onClick={onClick}
+          className='flex justify-center items-center mt-1 ml-[430px] w-[50px] h-[30px] bg-[#D8F1FF] rounded-full'
+        >
+          완료
+        </button>
       </div>
     </div>
   );

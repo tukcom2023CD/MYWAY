@@ -11,12 +11,6 @@ function TaskList() {
       />
       <div className='flex justify-center items-center ml-5'>태스크1</div>
       <div className='flex justify-center items-center ml-5'>30pt</div>
-      <button
-        type='button'
-        className='flex justify-center items-center ml-auto w-[30px] h-[30px] bg-[#D8F1FF] rounded-full'
-      >
-        완료
-      </button>
     </div>
   );
 }
