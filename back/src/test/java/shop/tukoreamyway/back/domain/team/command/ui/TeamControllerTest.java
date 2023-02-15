@@ -12,7 +12,6 @@ import shop.tukoreamyway.back.domain.team.entity.IndustryGroup;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
@@ -33,7 +32,7 @@ class TeamControllerTest extends RestDocumentTest {
         //given
         TeamRequest req = new TeamRequest("삼성전자", IndustryGroup.IT);
         IdResponse<Long> expected = new IdResponse<>(1L);
-        when(teamService.create(any())).thenReturn(expected);
+        when(teamService.create(req)).thenReturn(expected);
         ResultActions perform = mockMvc.perform(post("/teams")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(toRequestBody(req)));
