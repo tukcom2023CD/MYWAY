@@ -1,4 +1,5 @@
 import React from 'react';
+import Sprints from '../frames/Sprint';
 
 function SprintList() {
   return (
@@ -16,7 +17,16 @@ function SprintList() {
         </button>
       </div>
       <div className='flex flex-col justify-start w-[500px] h-[400px] p-5 overflow-y-auto'>
-        Master
+        <Sprints />
+        <Sprints />
+        <Sprints />
+        <Sprints />
+        <Sprints />
+        <Sprints />
+        <Sprints />
+        <Sprints />
+        <Sprints />
+        <Sprints />
       </div>
     </div>
   );
