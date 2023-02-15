@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import menu from '../../images/menu.png';
 import dashboard from '../../images/dashboard.png';
 import project from '../../images/project.png';
@@ -6,8 +7,10 @@ import dailyscrum from '../../images/dailyscrum.png';
 import members from '../../images/members.png';
 
 function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const showSidebar = () => setIsOpen(!isOpen);
+  const activeStyle = {
+    background: '#D8F1FF',
+  };
+
   return (
     <div className='flex drop-shadow-xl'>
       <div className='flex flex-col items-center h-screen p-5 bg-white shadow w-60'>
@@ -23,9 +26,10 @@ function Sidebar() {
           <div className='flex-1'>
             <ul className='pt-2 pb-4 space-y-1 text-sm'>
               <li className='rounded-sm'>
-                <a
-                  href='http://localhost:3000/'
-                  className='flex items-center p-2 space-x-3 rounded-md'
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/'
                 >
                   <img
                     className='w-[24px] h-[24px]'
@@ -33,12 +37,13 @@ function Sidebar() {
                     src={dashboard}
                   />
                   <span>DashBoard</span>
-                </a>
+                </NavLink>
               </li>
               <li className='rounded-sm'>
-                <a
-                  href='http://localhost:3000/Project'
-                  className='flex items-center p-2 space-x-3 rounded-md'
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/Project'
                 >
                   <img
                     className='w-[24px] h-[24px]'
@@ -46,12 +51,13 @@ function Sidebar() {
                     src={project}
                   />
                   <span>Project</span>
-                </a>
+                </NavLink>
               </li>
               <li className='rounded-sm'>
-                <a
-                  href='http://localhost:3000/DailyScrum'
-                  className='flex items-center p-2 space-x-3 rounded-md'
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/DailyScrum'
                 >
                   <img
                     className='w-[24px] h-[24px]'
@@ -59,12 +65,13 @@ function Sidebar() {
                     src={dailyscrum}
                   />
                   <span>DailyScrum</span>
-                </a>
+                </NavLink>
               </li>
               <li className='rounded-sm'>
-                <a
-                  href='http://localhost:3000/Members'
-                  className='flex items-center p-2 space-x-3 rounded-md'
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/Members'
                 >
                   <img
                     className='w-[24px] h-[24px]'
@@ -72,7 +79,7 @@ function Sidebar() {
                     src={members}
                   />
                   <span>Members</span>
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
