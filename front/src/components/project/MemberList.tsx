@@ -1,5 +1,5 @@
 import React from 'react';
-import Members from '../main/Member';
+import Members from '../frames/Member';
 
 function MemberList() {
   return (

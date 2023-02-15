@@ -1,9 +1,9 @@
 import React from 'react';
-import Menu from '../../components/project/Sidebar';
-import Profile from '../../components/project/Profile';
+import Menu from '../../components/frames/Sidebar';
+import Profile from '../../components/frames/Profile';
 import CheckList from '../../components/main/CheckList';
-import Progress from '../../components/project/ProjectProgress';
-import Contribution from '../../components/project/ProjectContribution';
+import Progress from '../../components/main/ProjectProgress';
+import Contribution from '../../components/main/ProjectContribution';
 import Schedule from '../../components/project/Schedule';
 
 function MainPage() {
