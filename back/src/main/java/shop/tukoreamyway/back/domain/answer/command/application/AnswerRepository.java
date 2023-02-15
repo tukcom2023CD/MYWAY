@@ -4,8 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
 
 public interface AnswerRepository extends JpaRepository<Answer, Long> {
-
-//    Answer save(Answer answer);
-//
-//    Optional<Answer> findByWriter(Long id, Member member);
+    Answer save(Answer answer);
 }
