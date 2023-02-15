@@ -1,29 +1,32 @@
-package shop.tukoreamyway.back.domain.answer.entity;
+package shop.tukoreamyway.back.domain.answercomment.entity;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import shop.tukoreamyway.back.domain.question.entity.Question;
+import shop.tukoreamyway.back.domain.answer.entity.Answer;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Answer {
-    @Id @GeneratedValue
+public class AnswerComment {
+    @Id
+    @GeneratedValue
     private Long id;
+
     @Column(nullable = false)
     private String content;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
-    private Question question;
+    private Answer answer;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "writer_id", nullable = false)
     private Staff writer;
 
-    public Answer(String content, Question question, Staff writer) {
+    public AnswerComment(String content, Answer answer, Staff writer) {
         this.content = content;
-        this.question = question;
+        this.answer = answer;
         this.writer = writer;
     }
 }

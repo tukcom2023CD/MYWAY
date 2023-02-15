@@ -2,17 +2,11 @@ package shop.tukoreamyway.back.domain.question.entity;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import shop.tukoreamyway.back.domain.answer.command.application.AnswerRepository;
-import shop.tukoreamyway.back.domain.answer.entity.Answer;
-import shop.tukoreamyway.back.domain.answer.query.application.AnswerQueryRepository;
-import shop.tukoreamyway.back.domain.question.command.application.QuestionRepository;
-import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
-import shop.tukoreamyway.back.global.CommandService;
+import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -21,28 +15,21 @@ public class Question {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
     private String title;
+    @Lob
     private String content;
-    private String writer;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "writer_id", nullable = false)
+    private Staff writer;
 
+    @OneToMany(mappedBy = "question")
+    private List<QuestionTag> tags = new ArrayList<>();
 
-    public void setTitle(String title) {
+    public Question(String title, String content, Staff writer) {
         this.title = title;
-    }
-
-    public void setContent(String content) {
         this.content = content;
-    }
-
-    public void setWriter(String writer) {
         this.writer = writer;
     }
-
-    public void createQuestion(Long writer) {
-        Answer answer = new Answer();
-    }
-
-    public void Answe
-
 }
