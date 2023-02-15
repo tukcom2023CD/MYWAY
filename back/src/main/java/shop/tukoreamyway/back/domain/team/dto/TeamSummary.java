@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.domain.staff.dto;
+package shop.tukoreamyway.back.domain.team.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,8 +7,8 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class StaffSummary {
+public class TeamSummary {
     private Long id;
     private String name;
-    private String rank;
+    private String industryGroup;
 }
