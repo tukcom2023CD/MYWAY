@@ -23,12 +23,21 @@ public class StaffQueryService {
 
     public List<StaffResponse> findAllApplyByTeamId(Long teamId) {
         List<Staff> staffs = staffQueryRepository.findAllByTeamIdApplyFilter(teamId);
-        return staffs.stream().map(staffMapper::toResponse).toList();
+        return mapToList(staffs);
     }
 
     public List<StaffResponse> findAllInvite() {
         UUID loginUserId = authService.getLoginUserId();
         List<Staff> staffs = staffQueryRepository.findAllByMemberIdInviteFilter(loginUserId);
+        return mapToList(staffs);
+    }
+
+    public List<StaffResponse> findAllTeamStaff(Long teamId) {
+        List<Staff> staffs = staffQueryRepository.findAllActiveStaffByTeamId(teamId);
+        return mapToList(staffs);
+    }
+
+    private List<StaffResponse> mapToList(List<Staff> staffs) {
         return staffs.stream().map(staffMapper::toResponse).toList();
     }
 }

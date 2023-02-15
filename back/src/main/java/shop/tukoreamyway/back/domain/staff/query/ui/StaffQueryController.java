@@ -17,9 +17,14 @@ import java.util.List;
 public class StaffQueryController {
     private final StaffQueryService staffQueryService;
 
-    @GetMapping(value = "apply", params = "group-id")
-    public ResponseEntity<List<StaffResponse>> getApply(@RequestParam(name = "group-id") Long groupId) {
-        return ResponseEntity.ok(staffQueryService.findAllApplyByTeamId(groupId));
+    @GetMapping(value = "apply", params = "team-id")
+    public ResponseEntity<List<StaffResponse>> getApply(@RequestParam(name = "team-id") Long teamId) {
+        return ResponseEntity.ok(staffQueryService.findAllApplyByTeamId(teamId));
+    }
+
+    @GetMapping(params = "team-id")
+    public ResponseEntity<List<StaffResponse>> getAllByTeamId(@RequestParam(name = "team-id") Long teamId) {
+        return ResponseEntity.ok(staffQueryService.findAllTeamStaff(teamId));
     }
 
     @GetMapping("invite")

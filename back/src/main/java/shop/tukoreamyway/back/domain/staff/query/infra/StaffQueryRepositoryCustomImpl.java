@@ -41,4 +41,17 @@ public class StaffQueryRepositoryCustomImpl implements StaffQueryRepositoryCusto
                                 .and(staff.isAcceptTeam.isTrue())
                 ).fetch();
     }
+
+    @Override
+    public List<Staff> findAllActiveStaffByTeamId(Long teamId) {
+        return jpaQueryFactory
+                .selectFrom(staff)
+                .join(staff.team, team).fetchJoin()
+                .join(staff.member, member).fetchJoin()
+                .where(
+                        staff.team.id.eq(teamId)
+                                .and(staff.isAcceptMember.isTrue())
+                                .and(staff.isAcceptTeam.isTrue())
+                ).fetch();
+    }
 }

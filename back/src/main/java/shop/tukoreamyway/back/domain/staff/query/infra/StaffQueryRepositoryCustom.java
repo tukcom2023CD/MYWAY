@@ -9,4 +9,6 @@ public interface StaffQueryRepositoryCustom {
     List<Staff> findAllByTeamIdApplyFilter(Long groupId);
 
     List<Staff> findAllByMemberIdInviteFilter(UUID memberID);
+
+    List<Staff> findAllActiveStaffByTeamId(Long teamId);
 }
