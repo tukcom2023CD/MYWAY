@@ -40,4 +40,9 @@ public class StaffQueryService {
     private List<StaffResponse> mapToList(List<Staff> staffs) {
         return staffs.stream().map(staffMapper::toResponse).toList();
     }
+
+    public Staff getActiveStaff(UUID memberId, Long teamId) {
+        return staffQueryRepository.findByMemberIdAndTeamId(memberId, teamId)
+                .orElseThrow(EntityNotFoundException::new);
+    }
 }
