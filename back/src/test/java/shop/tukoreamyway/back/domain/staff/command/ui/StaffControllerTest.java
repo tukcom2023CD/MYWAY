@@ -14,6 +14,7 @@ import shop.tukoreamyway.back.domain.staff.dto.InviteRequest;
 import shop.tukoreamyway.back.domain.staff.entity.Rank;
 import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Set;
 import java.util.UUID;
 
@@ -37,6 +38,7 @@ class StaffControllerTest extends RestDocumentTest {
         InviteRequest req = new InviteRequest(1L, Set.of(UUID.randomUUID(), UUID.randomUUID()));
         ResultActions perform = mockMvc.perform(post("/staffs/invite")
                 .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding(StandardCharsets.UTF_8)
                 .content(toRequestBody(req)));
 
         // then
@@ -54,6 +56,7 @@ class StaffControllerTest extends RestDocumentTest {
         ApplyRequest req = new ApplyRequest(1L);
         ResultActions perform = mockMvc.perform(post("/staffs/apply")
                 .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding(StandardCharsets.UTF_8)
                 .content(toRequestBody(req)));
 
         // then
@@ -70,6 +73,7 @@ class StaffControllerTest extends RestDocumentTest {
         AcceptInviteRequest req = new AcceptInviteRequest("마장동장첸");
         ResultActions perform = mockMvc.perform(post("/staffs/{id}/accept-invite", 1L)
                 .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding(StandardCharsets.UTF_8)
                 .content(toRequestBody(req)));
 
         // then
@@ -86,6 +90,7 @@ class StaffControllerTest extends RestDocumentTest {
         AcceptApplyRequest req = new AcceptApplyRequest(Rank.ASSISTANT);
         ResultActions perform = mockMvc.perform(post("/staffs/{id}/accept-apply", 1L)
                 .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding(StandardCharsets.UTF_8)
                 .content(toRequestBody(req)));
 
         // then
