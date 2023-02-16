@@ -21,7 +21,7 @@ public class QuestionService {
     private final AuthService authService;
     private final QuestionMapper questionMapper;
 
-    // 1. Question 생성
+    // Question 생성
     public IdResponse<Long> create(QuestionRequest dto) {
         Team team = teamQueryService.getEntity(dto.getTeamId());
         Staff staff = staffQueryService.getActiveStaff(authService.getLoginUserId(), dto.getTeamId());

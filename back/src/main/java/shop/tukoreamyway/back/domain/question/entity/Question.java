@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
-import shop.tukoreamyway.back.domain.team.entity.Team;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -26,18 +25,15 @@ public class Question {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "writer_id", nullable = false)
     private Staff writer;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
-    private Team team;
-
+    @Column(nullable = false)
+    private Long teamId;
     @OneToMany(mappedBy = "question")
     private List<QuestionTag> tags = new ArrayList<>();
 
-    public Question(String title, String content, Staff writer, Team team) {
+    public Question(String title, String content, Staff writer, Long teamId) {
         this.title = title;
         this.content = content;
         this.writer = writer;
-        this.team = team;
+        this.teamId = teamId;
     }
 }

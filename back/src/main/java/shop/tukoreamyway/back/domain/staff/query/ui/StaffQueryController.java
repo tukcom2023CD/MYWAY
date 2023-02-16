@@ -31,4 +31,9 @@ public class StaffQueryController {
     public ResponseEntity<List<StaffResponse>> getInvite() {
         return ResponseEntity.ok(staffQueryService.findAllInvite());
     }
+
+    @GetMapping("myteam")
+    public ResponseEntity<List<StaffResponse>> getMyTeam() {
+        return ResponseEntity.ok(staffQueryService.findAllMyTeam());
+    }
 }

@@ -5,6 +5,7 @@ import dashboard from '../../images/dashboard.png';
 import project from '../../images/project.png';
 import dailyscrum from '../../images/dailyscrum.png';
 import members from '../../images/members.png';
+import graph from '../../images/graph.png';
 
 function Sidebar() {
   const activeStyle = {
@@ -79,6 +80,20 @@ function Sidebar() {
                     src={members}
                   />
                   <span>Members</span>
+                </NavLink>
+              </li>
+              <li className='rounded-sm'>
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/Graph'
+                >
+                  <img
+                    className='w-[24px] h-[24px]'
+                    alt='dashboardicon'
+                    src={graph}
+                  />
+                  <span>Graph</span>
                 </NavLink>
               </li>
             </ul>

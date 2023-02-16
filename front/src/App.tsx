@@ -6,7 +6,7 @@ import Register from './pages/main/Register';
 import Project from './pages/project/Project';
 import DailyScrum from './pages/scrum/DailyScrum';
 import Members from './pages/member/MemberPage';
-import Result from './pages/graph/Result';
+import Graph from './pages/graph/Graph';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         {/** 멤버 페이지 */}
         <Route path='/Members' element={<Members />} />
         {/** 성과분석 결과 페이지 */}
-        <Route path='/Result' element={<Result />} />
+        <Route path='/Graph' element={<Graph />} />
       </Routes>
     </BrowserRouter>
   );
