@@ -6,7 +6,9 @@ import shop.tukoreamyway.back.domain.sprint.query.application.SprintQueryService
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.domain.task.dto.TaskRequest;
+import shop.tukoreamyway.back.domain.task.dto.UpdateTaskStatusRequest;
 import shop.tukoreamyway.back.domain.task.entity.Task;
+import shop.tukoreamyway.back.domain.task.entity.TaskStatus;
 import shop.tukoreamyway.back.domain.task.mapper.TaskMapper;
 import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepository;
 import shop.tukoreamyway.back.global.CommandService;
@@ -43,5 +45,12 @@ public class TaskService {
 
     private Task getEntity(Long id) {
         return taskQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+    }
+
+    public void updateStatus(Long id, UpdateTaskStatusRequest dto) {
+        getEntity(id).updateStatus(dto.getStatus());
+        if(dto.getStatus().equals(TaskStatus.COMPLETE)) {
+            // Ability 부여 TODO
+        }
     }
 }

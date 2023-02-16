@@ -56,4 +56,7 @@ public class Task {
     public void changeReviewer(Staff staff) {
         this.reviewer = staff;
     }
+    public void updateStatus(TaskStatus status) {
+        this.status = status;
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import shop.tukoreamyway.back.domain.task.command.application.AllocateTaskRequest;
 import shop.tukoreamyway.back.domain.task.command.application.TaskService;
 import shop.tukoreamyway.back.domain.task.dto.TaskRequest;
+import shop.tukoreamyway.back.domain.task.dto.UpdateTaskStatusRequest;
 import shop.tukoreamyway.back.global.IdResponse;
 
 import javax.validation.Valid;
@@ -33,4 +34,12 @@ public class TaskController {
         taskService.bring(id);
         return ResponseEntity.noContent().build();
     }
+
+    //task 상태 변경
+    @PatchMapping("{id}/status")
+    public ResponseEntity<Void> updateStatus(@PathVariable Long id, @RequestBody @Valid UpdateTaskStatusRequest dto) {
+        taskService.updateStatus(id, dto);
+        return ResponseEntity.noContent().build();
+    }
+
 }
