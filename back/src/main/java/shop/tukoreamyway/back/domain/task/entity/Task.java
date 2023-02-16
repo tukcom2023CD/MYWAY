@@ -18,6 +18,7 @@ public class Task {
     private Long id;
     @Column(nullable = false)
     private String summary;
+    @Lob
     private String description;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

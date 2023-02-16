@@ -4,6 +4,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
+import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepositoryCustom;
 
 import java.util.List;
 import java.util.UUID;
