@@ -20,6 +20,8 @@ public class Sprint {
     @JoinColumn(nullable = false)
     private Project project;
     @Column(nullable = false)
+    private Long teamId;
+    @Column(nullable = false)
     private Integer round;
     @Column(nullable = false)
     private LocalDate startDate;
@@ -31,6 +33,7 @@ public class Sprint {
 
     public Sprint(Project project, Integer round, LocalDate startDate, LocalDate endDate, Staff leader) {
         this.project = project;
+        teamId = project.getId();
         this.round = round;
         this.startDate = startDate;
         this.endDate = endDate;
