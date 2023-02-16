@@ -41,7 +41,8 @@ public class StaffQueryService {
         return staffs.stream().map(staffMapper::toResponse).toList();
     }
 
-    public Staff getActiveStaff(UUID memberId, Long teamId) {
+    public Staff getActiveStaff(Long teamId) {
+        UUID memberId = authService.getLoginUserId();
         return staffQueryRepository.findByMemberIdAndTeamId(memberId, teamId)
                 .orElseThrow(EntityNotFoundException::new);
     }

@@ -24,7 +24,7 @@ public class QuestionService {
     // Question 생성
     public IdResponse<Long> create(QuestionRequest dto) {
         Team team = teamQueryService.getEntity(dto.getTeamId());
-        Staff staff = staffQueryService.getActiveStaff(authService.getLoginUserId(), dto.getTeamId());
+        Staff staff = staffQueryService.getActiveStaff(dto.getTeamId());
         Question question = questionRepository.save(questionMapper.toEntity(dto, team, staff));
         return new IdResponse<>(question.getId());
     }
