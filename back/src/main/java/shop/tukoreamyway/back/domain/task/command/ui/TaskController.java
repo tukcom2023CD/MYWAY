@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import shop.tukoreamyway.back.domain.task.command.application.AllocateTaskRequest;
+import shop.tukoreamyway.back.domain.task.dto.AllocateTaskRequest;
 import shop.tukoreamyway.back.domain.task.command.application.TaskService;
 import shop.tukoreamyway.back.domain.task.dto.TaskRequest;
 import shop.tukoreamyway.back.domain.task.dto.UpdateTaskStatusRequest;

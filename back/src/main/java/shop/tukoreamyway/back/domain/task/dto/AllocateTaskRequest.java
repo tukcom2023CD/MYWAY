@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.domain.task.command.application;
+package shop.tukoreamyway.back.domain.task.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

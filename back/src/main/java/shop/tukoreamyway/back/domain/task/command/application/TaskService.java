@@ -5,6 +5,7 @@ import shop.tukoreamyway.back.domain.sprint.entity.Sprint;
 import shop.tukoreamyway.back.domain.sprint.query.application.SprintQueryService;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
+import shop.tukoreamyway.back.domain.task.dto.AllocateTaskRequest;
 import shop.tukoreamyway.back.domain.task.dto.TaskRequest;
 import shop.tukoreamyway.back.domain.task.dto.UpdateTaskStatusRequest;
 import shop.tukoreamyway.back.domain.task.entity.Task;
