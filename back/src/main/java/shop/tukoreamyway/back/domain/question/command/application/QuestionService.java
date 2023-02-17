@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
 import lombok.RequiredArgsConstructor;
-import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
@@ -18,15 +17,12 @@ public class QuestionService {
     private final QuestionRepository questionRepository;
     private final TeamQueryService teamQueryService;
     private final StaffQueryService staffQueryService;
-    private final AuthService authService;
     private final QuestionMapper questionMapper;
 
-    // Question 생성
     public IdResponse<Long> create(QuestionRequest dto) {
         Team team = teamQueryService.getEntity(dto.getTeamId());
         Staff staff = staffQueryService.getActiveStaff(dto.getTeamId());
         Question question = questionRepository.save(questionMapper.toEntity(dto, team, staff));
         return new IdResponse<>(question.getId());
     }
-
 }
