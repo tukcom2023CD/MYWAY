@@ -4,6 +4,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
+import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepositoryCustom;
 
 import java.util.List;
 import java.util.UUID;
@@ -14,7 +15,7 @@ import static shop.tukoreamyway.back.domain.team.entity.QTeam.team;
 
 @Repository
 @RequiredArgsConstructor
-public class StaffQueryRepositoryCustomImpl implements StaffQueryRepositoryCustom {
+public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
     @Override
     public List<Staff> findAllByTeamIdApplyFilter(Long teamId) {

@@ -15,5 +15,6 @@ public interface ProjectMapper {
     @Mapping(target = "manager", source = "manager")
     Project toEntity(ProjectRequest dto, Team team, Staff manager) ;
 
+    @Mapping(target = "manager", source = "manager")
     ProjectResponse toResponse(Project entity);
 }

@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("questions")
+@RequestMapping("answers")
 public class AnswerController {
     private final AnswerService answerService;
 

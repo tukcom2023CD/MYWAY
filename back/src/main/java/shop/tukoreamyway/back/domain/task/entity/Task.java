@@ -18,6 +18,7 @@ public class Task {
     private Long id;
     @Column(nullable = false)
     private String summary;
+    @Lob
     private String description;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -55,5 +56,8 @@ public class Task {
     }
     public void changeReviewer(Staff staff) {
         this.reviewer = staff;
+    }
+    public void updateStatus(TaskStatus status) {
+        this.status = status;
     }
 }
