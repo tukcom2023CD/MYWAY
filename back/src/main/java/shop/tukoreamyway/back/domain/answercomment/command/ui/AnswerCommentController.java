@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("answerComments")
+@RequestMapping("answer-comments")
 public class AnswerCommentController {
     private final AnswerCommentService answerCommentService;
 
