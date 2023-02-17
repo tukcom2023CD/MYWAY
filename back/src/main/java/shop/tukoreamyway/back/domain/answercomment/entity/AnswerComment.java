@@ -31,4 +31,8 @@ public class AnswerComment {
         this.answer = answer;
         this.writer = writer;
     }
+
+    public void updateContent(String content) {
+        this.content = content;
+    }
 }

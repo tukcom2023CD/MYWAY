@@ -6,6 +6,7 @@ import shop.tukoreamyway.back.domain.answer.query.application.AnswerQueryService
 import shop.tukoreamyway.back.domain.answercomment.dto.AnswerCommentRequest;
 import shop.tukoreamyway.back.domain.answercomment.entity.AnswerComment;
 import shop.tukoreamyway.back.domain.answercomment.mapper.AnswerCommentMapper;
+import shop.tukoreamyway.back.domain.answercomment.query.application.AnswerCommentQueryService;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.global.CommandService;
@@ -17,6 +18,7 @@ public class AnswerCommentService {
     private final AnswerCommentRepository answerCommentRepository;
     private final AnswerQueryService answerQueryService;
     private final StaffQueryService staffQueryService;
+    private final AnswerCommentQueryService answerCommentQueryService;
     private final AnswerCommentMapper answerCommentMapper;
 
     public IdResponse<Long> create(AnswerCommentRequest dto) {
@@ -24,5 +26,10 @@ public class AnswerCommentService {
         Staff writer = staffQueryService.getActiveStaff(answer.getQuestion().getTeamId());
         AnswerComment answerComment = answerCommentRepository.save(answerCommentMapper.toEntity(dto, answer, writer));
         return new IdResponse<>(answerComment.getId());
+    }
+
+    public void update(AnswerCommentRequest dto) {
+        AnswerComment answerComment = answerCommentQueryService.getEntity(dto.getAnswerCommentId());
+        answerComment.updateContent(dto.getContent());
     }
 }

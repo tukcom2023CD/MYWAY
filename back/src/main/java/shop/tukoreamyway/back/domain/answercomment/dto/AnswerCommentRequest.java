@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class AnswerCommentRequest {
     private String content;
     private Long answerId;
+    private Long answerCommentId;
 }

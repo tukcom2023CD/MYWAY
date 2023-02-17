@@ -23,4 +23,9 @@ public class AnswerController {
     public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid AnswerRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(answerService.create(dto));
     }
+
+    @PostMapping
+    public ResponseEntity<IdResponse<Long>> update(@RequestBody @Valid AnswerRequest dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(answerService.create(dto));
+    }
 }

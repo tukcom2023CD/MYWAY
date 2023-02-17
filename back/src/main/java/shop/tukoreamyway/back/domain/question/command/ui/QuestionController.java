@@ -23,4 +23,9 @@ public class QuestionController {
     public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid QuestionRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(questionService.create(dto));
     }
+
+    @PostMapping
+    public ResponseEntity<IdResponse<Long>> update(@RequestBody @Valid QuestionRequest dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(questionService.create(dto));
+    }
 }

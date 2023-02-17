@@ -23,4 +23,9 @@ public class AnswerCommentController {
     public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid AnswerCommentRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(answerCommentService.create(dto));
     }
+
+    @PostMapping
+    public ResponseEntity<IdResponse<Long>> update(@RequestBody @Valid AnswerCommentRequest dto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(answerCommentService.create(dto));
+    }
 }

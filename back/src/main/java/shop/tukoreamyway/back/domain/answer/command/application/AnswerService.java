@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import shop.tukoreamyway.back.domain.answer.dto.AnswerRequest;
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
 import shop.tukoreamyway.back.domain.answer.mapper.AnswerMapper;
+import shop.tukoreamyway.back.domain.answer.query.application.AnswerQueryService;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryService;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
@@ -18,6 +19,7 @@ public class AnswerService {
    private final AnswerRepository answerRepository;
    private final StaffQueryService staffQueryService;
    private final QuestionQueryService questionQueryService;
+   private final AnswerQueryService answerQueryService;
    private final AnswerMapper answerMapper;
 
    public IdResponse<Long> create(AnswerRequest dto) {
@@ -25,5 +27,10 @@ public class AnswerService {
       Staff writer = staffQueryService.getActiveStaff(question.getTeamId());
       Answer answer = answerRepository.save(answerMapper.toEntity(dto, question, writer));
       return new IdResponse<>(answer.getId());
+   }
+
+   public void update(AnswerRequest dto) {
+      Answer answer = answerQueryService.getEntity(dto.getAnswerId());
+      answer.updateContent(dto.getContent());
    }
 }
