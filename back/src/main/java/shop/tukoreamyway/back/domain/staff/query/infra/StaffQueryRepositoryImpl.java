@@ -15,7 +15,7 @@ import static shop.tukoreamyway.back.domain.team.entity.QTeam.team;
 
 @Repository
 @RequiredArgsConstructor
-public class StaffQueryRepositoryCustomImpl implements StaffQueryRepositoryCustom {
+public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
     @Override
     public List<Staff> findAllByTeamIdApplyFilter(Long teamId) {

@@ -16,7 +16,7 @@ import static shop.tukoreamyway.back.domain.task.entity.QTask.task;
 
 @Repository
 @RequiredArgsConstructor
-public class TaskQueryRepositoryCustomImpl implements TaskQueryRepositoryCustom {
+public class TaskQueryRepositoryImpl implements TaskQueryRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
     @Override
     public List<Task> findAllByCondition(TaskSearchCondition condition) {
