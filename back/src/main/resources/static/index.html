@@ -635,7 +635,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /abilities?staff-id=3 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -645,7 +645,7 @@ Host: 223.255.205.62:30505</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 814
+Content-Length: 815
 
 [ {
   "id" : 1,
@@ -656,7 +656,7 @@ Content-Length: 814
     "rank" : "대리"
   },
   "point" : 10,
-  "grantedAt" : "2023-02-18T17:59:13.273395",
+  "grantedAt" : "2023-02-19T02:02:00.162892",
   "grantLocation" : "DO_TASK",
   "grantor" : null
 }, {
@@ -668,7 +668,7 @@ Content-Length: 814
     "rank" : "대리"
   },
   "point" : 14,
-  "grantedAt" : "2023-02-18T17:59:13.273455",
+  "grantedAt" : "2023-02-19T02:02:00.162963",
   "grantLocation" : "PROJECT_MANAGER_DISCRETION",
   "grantor" : {
     "id" : 2,
@@ -684,7 +684,7 @@ Content-Length: 814
     "rank" : "대리"
   },
   "point" : 16,
-  "grantedAt" : "2023-02-18T17:59:13.27346",
+  "grantedAt" : "2023-02-19T02:02:00.162968",
   "grantLocation" : "DO_TASK",
   "grantor" : null
 } ]</code></pre>
@@ -699,7 +699,7 @@ Content-Length: 814
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /abilities/summary?staff-id=3 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -736,7 +736,7 @@ Content-Length: 229
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /abilities/myability?team-id=3 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -746,7 +746,7 @@ Host: 223.255.205.62:30505</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 814
+Content-Length: 815
 
 [ {
   "id" : 1,
@@ -757,7 +757,7 @@ Content-Length: 814
     "rank" : "대리"
   },
   "point" : 10,
-  "grantedAt" : "2023-02-18T17:59:13.273395",
+  "grantedAt" : "2023-02-19T02:02:00.162892",
   "grantLocation" : "DO_TASK",
   "grantor" : null
 }, {
@@ -769,7 +769,7 @@ Content-Length: 814
     "rank" : "대리"
   },
   "point" : 14,
-  "grantedAt" : "2023-02-18T17:59:13.273455",
+  "grantedAt" : "2023-02-19T02:02:00.162963",
   "grantLocation" : "PROJECT_MANAGER_DISCRETION",
   "grantor" : {
     "id" : 2,
@@ -785,7 +785,7 @@ Content-Length: 814
     "rank" : "대리"
   },
   "point" : 16,
-  "grantedAt" : "2023-02-18T17:59:13.27346",
+  "grantedAt" : "2023-02-19T02:02:00.162968",
   "grantLocation" : "DO_TASK",
   "grantor" : null
 } ]</code></pre>
@@ -800,7 +800,7 @@ Content-Length: 814
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /abilities/myability/summary?team-id=3 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -844,12 +844,12 @@ Content-Length: 229
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /projects HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 183
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "name" : "어벤져스 프로젝트",
-  "startAt" : "2023-02-18T17:59:16.801937",
-  "endAt" : "2023-07-18T17:59:16.801951",
+  "startAt" : "2023-02-19T02:02:03.229105",
+  "endAt" : "2023-07-19T02:02:03.229121",
   "teamId" : 4,
   "sprintDays" : 5,
   "managerId" : 7
@@ -878,7 +878,7 @@ Host: 223.255.205.62:30505
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /projects?team-id=7 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -893,8 +893,8 @@ Content-Length: 975
 [ {
   "id" : 1,
   "name" : "a프로젝트",
-  "startAt" : "2023-02-18T17:59:12.993617",
-  "endAt" : "2023-07-18T17:59:12.993632",
+  "startAt" : "2023-02-19T02:01:59.857001",
+  "endAt" : "2023-07-19T02:01:59.857017",
   "team" : {
     "id" : 7,
     "name" : "어벤저스",
@@ -909,8 +909,8 @@ Content-Length: 975
 }, {
   "id" : 2,
   "name" : "b프로젝트",
-  "startAt" : "2023-02-18T17:59:12.993657",
-  "endAt" : "2023-07-18T17:59:12.993659",
+  "startAt" : "2023-02-19T02:01:59.857063",
+  "endAt" : "2023-07-19T02:01:59.857065",
   "team" : {
     "id" : 7,
     "name" : "어벤저스",
@@ -925,8 +925,8 @@ Content-Length: 975
 }, {
   "id" : 4,
   "name" : "c프로젝트",
-  "startAt" : "2023-02-18T17:59:12.993665",
-  "endAt" : "2023-07-18T17:59:12.993667",
+  "startAt" : "2023-02-19T02:01:59.857071",
+  "endAt" : "2023-07-19T02:01:59.857073",
   "team" : {
     "id" : 7,
     "name" : "어벤저스",
@@ -957,11 +957,11 @@ Content-Length: 975
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /staffs/invite HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 116
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "teamId" : 1,
-  "members" : [ "5937b654-20ec-4107-b93d-37a009337d57", "2bef2efc-63d6-47b9-9168-d089ce932058" ]
+  "members" : [ "c2c252ce-7da1-463b-bd49-6f28c4a9c9e8", "30ab058d-f242-4e93-9d97-a90f0323ff91" ]
 }</code></pre>
 </div>
 </div>
@@ -984,7 +984,7 @@ Host: 223.255.205.62:30505
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /staffs/apply HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 18
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "teamId" : 1
@@ -1010,7 +1010,7 @@ Host: 223.255.205.62:30505
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /staffs/1/accept-invite HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 36
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "nickname" : "마장동장첸"
@@ -1036,7 +1036,7 @@ Host: 223.255.205.62:30505
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /staffs/1/accept-apply HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 26
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "rank" : "ASSISTANT"
@@ -1065,7 +1065,7 @@ Host: 223.255.205.62:30505
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /staffs/apply?team-id=7 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1084,7 +1084,7 @@ Content-Length: 917
   "isAcceptMember" : true,
   "isAcceptTeam" : false,
   "member" : {
-    "id" : "158feeb1-b761-467a-9b8b-39a4a8a2e4ab",
+    "id" : "9ef0a2a3-ad6d-4146-a768-da1bdd90c5af",
     "name" : "김철근"
   },
   "team" : {
@@ -1099,7 +1099,7 @@ Content-Length: 917
   "isAcceptMember" : true,
   "isAcceptTeam" : false,
   "member" : {
-    "id" : "9e22e715-d878-43e2-89d8-31d09d3fa8e3",
+    "id" : "87d13100-660c-4cbf-8e71-31c0f504f5c7",
     "name" : "박방패"
   },
   "team" : {
@@ -1114,7 +1114,7 @@ Content-Length: 917
   "isAcceptMember" : true,
   "isAcceptTeam" : false,
   "member" : {
-    "id" : "8dad7a2c-ca9b-4559-965b-15a4a35431fb",
+    "id" : "d29672a1-51a4-441c-ace9-cc511593368c",
     "name" : "이망치"
   },
   "team" : {
@@ -1134,7 +1134,7 @@ Content-Length: 917
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /staffs/invite HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1153,7 +1153,7 @@ Content-Length: 903
   "isAcceptMember" : false,
   "isAcceptTeam" : true,
   "member" : {
-    "id" : "3b11413b-abf7-4041-88b7-e9cc12b7d73c",
+    "id" : "4c98d712-fa48-4bb4-8000-e34d9e2d358e",
     "name" : "이망치"
   },
   "team" : {
@@ -1168,7 +1168,7 @@ Content-Length: 903
   "isAcceptMember" : false,
   "isAcceptTeam" : true,
   "member" : {
-    "id" : "3b11413b-abf7-4041-88b7-e9cc12b7d73c",
+    "id" : "4c98d712-fa48-4bb4-8000-e34d9e2d358e",
     "name" : "이망치"
   },
   "team" : {
@@ -1183,7 +1183,7 @@ Content-Length: 903
   "isAcceptMember" : false,
   "isAcceptTeam" : true,
   "member" : {
-    "id" : "3b11413b-abf7-4041-88b7-e9cc12b7d73c",
+    "id" : "4c98d712-fa48-4bb4-8000-e34d9e2d358e",
     "name" : "이망치"
   },
   "team" : {
@@ -1203,7 +1203,7 @@ Content-Length: 903
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /staffs?team-id=7 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1213,9 +1213,54 @@ Host: 223.255.205.62:30505</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 3
+Content-Length: 914
 
-[ ]</code></pre>
+[ {
+  "id" : 1,
+  "nickname" : "아이언맨",
+  "rank" : "과장",
+  "isAcceptMember" : true,
+  "isAcceptTeam" : true,
+  "member" : {
+    "id" : "f2918cfe-8ba6-4d58-80da-b6330244ec33",
+    "name" : "김철근"
+  },
+  "team" : {
+    "id" : 7,
+    "name" : "어벤저스",
+    "industryGroup" : "IT"
+  }
+}, {
+  "id" : 1,
+  "nickname" : "캡틴아메리카",
+  "rank" : "과장",
+  "isAcceptMember" : true,
+  "isAcceptTeam" : true,
+  "member" : {
+    "id" : "6142ab62-4510-429a-930a-e5eab3f1d3cd",
+    "name" : "박방패"
+  },
+  "team" : {
+    "id" : 7,
+    "name" : "어벤저스",
+    "industryGroup" : "IT"
+  }
+}, {
+  "id" : 1,
+  "nickname" : "토르",
+  "rank" : "과장",
+  "isAcceptMember" : true,
+  "isAcceptTeam" : true,
+  "member" : {
+    "id" : "8839ed83-e588-4280-b08a-6ea83ab11d9f",
+    "name" : "이망치"
+  },
+  "team" : {
+    "id" : 7,
+    "name" : "어벤저스",
+    "industryGroup" : "IT"
+  }
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -1227,7 +1272,7 @@ Content-Length: 3
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /staffs/myteam HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1237,9 +1282,54 @@ Host: 223.255.205.62:30505</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 3
+Content-Length: 900
 
-[ ]</code></pre>
+[ {
+  "id" : 1,
+  "nickname" : "망치맨",
+  "rank" : "과장",
+  "isAcceptMember" : true,
+  "isAcceptTeam" : true,
+  "member" : {
+    "id" : "01501b97-ecad-4886-9a08-d047d9cb8a0b",
+    "name" : "이망치"
+  },
+  "team" : {
+    "id" : 9,
+    "name" : "철물점",
+    "industryGroup" : "IT"
+  }
+}, {
+  "id" : 1,
+  "nickname" : "뚝딱이",
+  "rank" : "사원",
+  "isAcceptMember" : true,
+  "isAcceptTeam" : true,
+  "member" : {
+    "id" : "01501b97-ecad-4886-9a08-d047d9cb8a0b",
+    "name" : "이망치"
+  },
+  "team" : {
+    "id" : 8,
+    "name" : "용산 전자",
+    "industryGroup" : "IT"
+  }
+}, {
+  "id" : 1,
+  "nickname" : "토르",
+  "rank" : "사원",
+  "isAcceptMember" : true,
+  "isAcceptTeam" : true,
+  "member" : {
+    "id" : "01501b97-ecad-4886-9a08-d047d9cb8a0b",
+    "name" : "이망치"
+  },
+  "team" : {
+    "id" : 7,
+    "name" : "어벤저스",
+    "industryGroup" : "IT"
+  }
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -1258,7 +1348,7 @@ Content-Length: 3
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /tasks HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 166
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "summary" : "요약",
@@ -1290,7 +1380,7 @@ Host: 223.255.205.62:30505
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /tasks/1/allocate HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 19
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "staffId" : 1
@@ -1314,7 +1404,7 @@ Host: 223.255.205.62:30505
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /tasks/1/bring HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1339,7 +1429,7 @@ Host: 223.255.205.62:30505</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /tasks?status=PROGRESS&amp;category=DEVELOPMENT&amp;sprintId=1&amp;playerId=2 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1349,9 +1439,126 @@ Host: 223.255.205.62:30505</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 3
+Content-Length: 2534
 
-[ ]</code></pre>
+[ {
+  "id" : 1,
+  "summary" : "요약1",
+  "status" : "진행중",
+  "category" : "개발",
+  "sprint" : {
+    "id" : 1,
+    "project" : {
+      "id" : 1,
+      "name" : "엔드게임",
+      "startAt" : "2023-02-19T02:02:03.506088",
+      "endAt" : "2023-07-19T02:02:03.506101",
+      "team" : {
+        "id" : 1,
+        "name" : "어벤져스",
+        "industryGroup" : "보건복지"
+      },
+      "sprintDays" : 5,
+      "manager" : {
+        "id" : 2,
+        "nickname" : "캡틴 아메리카",
+        "rank" : "과장"
+      }
+    },
+    "round" : 3,
+    "startDate" : "2023-02-19",
+    "endDate" : "2023-02-22",
+    "leader" : {
+      "id" : 1,
+      "nickname" : "아이언맨",
+      "rank" : "대리"
+    }
+  },
+  "player" : {
+    "id" : 2,
+    "nickname" : "캡틴 아메리카",
+    "rank" : "과장"
+  },
+  "reviewer" : null
+}, {
+  "id" : 2,
+  "summary" : "요약2",
+  "status" : "진행중",
+  "category" : "개발",
+  "sprint" : {
+    "id" : 1,
+    "project" : {
+      "id" : 1,
+      "name" : "엔드게임",
+      "startAt" : "2023-02-19T02:02:03.506088",
+      "endAt" : "2023-07-19T02:02:03.506101",
+      "team" : {
+        "id" : 1,
+        "name" : "어벤져스",
+        "industryGroup" : "보건복지"
+      },
+      "sprintDays" : 5,
+      "manager" : {
+        "id" : 2,
+        "nickname" : "캡틴 아메리카",
+        "rank" : "과장"
+      }
+    },
+    "round" : 3,
+    "startDate" : "2023-02-19",
+    "endDate" : "2023-02-22",
+    "leader" : {
+      "id" : 1,
+      "nickname" : "아이언맨",
+      "rank" : "대리"
+    }
+  },
+  "player" : {
+    "id" : 2,
+    "nickname" : "캡틴 아메리카",
+    "rank" : "과장"
+  },
+  "reviewer" : null
+}, {
+  "id" : 3,
+  "summary" : "요약3",
+  "status" : "진행중",
+  "category" : "개발",
+  "sprint" : {
+    "id" : 1,
+    "project" : {
+      "id" : 1,
+      "name" : "엔드게임",
+      "startAt" : "2023-02-19T02:02:03.506088",
+      "endAt" : "2023-07-19T02:02:03.506101",
+      "team" : {
+        "id" : 1,
+        "name" : "어벤져스",
+        "industryGroup" : "보건복지"
+      },
+      "sprintDays" : 5,
+      "manager" : {
+        "id" : 2,
+        "nickname" : "캡틴 아메리카",
+        "rank" : "과장"
+      }
+    },
+    "round" : 3,
+    "startDate" : "2023-02-19",
+    "endDate" : "2023-02-22",
+    "leader" : {
+      "id" : 1,
+      "nickname" : "아이언맨",
+      "rank" : "대리"
+    }
+  },
+  "player" : {
+    "id" : 2,
+    "nickname" : "캡틴 아메리카",
+    "rank" : "과장"
+  },
+  "reviewer" : null
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -1363,7 +1570,7 @@ Content-Length: 3
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /tasks/mytask?status=PROGRESS&amp;category=DEVELOPMENT&amp;sprintId=1&amp;teamId=2 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1373,9 +1580,126 @@ Host: 223.255.205.62:30505</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 3
+Content-Length: 2534
 
-[ ]</code></pre>
+[ {
+  "id" : 1,
+  "summary" : "요약1",
+  "status" : "진행중",
+  "category" : "개발",
+  "sprint" : {
+    "id" : 1,
+    "project" : {
+      "id" : 1,
+      "name" : "엔드게임",
+      "startAt" : "2023-02-19T02:02:03.506088",
+      "endAt" : "2023-07-19T02:02:03.506101",
+      "team" : {
+        "id" : 1,
+        "name" : "어벤져스",
+        "industryGroup" : "보건복지"
+      },
+      "sprintDays" : 5,
+      "manager" : {
+        "id" : 2,
+        "nickname" : "캡틴 아메리카",
+        "rank" : "과장"
+      }
+    },
+    "round" : 3,
+    "startDate" : "2023-02-19",
+    "endDate" : "2023-02-22",
+    "leader" : {
+      "id" : 1,
+      "nickname" : "아이언맨",
+      "rank" : "대리"
+    }
+  },
+  "player" : {
+    "id" : 2,
+    "nickname" : "캡틴 아메리카",
+    "rank" : "과장"
+  },
+  "reviewer" : null
+}, {
+  "id" : 2,
+  "summary" : "요약2",
+  "status" : "진행중",
+  "category" : "개발",
+  "sprint" : {
+    "id" : 1,
+    "project" : {
+      "id" : 1,
+      "name" : "엔드게임",
+      "startAt" : "2023-02-19T02:02:03.506088",
+      "endAt" : "2023-07-19T02:02:03.506101",
+      "team" : {
+        "id" : 1,
+        "name" : "어벤져스",
+        "industryGroup" : "보건복지"
+      },
+      "sprintDays" : 5,
+      "manager" : {
+        "id" : 2,
+        "nickname" : "캡틴 아메리카",
+        "rank" : "과장"
+      }
+    },
+    "round" : 3,
+    "startDate" : "2023-02-19",
+    "endDate" : "2023-02-22",
+    "leader" : {
+      "id" : 1,
+      "nickname" : "아이언맨",
+      "rank" : "대리"
+    }
+  },
+  "player" : {
+    "id" : 2,
+    "nickname" : "캡틴 아메리카",
+    "rank" : "과장"
+  },
+  "reviewer" : null
+}, {
+  "id" : 3,
+  "summary" : "요약3",
+  "status" : "진행중",
+  "category" : "개발",
+  "sprint" : {
+    "id" : 1,
+    "project" : {
+      "id" : 1,
+      "name" : "엔드게임",
+      "startAt" : "2023-02-19T02:02:03.506088",
+      "endAt" : "2023-07-19T02:02:03.506101",
+      "team" : {
+        "id" : 1,
+        "name" : "어벤져스",
+        "industryGroup" : "보건복지"
+      },
+      "sprintDays" : 5,
+      "manager" : {
+        "id" : 2,
+        "nickname" : "캡틴 아메리카",
+        "rank" : "과장"
+      }
+    },
+    "round" : 3,
+    "startDate" : "2023-02-19",
+    "endDate" : "2023-02-22",
+    "leader" : {
+      "id" : 1,
+      "nickname" : "아이언맨",
+      "rank" : "대리"
+    }
+  },
+  "player" : {
+    "id" : 2,
+    "nickname" : "캡틴 아메리카",
+    "rank" : "과장"
+  },
+  "reviewer" : null
+} ]</code></pre>
 </div>
 </div>
 </div>
@@ -1387,7 +1711,7 @@ Content-Length: 3
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /tasks/1 HTTP/1.1
-Host: 223.255.205.62:30505</code></pre>
+Host: 223.255.205.62:30507</code></pre>
 </div>
 </div>
 </div>
@@ -1411,8 +1735,8 @@ Content-Length: 961
     "project" : {
       "id" : 1,
       "name" : "엔드게임",
-      "startAt" : "2023-02-18T17:59:11.309052",
-      "endAt" : "2023-07-18T17:59:11.309068",
+      "startAt" : "2023-02-19T02:02:03.506088",
+      "endAt" : "2023-07-19T02:02:03.506101",
       "team" : {
         "id" : 1,
         "name" : "어벤져스",
@@ -1426,8 +1750,8 @@ Content-Length: 961
       }
     },
     "round" : 3,
-    "startDate" : "2023-02-18",
-    "endDate" : "2023-02-21",
+    "startDate" : "2023-02-19",
+    "endDate" : "2023-02-22",
     "leader" : {
       "id" : 1,
       "nickname" : "아이언맨",
@@ -1463,7 +1787,7 @@ Content-Length: 961
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /teams HTTP/1.1
 Content-Type: application/json;charset=UTF-8
 Content-Length: 55
-Host: 223.255.205.62:30505
+Host: 223.255.205.62:30507
 
 {
   "name" : "삼성전자",
@@ -1495,7 +1819,7 @@ Host: 223.255.205.62:30505
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-18 18:05:34 +0900
+Last updated 2023-02-18 22:02:48 +0900
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
