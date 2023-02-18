@@ -29,36 +29,36 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.username
+                  key: database.master.username
             - name: DATABASE_MASTER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.password
+                  key: database.master.password
             - name: DATABASE_MASTER_URL
               value: crewship-mysql-dev:3306
             - name: DATABASE_MASTER_SCHEMA
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.schema
+                  key: database.master.schema
             - name: DATABASE_SLAVE_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.username
+                  key: database.master.username
             - name: DATABASE_SLAVE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.password
+                  key: database.master.password
             - name: DATABASE_SLAVE_URL
               value: crewship-mysql-dev:3306
             - name: DATABASE_SLAVE_SCHEMA
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.schema
+                  key: database.master.schema
             - name: REDIS_HOST
               valueFrom:
                 secretKeyRef:

@@ -28,12 +28,12 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: database-secret
+                  name: crewship-database-secret
                   key: database.master.password
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: database-secret
+                  name: crewship-database-secret
                   key: database.master.schema
       volumes:
         - name: mysql-volume
