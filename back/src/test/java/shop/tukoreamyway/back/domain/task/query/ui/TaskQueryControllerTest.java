@@ -1,10 +1,21 @@
 package shop.tukoreamyway.back.domain.task.query.ui;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
+import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.ResultActions;
+
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 import shop.tukoreamyway.back.domain.task.dto.MyTaskCondition;
 import shop.tukoreamyway.back.domain.task.dto.TaskResponse;
@@ -17,15 +28,6 @@ import shop.tukoreamyway.back.support.fixture.staff.StaffSummaryFixture;
 import shop.tukoreamyway.back.support.fixture.task.TaskSummaryFixture;
 
 import java.util.List;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
-import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
 
 @WebMvcTest(TaskQueryController.class)
 @DisplayName("TaskQueryController에서")
