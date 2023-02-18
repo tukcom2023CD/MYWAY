@@ -2,7 +2,6 @@ package shop.tukoreamyway.back.domain.question.query.ui;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.ResultActions;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryService;
@@ -15,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
 import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
 
-@WebMvcTest(QuestionQueryController.class)
+//@WebMvcTest(QuestionQueryController.class)
 @DisplayName("QuestionQueryController에서")
 class QuestionQueryControllerTest extends RestDocumentTest {
     @MockBean

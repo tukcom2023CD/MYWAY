@@ -30,7 +30,7 @@ class AnswerCommentControllerTest extends RestDocumentTest {
     @DisplayName("생성을 수행하는가")
     void successCreate() throws Exception {
         //given
-        AnswerCommentRequest req = new AnswerCommentRequest("그거 그렇게 하는거 아닌데", 1);
+        AnswerCommentRequest req = new AnswerCommentRequest("그거 그렇게 하는거 아닌데", );
         ResultActions perform = mockMvc.perform(post("/answer-comments")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding(StandardCharsets.UTF_8)

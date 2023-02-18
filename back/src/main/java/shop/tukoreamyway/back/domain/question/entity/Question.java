@@ -37,11 +37,7 @@ public class Question {
         this.teamId = teamId;
     }
 
-    public void updateTitle(String title) {
-        this.title = title;
-    }
-
-    public void updateContent(String content) {
+    public void update(String content) {
         this.content = content;
     }
 }

@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AnswerRequest {
+public class UpdateAnswerRequest {
     private String content;
-    private Long questionId;
-
 }

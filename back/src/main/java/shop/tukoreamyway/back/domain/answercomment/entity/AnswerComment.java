@@ -32,7 +32,7 @@ public class AnswerComment {
         this.writer = writer;
     }
 
-    public void updateContent(String content) {
+    public void update(String content) {
         this.content = content;
     }
 }

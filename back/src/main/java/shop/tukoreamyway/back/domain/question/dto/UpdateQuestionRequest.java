@@ -1,4 +1,4 @@
-package shop.tukoreamyway.back.domain.answer.dto;
+package shop.tukoreamyway.back.domain.question.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,8 +7,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AnswerRequest {
+public class UpdateQuestionRequest {
     private String content;
-    private Long questionId;
-
 }
