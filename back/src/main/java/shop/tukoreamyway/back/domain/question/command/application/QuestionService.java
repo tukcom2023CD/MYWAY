@@ -32,7 +32,6 @@ public class QuestionService {
         return new IdResponse<>(question.getId());
     }
 
-
     public void update(Long id, UpdateQuestionRequest dto) {
         getEntity(id).update(dto.getContent());
     }

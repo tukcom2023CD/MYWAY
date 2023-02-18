@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import shop.tukoreamyway.back.domain.question.command.application.QuestionService;
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
@@ -24,7 +25,8 @@ public class QuestionController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<IdResponse<Long>> update(@RequestBody @Valid UpdateQuestionRequest dto, @PathVariable Long id) {
+    public ResponseEntity<IdResponse<Long>> update(
+            @RequestBody @Valid UpdateQuestionRequest dto, @PathVariable Long id) {
         questionService.update(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import shop.tukoreamyway.back.domain.answercomment.command.application.AnswerCommentService;
 import shop.tukoreamyway.back.domain.answercomment.dto.AnswerCommentRequest;
 import shop.tukoreamyway.back.domain.answercomment.dto.UpdateAnswerCommentRequest;
@@ -23,9 +24,9 @@ public class AnswerCommentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(answerCommentService.create(dto));
     }
 
-
     @PutMapping("{id}")
-    public ResponseEntity<IdResponse<Long>> update(@RequestBody @Valid UpdateAnswerCommentRequest dto, @PathVariable Long id) {
+    public ResponseEntity<IdResponse<Long>> update(
+            @RequestBody @Valid UpdateAnswerCommentRequest dto, @PathVariable Long id) {
         answerCommentService.update(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
