@@ -36,6 +36,7 @@ class StaffControllerTest extends RestDocumentTest {
     void successInvite() throws Exception {
         //given
         InviteRequest req = new InviteRequest(1L, Set.of(UUID.randomUUID(), UUID.randomUUID()));
+        //when
         ResultActions perform = mockMvc.perform(post("/staffs/invite")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding(StandardCharsets.UTF_8)

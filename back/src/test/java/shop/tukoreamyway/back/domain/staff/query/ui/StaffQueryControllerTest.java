@@ -77,7 +77,7 @@ class StaffQueryControllerTest extends RestDocumentTest {
     }
 
     @Test
-    @DisplayName("팀에 지원한 목록을 보여주는가")
+    @DisplayName("팀원 목록을 보여주는가")
     void successGetTeamStaffList() throws Exception {
         //given
         TeamSummary team = new TeamSummary(7L, "어벤저스", IndustryGroup.IT.getName());
