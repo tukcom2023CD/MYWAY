@@ -26,9 +26,9 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.password
+                  key: database.master.password
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.schema
+                  key: database.master.schema

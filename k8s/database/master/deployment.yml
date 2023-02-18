@@ -29,13 +29,13 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: database-secret
-                  key: database.password
+                  key: database.master.password
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
                   name: database-secret
-                  key: database.schema
+                  key: database.master.schema
       volumes:
         - name: mysql-volume
           hostPath:
-            path: /volume/data/crewship
+            path: /volume/data/crewship/master
