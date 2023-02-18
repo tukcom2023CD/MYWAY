@@ -1,0 +1,16 @@
+name: backend -  replace-google-format
+on: [push]
+
+defaults:
+  run:
+    shell: bash
+    working-directory: ./backend
+
+jobs:
+  replace-google-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: '--replace --aosp'

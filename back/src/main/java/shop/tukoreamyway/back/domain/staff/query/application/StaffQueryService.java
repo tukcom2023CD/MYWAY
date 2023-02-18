@@ -1,22 +1,25 @@
 package shop.tukoreamyway.back.domain.staff.query.application;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 import shop.tukoreamyway.back.domain.staff.dto.StaffResponse;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.mapper.StaffMapper;
+import shop.tukoreamyway.back.global.QueryService;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.UUID;
 
-@Service
+import javax.persistence.EntityNotFoundException;
+
+@QueryService
 @RequiredArgsConstructor
 public class StaffQueryService {
     private final StaffQueryRepository staffQueryRepository;
     private final AuthService authService;
     private final StaffMapper staffMapper;
+
     public Staff getEntity(Long id) {
         return staffQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
@@ -41,8 +44,16 @@ public class StaffQueryService {
         return staffs.stream().map(staffMapper::toResponse).toList();
     }
 
-    public Staff getActiveStaff(UUID memberId, Long teamId) {
-        return staffQueryRepository.findByMemberIdAndTeamId(memberId, teamId)
+    public Staff getActiveStaff(Long teamId) {
+        UUID memberId = authService.getLoginUserId();
+        return staffQueryRepository
+                .findByMemberIdAndTeamId(memberId, teamId)
                 .orElseThrow(EntityNotFoundException::new);
+    }
+
+    public List<StaffResponse> findAllMyTeam() {
+        UUID loginUserId = authService.getLoginUserId();
+        List<Staff> staffs = staffQueryRepository.findAllActiveStaffByMemberId(loginUserId);
+        return mapToList(staffs);
     }
 }

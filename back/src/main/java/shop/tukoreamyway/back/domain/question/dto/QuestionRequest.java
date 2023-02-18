@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuestionRequest {
+    private Long QuestionId;
     private String title;
     private String content;
     private Long teamId;

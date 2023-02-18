@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.support.database;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 

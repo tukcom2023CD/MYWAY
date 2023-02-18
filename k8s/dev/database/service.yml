@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: owlforest-mysql-dev
+  name: crewship-mysql-dev
 spec:
   ports:
-    - name: owlforest-mysql-dev
+    - name: crewship-mysql-dev
       port: 3306
       targetPort: 3306
       protocol: TCP
   selector:
-    app: owlforest-mysql-dev
-    component: owlforest-mysql-dev
+    app: crewship-mysql-dev
+    component: crewship-mysql-dev
   clusterIP: None

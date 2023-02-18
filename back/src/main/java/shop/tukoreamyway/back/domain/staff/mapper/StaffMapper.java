@@ -2,6 +2,7 @@ package shop.tukoreamyway.back.domain.staff.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
+
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.staff.dto.StaffResponse;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
