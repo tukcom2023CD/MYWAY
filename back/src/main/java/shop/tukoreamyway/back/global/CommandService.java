@@ -12,5 +12,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Service
 @Transactional
-public @interface CommandService {
-}
+public @interface CommandService {}

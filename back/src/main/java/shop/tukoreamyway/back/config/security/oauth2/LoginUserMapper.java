@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.config.security.oauth2;
 
 import org.springframework.stereotype.Component;
+
 import shop.tukoreamyway.back.domain.member.entity.Member;
 
 import java.util.HashMap;

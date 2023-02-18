@@ -8,18 +8,18 @@ on:
 
 jobs:
   build-back-docker-img:
-    uses: ./.github/workflows/build-back-docker-img.yml
+    uses: ./.github/workflows/build-back-docker-image.yml
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
   build-front-docker-img:
-    uses: ./.github/workflows/build-front-docker-img.yml
+    uses: ./.github/workflows/build-front-docker-image.yml
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       DOCKER_FRONT_IMAGE_NAME: ${{ secrets.DOCKER_FRONT_IMAGE_NAME }}
-  deploy:
+  deploy-front:
     needs: build-front-docker-img
     runs-on: ubuntu-latest
     steps:
@@ -27,14 +27,31 @@ jobs:
       - uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-        # - uses: actions-hub/kubectl@master
-        #   with:
-        #     args: delete svc myway-frontend
-
-        # - uses: actions-hub/kubectl@master
-        #   with:
-        #     args: delete deploy myway-frontend
-
-        # - uses: actions-hub/kubectl@master
+        with:
+          args: delete -k ./k8s/frontend     
+      - uses: actions-hub/kubectl@master
         with:
           args: apply -k ./k8s/frontend
+  deploy-back: 
+    needs: build-back-docker-img
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: apply -k ./k8s/backend
+  deploy-back-dev: 
+    needs: build-back-docker-img
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-hub/kubectl@master
+        env:
+          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+        with:
+          args: delete -k ./k8s/dev/backend
+      - uses: actions-hub/kubectl@master
+        with:
+          args: apply -k ./k8s/dev/backend

@@ -7,9 +7,10 @@ import java.util.UUID;
 
 public interface StaffQueryRepositoryCustom {
     List<Staff> findAllByTeamIdApplyFilter(Long teamId);
+
     List<Staff> findAllByMemberIdInviteFilter(UUID memberId);
 
     List<Staff> findAllActiveStaffByTeamId(Long teamId);
-    List<Staff> findAllActiveStaffByMemberId(UUID memberId);
 
+    List<Staff> findAllActiveStaffByMemberId(UUID memberId);
 }

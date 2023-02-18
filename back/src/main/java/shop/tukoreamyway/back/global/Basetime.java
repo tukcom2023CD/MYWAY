@@ -1,7 +1,8 @@
 package shop.tukoreamyway.back.global;
 
-import javax.persistence.Embeddable;
 import java.time.LocalDateTime;
+
+import javax.persistence.Embeddable;
 
 @Embeddable
 public class Basetime {

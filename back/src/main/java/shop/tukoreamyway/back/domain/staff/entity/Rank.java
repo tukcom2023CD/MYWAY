@@ -11,8 +11,7 @@ public enum Rank {
     SENIOR("주임"),
     ASSISTANT("대리"),
     MANAGER("과장"),
-    DEPUTY_GENERAL_MANAGER("차장")
-    ;
+    DEPUTY_GENERAL_MANAGER("차장");
 
     private final String name;
 }

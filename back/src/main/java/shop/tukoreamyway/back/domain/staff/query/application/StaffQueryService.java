@@ -1,15 +1,17 @@
 package shop.tukoreamyway.back.domain.staff.query.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 import shop.tukoreamyway.back.domain.staff.dto.StaffResponse;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.mapper.StaffMapper;
 import shop.tukoreamyway.back.global.QueryService;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.UUID;
+
+import javax.persistence.EntityNotFoundException;
 
 @QueryService
 @RequiredArgsConstructor
@@ -17,6 +19,7 @@ public class StaffQueryService {
     private final StaffQueryRepository staffQueryRepository;
     private final AuthService authService;
     private final StaffMapper staffMapper;
+
     public Staff getEntity(Long id) {
         return staffQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
@@ -43,7 +46,8 @@ public class StaffQueryService {
 
     public Staff getActiveStaff(Long teamId) {
         UUID memberId = authService.getLoginUserId();
-        return staffQueryRepository.findByMemberIdAndTeamId(memberId, teamId)
+        return staffQueryRepository
+                .findByMemberIdAndTeamId(memberId, teamId)
                 .orElseThrow(EntityNotFoundException::new);
     }
 

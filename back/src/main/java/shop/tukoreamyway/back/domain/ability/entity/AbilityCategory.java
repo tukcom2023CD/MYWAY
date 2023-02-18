@@ -11,7 +11,6 @@ public enum AbilityCategory {
     CRISIS_RESPONSE("위기 대처"),
     DEVELOPMENT("개발"),
     REFACTORING("리펙터링"),
-    PLANNING("기획")
-    ;
+    PLANNING("기획");
     private final String name;
 }
