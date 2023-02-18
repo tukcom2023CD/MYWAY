@@ -3,18 +3,18 @@ package shop.tukoreamyway.back.domain.ability.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
+
+import javax.persistence.*;
 
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Ability {
-    @Id
-    @GeneratedValue
-    private Long id;
+    @Id @GeneratedValue private Long id;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -29,6 +29,7 @@ public class Ability {
 
     @Column(nullable = false)
     private LocalDateTime grantedAt;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private GrantLocation grantLocation;
@@ -37,7 +38,13 @@ public class Ability {
     @JoinColumn(name = "grantor_id", nullable = false)
     private Staff grantor;
 
-    public Ability(AbilityCategory category, Staff receiver, Long point, LocalDateTime grantedAt, GrantLocation grantLocation, Staff grantor) {
+    public Ability(
+            AbilityCategory category,
+            Staff receiver,
+            Long point,
+            LocalDateTime grantedAt,
+            GrantLocation grantLocation,
+            Staff grantor) {
         this.category = category;
         this.receiver = receiver;
         this.point = point;

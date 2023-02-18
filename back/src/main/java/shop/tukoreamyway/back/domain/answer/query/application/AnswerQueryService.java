@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.answer.query.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
 import shop.tukoreamyway.back.global.QueryService;
 

@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.ability.query.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.ability.dto.AbilityResponse;
 import shop.tukoreamyway.back.domain.ability.dto.AbilitySummary;
 import shop.tukoreamyway.back.domain.ability.entity.Ability;
@@ -37,7 +38,8 @@ public class AbilityQueryService {
     private Map<AbilityCategory, Long> generatePoints(List<Ability> abilities) {
         Map<AbilityCategory, Long> points = new EnumMap<>(AbilityCategory.class);
         pointMapInitialize(points);
-        abilities.forEach(ability -> points.compute(ability.getCategory(), (k, v) -> v + ability.getPoint()));
+        abilities.forEach(
+                ability -> points.compute(ability.getCategory(), (k, v) -> v + ability.getPoint()));
         return points;
     }
 
@@ -45,7 +47,7 @@ public class AbilityQueryService {
         Arrays.stream(AbilityCategory.values()).forEach(category -> points.put(category, 0L));
     }
 
-    public  List<AbilityResponse> findAllMyAbility(Long teamId) {
+    public List<AbilityResponse> findAllMyAbility(Long teamId) {
         Long receiverId = staffQueryService.getActiveStaff(teamId).getId();
         List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(receiverId);
         return abilities.stream().map(abilityMapper::toResponse).toList();

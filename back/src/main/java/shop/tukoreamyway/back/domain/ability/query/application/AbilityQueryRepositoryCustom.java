@@ -1,4 +1,3 @@
 package shop.tukoreamyway.back.domain.ability.query.application;
 
-public interface AbilityQueryRepositoryCustom {
-}
+public interface AbilityQueryRepositoryCustom {}

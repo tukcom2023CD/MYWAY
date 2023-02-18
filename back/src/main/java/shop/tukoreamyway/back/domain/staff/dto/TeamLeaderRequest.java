@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import shop.tukoreamyway.back.domain.staff.entity.Rank;
 
 import javax.validation.constraints.NotNull;
@@ -12,9 +13,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeamLeaderRequest {
-    @Setter
-    private String name;
+    @Setter private String name;
 
-    @NotNull
-    private Rank rank;
+    @NotNull private Rank rank;
 }

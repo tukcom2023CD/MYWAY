@@ -3,6 +3,7 @@ package shop.tukoreamyway.back.domain.ability.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 import shop.tukoreamyway.back.domain.ability.entity.GrantLocation;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;

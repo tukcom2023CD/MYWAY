@@ -1,9 +1,11 @@
 package shop.tukoreamyway.back.domain.staff.command.ui;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import shop.tukoreamyway.back.domain.staff.command.application.StaffService;
 import shop.tukoreamyway.back.domain.staff.dto.AcceptApplyRequest;
 import shop.tukoreamyway.back.domain.staff.dto.AcceptInviteRequest;
@@ -31,15 +33,16 @@ public class StaffController {
     }
 
     @PostMapping("{id}/accept-invite")
-    public ResponseEntity<Void> acceptInvite(@PathVariable Long id, @RequestBody @Valid AcceptInviteRequest dto) {
+    public ResponseEntity<Void> acceptInvite(
+            @PathVariable Long id, @RequestBody @Valid AcceptInviteRequest dto) {
         staffService.acceptInvite(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @PostMapping("{id}/accept-apply")
-    public ResponseEntity<Void> acceptApply(@PathVariable Long id, @RequestBody @Valid AcceptApplyRequest dto) {
+    public ResponseEntity<Void> acceptApply(
+            @PathVariable Long id, @RequestBody @Valid AcceptApplyRequest dto) {
         staffService.acceptApply(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
 }

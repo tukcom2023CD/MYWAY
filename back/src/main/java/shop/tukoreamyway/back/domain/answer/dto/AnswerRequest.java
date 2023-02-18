@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class AnswerRequest {
     private String content;
     private Long questionId;
-
 }

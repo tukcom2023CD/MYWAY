@@ -3,6 +3,7 @@ package shop.tukoreamyway.back.support.fixture.team;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+
 import shop.tukoreamyway.back.domain.team.dto.TeamSummary;
 import shop.tukoreamyway.back.domain.team.entity.IndustryGroup;
 
@@ -18,9 +19,9 @@ public enum TeamSummaryFixture {
 
     public TeamSummary toDto() {
         return TeamSummary.builder()
-              .id(id)
-              .name(name)
-              .industryGroup(industryGroup.getName())
-              .build();
+                .id(id)
+                .name(name)
+                .industryGroup(industryGroup.getName())
+                .build();
     }
 }

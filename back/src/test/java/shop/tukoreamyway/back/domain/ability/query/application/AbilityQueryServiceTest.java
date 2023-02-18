@@ -1,14 +1,15 @@
 package shop.tukoreamyway.back.domain.ability.query.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 
 import java.util.EnumMap;
 import java.util.Map;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 class AbilityQueryServiceTest {
 
@@ -18,13 +19,12 @@ class AbilityQueryServiceTest {
         @Test
         @DisplayName("enummap 초기값이 null로 들어가는가")
         void checkEnumMapDefaultValue() throws Exception {
-            //given
+            // given
             Map<AbilityCategory, Integer> maps = new EnumMap<>(AbilityCategory.class);
-            //when
+            // when
             Integer value = maps.get(AbilityCategory.CRISIS_RESPONSE);
-            //then
+            // then
             assertThat(value).isNull();
         }
     }
-
 }

@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.task.command.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.sprint.entity.Sprint;
 import shop.tukoreamyway.back.domain.sprint.query.application.SprintQueryService;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
@@ -15,8 +16,9 @@ import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepository;
 import shop.tukoreamyway.back.global.CommandService;
 import shop.tukoreamyway.back.global.IdResponse;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 @CommandService
 @RequiredArgsConstructor
@@ -28,8 +30,14 @@ public class TaskService {
     private final TaskMapper taskMapper;
 
     public IdResponse<Long> create(TaskRequest dto) {
-        Staff player = Optional.ofNullable(dto.getPlayerId()).map(staffQueryService::getEntity).orElse(null);
-        Staff reviewer = Optional.ofNullable(dto.getReviewerId()).map(staffQueryService::getEntity).orElse(null);
+        Staff player =
+                Optional.ofNullable(dto.getPlayerId())
+                        .map(staffQueryService::getEntity)
+                        .orElse(null);
+        Staff reviewer =
+                Optional.ofNullable(dto.getReviewerId())
+                        .map(staffQueryService::getEntity)
+                        .orElse(null);
         Sprint sprint = sprintQueryService.getEntity(dto.getSprintId());
         Task task = taskRepository.save(taskMapper.toEntity(dto, sprint, player, reviewer));
         return new IdResponse<>(task.getId());
@@ -39,6 +47,7 @@ public class TaskService {
         Staff player = staffQueryService.getEntity(dto.getStaffId());
         getEntity(id).changePlayer(player);
     }
+
     public void bring(Long id) {
         Long teamId = getEntity(id).getSprint().getTeamId();
         getEntity(id).changePlayer(staffQueryService.getActiveStaff(teamId));
@@ -50,7 +59,7 @@ public class TaskService {
 
     public void updateStatus(Long id, UpdateTaskStatusRequest dto) {
         getEntity(id).updateStatus(dto.getStatus());
-        if(dto.getStatus().equals(TaskStatus.COMPLETE)) {
+        if (dto.getStatus().equals(TaskStatus.COMPLETE)) {
             // Ability 부여 TODO
         }
     }

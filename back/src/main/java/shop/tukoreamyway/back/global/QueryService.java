@@ -12,5 +12,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Service
 @Transactional(readOnly = true)
-public @interface QueryService {
-}
+public @interface QueryService {}

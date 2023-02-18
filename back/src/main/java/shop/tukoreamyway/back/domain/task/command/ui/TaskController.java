@@ -1,11 +1,13 @@
 package shop.tukoreamyway.back.domain.task.command.ui;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import shop.tukoreamyway.back.domain.task.dto.AllocateTaskRequest;
+
 import shop.tukoreamyway.back.domain.task.command.application.TaskService;
+import shop.tukoreamyway.back.domain.task.dto.AllocateTaskRequest;
 import shop.tukoreamyway.back.domain.task.dto.TaskRequest;
 import shop.tukoreamyway.back.domain.task.dto.UpdateTaskStatusRequest;
 import shop.tukoreamyway.back.global.IdResponse;
@@ -24,7 +26,8 @@ public class TaskController {
     }
 
     @PostMapping("{id}/allocate")
-    public ResponseEntity<Void> allocateTask(@RequestBody @Valid AllocateTaskRequest dto, @PathVariable Long id) {
+    public ResponseEntity<Void> allocateTask(
+            @RequestBody @Valid AllocateTaskRequest dto, @PathVariable Long id) {
         taskService.allocate(id, dto);
         return ResponseEntity.noContent().build();
     }
@@ -35,11 +38,11 @@ public class TaskController {
         return ResponseEntity.noContent().build();
     }
 
-    //task 상태 변경
+    // task 상태 변경
     @PatchMapping("{id}/status")
-    public ResponseEntity<Void> updateStatus(@PathVariable Long id, @RequestBody @Valid UpdateTaskStatusRequest dto) {
+    public ResponseEntity<Void> updateStatus(
+            @PathVariable Long id, @RequestBody @Valid UpdateTaskStatusRequest dto) {
         taskService.updateStatus(id, dto);
         return ResponseEntity.noContent().build();
     }
-
 }

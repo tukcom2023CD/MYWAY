@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.staff.command.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 import shop.tukoreamyway.back.domain.member.query.application.MemberQueryService;
@@ -16,8 +17,9 @@ import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.domain.team.query.application.TeamQueryService;
 import shop.tukoreamyway.back.global.CommandService;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 @CommandService
 @RequiredArgsConstructor
@@ -63,7 +65,6 @@ public class StaffService {
     }
 
     private Staff getEntity(Long id) {
-        return staffQueryRepository.findById(id)
-                .orElseThrow(EntityNotFoundException::new);
+        return staffQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }
