@@ -4,16 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class QuestionRequest {
-    private Long QuestionId;
-    private String title;
+public class UpdateQuestionRequest {
     private String content;
-    private Long teamId;
-    private List<String> tags = new ArrayList<>();
 }

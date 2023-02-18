@@ -38,4 +38,8 @@ public class Question {
         this.writer = writer;
         this.teamId = teamId;
     }
+
+    public void update(String content) {
+        this.content = content;
+    }
 }
