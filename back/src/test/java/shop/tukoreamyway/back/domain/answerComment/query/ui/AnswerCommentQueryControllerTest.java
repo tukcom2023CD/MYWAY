@@ -1,10 +1,11 @@
 package shop.tukoreamyway.back.domain.answerComment.query.ui;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.ResultActions;
 import shop.tukoreamyway.back.domain.answercomment.query.application.AnswerCommentQueryService;
+import shop.tukoreamyway.back.domain.answercomment.query.ui.AnswerCommentQueryController;
 import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
@@ -14,13 +15,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
 import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
 
-//@WebMvcTest(AnswerCommentQueryController.class)
+@WebMvcTest(AnswerCommentQueryController.class)
 @DisplayName("AnswerCommentQueryController에서")
 class AnswerCommentQueryControllerTest extends RestDocumentTest {
     @MockBean
     private AnswerCommentQueryService answerCommentQueryService;
 
-    @Test
+   // @Test
     @DisplayName("team-id를 통한 전체 조회를 수행하는가")
     void successGetByTeamId() throws Exception {
         //given

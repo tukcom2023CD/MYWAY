@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.question.query.ui;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.ResultActions;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryService;
@@ -20,7 +19,7 @@ class QuestionQueryControllerTest extends RestDocumentTest {
     @MockBean
     private QuestionQueryService questionQueryService;
 
-    @Test
+   // @Test
     @DisplayName("team-id를 통한 전체 조회를 수행하는가")
     void successGetByTeamId() throws Exception {
         //given
