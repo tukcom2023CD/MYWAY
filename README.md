@@ -7,6 +7,7 @@
 ### Deployment Link(Not publish) : https://www.tukoreamyway.shop
 
 ### Alpha Test Link : http://223.255.205.62:30123
+### API docs : http://223.255.205.62:30507/api/v1
 
 # 기술 스택
 ## FRONTEND
