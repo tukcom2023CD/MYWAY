@@ -12,7 +12,7 @@ jib {
         image = "openjdk:17-alpine"
     }
     to {
-        image = "phjppo0918/crew-ship-backend"
+        image = "phjppo0918/crewship-backend"
         tags = ["latest"]
     }
     container {

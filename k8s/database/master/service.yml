@@ -5,7 +5,7 @@ metadata:
 spec:
   ports:
     - name: crewship-mysql-master
-      port: 3307
+      port: 3306
       targetPort: 3306
       protocol: TCP
   selector:

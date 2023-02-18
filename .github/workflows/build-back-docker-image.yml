@@ -9,14 +9,14 @@ on:
 defaults:
    run:
       shell: bash
-      working-directory: ./back
+      working-directory: ./backend
 jobs:
   build-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:

@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myway-frontend
+  name: crewship-frontend
   labels:
-    app: myway-frontend
+    app: crewship-frontend
     tier: front
 spec:
   selector:
     matchLabels:
-      app: myway-frontend
+      app: crewship-frontend
       tier: front
   replicas: 1
   template:
     metadata:
       labels:
-        app: myway-frontend
+        app: crewship-frontend
         tier: front
     spec:
       containers:
-        - name: myway-frontend
-          image: phjppo0918/myway-frontend:latest
+        - name: crewship-frontend
+          image: phjppo0918/crewship-frontend:latest
           imagePullPolicy: Always
           # env:
           #   - name: SERVER_URL

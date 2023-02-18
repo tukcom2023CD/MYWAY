@@ -1,11 +1,10 @@
-name: reformat google java convenction
-on: 
-  workflow_call:
+name: backend -  replace-google-format
+on: [push]
 
 defaults:
   run:
     shell: bash
-    working-directory: ./back
+    working-directory: ./backend
 
 jobs:
   replace-google-format:
