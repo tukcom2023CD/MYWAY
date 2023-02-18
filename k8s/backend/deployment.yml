@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: chewship-backend
+  name: crewship-backend
 spec:
   selector:
     matchLabels:
-      app: chewship-backend
-      component: chewship-backend
+      app: crewship-backend
+      component: crewship-backend
       tier: back
   replicas: 1
   template:
