@@ -1,21 +1,10 @@
 package shop.tukoreamyway.back.domain.staff.query.ui;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
-import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.ResultActions;
-
 import shop.tukoreamyway.back.domain.member.dto.MemberSummary;
 import shop.tukoreamyway.back.domain.staff.dto.StaffResponse;
 import shop.tukoreamyway.back.domain.staff.entity.Rank;
@@ -26,6 +15,15 @@ import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 
 import java.util.List;
 import java.util.UUID;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
+import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
 
 @WebMvcTest(StaffQueryController.class)
 @DisplayName("StaffQueryController에서")
@@ -130,7 +128,7 @@ class StaffQueryControllerTest extends RestDocumentTest {
     void successGetTeamStaffList() throws Exception {
         // given
         TeamSummary team = new TeamSummary(7L, "어벤저스", IndustryGroup.IT.getName());
-        when(staffQueryService.findAllApplyByTeamId(any()))
+        when(staffQueryService.findAllTeamStaff(any()))
                 .thenReturn(
                         List.of(
                                 new StaffResponse(
@@ -176,7 +174,7 @@ class StaffQueryControllerTest extends RestDocumentTest {
     void successGetMyTeam() throws Exception {
         // given
         MemberSummary member = new MemberSummary(UUID.randomUUID(), "이망치");
-        when(staffQueryService.findAllInvite())
+        when(staffQueryService.findAllMyTeam())
                 .thenReturn(
                         List.of(
                                 new StaffResponse(

@@ -1,9 +1,7 @@
 package shop.tukoreamyway.back.global;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -11,11 +9,9 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import java.io.UnsupportedEncodingException;
+import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Component
 @RequiredArgsConstructor
@@ -36,11 +32,11 @@ public class RequestParamArgumentResolver implements HandlerMethodArgumentResolv
             throws Exception {
 
         final HttpServletRequest request = (HttpServletRequest) nativeWebRequest.getNativeRequest();
-        final String json = qs2json(request.getQueryString());
+        final String json = parseToJson(request.getQueryString());
         return mapper.readValue(json, methodParameter.getParameterType());
     }
 
-    private String qs2json(String a) throws UnsupportedEncodingException {
+    private String parseToJson(String a) {
         if (a == null) {
             return "{}";
         }
