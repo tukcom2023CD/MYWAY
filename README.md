@@ -1,7 +1,8 @@
-# MSA 기반 Agile 성과 분석 시스템 
+# CREW-SHIP
+### Agile Performance Analysis Service
 
 # 서비스 개요
-개요 머라쓰지 이게 첫마디가 중요한디
+애자일 방법론을 사용하는 기업을 대상으로 하는 성과 분석 시스템
 
 # Service Link
 ### Deployment Link(Not publish) : https://www.tukoreamyway.shop
