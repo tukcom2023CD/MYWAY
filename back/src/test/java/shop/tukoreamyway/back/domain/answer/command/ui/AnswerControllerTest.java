@@ -29,7 +29,7 @@ class AnswerControllerTest extends RestDocumentTest {
     @DisplayName("생성을 수행하는가")
     void successCreate() throws Exception {
         //given
-        AnswerRequest req = new AnswerRequest("그거 그렇게 하는거 아닌데", Long.valueOf(1));
+        AnswerRequest req = new AnswerRequest("그거 그렇게 하는거 아닌데", 1L);
         ResultActions perform = mockMvc.perform(post("/answers")
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding(StandardCharsets.UTF_8)
