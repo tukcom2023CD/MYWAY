@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function CheckList() {
+  const [isChecked, setIsChecked] = useState(false);
+  const checking = {
+    color: 'black',
+  };
+
   return (
     <div className='flex flex-col justify-center items-center mt-[30px] bg-white rounded-[30px] w-[1024px] h-[250px]'>
       <div className='flex justify-center items-center w-[960px] h-[50px] p-3 mb-3'>
