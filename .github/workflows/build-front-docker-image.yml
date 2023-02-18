@@ -12,7 +12,7 @@ on:
 defaults:
   run:
     shell: bash
-    working-directory: ./frontend
+    working-directory: ./front
 
 jobs:
   build-docker-image:
