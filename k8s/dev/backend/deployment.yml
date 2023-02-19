@@ -25,23 +25,40 @@ spec:
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: dev
-            - name: DATABASE_USERNAME
+            - name: DATABASE_MASTER_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.username
-            - name: DATABASE_PASSWORD
+                  key: database.master.username
+            - name: DATABASE_MASTER_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.password
-            - name: DATABASE_URL
-              value: owlforest-mysql-dev:3306
-            - name: DATABASE_SCHEMA
+                  key: database.master.password
+            - name: DATABASE_MASTER_URL
+              value: crewship-mysql-dev:3306
+            - name: DATABASE_MASTER_SCHEMA
               valueFrom:
                 secretKeyRef:
                   name: crewship-database-secret
-                  key: database.schema
+                  key: database.master.schema
+            - name: DATABASE_SLAVE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: crewship-database-secret
+                  key: database.master.username
+            - name: DATABASE_SLAVE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: crewship-database-secret
+                  key: database.master.password
+            - name: DATABASE_SLAVE_URL
+              value: crewship-mysql-dev:3306
+            - name: DATABASE_SLAVE_SCHEMA
+              valueFrom:
+                secretKeyRef:
+                  name: crewship-database-secret
+                  key: database.master.schema
             - name: REDIS_HOST
               valueFrom:
                 secretKeyRef:
@@ -52,7 +69,6 @@ spec:
                 secretKeyRef:
                   name: crewship-database-secret
                   key: redis.port
-
             - name: GOOGLE_CLIENT_ID
               valueFrom:
                 secretKeyRef:

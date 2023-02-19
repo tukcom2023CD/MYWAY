@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: owlforest-mysql-dev
+  name: crewship-mysql-dev
 spec:
   selector:
     matchLabels:
-      app: owlforest-mysql-dev
-      component: owlforest-mysql-dev
+      app: crewship-mysql-dev
+      component: crewship-mysql-dev
       tier: back
   replicas: 1
   template:
     metadata:
       labels:
-        app: owlforest-mysql-dev
-        component: owlforest-mysql-dev
+        app: crewship-mysql-dev
+        component: crewship-mysql-dev
         tier: back
     spec:
       containers:
-        - name: owlforest-mysql-dev
+        - name: crewship-mysql-dev
           image: mysql:latest
           ports:
             - containerPort: 3306
@@ -25,10 +25,10 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: owl-forest-database-secret
-                  key: database.password
+                  name: crewship-database-secret
+                  key: database.master.password
             - name: MYSQL_DATABASE
               valueFrom:
                 secretKeyRef:
-                  name: owl-forest-database-secret
-                  key: database.schema
+                  name: crewship-database-secret
+                  key: database.master.schema

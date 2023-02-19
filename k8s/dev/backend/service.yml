@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: owl-forest-backend-dev
+  name: crewship-backend-dev
 spec:
   type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
       protocol: TCP
-      nodePort: 30505
+      nodePort: 30507
   selector:
-    app: owl-forest-backend-dev
-    component: owl-forest-backend-dev
+    app: crewship-backend-dev
+    component: crewship-backend-dev
     tier: back

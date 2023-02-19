@@ -130,7 +130,7 @@ class StaffQueryControllerTest extends RestDocumentTest {
     void successGetTeamStaffList() throws Exception {
         // given
         TeamSummary team = new TeamSummary(7L, "어벤저스", IndustryGroup.IT.getName());
-        when(staffQueryService.findAllApplyByTeamId(any()))
+        when(staffQueryService.findAllTeamStaff(any()))
                 .thenReturn(
                         List.of(
                                 new StaffResponse(
@@ -176,7 +176,7 @@ class StaffQueryControllerTest extends RestDocumentTest {
     void successGetMyTeam() throws Exception {
         // given
         MemberSummary member = new MemberSummary(UUID.randomUUID(), "이망치");
-        when(staffQueryService.findAllInvite())
+        when(staffQueryService.findAllMyTeam())
                 .thenReturn(
                         List.of(
                                 new StaffResponse(

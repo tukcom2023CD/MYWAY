@@ -1,5 +1,6 @@
 package shop.tukoreamyway.back.domain.task.query.ui;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
@@ -39,7 +40,7 @@ class TaskQueryControllerTest extends RestDocumentTest {
         // given
         TaskSearchCondition condition =
                 new TaskSearchCondition(TaskStatus.PROGRESS, AbilityCategory.DEVELOPMENT, 1L, 2L);
-        when(taskQueryService.findAllByCondition(condition))
+        when(taskQueryService.findAllByCondition(any()))
                 .thenReturn(
                         List.of(
                                 TaskSummaryFixture.SAMPLE1.toDto(),
@@ -72,7 +73,7 @@ class TaskQueryControllerTest extends RestDocumentTest {
         // given
         MyTaskCondition condition =
                 new MyTaskCondition(AbilityCategory.DEVELOPMENT, TaskStatus.PROGRESS, 1L, 2L);
-        when(taskQueryService.findAllMyTask(condition))
+        when(taskQueryService.findAllMyTask(any()))
                 .thenReturn(
                         List.of(
                                 TaskSummaryFixture.SAMPLE1.toDto(),

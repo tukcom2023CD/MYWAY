@@ -62,7 +62,7 @@ public abstract class RestDocumentTest {
                                         .uris()
                                         .withScheme("http")
                                         .withHost("223.255.205.62")
-                                        .withPort(30505))
+                                        .withPort(30507))
                         .apply(springSecurity(new MockSecurityFilter()))
                         .addFilter(new CharacterEncodingFilter("UTF-8", true))
                         .alwaysDo(print())
