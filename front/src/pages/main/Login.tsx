@@ -4,6 +4,7 @@ import Naver from '../../images/naverIcon.png';
 import Google from '../../images/googleIcon.png';
 
 function Login() {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   return (
     <div className='flex flex-col justify-center items-center m-auto w-[1440px] h-[960px] bg-[#31373b]'>
       <div className='flex justify-center items-center mb-[600px] w-[500px] h-[150px] text-[50pt] font-bold text-white'>
