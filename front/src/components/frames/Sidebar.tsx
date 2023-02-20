@@ -96,6 +96,20 @@ function Sidebar() {
                   <span>Graph</span>
                 </NavLink>
               </li>
+              <li className='rounded-sm'>
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/Login'
+                >
+                  <img
+                    className='w-[24px] h-[24px]'
+                    alt='dashboardicon'
+                    src={graph}
+                  />
+                  <span>Login</span>
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
