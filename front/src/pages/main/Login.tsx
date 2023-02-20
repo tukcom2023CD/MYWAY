@@ -23,13 +23,13 @@ function Login() {
           <div className='flex justify-between items-center w-[400px] h-[100px] '>
             <NavLink
               className='flex items-center p-2 space-x-3 rounded-xl'
-              to='/'
+              to={NAVER_AUTH_URL}
             >
               <img className='w-[70px] h-[70px] ' alt='naverIcon' src={Naver} />
             </NavLink>
             <NavLink
               className='flex items-center p-2 space-x-3 rounded-xl'
-              to='/'
+              to={GOOGLE_AUTH_URL}
             >
               <img
                 className='w-[70px] h-[70px] '
@@ -39,7 +39,7 @@ function Login() {
             </NavLink>
             <NavLink
               className='flex items-center p-2 space-x-3 rounded-xl'
-              to='/'
+              to={KAKAO_AUTH_URL}
             >
               <img className='w-[70px] h-[70px] ' alt='kakaoIcon' src={Kakao} />
             </NavLink>
