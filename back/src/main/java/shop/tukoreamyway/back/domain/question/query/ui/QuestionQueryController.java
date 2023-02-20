@@ -1,8 +1,10 @@
 package shop.tukoreamyway.back.domain.question.query.ui;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryService;
 
@@ -22,8 +24,7 @@ public class QuestionQueryController {
     }
 
     @GetMapping("/{questionId}")
-    public ResponseEntity<Optional<Question>> getQuestionById(
-            @PathVariable Long questionId) {
+    public ResponseEntity<Optional<Question>> getQuestionById(@PathVariable Long questionId) {
         return ResponseEntity.ok(questionQueryService.getQuestionById(questionId));
     }
 }
