@@ -24,7 +24,10 @@ class QuestionQueryControllerTest extends RestDocumentTest {
         // Given
         Long questionId = 1L;
 
-        ResultActions perform = mockMvc.perform(RestDocumentationRequestBuilders.get("/questions/{questionId}", questionId));
+        ResultActions perform =
+                mockMvc.perform(
+                        RestDocumentationRequestBuilders.get(
+                                "/questions/{questionId}", questionId));
 
         // then
         perform.andExpect(status().isOk());

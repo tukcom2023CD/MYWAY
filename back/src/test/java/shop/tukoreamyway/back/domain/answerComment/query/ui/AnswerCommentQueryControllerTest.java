@@ -8,6 +8,4 @@ import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 
 @WebMvcTest(AnswerCommentQueryController.class)
 @DisplayName("AnswerCommentQueryController에서")
-class AnswerCommentQueryControllerTest extends RestDocumentTest {
-    
-}
+class AnswerCommentQueryControllerTest extends RestDocumentTest {}

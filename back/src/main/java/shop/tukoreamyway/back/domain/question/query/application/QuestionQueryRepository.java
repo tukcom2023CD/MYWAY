@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface QuestionQueryRepository {
     List<Question> findAllByStaffId(Long staffId);
+
     Optional<Question> findById(Long id);
 }

@@ -1,8 +1,10 @@
 package shop.tukoreamyway.back.domain.answer.query.ui;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import shop.tukoreamyway.back.domain.answer.dto.AnswerResponse;
 import shop.tukoreamyway.back.domain.answer.query.application.AnswerQueryService;
 
@@ -15,14 +17,12 @@ public class AnswerQueryController {
     private final AnswerQueryService answerQueryService;
 
     @GetMapping
-    public ResponseEntity<List<AnswerResponse>> findAllByQuestionId(
-            @RequestParam Long questionId) {
+    public ResponseEntity<List<AnswerResponse>> findAllByQuestionId(@RequestParam Long questionId) {
         return ResponseEntity.ok(answerQueryService.findAllByQuestionId(questionId));
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AnswerResponse> findAnswerByQuestionId(
-            @PathVariable Long id) {
+    public ResponseEntity<AnswerResponse> findAnswerByQuestionId(@PathVariable Long id) {
         return ResponseEntity.ok(answerQueryService.findAnswerById(id));
     }
 }
