@@ -19,8 +19,8 @@ public class QuestionQueryService {
         return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<QuestionResponse> findAllQuestions(Long memberId) {
-        List<Question> questions = questionQueryRepository.findAll(memberId);
+    public List<QuestionResponse> findAllByStaffId(Long staffId) {
+        List<Question> questions = questionQueryRepository.findAllByStaffId(staffId);
         return mapToList(questions);
     }
 

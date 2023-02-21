@@ -14,5 +14,6 @@ public interface QuestionMapper {
     @Mapping(target = "tags", ignore = true)
     Question toEntity(QuestionRequest dto, Team team, Staff writer);
 
+    @Mapping(target = "tags", ignore = true)
     QuestionResponse toResponse(Question entity);
 }

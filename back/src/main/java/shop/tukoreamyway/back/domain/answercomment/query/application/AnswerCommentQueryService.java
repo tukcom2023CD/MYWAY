@@ -19,8 +19,8 @@ public class AnswerCommentQueryService {
         return answerCommentQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<AnswerCommentResponse> findAllAnswerComments(Long answerId) {
-        List<AnswerComment> answerComments = answerCommentQueryRepository.findAll(answerId);
+    public List<AnswerCommentResponse> findAllByAnswerId(Long answerId) {
+        List<AnswerComment> answerComments = answerCommentQueryRepository.findAllByAnswerId(answerId);
         return mapToList(answerComments);
     }
 

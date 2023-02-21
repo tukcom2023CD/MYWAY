@@ -16,14 +16,14 @@ public class AnswerCommentQueryController {
     private final AnswerCommentQueryService answerCommentQueryService;
 
     @GetMapping
-    public ResponseEntity<List<AnswerCommentResponse>> findAllAnswerComments (
-            @RequestParam(required = false) Long memberId) {
-        return ResponseEntity.ok(answerCommentQueryService.findAllAnswerComments(memberId));
+    public ResponseEntity<List<AnswerCommentResponse>> findAllByAnswerId(
+            @RequestParam Long answerId) {
+        return ResponseEntity.ok(answerCommentQueryService.findAllByAnswerId(answerId));
     }
 
-    @GetMapping("{answer-commentsId}")
+    @GetMapping("{id}")
     public ResponseEntity<AnswerCommentResponse> findAnswerCommentById(
-            @PathVariable Long questionId) {
-        return ResponseEntity.ok(answerCommentQueryService.findAnswerCommentById(questionId));
+            @PathVariable Long id) {
+        return ResponseEntity.ok(answerCommentQueryService.findAnswerCommentById(id));
     }
 }

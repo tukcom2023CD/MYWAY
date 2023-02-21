@@ -6,6 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AnswerQueryRepository {
-    List<Answer> findAll(Long id);
+    List<Answer> findAllByQuestionId(Long questionId);
     Optional<Answer> findById(Long id);
 }

@@ -6,6 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface AnswerCommentQueryRepository {
-    List<AnswerComment> findAll(Long id);
+    List<AnswerComment> findAllByAnswerId(Long answerId);
     Optional<AnswerComment> findById(Long id);
 }

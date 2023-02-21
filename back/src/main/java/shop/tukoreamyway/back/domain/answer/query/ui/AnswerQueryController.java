@@ -15,14 +15,14 @@ public class AnswerQueryController {
     private final AnswerQueryService answerQueryService;
 
     @GetMapping
-    public ResponseEntity<List<AnswerResponse>> getAllAnswers(
-            @RequestParam(required = false) Long questionId) {
-        return ResponseEntity.ok(answerQueryService.findAllAnswers(questionId));
+    public ResponseEntity<List<AnswerResponse>> findAllByQuestionId(
+            @RequestParam Long questionId) {
+        return ResponseEntity.ok(answerQueryService.findAllByQuestionId(questionId));
     }
 
-    @GetMapping("{answerId}")
-    public ResponseEntity<AnswerResponse> getAnswerById(
-            @PathVariable Long answerId) {
-        return ResponseEntity.ok(answerQueryService.findAnswerById(answerId));
+    @GetMapping("{id}")
+    public ResponseEntity<AnswerResponse> findAnswerByQuestionId(
+            @PathVariable Long id) {
+        return ResponseEntity.ok(answerQueryService.findAnswerById(id));
     }
 }
