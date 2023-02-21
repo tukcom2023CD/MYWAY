@@ -37,6 +37,6 @@ public class QuestionService {
     }
 
     private Question getEntity(Long id) {
-        return questionQueryRepository.findQuestionById(id).orElseThrow(EntityNotFoundException::new);
+        return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

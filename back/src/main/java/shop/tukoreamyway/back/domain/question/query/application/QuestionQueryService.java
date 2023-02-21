@@ -6,9 +6,8 @@ import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.global.QueryService;
 
-import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @QueryService
 @RequiredArgsConstructor
@@ -17,11 +16,11 @@ public class QuestionQueryService {
     private final QuestionMapper questionMapper;
 
     public Question getEntity(Long id) {
-        return questionQueryRepository.findQuestionById(id).orElseThrow(EntityNotFoundException::new);
+        return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<QuestionResponse> findAllQuestion(Long memberId) {
-        List<Question> questions = questionQueryRepository.findAllQuestions(memberId);
+    public List<QuestionResponse> findAllQuestions(Long memberId) {
+        List<Question> questions = questionQueryRepository.findAll(memberId);
         return mapToList(questions);
     }
 
