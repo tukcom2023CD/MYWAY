@@ -22,7 +22,7 @@ class QuestionQueryControllerTest extends RestDocumentTest {
         // Given
         Long questionId = 1L;
 
-        ResultActions perform = mockMvc.perform(RestDocumentationRequestBuilders.get("/api/questions/{questionId}", questionId));
+        ResultActions perform = mockMvc.perform(RestDocumentationRequestBuilders.get("/questions/{questionId}", questionId));
 
 
         // then
@@ -36,5 +36,4 @@ class QuestionQueryControllerTest extends RestDocumentTest {
                                 getDocumentRequest(),
                                 getDocumentResponse()));
     }
-
 }

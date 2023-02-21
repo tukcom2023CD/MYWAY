@@ -1,0 +1,19 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+
+== Answer command
+=== answer 생성
+operation::create answer[snippets='http-request,http-response']
+
+=== answer 수정
+operation::update answer[snippets='http-request,http-response']
+
+== Answer query
+=== question id를 통한 조회
+operation::get answer list by question id[snippets='http-request,http-response']
+
+=== answer id를 통한 상세조회
+operation::get answer by answer id[snippets='http-request,http-response']

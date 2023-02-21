@@ -1,27 +1,35 @@
 package shop.tukoreamyway.back.domain.question.query.application;
 
 import lombok.RequiredArgsConstructor;
+import shop.tukoreamyway.back.domain.question.dto.QuestionResponse;
 import shop.tukoreamyway.back.domain.question.entity.Question;
+import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.global.QueryService;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
-import java.util.Optional;
 
 @QueryService
 @RequiredArgsConstructor
 public class QuestionQueryService {
     private final QuestionQueryRepository questionQueryRepository;
+    private final QuestionMapper questionMapper;
 
     public Question getEntity(Long id) {
-        return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+        return questionQueryRepository.findQuestionById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<Question> getAllQuestion(Long memberId) {
-        return questionQueryRepository.findAll(memberId);
+    public List<QuestionResponse> findAllQuestion(Long memberId) {
+        List<Question> questions = questionQueryRepository.findAllQuestions(memberId);
+        return mapToList(questions);
     }
 
-    public Optional<Question> getQuestionById(Long questionId) {
-        return questionQueryRepository.findById(questionId);
+    public QuestionResponse findQuestionById(Long questionId) {
+        Question question = getEntity(questionId);
+        return questionMapper.toResponse(question);
+    }
+
+    private List<QuestionResponse> mapToList(List<Question> questions) {
+        return questions.stream().map(questionMapper::toResponse).toList();
     }
 }
