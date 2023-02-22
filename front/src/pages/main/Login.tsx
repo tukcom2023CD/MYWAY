@@ -1,4 +1,5 @@
 import React from 'react';
+import api from '../../api/api';
 import Kakao from '../../images/kakaoIcon.png';
 import Naver from '../../images/naverIcon.png';
 import Google from '../../images/googleIcon.png';
@@ -8,6 +9,24 @@ function Login() {
   const NAVER_AUTH_URL = `${baseUrl}auth/login/naver`;
   const GOOGLE_AUTH_URL = `${baseUrl}auth/login/google`;
   const KAKAO_AUTH_URL = `${baseUrl}auth/login/kakao`;
+
+  const apiNaver = () => {
+    api.get(`/auth/login/naver`).then(() => {
+      window.location.replace(NAVER_AUTH_URL);
+    });
+  };
+
+  const apiGoogle = () => {
+    api.get(`/auth/login/google`).then(() => {
+      window.location.replace(GOOGLE_AUTH_URL);
+    });
+  };
+
+  const apiKakao = () => {
+    api.get(`/auth/login/kakao`).then(() => {
+      window.location.replace(KAKAO_AUTH_URL);
+    });
+  };
 
   return (
     <div className='flex flex-col justify-center items-center m-auto w-[1440px] h-[960px] bg-[#31373b]'>
@@ -20,19 +39,19 @@ function Login() {
             SNS로 간편하게 시작하세요
           </p>
           <div className='flex justify-between items-center w-[400px] h-[100px] '>
-            <a href={NAVER_AUTH_URL}>
+            <button type='button' onClick={apiNaver}>
               <img className='w-[70px] h-[70px] ' alt='naverIcon' src={Naver} />
-            </a>
-            <a href={GOOGLE_AUTH_URL}>
+            </button>
+            <button type='button' onClick={apiGoogle}>
               <img
                 className='w-[70px] h-[70px] '
                 alt='googleIcon'
                 src={Google}
               />
-            </a>
-            <a href={KAKAO_AUTH_URL}>
+            </button>
+            <button type='button' onClick={apiKakao}>
               <img className='w-[70px] h-[70px] ' alt='kakaoIcon' src={Kakao} />
-            </a>
+            </button>
           </div>
         </div>
       </div>
