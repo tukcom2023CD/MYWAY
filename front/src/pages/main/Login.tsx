@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../../api/api';
+import axios from 'axios';
 import Kakao from '../../images/kakaoIcon.png';
 import Naver from '../../images/naverIcon.png';
 import Google from '../../images/googleIcon.png';
