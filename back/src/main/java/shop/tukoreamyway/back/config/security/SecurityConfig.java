@@ -2,6 +2,7 @@ package shop.tukoreamyway.back.config.security;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -31,7 +32,8 @@ public class SecurityConfig {
     private final OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuthUserService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AuthenticationSuccessHandler successHandler;
-
+    @Value("${client.url}")
+    private String clientUrl;
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -88,11 +90,11 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.addAllowedOrigin("*");
+        configuration.addAllowedOrigin(clientUrl);
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
         configuration.setAllowCredentials(true);
-
+        
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
