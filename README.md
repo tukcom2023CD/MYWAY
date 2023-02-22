@@ -10,6 +10,9 @@
 ### Alpha Test Link : http://223.255.205.62:30123
 ### API docs : http://223.255.205.62:30507/api/v1
 
+# 시스템 구성도
+![image](https://user-images.githubusercontent.com/74086829/220677663-74a23d25-a2ab-4c5f-96c6-7ec0d99ad5fe.png)
+
 # 기술 스택
 ## FRONTEND
 <img width="851" alt="image" src="https://user-images.githubusercontent.com/55674648/210301227-8725526b-3ce7-4430-8766-d32569ff1769.png">
