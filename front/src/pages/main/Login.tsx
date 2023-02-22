@@ -50,6 +50,7 @@ function Login() {
                 src={Google}
               />
             </button>
+            <a href='/auth/login/kakao'>jjjjj</a>
             <button type='button' onClick={apiKakao}>
               <img className='w-[70px] h-[70px] ' alt='kakaoIcon' src={Kakao} />
             </button>
