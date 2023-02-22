@@ -34,6 +34,6 @@ public class OAuth2AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHand
             throws IOException, ServletException {
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         jwtSetupService.addJwtTokensInCookie(response, loginUser);
-        getRedirectStrategy().sendRedirect(request, response, clientUrl);
+        response.sendRedirect(clientUrl);
     }
 }
