@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
 import Main from './pages/main/MainPage';
 import Login from './pages/main/Login';
 import Register from './pages/main/Register';
@@ -7,6 +8,9 @@ import Project from './pages/project/Project';
 import DailyScrum from './pages/scrum/DailyScrum';
 import Members from './pages/member/MemberPage';
 import Graph from './pages/graph/Graph';
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+axios.defaults.withCredentials = true;
 
 function App() {
   return (

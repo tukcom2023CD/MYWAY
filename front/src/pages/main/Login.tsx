@@ -11,19 +11,19 @@ function Login() {
   const KAKAO_AUTH_URL = `${baseUrl}auth/login/kakao`;
 
   const apiNaver = () => {
-    api.get(`/auth/login/naver`).then(() => {
+    axios.get(`/auth/login/naver`).then(() => {
       window.location.replace(NAVER_AUTH_URL);
     });
   };
 
   const apiGoogle = () => {
-    api.get(`/auth/login/google`).then(() => {
+    axios.get(`/auth/login/google`).then(() => {
       window.location.replace(GOOGLE_AUTH_URL);
     });
   };
 
   const apiKakao = () => {
-    api.get(`/auth/login/kakao`).then(() => {
+    axios.get(`/auth/login/kakao`).then(() => {
       window.location.replace(KAKAO_AUTH_URL);
     });
   };
