@@ -8,7 +8,6 @@ import Project from './pages/project/Project';
 import DailyScrum from './pages/scrum/DailyScrum';
 import Members from './pages/member/MemberPage';
 import Graph from './pages/graph/Graph';
-import axios from "axios";
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
