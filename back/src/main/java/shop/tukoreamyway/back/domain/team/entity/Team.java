@@ -4,14 +4,19 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import lombok.Setter;
 import shop.tukoreamyway.back.domain.member.entity.Member;
+import shop.tukoreamyway.back.global.basetime.AuditListener;
+import shop.tukoreamyway.back.global.basetime.Auditable;
+import shop.tukoreamyway.back.global.basetime.BaseTime;
 
 import javax.persistence.*;
 
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Team {
+@EntityListeners(AuditListener.class)
+public class Team implements Auditable {
     @Id @GeneratedValue private Long id;
 
     @Column(nullable = false, unique = true)
@@ -24,6 +29,11 @@ public class Team {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private IndustryGroup industryGroup;
+
+    @Setter
+    @Embedded
+    @Column(nullable = false)
+    private BaseTime baseTime;
 
     public Team(String name, Member leader, IndustryGroup industryGroup) {
         this.name = name;
