@@ -3,8 +3,8 @@ package shop.tukoreamyway.back.domain.team.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import lombok.Setter;
+
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.global.basetime.AuditListener;
 import shop.tukoreamyway.back.global.basetime.Auditable;

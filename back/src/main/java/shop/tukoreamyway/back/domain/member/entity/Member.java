@@ -1,16 +1,19 @@
 package shop.tukoreamyway.back.domain.member.entity;
 
 import lombok.*;
+
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 import shop.tukoreamyway.back.global.basetime.AuditListener;
 import shop.tukoreamyway.back.global.basetime.Auditable;
 import shop.tukoreamyway.back.global.basetime.BaseTime;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import javax.persistence.*;
 
 @Getter
 @Entity
@@ -31,6 +34,7 @@ public class Member implements Auditable {
     private List<Role> role = new ArrayList<>(List.of(Role.ROLE_USER));
 
     @Embedded private OAuth2Info oAuth2Info;
+
     @Setter
     @Embedded
     @Column(nullable = false)

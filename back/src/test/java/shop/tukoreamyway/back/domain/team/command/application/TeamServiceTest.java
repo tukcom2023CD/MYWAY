@@ -1,9 +1,12 @@
 package shop.tukoreamyway.back.domain.team.command.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import shop.tukoreamyway.back.domain.team.dto.TeamRequest;
 import shop.tukoreamyway.back.domain.team.entity.IndustryGroup;
 import shop.tukoreamyway.back.domain.team.entity.Team;
@@ -13,8 +16,6 @@ import shop.tukoreamyway.back.support.LoginTest;
 import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
 
 import java.time.LocalDateTime;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @EnableDataBaseTest
 @DisplayName("TeamService 에서")
@@ -49,8 +50,9 @@ class TeamServiceTest extends LoginTest {
             IdResponse<Long> res = teamService.create(req);
             Team team = teamQueryRepository.findById(res.getId()).get();
 
-            //then
-            assertThat(team.getBaseTime().getCreatedAt().getDayOfMonth()).isEqualTo(now.getDayOfMonth());
+            // then
+            assertThat(team.getBaseTime().getCreatedAt().getDayOfMonth())
+                    .isEqualTo(now.getDayOfMonth());
         }
     }
 }
