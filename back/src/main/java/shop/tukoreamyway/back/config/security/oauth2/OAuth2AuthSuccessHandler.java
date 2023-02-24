@@ -2,6 +2,7 @@ package shop.tukoreamyway.back.config.security.oauth2;
 
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -24,12 +25,15 @@ import javax.servlet.http.HttpServletResponse;
 public class OAuth2AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final JwtSetupService jwtSetupService;
 
+    @Value("${client.url}")
+    private String clientUrl;
+
     @Override
     public void onAuthenticationSuccess(
             HttpServletRequest request, HttpServletResponse response, Authentication authentication)
             throws IOException, ServletException {
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         jwtSetupService.addJwtTokensInCookie(response, loginUser);
-        super.onAuthenticationSuccess(request, response, authentication);
+        getRedirectStrategy().sendRedirect(request, response, clientUrl);
     }
 }
