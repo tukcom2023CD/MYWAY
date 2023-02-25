@@ -1,10 +1,8 @@
 package shop.tukoreamyway.back.domain.staff.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
-import shop.tukoreamyway.back.domain.member.query.application.MemberQueryService;
 import shop.tukoreamyway.back.domain.staff.dto.AcceptApplyRequest;
 import shop.tukoreamyway.back.domain.staff.dto.AcceptInviteRequest;
 import shop.tukoreamyway.back.domain.staff.dto.ApplyRequest;
@@ -14,12 +12,12 @@ import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.mapper.StaffMapper;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepository;
 import shop.tukoreamyway.back.domain.team.entity.Team;
-import shop.tukoreamyway.back.domain.team.query.application.TeamQueryService;
-import shop.tukoreamyway.back.global.CommandService;
-
-import java.util.Optional;
+import shop.tukoreamyway.back.global.service.CommandService;
+import shop.tukoreamyway.back.global.service.EntityQueryService;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
+import java.util.UUID;
 
 @CommandService
 @RequiredArgsConstructor
@@ -28,8 +26,8 @@ public class StaffService {
     private final StaffQueryRepository staffQueryRepository;
     private final StaffMapper staffMapper;
     private final AuthService authService;
-    private final TeamQueryService teamQueryService;
-    private final MemberQueryService memberQueryService;
+    private final EntityQueryService<Team, Long> teamEntityQueryService;
+    private final EntityQueryService<Member, UUID> memberEntityQueryService;
 
     public void createProjectLeaderStaff(final Team team) {
         Member loginUser = authService.getLoginUserEntity();
@@ -41,16 +39,16 @@ public class StaffService {
     }
 
     public void invite(InviteRequest dto) {
-        Team team = teamQueryService.getEntity(dto.getTeamId());
+        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
         dto.getMembers().stream()
-                .map(memberQueryService::getEntity)
+                .map(memberEntityQueryService::getEntity)
                 .map(member -> new Staff(team, member))
                 .forEach(staffRepository::save);
     }
 
     public void apply(ApplyRequest dto) {
         Member loginUser = authService.getLoginUserEntity();
-        Team team = teamQueryService.getEntity(dto.getTeamId());
+        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
         staffRepository.save(new Staff(team, loginUser));
     }
 

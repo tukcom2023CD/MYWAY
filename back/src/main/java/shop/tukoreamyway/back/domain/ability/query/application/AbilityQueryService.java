@@ -9,7 +9,7 @@ import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 import shop.tukoreamyway.back.domain.ability.mapper.AbilityMapper;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
-import shop.tukoreamyway.back.global.QueryService;
+import shop.tukoreamyway.back.global.service.QueryService;
 
 import java.util.Arrays;
 import java.util.EnumMap;

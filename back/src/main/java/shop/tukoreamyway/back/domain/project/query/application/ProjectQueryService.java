@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 
 import shop.tukoreamyway.back.domain.project.dto.ProjectResponse;
 import shop.tukoreamyway.back.domain.project.mapper.ProjectMapper;
-import shop.tukoreamyway.back.global.QueryService;
+import shop.tukoreamyway.back.global.service.QueryService;
 
 import java.util.List;
 

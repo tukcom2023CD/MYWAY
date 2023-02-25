@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 
 import shop.tukoreamyway.back.domain.project.entity.Project;
 import shop.tukoreamyway.back.domain.sprint.entity.Sprint;
-import shop.tukoreamyway.back.global.CommandService;
+import shop.tukoreamyway.back.global.service.CommandService;
 
 import java.time.LocalDate;
 

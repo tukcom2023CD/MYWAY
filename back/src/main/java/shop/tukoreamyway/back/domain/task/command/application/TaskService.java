@@ -1,9 +1,7 @@
 package shop.tukoreamyway.back.domain.task.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.sprint.entity.Sprint;
-import shop.tukoreamyway.back.domain.sprint.query.application.SprintQueryService;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.domain.task.dto.AllocateTaskRequest;
@@ -13,12 +11,12 @@ import shop.tukoreamyway.back.domain.task.entity.Task;
 import shop.tukoreamyway.back.domain.task.entity.TaskStatus;
 import shop.tukoreamyway.back.domain.task.mapper.TaskMapper;
 import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepository;
-import shop.tukoreamyway.back.global.CommandService;
 import shop.tukoreamyway.back.global.IdResponse;
-
-import java.util.Optional;
+import shop.tukoreamyway.back.global.service.CommandService;
+import shop.tukoreamyway.back.global.service.EntityQueryService;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 @CommandService
 @RequiredArgsConstructor
@@ -26,7 +24,7 @@ public class TaskService {
     private final TaskRepository taskRepository;
     private final TaskQueryRepository taskQueryRepository;
     private final StaffQueryService staffQueryService;
-    private final SprintQueryService sprintQueryService;
+    private final EntityQueryService<Sprint, Long> sprintEntityQueryService;
     private final TaskMapper taskMapper;
 
     public IdResponse<Long> create(TaskRequest dto) {
@@ -38,7 +36,7 @@ public class TaskService {
                 Optional.ofNullable(dto.getReviewerId())
                         .map(staffQueryService::getEntity)
                         .orElse(null);
-        Sprint sprint = sprintQueryService.getEntity(dto.getSprintId());
+        Sprint sprint = sprintEntityQueryService.getEntity(dto.getSprintId());
         Task task = taskRepository.save(taskMapper.toEntity(dto, sprint, player, reviewer));
         return new IdResponse<>(task.getId());
     }
