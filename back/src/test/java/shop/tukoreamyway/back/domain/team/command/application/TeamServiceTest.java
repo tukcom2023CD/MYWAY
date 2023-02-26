@@ -1,10 +1,14 @@
 package shop.tukoreamyway.back.domain.team.command.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import shop.tukoreamyway.back.domain.team.dto.TeamRequest;
 import shop.tukoreamyway.back.domain.team.entity.IndustryGroup;
 import shop.tukoreamyway.back.domain.team.entity.Team;
@@ -14,8 +18,6 @@ import shop.tukoreamyway.back.support.LoginTest;
 import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
 
 import java.time.LocalDateTime;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 @EnableDataBaseTest
 @DisplayName("TeamService 에서")

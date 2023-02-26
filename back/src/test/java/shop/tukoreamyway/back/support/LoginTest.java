@@ -1,11 +1,15 @@
 package shop.tukoreamyway.back.support;
 
+import static org.mockito.Mockito.when;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener;
 import org.springframework.test.context.TestExecutionListeners;
+
 import shop.tukoreamyway.back.domain.member.command.application.MemberRepository;
 import shop.tukoreamyway.back.domain.member.entity.AuthProvider;
 import shop.tukoreamyway.back.domain.member.entity.Member;
@@ -13,8 +17,6 @@ import shop.tukoreamyway.back.domain.member.entity.OAuth2Info;
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 
 import java.util.Random;
-
-import static org.mockito.Mockito.when;
 
 @Slf4j
 @TestExecutionListeners(MockitoTestExecutionListener.class)
