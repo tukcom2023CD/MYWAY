@@ -3,8 +3,9 @@ package shop.tukoreamyway.back.global.basetime;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Embeddable;
 import java.time.LocalDateTime;
+
+import javax.persistence.Embeddable;
 
 @Setter
 @Getter

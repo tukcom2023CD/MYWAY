@@ -5,6 +5,7 @@ import com.github.springtestdbunit.annotation.DatabaseOperation;
 import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.github.springtestdbunit.annotation.DatabaseTearDown;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
@@ -24,9 +25,14 @@ import java.lang.annotation.Target;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @ActiveProfiles("test")
 @TestExecutionListeners({
-        DbUnitTestExecutionListener.class,
-        DependencyInjectionTestExecutionListener.class})
+    DbUnitTestExecutionListener.class,
+    DependencyInjectionTestExecutionListener.class
+})
 @DbUnitConfiguration(databaseConnection = "dbUnitDatabaseConnection")
-@DatabaseSetup(value = {"/testDataSet.xml"}, type = DatabaseOperation.CLEAN_INSERT)
-@DatabaseTearDown(value = {"/testDataSet.xml"}, type = DatabaseOperation.DELETE_ALL)
+@DatabaseSetup(
+        value = {"/testDataSet.xml"},
+        type = DatabaseOperation.CLEAN_INSERT)
+@DatabaseTearDown(
+        value = {"/testDataSet.xml"},
+        type = DatabaseOperation.DELETE_ALL)
 public @interface EnableDataBaseTest {}
