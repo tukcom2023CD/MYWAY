@@ -9,7 +9,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @DatabaseSetup(
@@ -18,6 +17,4 @@ import java.lang.annotation.Target;
 @DatabaseTearDown(
         value = {"/testDataSet.xml"},
         type = DatabaseOperation.DELETE_ALL)
-public @interface UseSampleData {
-
-}
+public @interface UseSampleData {}

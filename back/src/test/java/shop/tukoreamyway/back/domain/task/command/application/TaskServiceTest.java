@@ -1,10 +1,15 @@
 package shop.tukoreamyway.back.domain.task.command.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepository;
@@ -22,23 +27,16 @@ import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import javax.persistence.EntityNotFoundException;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-
 @EnableDataBaseTest
 @DisplayName("TaskService에서")
 class TaskServiceTest extends LoginTest {
     @Autowired TaskService taskService;
 
-    @Autowired
-    TaskQueryRepository taskRepository;
+    @Autowired TaskQueryRepository taskRepository;
 
-    @MockBean
-    StaffQueryService staffQueryService;
+    @MockBean StaffQueryService staffQueryService;
 
-    @Autowired
-    StaffQueryRepository staffQueryRepository;
+    @Autowired StaffQueryRepository staffQueryRepository;
 
     @Nested
     @DisplayName("create 호출 시")
@@ -48,7 +46,9 @@ class TaskServiceTest extends LoginTest {
         @UseSampleData
         void successSave() throws Exception {
             // given
-            TaskRequest req = new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT,600001L,null,null);
+            TaskRequest req =
+                    new TaskRequest(
+                            "요약", "내용", 50, AbilityCategory.DEVELOPMENT, 600001L, null, null);
             // when
             IdResponse<Long> longIdResponse = taskService.create(req);
             // then
@@ -61,10 +61,12 @@ class TaskServiceTest extends LoginTest {
     @UseSampleData
     void successAllocate() throws Exception {
         // given
-        TaskRequest req = new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT,600001L,null,null);
+        TaskRequest req =
+                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, 600001L, null, null);
         Long taskId = taskService.create(req).getId();
         AllocateTaskRequest allocateReq = new AllocateTaskRequest(400003L);
-        Staff staff = staffQueryRepository.findById(400003L).orElseThrow(EntityNotFoundException::new);
+        Staff staff =
+                staffQueryRepository.findById(400003L).orElseThrow(EntityNotFoundException::new);
         given(staffQueryService.getEntity(any())).willReturn(staff);
         // when
         taskService.allocate(taskId, allocateReq);
@@ -78,9 +80,11 @@ class TaskServiceTest extends LoginTest {
     @UseSampleData
     void successBring() throws Exception {
         // given
-        TaskRequest req = new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT,600001L,null,null);
+        TaskRequest req =
+                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, 600001L, null, null);
         Long taskId = taskService.create(req).getId();
-        Staff staff = staffQueryRepository.findById(400003L).orElseThrow(EntityNotFoundException::new);
+        Staff staff =
+                staffQueryRepository.findById(400003L).orElseThrow(EntityNotFoundException::new);
         given(staffQueryService.getActiveStaff(any())).willReturn(staff);
         // when
         taskService.bring(taskId);
@@ -94,7 +98,8 @@ class TaskServiceTest extends LoginTest {
     @UseSampleData
     void successUpdateStatus() throws Exception {
         // given
-        TaskRequest req = new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT,600001L,null,null);
+        TaskRequest req =
+                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, 600001L, null, null);
         Long taskId = taskService.create(req).getId();
         UpdateTaskStatusRequest updateReq = new UpdateTaskStatusRequest(TaskStatus.PROGRESS);
         // when

@@ -2,6 +2,7 @@ package shop.tukoreamyway.back.support.database;
 
 import com.github.springtestdbunit.DbUnitTestExecutionListener;
 import com.github.springtestdbunit.annotation.DbUnitConfiguration;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
@@ -23,11 +24,10 @@ import java.lang.annotation.Target;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @ActiveProfiles("test")
 @TestExecutionListeners({
-        DirtiesContextTestExecutionListener.class,
-        TransactionalTestExecutionListener.class,
-        DbUnitTestExecutionListener.class,
-        DependencyInjectionTestExecutionListener.class
+    DirtiesContextTestExecutionListener.class,
+    TransactionalTestExecutionListener.class,
+    DbUnitTestExecutionListener.class,
+    DependencyInjectionTestExecutionListener.class
 })
 @DbUnitConfiguration(databaseConnection = "dbUnitDatabaseConnection")
-public @interface EnableDataBaseTest {
-}
+public @interface EnableDataBaseTest {}
