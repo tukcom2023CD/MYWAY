@@ -14,6 +14,7 @@ import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.entity.OAuth2Info;
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 
+import javax.persistence.EntityManager;
 import java.util.Random;
 
 @TestExecutionListeners(MockitoTestExecutionListener.class)
@@ -21,16 +22,21 @@ public abstract class LoginTest {
 
     @MockBean AuthService authService;
 
-    @Autowired private MemberRepository memberRepository;
+    @Autowired
+    private MemberRepository memberRepository;
+    @Autowired
+    private EntityManager entityManager;
 
     protected Member loginUser;
 
     @BeforeEach
     public void setup() {
-        Member member =
-                new Member(new OAuth2Info(AuthProvider.KAKAO, "1234adsf" + new Random().nextInt()));
+        Member member = new Member(new OAuth2Info(AuthProvider.KAKAO, "1234adsf" + new Random().nextInt()));
+        member.setName("loginUser");
         loginUser = memberRepository.save(member);
+
         when(authService.getLoginUserEntity()).thenReturn(loginUser);
         when(authService.getLoginUserId()).thenReturn(loginUser.getId());
+
     }
 }
