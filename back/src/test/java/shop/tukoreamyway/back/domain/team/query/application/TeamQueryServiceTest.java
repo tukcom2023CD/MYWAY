@@ -1,13 +1,9 @@
 package shop.tukoreamyway.back.domain.team.query.application;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import shop.tukoreamyway.back.domain.team.command.application.TeamRepository;
 import shop.tukoreamyway.back.domain.team.entity.IndustryGroup;
 import shop.tukoreamyway.back.domain.team.entity.Team;
@@ -15,6 +11,9 @@ import shop.tukoreamyway.back.support.LoginTest;
 import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
 
 import javax.persistence.EntityNotFoundException;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @EnableDataBaseTest
 @DisplayName("TeamQueryService 에서")

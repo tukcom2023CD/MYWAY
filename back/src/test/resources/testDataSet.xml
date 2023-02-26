@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+<!--    <ability/>-->
+<!--    <answer/>-->
+<!--    <answer_comment/>-->
+    <member id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b654'" name="이름" email="aaa@bb.com" auth_provider="KAKAO" social_id="asdf" created_at="2023-02-20 10:55:59.123456" />
+    <member_role member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b654'" role="ROLE_USER" />
+
+<!--    <project/>-->
+<!--    <question/>-->
+<!--    <sprint/>-->
+<!--    <staff/>-->
+<!--    <task/>-->
+
+    <team id="500001" name="팀1" leader_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b654'" industry_group="FORTUNE" created_at="2023-02-20 10:55:59.123456" />
+
+
+
+
+</dataset>
