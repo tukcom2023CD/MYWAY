@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SideGraph from './SideGraph';
 import menu from '../../images/menu.png';
 import dashboard from '../../images/dashboard.png';
 import project from '../../images/project.png';
@@ -97,6 +98,9 @@ function Sidebar() {
               </li>
             </ul>
           </div>
+        </div>
+        <div className='mt-auto mb-[100px]'>
+          <SideGraph />
         </div>
       </div>
     </div>
