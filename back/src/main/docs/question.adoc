@@ -12,7 +12,7 @@ operation::create question[snippets='http-request,http-response']
 operation::update question[snippets='http-request,http-response']
 
 === question id를 통한 question 삭제
-operation::delete question by question id[snippets='http-request,http-response']
+operation::delete question[snippets='http-request,http-response']
 
 == Question query
 === staff id를 통한 요약조회
