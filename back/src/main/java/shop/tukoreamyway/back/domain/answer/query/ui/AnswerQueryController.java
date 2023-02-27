@@ -17,7 +17,8 @@ public class AnswerQueryController {
     private final AnswerQueryService answerQueryService;
 
     @GetMapping
-    public ResponseEntity<List<AnswerResponse>> findAllByQuestionId(@RequestParam("question-id") Long questionId) {
+    public ResponseEntity<List<AnswerResponse>> findAllByQuestionId(
+            @RequestParam("question-id") Long questionId) {
         return ResponseEntity.ok(answerQueryService.findAllByQuestionId(questionId));
     }
 
