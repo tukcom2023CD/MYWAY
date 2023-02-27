@@ -1,10 +1,20 @@
 package shop.tukoreamyway.back.domain.answer.query.ui;
 
+import static org.mockito.Mockito.when;
+import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
+import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
+import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.ResultActions;
+
 import shop.tukoreamyway.back.domain.answer.dto.AnswerResponse;
 import shop.tukoreamyway.back.domain.answer.query.application.AnswerQueryService;
 import shop.tukoreamyway.back.domain.staff.dto.StaffSummary;
@@ -12,14 +22,6 @@ import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 import shop.tukoreamyway.back.support.fixture.staff.StaffSummaryFixture;
 
 import java.util.List;
-
-import static org.mockito.Mockito.when;
-import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
-import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentRequest;
-import static shop.tukoreamyway.back.support.docs.ApiDocumentUtils.getDocumentResponse;
 
 @WebMvcTest(AnswerQueryController.class)
 @DisplayName("AnswerQueryController에서")
@@ -34,14 +36,9 @@ class AnswerQueryControllerTest extends RestDocumentTest {
 
         StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
         when(answerQueryService.findAllByQuestionId(1L))
-                .thenReturn(
-                        List.of(new AnswerResponse(3L, "d", 3L, writer))
-                );
+                .thenReturn(List.of(new AnswerResponse(3L, "d", 3L, writer)));
         // when
-        ResultActions perform =
-                mockMvc.perform(
-                        get("/answers")
-                                .param("question-id", "7"));
+        ResultActions perform = mockMvc.perform(get("/answers").param("question-id", "7"));
 
         // then
         perform.andExpect(status().isOk());
@@ -61,15 +58,9 @@ class AnswerQueryControllerTest extends RestDocumentTest {
 
         // given
         StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
-        when(answerQueryService.findById(1L))
-                .thenReturn(
-                        new AnswerResponse(3L, "d", 3L, writer)
-                );
+        when(answerQueryService.findById(1L)).thenReturn(new AnswerResponse(3L, "d", 3L, writer));
         // when
-        ResultActions perform =
-                mockMvc.perform(
-                        get("/answers")
-                                .param("question-id", "7"));
+        ResultActions perform = mockMvc.perform(get("/answers").param("question-id", "7"));
 
         // then
         perform.andExpect(status().isOk());
