@@ -1,15 +1,10 @@
 package shop.tukoreamyway.back.domain.task.command.application;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepository;
@@ -23,9 +18,14 @@ import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepository;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.support.LoginTest;
 import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
+import shop.tukoreamyway.back.support.database.SampleDataLongTypeId;
 import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import javax.persistence.EntityNotFoundException;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
 
 @EnableDataBaseTest
 @DisplayName("TaskService에서")
@@ -48,7 +48,7 @@ class TaskServiceTest extends LoginTest {
             // given
             TaskRequest req =
                     new TaskRequest(
-                            "요약", "내용", 50, AbilityCategory.DEVELOPMENT, 600001L, null, null);
+                            "요약", "내용", 50, AbilityCategory.DEVELOPMENT, SampleDataLongTypeId.SPRINT1.getId(), null, null);
             // when
             IdResponse<Long> longIdResponse = taskService.create(req);
             // then
@@ -62,11 +62,11 @@ class TaskServiceTest extends LoginTest {
     void successAllocate() throws Exception {
         // given
         TaskRequest req =
-                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, 600001L, null, null);
+                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, SampleDataLongTypeId.SPRINT1.getId(), null, null);
         Long taskId = taskService.create(req).getId();
-        AllocateTaskRequest allocateReq = new AllocateTaskRequest(400003L);
+        AllocateTaskRequest allocateReq = new AllocateTaskRequest(SampleDataLongTypeId.STAFF3.getId());
         Staff staff =
-                staffQueryRepository.findById(400003L).orElseThrow(EntityNotFoundException::new);
+                staffQueryRepository.findById(SampleDataLongTypeId.STAFF3.getId()).orElseThrow(EntityNotFoundException::new);
         given(staffQueryService.getEntity(any())).willReturn(staff);
         // when
         taskService.allocate(taskId, allocateReq);
@@ -81,10 +81,10 @@ class TaskServiceTest extends LoginTest {
     void successBring() throws Exception {
         // given
         TaskRequest req =
-                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, 600001L, null, null);
+                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, SampleDataLongTypeId.SPRINT1.getId(), null, null);
         Long taskId = taskService.create(req).getId();
         Staff staff =
-                staffQueryRepository.findById(400003L).orElseThrow(EntityNotFoundException::new);
+                staffQueryRepository.findById(SampleDataLongTypeId.STAFF3.getId()).orElseThrow(EntityNotFoundException::new);
         given(staffQueryService.getActiveStaff(any())).willReturn(staff);
         // when
         taskService.bring(taskId);
