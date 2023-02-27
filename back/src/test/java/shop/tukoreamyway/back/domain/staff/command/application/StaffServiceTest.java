@@ -1,9 +1,16 @@
 package shop.tukoreamyway.back.domain.staff.command.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
+import static shop.tukoreamyway.back.support.database.SampleDataUUIDTypeId.MEMBER1;
+import static shop.tukoreamyway.back.support.database.SampleDataUUIDTypeId.MEMBER2;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import shop.tukoreamyway.back.domain.staff.dto.AcceptApplyRequest;
 import shop.tukoreamyway.back.domain.staff.dto.AcceptInviteRequest;
 import shop.tukoreamyway.back.domain.staff.dto.ApplyRequest;
@@ -19,11 +26,6 @@ import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import java.util.List;
 import java.util.Set;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
-import static shop.tukoreamyway.back.support.database.SampleDataUUIDTypeId.MEMBER1;
-import static shop.tukoreamyway.back.support.database.SampleDataUUIDTypeId.MEMBER2;
 
 @EnableDataBaseTest
 @DisplayName("StaffService에서")
@@ -107,16 +109,19 @@ class StaffServiceTest extends LoginTest {
     @DisplayName("초대 수락을 수행하는가")
     @UseSampleData
     void successAcceptInvite() throws Exception {
-        //given
-        InviteRequest req =
-                new InviteRequest(TEAM1.getId(), Set.of(loginUser.getId()));
+        // given
+        InviteRequest req = new InviteRequest(TEAM1.getId(), Set.of(loginUser.getId()));
         List<Staff> before = staffQueryRepository.findAll();
         staffService.invite(req);
-        Staff staff = staffQueryRepository.findAll().stream().filter(s -> !before.contains(s)).findFirst().get();
+        Staff staff =
+                staffQueryRepository.findAll().stream()
+                        .filter(s -> !before.contains(s))
+                        .findFirst()
+                        .get();
         AcceptInviteRequest dto = new AcceptInviteRequest("별명");
-        //when
+        // when
         staffService.acceptInvite(staff.getId(), dto);
-        //then
+        // then
         assertThat(staff.getNickname()).isEqualTo(dto.getNickname());
         assertThat(staff.getIsAcceptMember()).isTrue();
     }
@@ -125,15 +130,19 @@ class StaffServiceTest extends LoginTest {
     @DisplayName("지원 수락을 수행하는가")
     @UseSampleData
     void successAcceptApply() throws Exception {
-        //given
+        // given
         ApplyRequest req = new ApplyRequest(TEAM1.getId());
         List<Staff> before = staffQueryRepository.findAll();
         staffService.apply(req);
-        Staff staff = staffQueryRepository.findAll().stream().filter(s -> !before.contains(s)).findFirst().get();
+        Staff staff =
+                staffQueryRepository.findAll().stream()
+                        .filter(s -> !before.contains(s))
+                        .findFirst()
+                        .get();
         AcceptApplyRequest dto = new AcceptApplyRequest(Rank.ASSISTANT);
-        //when
+        // when
         staffService.acceptApply(staff.getId(), dto);
-        //then
+        // then
         assertThat(staff.getRank()).isEqualTo(dto.getRank());
         assertThat(staff.getIsAcceptTeam()).isTrue();
     }
