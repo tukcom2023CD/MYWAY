@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.ability.query.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.ability.dto.AbilityResponse;
 import shop.tukoreamyway.back.domain.ability.dto.AbilitySummary;
 import shop.tukoreamyway.back.domain.ability.entity.Ability;
@@ -54,7 +55,8 @@ public class AbilityQueryService {
 
     public AbilitySummary findAllMyAbilitySummary(final Long teamId) {
         final Staff receiver = staffQueryService.getActiveStaff(teamId);
-        final List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(receiver.getId());
+        final List<Ability> abilities =
+                abilityQueryRepository.findAllByReceiverId(receiver.getId());
         final Map<AbilityCategory, Long> points = generatePoints(abilities);
         return abilityMapper.toSummary(receiver, points);
     }

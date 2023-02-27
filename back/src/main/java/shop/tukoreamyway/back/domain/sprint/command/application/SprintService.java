@@ -38,7 +38,7 @@ public class SprintService {
         }
     }
 
-    private LocalDate getNextDays(final LocalDate datePivot,final Integer sprintDays) {
+    private LocalDate getNextDays(final LocalDate datePivot, final Integer sprintDays) {
         return datePivot.plusDays(sprintDays);
     }
 }

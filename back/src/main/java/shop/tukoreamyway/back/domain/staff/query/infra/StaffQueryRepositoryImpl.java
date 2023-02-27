@@ -1,17 +1,20 @@
 package shop.tukoreamyway.back.domain.staff.query.infra;
 
+import static shop.tukoreamyway.back.domain.member.entity.QMember.member;
+import static shop.tukoreamyway.back.domain.staff.entity.QStaff.staff;
+import static shop.tukoreamyway.back.domain.team.entity.QTeam.team;
+
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Repository;
+
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepositoryCustom;
 
 import java.util.List;
 import java.util.UUID;
-
-import static shop.tukoreamyway.back.domain.member.entity.QMember.member;
-import static shop.tukoreamyway.back.domain.staff.entity.QStaff.staff;
-import static shop.tukoreamyway.back.domain.team.entity.QTeam.team;
 
 @Repository
 @RequiredArgsConstructor

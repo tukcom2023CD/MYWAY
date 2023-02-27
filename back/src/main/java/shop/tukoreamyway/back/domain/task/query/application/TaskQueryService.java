@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.task.query.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.domain.task.dto.MyTaskCondition;
@@ -12,8 +13,9 @@ import shop.tukoreamyway.back.domain.task.mapper.TaskMapper;
 import shop.tukoreamyway.back.global.service.EntityQueryService;
 import shop.tukoreamyway.back.global.service.QueryService;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
+
+import javax.persistence.EntityNotFoundException;
 
 @QueryService
 @RequiredArgsConstructor

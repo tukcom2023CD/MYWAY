@@ -46,7 +46,8 @@ public final class JwtProvider {
         return claims;
     }
 
-    private String getToken(final LoginUser loginUser, final Claims claims, final Long validationSecond) {
+    private String getToken(
+            final LoginUser loginUser, final Claims claims, final Long validationSecond) {
         final long now = new Date().getTime();
 
         return Jwts.builder()

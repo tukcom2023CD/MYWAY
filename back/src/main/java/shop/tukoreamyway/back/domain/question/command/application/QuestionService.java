@@ -28,7 +28,8 @@ public class QuestionService {
     public IdResponse<Long> create(final QuestionRequest dto) {
         final Team team = teamEntityQueryService.getEntity(dto.getTeamId());
         final Staff staff = staffQueryService.getActiveStaff(dto.getTeamId());
-        final Question question = questionRepository.save(questionMapper.toEntity(dto, team, staff));
+        final Question question =
+                questionRepository.save(questionMapper.toEntity(dto, team, staff));
         return new IdResponse<>(question.getId());
     }
 
