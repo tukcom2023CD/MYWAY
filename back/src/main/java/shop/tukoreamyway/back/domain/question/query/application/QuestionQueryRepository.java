@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface QuestionQueryRepository {
-    List<Question> findAllByStaffId(Long staffId);
+    List<Question> findAllByWriterId(Long writerId);
 
     Optional<Question> findById(Long id);
 }

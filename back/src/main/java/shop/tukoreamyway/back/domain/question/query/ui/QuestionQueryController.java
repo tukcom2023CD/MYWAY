@@ -17,8 +17,8 @@ public class QuestionQueryController {
     private final QuestionQueryService questionQueryService;
 
     @GetMapping
-    public ResponseEntity<List<QuestionResponse>> getAllByStaffId(@RequestParam Long staffId) {
-        return ResponseEntity.ok(questionQueryService.findAllByWriterId(staffId));
+    public ResponseEntity<List<QuestionResponse>> getAllByWriterId(@RequestParam("writer-id") Long writerId) {
+        return ResponseEntity.ok(questionQueryService.findAllByWriterId(writerId));
     }
 
     @GetMapping("{id}")

@@ -1,15 +1,13 @@
 package shop.tukoreamyway.back.domain.question.query.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.question.dto.QuestionResponse;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.global.QueryService;
 
-import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @QueryService
 @RequiredArgsConstructor
@@ -22,7 +20,7 @@ public class QuestionQueryService {
     }
 
     public List<QuestionResponse> findAllByWriterId(Long staffId) {
-        List<Question> questions = questionQueryRepository.findAllByStaffId(staffId);
+        List<Question> questions = questionQueryRepository.findAllByWriterId(staffId);
         return mapToList(questions);
     }
 

@@ -1,15 +1,13 @@
 package shop.tukoreamyway.back.domain.answer.query.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.answer.dto.AnswerResponse;
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
 import shop.tukoreamyway.back.domain.answer.mapper.AnswerMapper;
 import shop.tukoreamyway.back.global.QueryService;
 
-import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @QueryService
 @RequiredArgsConstructor
@@ -26,9 +24,8 @@ public class AnswerQueryService {
         return mapToList(answers);
     }
 
-    public AnswerResponse findAnswerById(Long answerId) {
-        Answer answer = getEntity(answerId);
-        return answerMapper.toResponse(answer);
+    public AnswerResponse findById(Long id) {
+        return answerMapper.toResponse(getEntity(id));
     }
 
     private List<AnswerResponse> mapToList(List<Answer> answers) {
