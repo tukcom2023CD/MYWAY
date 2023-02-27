@@ -11,8 +11,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class QuestionResponse {
-    private Long QuestionId;
+    private Long id;
+    private Long questionId;
     private String title;
+    private Long writerId;
     private String content;
     private Long teamId;
     private List<String> tags = new ArrayList<>();

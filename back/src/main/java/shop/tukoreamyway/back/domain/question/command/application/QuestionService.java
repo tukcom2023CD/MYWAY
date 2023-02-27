@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
@@ -14,6 +13,7 @@ import shop.tukoreamyway.back.domain.team.query.application.TeamQueryService;
 import shop.tukoreamyway.back.global.CommandService;
 import shop.tukoreamyway.back.global.IdResponse;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 
 @CommandService
@@ -24,6 +24,7 @@ public class QuestionService {
     private final StaffQueryService staffQueryService;
     private final QuestionQueryRepository questionQueryRepository;
     private final QuestionMapper questionMapper;
+    private final EntityManager entityManager;
 
     public IdResponse<Long> create(QuestionRequest dto) {
         Team team = teamQueryService.getEntity(dto.getTeamId());
@@ -34,6 +35,12 @@ public class QuestionService {
 
     public void update(Long id, UpdateQuestionRequest dto) {
         getEntity(id).update(dto.getContent());
+    }
+
+    public void deleteById(Long id) {
+        Question question = entityManager.find(Question.class, id);
+        entityManager.remove(question);
+        entityManager.flush();
     }
 
     private Question getEntity(Long id) {
