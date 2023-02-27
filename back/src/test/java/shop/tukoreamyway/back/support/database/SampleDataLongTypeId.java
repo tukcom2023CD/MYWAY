@@ -18,8 +18,7 @@ public enum SampleDataLongTypeId {
 
     SPRINT1(600001L),
 
-    TASK1(50001L)
-    ;
+    TASK1(50001L);
 
     private Long id;
 }
