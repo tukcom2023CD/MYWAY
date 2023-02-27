@@ -9,31 +9,31 @@ import {
 
 const data = [
   {
-    subject: '역량1',
+    subject: '커뮤니케이션',
     A: 120,
     B: 110,
     fullMark: 150,
   },
   {
-    subject: '역량2',
+    subject: '위기 대처',
     A: 98,
     B: 130,
     fullMark: 150,
   },
   {
-    subject: '역량3',
+    subject: '개발',
     A: 86,
     B: 130,
     fullMark: 150,
   },
   {
-    subject: '역량4',
+    subject: '리팩터링',
     A: 99,
     B: 100,
     fullMark: 150,
   },
   {
-    subject: '역량5',
+    subject: '기획',
     A: 85,
     B: 90,
     fullMark: 150,
