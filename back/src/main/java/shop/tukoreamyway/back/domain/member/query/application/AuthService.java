@@ -1,16 +1,13 @@
 package shop.tukoreamyway.back.domain.member.query.application;
 
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.security.core.context.SecurityContextHolder;
-
 import shop.tukoreamyway.back.config.security.oauth2.LoginUser;
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.global.service.QueryService;
 
-import java.util.UUID;
-
 import javax.persistence.EntityNotFoundException;
+import java.util.UUID;
 
 @QueryService
 @RequiredArgsConstructor

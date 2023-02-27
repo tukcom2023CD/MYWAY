@@ -25,18 +25,18 @@ public class AnswerService {
     private final AnswerQueryRepository answerQueryRepository;
     private final AnswerMapper answerMapper;
 
-    public IdResponse<Long> create(AnswerRequest dto) {
-        Question question = questionEntityQueryService.getEntity(dto.getQuestionId());
-        Staff writer = staffQueryService.getActiveStaff(question.getTeamId());
-        Answer answer = answerRepository.save(answerMapper.toEntity(dto, question, writer));
+    public final IdResponse<Long> create(final AnswerRequest dto) {
+        final Question question = questionEntityQueryService.getEntity(dto.getQuestionId());
+        final Staff writer = staffQueryService.getActiveStaff(question.getTeamId());
+        final Answer answer = answerRepository.save(answerMapper.toEntity(dto, question, writer));
         return new IdResponse<>(answer.getId());
     }
 
-    public void update(Long id, UpdateAnswerRequest dto) {
+    public final void update(final Long id, final UpdateAnswerRequest dto) {
         getEntity(id).update(dto.getContent());
     }
 
-    private Answer getEntity(Long id) {
+    private Answer getEntity(final Long id) {
         return answerQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

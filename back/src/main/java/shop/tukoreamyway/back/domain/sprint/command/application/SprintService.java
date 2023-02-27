@@ -13,14 +13,14 @@ import java.time.LocalDate;
 public class SprintService {
     private final SprintRepository sprintRepository;
 
-    public void createInitial(Project project) {
+    public void createInitial(final Project project) {
         if (project.getEndAt() == null) {
             return;
         }
         int round = 1;
         LocalDate datePivot = LocalDate.from(project.getStartAt());
-        LocalDate endDate = LocalDate.from(project.getEndAt());
-        Integer sprintDays = project.getSprintDays();
+        final LocalDate endDate = LocalDate.from(project.getEndAt());
+        final Integer sprintDays = project.getSprintDays();
         while (!getNextDays(datePivot, sprintDays).isAfter(endDate)) {
             sprintRepository.save(
                     new Sprint(
@@ -38,7 +38,7 @@ public class SprintService {
         }
     }
 
-    private LocalDate getNextDays(LocalDate datePivot, Integer sprintDays) {
+    private LocalDate getNextDays(final LocalDate datePivot,final Integer sprintDays) {
         return datePivot.plusDays(sprintDays);
     }
 }

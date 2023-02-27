@@ -22,10 +22,10 @@ public class ProjectService {
     private final EntityQueryService<Team, Long> teamEntityQueryService;
     private final ProjectMapper projectMapper;
 
-    public ProjectResponse create(ProjectRequest dto) {
-        Staff manager = staffQueryService.getEntity(dto.getManagerId());
-        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
-        Project project = projectRepository.save(projectMapper.toEntity(dto, team, manager));
+    public ProjectResponse create(final ProjectRequest dto) {
+        final Staff manager = staffQueryService.getEntity(dto.getManagerId());
+        final Team team = teamEntityQueryService.getEntity(dto.getTeamId());
+        final Project project = projectRepository.save(projectMapper.toEntity(dto, team, manager));
         sprintService.createInitial(project);
         return projectMapper.toResponse(project);
     }

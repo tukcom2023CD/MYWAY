@@ -11,11 +11,11 @@ import shop.tukoreamyway.back.domain.team.dto.TeamSummary;
 @Builder
 @AllArgsConstructor
 public class StaffResponse {
-    private Long id;
-    private String nickname;
-    private String rank;
-    private Boolean isAcceptMember;
-    private Boolean isAcceptTeam;
-    private MemberSummary member;
-    private TeamSummary team;
+    private final Long id;
+    private final String nickname;
+    private final String rank;
+    private final Boolean isAcceptMember;
+    private final Boolean isAcceptTeam;
+    private final MemberSummary member;
+    private final TeamSummary team;
 }

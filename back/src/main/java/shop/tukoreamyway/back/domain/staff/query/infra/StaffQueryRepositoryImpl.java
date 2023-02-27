@@ -1,20 +1,17 @@
 package shop.tukoreamyway.back.domain.staff.query.infra;
 
-import static shop.tukoreamyway.back.domain.member.entity.QMember.member;
-import static shop.tukoreamyway.back.domain.staff.entity.QStaff.staff;
-import static shop.tukoreamyway.back.domain.team.entity.QTeam.team;
-
 import com.querydsl.jpa.impl.JPAQueryFactory;
-
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Repository;
-
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepositoryCustom;
 
 import java.util.List;
 import java.util.UUID;
+
+import static shop.tukoreamyway.back.domain.member.entity.QMember.member;
+import static shop.tukoreamyway.back.domain.staff.entity.QStaff.staff;
+import static shop.tukoreamyway.back.domain.team.entity.QTeam.team;
 
 @Repository
 @RequiredArgsConstructor
@@ -22,7 +19,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public List<Staff> findAllByTeamIdApplyFilter(Long teamId) {
+    public List<Staff> findAllByTeamIdApplyFilter(final Long teamId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)
@@ -39,7 +36,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     }
 
     @Override
-    public List<Staff> findAllByMemberIdInviteFilter(UUID memberId) {
+    public List<Staff> findAllByMemberIdInviteFilter(final UUID memberId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)
@@ -56,7 +53,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     }
 
     @Override
-    public List<Staff> findAllActiveStaffByTeamId(Long teamId) {
+    public List<Staff> findAllActiveStaffByTeamId(final Long teamId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)
@@ -73,7 +70,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     }
 
     @Override
-    public List<Staff> findAllActiveStaffByMemberId(UUID memberId) {
+    public List<Staff> findAllActiveStaffByMemberId(final UUID memberId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)

@@ -20,13 +20,13 @@ public class QuestionController {
     private final QuestionService questionService;
 
     @PostMapping
-    public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid QuestionRequest dto) {
+    public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid final QuestionRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(questionService.create(dto));
     }
 
     @PutMapping("{id}")
     public ResponseEntity<IdResponse<Long>> update(
-            @RequestBody @Valid UpdateQuestionRequest dto, @PathVariable Long id) {
+            @RequestBody @Valid final UpdateQuestionRequest dto, @PathVariable final Long id) {
         questionService.update(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

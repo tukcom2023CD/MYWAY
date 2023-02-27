@@ -32,16 +32,16 @@ public class StaffService {
     private final EntityQueryService<Member, UUID> memberEntityQueryService;
 
     public void createProjectLeaderStaff(final Team team) {
-        Member loginUser = authService.getLoginUserEntity();
-        Staff staff = staffMapper.toEntity(team, loginUser);
+        final Member loginUser = authService.getLoginUserEntity();
+        final Staff staff = staffMapper.toEntity(team, loginUser);
         staff.changeRank(Rank.MANAGER);
         staff.acceptTeam();
         staff.acceptMember();
         staffRepository.save(staff);
     }
 
-    public void invite(InviteRequest dto) {
-        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
+    public void invite(final InviteRequest dto) {
+        final Team team = teamEntityQueryService.getEntity(dto.getTeamId());
         dto.getMembers().stream()
                 .map(memberEntityQueryService::getEntity)
                 .map(member -> new Staff(team, member))
@@ -52,27 +52,27 @@ public class StaffService {
                         });
     }
 
-    public void apply(ApplyRequest dto) {
-        Member loginUser = authService.getLoginUserEntity();
-        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
-        Staff applyer = new Staff(team, loginUser);
+    public void apply(final ApplyRequest dto) {
+        final Member loginUser = authService.getLoginUserEntity();
+        final Team team = teamEntityQueryService.getEntity(dto.getTeamId());
+        final Staff applyer = new Staff(team, loginUser);
         applyer.acceptMember();
         staffRepository.save(applyer);
     }
 
-    public void acceptInvite(Long id, AcceptInviteRequest dto) {
-        Staff staff = getEntity(id);
+    public void acceptInvite(final Long id, final AcceptInviteRequest dto) {
+        final Staff staff = getEntity(id);
         staff.acceptMember();
         Optional.ofNullable(dto.getNickname()).ifPresent(staff::changeNickname);
     }
 
-    public void acceptApply(Long id, AcceptApplyRequest dto) {
-        Staff staff = getEntity(id);
+    public void acceptApply(final Long id, final AcceptApplyRequest dto) {
+        final Staff staff = getEntity(id);
         staff.acceptTeam();
         Optional.ofNullable(dto.getRank()).ifPresent(staff::changeRank);
     }
 
-    private Staff getEntity(Long id) {
+    private Staff getEntity(final Long id) {
         return staffQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

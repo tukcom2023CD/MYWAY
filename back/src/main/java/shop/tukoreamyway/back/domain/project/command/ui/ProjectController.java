@@ -22,7 +22,7 @@ public class ProjectController {
     private final ProjectService projectService;
 
     @PostMapping
-    public ResponseEntity<ProjectResponse> createProject(@RequestBody @Valid ProjectRequest dto) {
+    public ResponseEntity<ProjectResponse> createProject(@RequestBody @Valid final ProjectRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(projectService.create(dto));
     }
 }

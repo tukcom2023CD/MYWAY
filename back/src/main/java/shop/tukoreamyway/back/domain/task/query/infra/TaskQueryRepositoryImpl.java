@@ -1,14 +1,9 @@
 package shop.tukoreamyway.back.domain.task.query.infra;
 
-import static shop.tukoreamyway.back.domain.task.entity.QTask.task;
-
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Repository;
-
 import shop.tukoreamyway.back.domain.task.dto.TaskSearchCondition;
 import shop.tukoreamyway.back.domain.task.entity.Task;
 import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepositoryCustom;
@@ -17,18 +12,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static shop.tukoreamyway.back.domain.task.entity.QTask.task;
+
 @Repository
 @RequiredArgsConstructor
 public class TaskQueryRepositoryImpl implements TaskQueryRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public List<Task> findAllByCondition(TaskSearchCondition condition) {
+    public List<Task> findAllByCondition(final TaskSearchCondition condition) {
         return jpaQueryFactory.selectFrom(task).where(generateWhereQuery(condition)).fetch();
     }
 
-    private Predicate[] generateWhereQuery(TaskSearchCondition condition) {
-        List<Predicate> predicates = new ArrayList<>();
+    private Predicate[] generateWhereQuery(final TaskSearchCondition condition) {
+        final List<Predicate> predicates = new ArrayList<>();
         Optional.ofNullable(condition.getStatus())
                 .ifPresent(status -> predicates.add(task.status.eq(status)));
         Optional.ofNullable(condition.getCategory())

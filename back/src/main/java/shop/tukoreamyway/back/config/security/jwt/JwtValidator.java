@@ -24,7 +24,7 @@ import java.util.UUID;
  */
 @Component
 @RequiredArgsConstructor
-public class JwtValidator {
+public final class JwtValidator {
     private final Key key;
     private final EntityQueryService<Member, UUID> memberQueryService;
     private final LoginUserMapper loginUserMapper;

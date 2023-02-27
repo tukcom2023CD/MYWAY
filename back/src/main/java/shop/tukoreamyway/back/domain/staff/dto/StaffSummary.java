@@ -8,7 +8,7 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class StaffSummary {
-    private Long id;
-    private String nickname;
-    private String rank;
+    private final Long id;
+    private final String nickname;
+    private final String rank;
 }

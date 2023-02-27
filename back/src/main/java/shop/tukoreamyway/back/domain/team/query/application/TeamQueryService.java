@@ -13,7 +13,7 @@ import javax.persistence.EntityNotFoundException;
 public class TeamQueryService implements EntityQueryService<Team, Long> {
     private final TeamQueryRepository teamQueryRepository;
 
-    public Team getEntity(Long id) {
+    public Team getEntity(final Long id) {
         return teamQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

@@ -13,7 +13,7 @@ import javax.persistence.EntityNotFoundException;
 public class SprintQueryService implements EntityQueryService<Sprint, Long> {
     private final SprintQueryRepository sprintQueryRepository;
 
-    public Sprint getEntity(Long sprintId) {
+    public Sprint getEntity(final Long sprintId) {
         return sprintQueryRepository.findById(sprintId).orElseThrow(EntityNotFoundException::new);
     }
 }
