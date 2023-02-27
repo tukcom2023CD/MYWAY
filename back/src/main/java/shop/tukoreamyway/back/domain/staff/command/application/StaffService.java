@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.staff.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 import shop.tukoreamyway.back.domain.staff.dto.AcceptApplyRequest;
@@ -16,10 +15,9 @@ import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityQueryService;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 import java.util.UUID;
-
-import javax.persistence.EntityNotFoundException;
 
 @CommandService
 @RequiredArgsConstructor
@@ -45,13 +43,18 @@ public class StaffService {
         dto.getMembers().stream()
                 .map(memberEntityQueryService::getEntity)
                 .map(member -> new Staff(team, member))
-                .forEach(staffRepository::save);
+                .forEach(staff -> {
+                    staff.acceptTeam();
+                    staffRepository.save(staff);
+                });
     }
 
     public void apply(ApplyRequest dto) {
         Member loginUser = authService.getLoginUserEntity();
         Team team = teamEntityQueryService.getEntity(dto.getTeamId());
-        staffRepository.save(new Staff(team, loginUser));
+        Staff applyer = new Staff(team, loginUser);
+        applyer.acceptMember();
+        staffRepository.save(applyer);
     }
 
     public void acceptInvite(Long id, AcceptInviteRequest dto) {
