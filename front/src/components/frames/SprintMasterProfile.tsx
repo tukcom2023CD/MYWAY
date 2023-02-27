@@ -1,6 +1,6 @@
 import React from 'react';
+import DropDown from './DropDown';
 import sprint from '../../images/members.png';
-import dots from '../../images/dots.png';
 
 function SprintMasterProfile() {
   return (
@@ -13,16 +13,7 @@ function SprintMasterProfile() {
       <div className='flex justify-center items-center ml-5'>이름</div>
       <div className='flex justify-center items-center ml-5'>조직</div>
       <div className='flex justify-center items-center ml-5'>직책</div>
-      <button
-        type='button'
-        className='ml-auto w-[30px] h-[30px] rounded-[30px]'
-      >
-        <img
-          className='w-[24px] h-[24px] m-auto rounded-[30px] opacity-50'
-          alt='ProfileImg'
-          src={dots}
-        />
-      </button>
+      <DropDown />
     </div>
   );
 }
