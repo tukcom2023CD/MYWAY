@@ -4,7 +4,7 @@ import SideGraph from './SideGraph';
 import menu from '../../images/menu.png';
 import dashboard from '../../images/dashboard.png';
 import project from '../../images/project.png';
-import members from '../../images/members.png';
+import sprint from '../../images/members.png';
 import graph from '../../images/graph.png';
 
 function Sidebar() {
@@ -58,14 +58,14 @@ function Sidebar() {
                 <NavLink
                   className='flex items-center p-2 space-x-3 rounded-xl'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/Members'
+                  to='/Sprint'
                 >
                   <img
                     className='w-[24px] h-[24px]'
                     alt='dashboardicon'
-                    src={members}
+                    src={sprint}
                   />
-                  <span>Members</span>
+                  <span>Sprint</span>
                 </NavLink>
               </li>
               <li className='rounded-sm'>
