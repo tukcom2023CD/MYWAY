@@ -4,6 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.SPRINT1;
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.STAFF3;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -27,12 +30,6 @@ import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import javax.persistence.EntityNotFoundException;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.SPRINT1;
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.STAFF3;
-
 @EnableDataBaseTest
 @DisplayName("TaskService에서")
 class TaskServiceTest extends LoginTest {
@@ -54,7 +51,13 @@ class TaskServiceTest extends LoginTest {
             // given
             TaskRequest req =
                     new TaskRequest(
-                            "요약", "내용", 50, AbilityCategory.DEVELOPMENT, SPRINT1.getId(), null, null);
+                            "요약",
+                            "내용",
+                            50,
+                            AbilityCategory.DEVELOPMENT,
+                            SPRINT1.getId(),
+                            null,
+                            null);
             // when
             IdResponse<Long> longIdResponse = taskService.create(req);
             // then
@@ -68,11 +71,14 @@ class TaskServiceTest extends LoginTest {
     void successAllocate() throws Exception {
         // given
         TaskRequest req =
-                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, SPRINT1.getId(), null, null);
+                new TaskRequest(
+                        "요약", "내용", 50, AbilityCategory.DEVELOPMENT, SPRINT1.getId(), null, null);
         Long taskId = taskService.create(req).getId();
         AllocateTaskRequest allocateReq = new AllocateTaskRequest(STAFF3.getId());
         Staff staff =
-                staffQueryRepository.findById(STAFF3.getId()).orElseThrow(EntityNotFoundException::new);
+                staffQueryRepository
+                        .findById(STAFF3.getId())
+                        .orElseThrow(EntityNotFoundException::new);
         given(staffQueryService.getEntity(any())).willReturn(staff);
         // when
         taskService.allocate(taskId, allocateReq);
@@ -87,10 +93,13 @@ class TaskServiceTest extends LoginTest {
     void successBring() throws Exception {
         // given
         TaskRequest req =
-                new TaskRequest("요약", "내용", 50, AbilityCategory.DEVELOPMENT, SPRINT1.getId(), null, null);
+                new TaskRequest(
+                        "요약", "내용", 50, AbilityCategory.DEVELOPMENT, SPRINT1.getId(), null, null);
         Long taskId = taskService.create(req).getId();
         Staff staff =
-                staffQueryRepository.findById(STAFF3.getId()).orElseThrow(EntityNotFoundException::new);
+                staffQueryRepository
+                        .findById(STAFF3.getId())
+                        .orElseThrow(EntityNotFoundException::new);
         given(staffQueryService.getActiveStaff(any())).willReturn(staff);
         // when
         taskService.bring(taskId);
