@@ -1,15 +1,13 @@
 package shop.tukoreamyway.back.domain.question.query.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.question.dto.QuestionResponse;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.global.QueryService;
 
-import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @QueryService
 @RequiredArgsConstructor
@@ -21,13 +19,13 @@ public class QuestionQueryService {
         return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<QuestionResponse> findAllByWriterId(Long staffId) {
-        List<Question> questions = questionQueryRepository.findAllByWriterId(staffId);
+    public List<QuestionResponse> findAllByWriterId(Long writerId) {
+        List<Question> questions = questionQueryRepository.findAllByWriterId(writerId);
         return mapToList(questions);
     }
 
-    public QuestionResponse findQuestionById(Long questionId) {
-        Question question = getEntity(questionId);
+    public QuestionResponse findById(Long Id) {
+        Question question = getEntity(Id);
         return questionMapper.toResponse(question);
     }
 

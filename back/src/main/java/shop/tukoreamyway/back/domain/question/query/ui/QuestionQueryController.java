@@ -24,6 +24,6 @@ public class QuestionQueryController {
 
     @GetMapping("{id}")
     public ResponseEntity<QuestionResponse> getQuestionById(@PathVariable Long id) {
-        return ResponseEntity.ok(questionQueryService.findQuestionById(id));
+        return ResponseEntity.ok(questionQueryService.findById(id));
     }
 }
