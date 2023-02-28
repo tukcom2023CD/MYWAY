@@ -25,14 +25,14 @@ public class AnswerService {
     private final AnswerQueryRepository answerQueryRepository;
     private final AnswerMapper answerMapper;
 
-    public final IdResponse<Long> create(final AnswerRequest dto) {
+    public IdResponse<Long> create(final AnswerRequest dto) {
         final Question question = questionEntityQueryService.getEntity(dto.getQuestionId());
         final Staff writer = staffQueryService.getActiveStaff(question.getTeamId());
         final Answer answer = answerRepository.save(answerMapper.toEntity(dto, question, writer));
         return new IdResponse<>(answer.getId());
     }
 
-    public final void update(final Long id, final UpdateAnswerRequest dto) {
+    public void update(final Long id, final UpdateAnswerRequest dto) {
         getEntity(id).update(dto.getContent());
     }
 

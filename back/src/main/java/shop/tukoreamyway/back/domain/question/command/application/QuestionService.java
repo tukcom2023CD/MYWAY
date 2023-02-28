@@ -33,11 +33,15 @@ public class QuestionService {
         return new IdResponse<>(question.getId());
     }
 
-    public void update(Long id, UpdateQuestionRequest dto) {
+    public void update(final Long id, final UpdateQuestionRequest dto) {
         getEntity(id).update(dto.getContent());
     }
 
-    private Question getEntity(Long id) {
+    public void deleteById(final Long id) {
+        questionRepository.deleteById(id);
+    }
+
+    private Question getEntity(final Long id) {
         return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

@@ -25,19 +25,19 @@ public class AnswerCommentService {
     private final AnswerCommentQueryRepository answerCommentQueryRepository;
     private final AnswerCommentMapper answerCommentMapper;
 
-    public IdResponse<Long> create(AnswerCommentRequest dto) {
-        Answer answer = answerEntityQueryService.getEntity(dto.getAnswerId());
-        Staff writer = staffQueryService.getActiveStaff(answer.getQuestion().getTeamId());
-        AnswerComment answerComment =
+    public IdResponse<Long> create(final AnswerCommentRequest dto) {
+        final Answer answer = answerEntityQueryService.getEntity(dto.getAnswerId());
+        final Staff writer = staffQueryService.getActiveStaff(answer.getQuestion().getTeamId());
+        final AnswerComment answerComment =
                 answerCommentRepository.save(answerCommentMapper.toEntity(dto, answer, writer));
         return new IdResponse<>(answerComment.getId());
     }
 
-    public void update(Long id, UpdateAnswerCommentRequest dto) {
+    public void update(final Long id, final UpdateAnswerCommentRequest dto) {
         getEntity(id).update(dto.getContent());
     }
 
-    private AnswerComment getEntity(Long id) {
+    private AnswerComment getEntity(final Long id) {
         return answerCommentQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

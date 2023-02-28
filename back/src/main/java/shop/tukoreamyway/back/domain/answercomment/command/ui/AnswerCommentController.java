@@ -20,13 +20,13 @@ public class AnswerCommentController {
     private final AnswerCommentService answerCommentService;
 
     @PostMapping
-    public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid AnswerCommentRequest dto) {
+    public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid final AnswerCommentRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(answerCommentService.create(dto));
     }
 
     @PutMapping("{id}")
     public ResponseEntity<IdResponse<Long>> update(
-            @RequestBody @Valid UpdateAnswerCommentRequest dto, @PathVariable Long id) {
+            @RequestBody @Valid final UpdateAnswerCommentRequest dto, @PathVariable final Long id) {
         answerCommentService.update(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

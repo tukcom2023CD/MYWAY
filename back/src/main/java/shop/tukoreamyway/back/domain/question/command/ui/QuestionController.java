@@ -30,4 +30,10 @@ public class QuestionController {
         questionService.update(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<IdResponse<Long>> deleteById(@PathVariable Long id) {
+        questionService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
