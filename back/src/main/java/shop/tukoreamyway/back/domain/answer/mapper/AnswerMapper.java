@@ -16,6 +16,6 @@ public interface AnswerMapper {
     @Mapping(target = "content", source = "dto.content")
     @Mapping(target = "question", source = "question")
     Answer toEntity(AnswerRequest dto, Question question, Staff staff);
-
+    @Mapping(target = "questionId", source = "entity.question.id")
     AnswerResponse toResponse(Answer entity);
 }
