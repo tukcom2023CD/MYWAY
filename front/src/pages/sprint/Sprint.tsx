@@ -2,6 +2,7 @@ import React from 'react';
 import Menu from '../../components/frames/Sidebar';
 import Profile from '../../components/frames/Profile';
 import SprintPageList from '../../components/project/SprintPageList';
+import TaskList from '../../components/project/TaskList';
 import MemberList from '../../components/project/MemberList';
 
 function Sprint() {
@@ -13,6 +14,7 @@ function Sprint() {
         <div className='flex justify-center items-center m-auto'>
           <SprintPageList />
           <div className='flex flex-col justify-center items-center m-auto'>
+            <TaskList />
             <MemberList />
           </div>
         </div>
