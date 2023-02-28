@@ -20,7 +20,8 @@ public class AnswerCommentController {
     private final AnswerCommentService answerCommentService;
 
     @PostMapping
-    public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid final AnswerCommentRequest dto) {
+    public ResponseEntity<IdResponse<Long>> create(
+            @RequestBody @Valid final AnswerCommentRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(answerCommentService.create(dto));
     }
 

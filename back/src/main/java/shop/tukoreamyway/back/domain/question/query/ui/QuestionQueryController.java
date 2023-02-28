@@ -18,7 +18,7 @@ public class QuestionQueryController {
 
     @GetMapping
     public ResponseEntity<List<QuestionResponse>> getAllByWriterId(
-            @RequestParam("writer-id")final Long writerId) {
+            @RequestParam("writer-id") final Long writerId) {
         return ResponseEntity.ok(questionQueryService.findAllByWriterId(writerId));
     }
 
