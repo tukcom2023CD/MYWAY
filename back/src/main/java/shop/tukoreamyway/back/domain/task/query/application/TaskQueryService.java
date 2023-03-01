@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.task.query.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.domain.task.dto.MyTaskCondition;
@@ -10,16 +9,15 @@ import shop.tukoreamyway.back.domain.task.dto.TaskSearchCondition;
 import shop.tukoreamyway.back.domain.task.dto.TaskSummary;
 import shop.tukoreamyway.back.domain.task.entity.Task;
 import shop.tukoreamyway.back.domain.task.mapper.TaskMapper;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 import shop.tukoreamyway.back.global.service.QueryService;
 
-import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @QueryService
 @RequiredArgsConstructor
-public class TaskQueryService implements EntityQueryService<Task, Long> {
+public class TaskQueryService implements EntityLoader<Task, Long> {
     private final TaskQueryRepository taskQueryRepository;
     private final TaskMapper taskMapper;
     private final StaffQueryService staffQueryService;

@@ -1,20 +1,18 @@
 package shop.tukoreamyway.back.domain.question.query.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.question.dto.QuestionResponse;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 import shop.tukoreamyway.back.global.service.QueryService;
 
-import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
 
 @QueryService
 @RequiredArgsConstructor
-public class QuestionQueryService implements EntityQueryService<Question, Long> {
+public class QuestionQueryService implements EntityLoader<Question, Long> {
     private final QuestionQueryRepository questionQueryRepository;
     private final QuestionMapper questionMapper;
 

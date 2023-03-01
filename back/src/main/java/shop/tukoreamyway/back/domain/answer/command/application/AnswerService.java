@@ -12,7 +12,7 @@ import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -21,7 +21,7 @@ import javax.persistence.EntityNotFoundException;
 public class AnswerService {
     private final AnswerRepository answerRepository;
     private final StaffQueryService staffQueryService;
-    private final EntityQueryService<Question, Long> questionEntityQueryService;
+    private final EntityLoader<Question, Long> questionEntityQueryService;
     private final AnswerQueryRepository answerQueryRepository;
     private final AnswerMapper answerMapper;
 

@@ -19,7 +19,7 @@ import shop.tukoreamyway.back.domain.staff.entity.Rank;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepository;
 import shop.tukoreamyway.back.domain.team.entity.Team;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 import shop.tukoreamyway.back.support.LoginTest;
 import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
 import shop.tukoreamyway.back.support.database.UseSampleData;
@@ -31,7 +31,7 @@ import java.util.Set;
 @DisplayName("StaffService에서")
 class StaffServiceTest extends LoginTest {
     @Autowired private StaffService staffService;
-    @Autowired private EntityQueryService<Team, Long> teamService;
+    @Autowired private EntityLoader<Team, Long> teamService;
     @Autowired private StaffQueryRepository staffQueryRepository;
 
     @Nested

@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.staff.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 import shop.tukoreamyway.back.domain.staff.dto.AcceptApplyRequest;
@@ -14,12 +13,11 @@ import shop.tukoreamyway.back.domain.staff.mapper.StaffMapper;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepository;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.service.CommandService;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
-
-import java.util.Optional;
-import java.util.UUID;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
+import java.util.UUID;
 
 @CommandService
 @RequiredArgsConstructor
@@ -28,8 +26,8 @@ public class StaffService {
     private final StaffQueryRepository staffQueryRepository;
     private final StaffMapper staffMapper;
     private final AuthService authService;
-    private final EntityQueryService<Team, Long> teamEntityQueryService;
-    private final EntityQueryService<Member, UUID> memberEntityQueryService;
+    private final EntityLoader<Team, Long> teamLoader;
+    private final EntityLoader<Member, UUID> memberLoader;
 
     public void createProjectLeaderStaff(final Team team) {
         final Member loginUser = authService.getLoginUserEntity();
@@ -41,9 +39,9 @@ public class StaffService {
     }
 
     public void invite(final InviteRequest dto) {
-        final Team team = teamEntityQueryService.getEntity(dto.getTeamId());
+        final Team team = teamLoader.getEntity(dto.getTeamId());
         dto.getMembers().stream()
-                .map(memberEntityQueryService::getEntity)
+                .map(memberLoader::getEntity)
                 .map(member -> new Staff(team, member))
                 .forEach(
                         staff -> {
@@ -54,7 +52,7 @@ public class StaffService {
 
     public void apply(final ApplyRequest dto) {
         final Member loginUser = authService.getLoginUserEntity();
-        final Team team = teamEntityQueryService.getEntity(dto.getTeamId());
+        final Team team = teamLoader.getEntity(dto.getTeamId());
         final Staff applyer = new Staff(team, loginUser);
         applyer.acceptMember();
         staffRepository.save(applyer);
