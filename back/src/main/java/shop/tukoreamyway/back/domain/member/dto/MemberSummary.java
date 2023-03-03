@@ -10,6 +10,6 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 public class MemberSummary {
-    private UUID id;
-    private String name;
+    private final UUID id;
+    private final String name;
 }

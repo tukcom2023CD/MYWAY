@@ -23,20 +23,20 @@ public class AbilityQueryService {
     private final StaffQueryService staffQueryService;
     private final AbilityMapper abilityMapper;
 
-    public List<AbilityResponse> findAllByStaffId(Long staffId) {
-        List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(staffId);
+    public List<AbilityResponse> findAllByStaffId(final Long staffId) {
+        final List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(staffId);
         return abilities.stream().map(abilityMapper::toResponse).toList();
     }
 
-    public AbilitySummary findSummaryByStaffId(Long staffId) {
-        List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(staffId);
-        Staff receiver = staffQueryService.getEntity(staffId);
-        Map<AbilityCategory, Long> points = generatePoints(abilities);
+    public AbilitySummary findSummaryByStaffId(final Long staffId) {
+        final List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(staffId);
+        final Staff receiver = staffQueryService.getEntity(staffId);
+        final Map<AbilityCategory, Long> points = generatePoints(abilities);
         return abilityMapper.toSummary(receiver, points);
     }
 
-    private Map<AbilityCategory, Long> generatePoints(List<Ability> abilities) {
-        Map<AbilityCategory, Long> points = new EnumMap<>(AbilityCategory.class);
+    private Map<AbilityCategory, Long> generatePoints(final List<Ability> abilities) {
+        final Map<AbilityCategory, Long> points = new EnumMap<>(AbilityCategory.class);
         pointMapInitialize(points);
         abilities.forEach(
                 ability -> points.compute(ability.getCategory(), (k, v) -> v + ability.getPoint()));
@@ -47,16 +47,17 @@ public class AbilityQueryService {
         Arrays.stream(AbilityCategory.values()).forEach(category -> points.put(category, 0L));
     }
 
-    public List<AbilityResponse> findAllMyAbility(Long teamId) {
-        Long receiverId = staffQueryService.getActiveStaff(teamId).getId();
-        List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(receiverId);
+    public List<AbilityResponse> findAllMyAbility(final Long teamId) {
+        final Long receiverId = staffQueryService.getActiveStaff(teamId).getId();
+        final List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(receiverId);
         return abilities.stream().map(abilityMapper::toResponse).toList();
     }
 
-    public AbilitySummary findAllMyAbilitySummary(Long teamId) {
-        Staff receiver = staffQueryService.getActiveStaff(teamId);
-        List<Ability> abilities = abilityQueryRepository.findAllByReceiverId(receiver.getId());
-        Map<AbilityCategory, Long> points = generatePoints(abilities);
+    public AbilitySummary findAllMyAbilitySummary(final Long teamId) {
+        final Staff receiver = staffQueryService.getActiveStaff(teamId);
+        final List<Ability> abilities =
+                abilityQueryRepository.findAllByReceiverId(receiver.getId());
+        final Map<AbilityCategory, Long> points = generatePoints(abilities);
         return abilityMapper.toSummary(receiver, points);
     }
 }

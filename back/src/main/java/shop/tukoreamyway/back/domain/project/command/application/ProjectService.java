@@ -11,7 +11,7 @@ import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.service.CommandService;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 
 @CommandService
 @RequiredArgsConstructor
@@ -19,13 +19,13 @@ public class ProjectService {
     private final ProjectRepository projectRepository;
     private final SprintService sprintService;
     private final StaffQueryService staffQueryService;
-    private final EntityQueryService<Team, Long> teamEntityQueryService;
+    private final EntityLoader<Team, Long> teamLoader;
     private final ProjectMapper projectMapper;
 
-    public ProjectResponse create(ProjectRequest dto) {
-        Staff manager = staffQueryService.getEntity(dto.getManagerId());
-        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
-        Project project = projectRepository.save(projectMapper.toEntity(dto, team, manager));
+    public ProjectResponse create(final ProjectRequest dto) {
+        final Staff manager = staffQueryService.getEntity(dto.getManagerId());
+        final Team team = teamLoader.getEntity(dto.getTeamId());
+        final Project project = projectRepository.save(projectMapper.toEntity(dto, team, manager));
         sprintService.createInitial(project);
         return projectMapper.toResponse(project);
     }

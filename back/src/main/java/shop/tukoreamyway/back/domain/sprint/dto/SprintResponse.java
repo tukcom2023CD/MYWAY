@@ -13,10 +13,10 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 public class SprintResponse {
-    private Long id;
-    private ProjectResponse project;
-    private Integer round;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private StaffSummary leader;
+    private final Long id;
+    private final ProjectResponse project;
+    private final Integer round;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
+    private final StaffSummary leader;
 }

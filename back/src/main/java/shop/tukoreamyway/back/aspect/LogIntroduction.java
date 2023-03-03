@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Slf4j
 @Component
-public class LogIntroduction {
+public final class LogIntroduction {
 
     @Before("execution(* shop.tukoreamyway.back..*Controller.*(..))")
     public void controllerLog(JoinPoint joinPoint) {

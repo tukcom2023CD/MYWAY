@@ -14,7 +14,7 @@ import shop.tukoreamyway.back.domain.staff.mapper.StaffMapper;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepository;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.service.CommandService;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -28,43 +28,51 @@ public class StaffService {
     private final StaffQueryRepository staffQueryRepository;
     private final StaffMapper staffMapper;
     private final AuthService authService;
-    private final EntityQueryService<Team, Long> teamEntityQueryService;
-    private final EntityQueryService<Member, UUID> memberEntityQueryService;
+    private final EntityLoader<Team, Long> teamLoader;
+    private final EntityLoader<Member, UUID> memberLoader;
 
     public void createProjectLeaderStaff(final Team team) {
-        Member loginUser = authService.getLoginUserEntity();
-        Staff staff = staffMapper.toEntity(team, loginUser);
+        final Member loginUser = authService.getLoginUserEntity();
+        final Staff staff = staffMapper.toEntity(team, loginUser);
         staff.changeRank(Rank.MANAGER);
         staff.acceptTeam();
         staff.acceptMember();
         staffRepository.save(staff);
     }
 
-    public void invite(InviteRequest dto) {
-        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
+    public void invite(final InviteRequest dto) {
+        final Team team = teamLoader.getEntity(dto.getTeamId());
         dto.getMembers().stream()
-                .map(memberEntityQueryService::getEntity)
+                .map(memberLoader::getEntity)
                 .map(member -> new Staff(team, member))
-                .forEach(staffRepository::save);
+                .forEach(
+                        staff -> {
+                            staff.acceptTeam();
+                            staffRepository.save(staff);
+                        });
     }
 
-    public void apply(ApplyRequest dto) {
-        Member loginUser = authService.getLoginUserEntity();
-        Team team = teamEntityQueryService.getEntity(dto.getTeamId());
-        staffRepository.save(new Staff(team, loginUser));
+    public void apply(final ApplyRequest dto) {
+        final Member loginUser = authService.getLoginUserEntity();
+        final Team team = teamLoader.getEntity(dto.getTeamId());
+        final Staff applyer = new Staff(team, loginUser);
+        applyer.acceptMember();
+        staffRepository.save(applyer);
     }
 
-    public void acceptInvite(Long id, AcceptInviteRequest dto) {
-        Staff staff = getEntity(id);
+    public void acceptInvite(final Long id, final AcceptInviteRequest dto) {
+        final Staff staff = getEntity(id);
+        staff.acceptMember();
         Optional.ofNullable(dto.getNickname()).ifPresent(staff::changeNickname);
     }
 
-    public void acceptApply(Long id, AcceptApplyRequest dto) {
-        Staff staff = getEntity(id);
+    public void acceptApply(final Long id, final AcceptApplyRequest dto) {
+        final Staff staff = getEntity(id);
+        staff.acceptTeam();
         Optional.ofNullable(dto.getRank()).ifPresent(staff::changeRank);
     }
 
-    private Staff getEntity(Long id) {
+    private Staff getEntity(final Long id) {
         return staffQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

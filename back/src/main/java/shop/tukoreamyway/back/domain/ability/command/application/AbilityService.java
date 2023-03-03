@@ -14,8 +14,8 @@ public class AbilityService {
     private final AbilityRepository abilityRepository;
     private final AbilityMapper abilityMapper;
 
-    public IdResponse<Long> create(AbilityServiceRequest dto) {
-        Ability ability = abilityRepository.save(abilityMapper.toEntity(dto));
+    public final IdResponse<Long> create(final AbilityServiceRequest dto) {
+        final Ability ability = abilityRepository.save(abilityMapper.toEntity(dto));
         return new IdResponse<>(ability.getId());
     }
 }

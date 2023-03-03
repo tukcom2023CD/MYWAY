@@ -21,19 +21,19 @@ public class TaskController {
     private final TaskService taskService;
 
     @PostMapping
-    public ResponseEntity<IdResponse<Long>> createTask(@RequestBody @Valid TaskRequest dto) {
+    public ResponseEntity<IdResponse<Long>> createTask(@RequestBody @Valid final TaskRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(taskService.create(dto));
     }
 
     @PostMapping("{id}/allocate")
     public ResponseEntity<Void> allocateTask(
-            @RequestBody @Valid AllocateTaskRequest dto, @PathVariable Long id) {
+            @RequestBody @Valid final AllocateTaskRequest dto, @PathVariable final Long id) {
         taskService.allocate(id, dto);
         return ResponseEntity.noContent().build();
     }
 
     @PostMapping("{id}/bring")
-    public ResponseEntity<Void> bringTask(@PathVariable Long id) {
+    public ResponseEntity<Void> bringTask(@PathVariable final Long id) {
         taskService.bring(id);
         return ResponseEntity.noContent().build();
     }
@@ -41,7 +41,7 @@ public class TaskController {
     // task 상태 변경
     @PatchMapping("{id}/status")
     public ResponseEntity<Void> updateStatus(
-            @PathVariable Long id, @RequestBody @Valid UpdateTaskStatusRequest dto) {
+            @PathVariable Long id, @RequestBody @Valid final UpdateTaskStatusRequest dto) {
         taskService.updateStatus(id, dto);
         return ResponseEntity.noContent().build();
     }

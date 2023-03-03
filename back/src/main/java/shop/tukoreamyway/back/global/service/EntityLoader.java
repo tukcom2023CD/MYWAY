@@ -1,5 +1,5 @@
 package shop.tukoreamyway.back.global.service;
 
-public interface EntityQueryService<T, ID> {
+public interface EntityLoader<T, ID> {
     T getEntity(ID id);
 }

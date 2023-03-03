@@ -12,7 +12,7 @@ import lombok.Getter;
 @Builder
 @Getter
 @AllArgsConstructor
-public class JwtToken {
+public final class JwtToken {
     private String accessToken;
     private String refreshToken;
     private String grantType;

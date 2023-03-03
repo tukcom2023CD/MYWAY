@@ -6,6 +6,7 @@ import org.mapstruct.MappingConstants;
 
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
 import shop.tukoreamyway.back.domain.answercomment.dto.AnswerCommentRequest;
+import shop.tukoreamyway.back.domain.answercomment.dto.AnswerCommentResponse;
 import shop.tukoreamyway.back.domain.answercomment.entity.AnswerComment;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
@@ -15,4 +16,7 @@ public interface AnswerCommentMapper {
     @Mapping(target = "content", source = "dto.content")
     @Mapping(target = "answer", source = "answer")
     AnswerComment toEntity(AnswerCommentRequest dto, Answer answer, Staff writer);
+
+    @Mapping(target = "answerId", source = "entity.answer.id")
+    AnswerCommentResponse toResponse(AnswerComment entity);
 }

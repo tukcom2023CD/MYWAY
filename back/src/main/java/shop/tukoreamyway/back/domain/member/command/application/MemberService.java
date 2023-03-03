@@ -2,8 +2,6 @@ package shop.tukoreamyway.back.domain.member.command.application;
 
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import shop.tukoreamyway.back.config.security.oauth2.OAuth2Request;
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.entity.OAuth2Info;
@@ -16,7 +14,6 @@ public class MemberService {
     private final MemberRepository memberRepository;
     private final MemberQueryRepository memberQueryRepository;
 
-    @Transactional
     public Member saveIfNone(final OAuth2Request oAuth2Request) {
         String socialId = oAuth2Request.getAccountId();
         return memberQueryRepository

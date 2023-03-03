@@ -11,11 +11,11 @@ import shop.tukoreamyway.back.domain.staff.dto.StaffSummary;
 @Builder
 @AllArgsConstructor
 public class TaskSummary {
-    private Long id;
-    private String summary;
-    private String status;
-    private String category;
-    private SprintResponse sprint;
-    private StaffSummary player;
-    private StaffSummary reviewer;
+    private final Long id;
+    private final String summary;
+    private final String status;
+    private final String category;
+    private final SprintResponse sprint;
+    private final StaffSummary player;
+    private final StaffSummary reviewer;
 }

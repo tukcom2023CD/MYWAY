@@ -25,18 +25,18 @@ public class TaskQueryController {
 
     @GetMapping
     public ResponseEntity<List<TaskSummary>> getAllByCondition(
-            @RequestObjectParam TaskSearchCondition condition) {
+            @RequestObjectParam final TaskSearchCondition condition) {
         return ResponseEntity.ok(taskQueryService.findAllByCondition(condition));
     }
 
     @GetMapping("mytask")
     public ResponseEntity<List<TaskSummary>> getAllMyTask(
-            @RequestObjectParam MyTaskCondition condition) {
+            @RequestObjectParam final MyTaskCondition condition) {
         return ResponseEntity.ok(taskQueryService.findAllMyTask(condition));
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<TaskResponse> getById(@PathVariable Long id) {
+    public ResponseEntity<TaskResponse> getById(@PathVariable final Long id) {
         return ResponseEntity.ok(taskQueryService.findById(id));
     }
 }

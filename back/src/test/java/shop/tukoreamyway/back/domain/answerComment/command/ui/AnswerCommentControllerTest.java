@@ -1,5 +1,6 @@
 package shop.tukoreamyway.back.domain.answerComment.command.ui;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -18,6 +19,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import shop.tukoreamyway.back.domain.answercomment.command.application.AnswerCommentService;
 import shop.tukoreamyway.back.domain.answercomment.command.ui.AnswerCommentController;
 import shop.tukoreamyway.back.domain.answercomment.dto.AnswerCommentRequest;
+import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 
 import java.nio.charset.StandardCharsets;
@@ -25,13 +27,16 @@ import java.nio.charset.StandardCharsets;
 @WebMvcTest(AnswerCommentController.class)
 @DisplayName("AnswerCommentController에서")
 class AnswerCommentControllerTest extends RestDocumentTest {
-    @MockBean private AnswerCommentService answerCommentService;
+    @MockBean AnswerCommentService answerCommentService;
 
     @Test
-    @DisplayName("생성을 수행하는가")
+    @DisplayName("answer-comment 생성을 수행하는가")
     void successCreate() throws Exception {
         // given
         AnswerCommentRequest req = new AnswerCommentRequest("그거 그렇게 하는거 아닌데", 1L);
+        when(answerCommentService.create(new AnswerCommentRequest()))
+                .thenReturn(new IdResponse<>(5L));
+        // when
         ResultActions perform =
                 mockMvc.perform(
                         post("/answer-comments")
@@ -46,7 +51,7 @@ class AnswerCommentControllerTest extends RestDocumentTest {
         perform.andDo(print())
                 .andDo(
                         document(
-                                "create answerComment",
+                                "create answer-comment",
                                 getDocumentRequest(),
                                 getDocumentResponse()));
     }

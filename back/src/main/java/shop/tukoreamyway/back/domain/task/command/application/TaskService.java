@@ -14,7 +14,7 @@ import shop.tukoreamyway.back.domain.task.mapper.TaskMapper;
 import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepository;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
-import shop.tukoreamyway.back.global.service.EntityQueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import java.util.Optional;
 
@@ -26,20 +26,20 @@ public class TaskService {
     private final TaskRepository taskRepository;
     private final TaskQueryRepository taskQueryRepository;
     private final StaffQueryService staffQueryService;
-    private final EntityQueryService<Sprint, Long> sprintEntityQueryService;
+    private final EntityLoader<Sprint, Long> sprintLoader;
     private final TaskMapper taskMapper;
 
-    public IdResponse<Long> create(TaskRequest dto) {
-        Staff player =
+    public IdResponse<Long> create(final TaskRequest dto) {
+        final Staff player =
                 Optional.ofNullable(dto.getPlayerId())
                         .map(staffQueryService::getEntity)
                         .orElse(null);
-        Staff reviewer =
+        final Staff reviewer =
                 Optional.ofNullable(dto.getReviewerId())
                         .map(staffQueryService::getEntity)
                         .orElse(null);
-        Sprint sprint = sprintEntityQueryService.getEntity(dto.getSprintId());
-        Task task = taskRepository.save(taskMapper.toEntity(dto, sprint, player, reviewer));
+        final Sprint sprint = sprintLoader.getEntity(dto.getSprintId());
+        final Task task = taskRepository.save(taskMapper.toEntity(dto, sprint, player, reviewer));
         return new IdResponse<>(task.getId());
     }
 

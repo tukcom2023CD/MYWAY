@@ -20,39 +20,39 @@ public class StaffQueryService {
     private final AuthService authService;
     private final StaffMapper staffMapper;
 
-    public Staff getEntity(Long id) {
+    public Staff getEntity(final Long id) {
         return staffQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<StaffResponse> findAllApplyByTeamId(Long teamId) {
-        List<Staff> staffs = staffQueryRepository.findAllByTeamIdApplyFilter(teamId);
+    public List<StaffResponse> findAllApplyByTeamId(final Long teamId) {
+        final List<Staff> staffs = staffQueryRepository.findAllByTeamIdApplyFilter(teamId);
         return mapToList(staffs);
     }
 
     public List<StaffResponse> findAllInvite() {
-        UUID loginUserId = authService.getLoginUserId();
-        List<Staff> staffs = staffQueryRepository.findAllByMemberIdInviteFilter(loginUserId);
+        final UUID loginUserId = authService.getLoginUserId();
+        final List<Staff> staffs = staffQueryRepository.findAllByMemberIdInviteFilter(loginUserId);
         return mapToList(staffs);
     }
 
-    public List<StaffResponse> findAllTeamStaff(Long teamId) {
-        List<Staff> staffs = staffQueryRepository.findAllActiveStaffByTeamId(teamId);
+    public List<StaffResponse> findAllTeamStaff(final Long teamId) {
+        final List<Staff> staffs = staffQueryRepository.findAllActiveStaffByTeamId(teamId);
         return mapToList(staffs);
     }
 
-    private List<StaffResponse> mapToList(List<Staff> staffs) {
+    private List<StaffResponse> mapToList(final List<Staff> staffs) {
         return staffs.stream().map(staffMapper::toResponse).toList();
     }
 
-    public Staff getActiveStaff(Long teamId) {
-        UUID memberId = authService.getLoginUserId();
+    public Staff getActiveStaff(final Long teamId) {
+        final UUID memberId = authService.getLoginUserId();
         return staffQueryRepository
                 .findByMemberIdAndTeamId(memberId, teamId)
                 .orElseThrow(EntityNotFoundException::new);
     }
 
     public List<StaffResponse> findAllMyTeam() {
-        UUID loginUserId = authService.getLoginUserId();
+        final UUID loginUserId = authService.getLoginUserId();
         List<Staff> staffs = staffQueryRepository.findAllActiveStaffByMemberId(loginUserId);
         return mapToList(staffs);
     }

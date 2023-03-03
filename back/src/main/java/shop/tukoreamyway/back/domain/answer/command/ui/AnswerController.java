@@ -20,13 +20,13 @@ public class AnswerController {
     private final AnswerService answerService;
 
     @PostMapping
-    public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid AnswerRequest dto) {
+    public ResponseEntity<IdResponse<Long>> create(@RequestBody @Valid final AnswerRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(answerService.create(dto));
     }
 
     @PutMapping("{id}")
     public ResponseEntity<IdResponse<Long>> update(
-            @RequestBody @Valid UpdateAnswerRequest dto, @PathVariable Long id) {
+            @RequestBody @Valid UpdateAnswerRequest dto, @PathVariable final Long id) {
         answerService.update(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
