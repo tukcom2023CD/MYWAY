@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
-import Main from './pages/main/MainPage';
+import Main from './pages/main/DashBoard';
 import Login from './pages/main/Login';
 import Register from './pages/main/Register';
 import Project from './pages/project/Project';
