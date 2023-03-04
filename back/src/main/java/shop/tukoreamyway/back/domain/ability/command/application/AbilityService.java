@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.ability.command.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
 import shop.tukoreamyway.back.domain.ability.entity.Ability;
 import shop.tukoreamyway.back.domain.ability.mapper.AbilityMapper;
@@ -19,7 +20,8 @@ public class AbilityService {
     public IdResponse<Long> create(final AbilityRequest dto) {
         Staff receiver = staffLoader.getEntity(dto.getReceiverId());
         Staff grantor = null;
-        final Ability ability = abilityRepository.save(abilityMapper.toEntity(dto, receiver, grantor));
+        final Ability ability =
+                abilityRepository.save(abilityMapper.toEntity(dto, receiver, grantor));
         return new IdResponse<>(ability.getId());
     }
 }
