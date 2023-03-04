@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import WelcomePage from './pages/main/WelcomePage';
+import TeamList from './pages/main/TeamList';
 import DashBoard from './pages/main/DashBoard';
 import Login from './pages/main/Login';
 import Register from './pages/main/Register';
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         {/** 메인 페이지 및 로그인 페이지 */}
         <Route path='/' element={<WelcomePage />} />
+        <Route path='/TeamList' element={<TeamList />} />
         <Route path='/DashBoard' element={<DashBoard />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Register' element={<Register />} />
