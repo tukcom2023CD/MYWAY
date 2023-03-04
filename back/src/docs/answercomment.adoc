@@ -1,0 +1,22 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+
+== answer-comment command
+=== answer-comment 생성
+operation::create answer-comment[snippets='http-request,http-response']
+
+=== answer-comment 수정
+operation::update answer-comment[snippets='http-request,http-response']
+
+=== answer-comment 삭제
+operation::delete question[snippets='http-request,http-response']
+
+== answer-comment query
+=== answer id를 통한 요약조회
+operation::get answer-comment list by answer id[snippets='http-request,http-response']
+
+=== answer-comment id를 통한 상세조회
+operation::get answer-comment by id[snippets='http-request,http-response']

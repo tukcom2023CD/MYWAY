@@ -1,0 +1,7 @@
+
+== team command
+=== team 생성
+operation::create team[snippets='http-request,http-response']
+
+== team query
+=== not exist
