@@ -9,7 +9,7 @@ import shop.tukoreamyway.back.domain.answercomment.entity.AnswerComment;
 import shop.tukoreamyway.back.domain.answercomment.mapper.AnswerCommentMapper;
 import shop.tukoreamyway.back.domain.answercomment.query.application.AnswerCommentQueryRepository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
-import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
+import shop.tukoreamyway.back.domain.staff.query.application.StaffLoader;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
@@ -21,13 +21,13 @@ import javax.persistence.EntityNotFoundException;
 public class AnswerCommentService {
     private final AnswerCommentRepository answerCommentRepository;
     private final EntityLoader<Answer, Long> answerLoader;
-    private final StaffQueryService staffQueryService;
+    private final StaffLoader staffLoader;
     private final AnswerCommentQueryRepository answerCommentQueryRepository;
     private final AnswerCommentMapper answerCommentMapper;
 
     public IdResponse<Long> create(final AnswerCommentRequest dto) {
         final Answer answer = answerLoader.getEntity(dto.getAnswerId());
-        final Staff writer = staffQueryService.getActiveStaff(answer.getQuestion().getTeamId());
+        final Staff writer = staffLoader.getActiveStaff(answer.getQuestion().getTeamId());
         final AnswerComment answerComment =
                 answerCommentRepository.save(answerCommentMapper.toEntity(dto, answer, writer));
         return new IdResponse<>(answerComment.getId());
@@ -35,6 +35,10 @@ public class AnswerCommentService {
 
     public void update(final Long id, final UpdateAnswerCommentRequest dto) {
         getEntity(id).update(dto.getContent());
+    }
+
+    public void deleteById(Long id) {
+        answerCommentRepository.deleteById(id);
     }
 
     private AnswerComment getEntity(final Long id) {

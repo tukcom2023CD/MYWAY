@@ -17,6 +17,6 @@ public class ProjectRequest {
     @NotNull private LocalDateTime startAt;
     private LocalDateTime endAt;
     @NotNull private Long teamId;
-    private Integer sprintDays = 7;
+    @NotNull private Integer sprintDays;
     @NotNull private Long managerId;
 }

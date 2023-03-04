@@ -6,4 +6,6 @@ import shop.tukoreamyway.back.domain.answer.entity.Answer;
 
 public interface AnswerRepository extends JpaRepository<Answer, Long> {
     Answer save(Answer answer);
+
+    void deleteById(Long id);
 }

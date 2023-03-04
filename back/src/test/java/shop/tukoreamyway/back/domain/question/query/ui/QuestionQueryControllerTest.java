@@ -31,25 +31,6 @@ class QuestionQueryControllerTest extends RestDocumentTest {
     @MockBean private QuestionQueryService questionQueryService;
 
     @Test
-    @DisplayName("question을 id로 조회 가능한가")
-    void testGetQuestionById() throws Exception {
-        // Given
-        Long questionId = 1L;
-
-        ResultActions perform =
-                mockMvc.perform(
-                        RestDocumentationRequestBuilders.get(
-                                "/questions/{questionId}", questionId));
-
-        // then
-        perform.andExpect(status().isOk());
-
-        // docs
-        perform.andDo(print())
-                .andDo(document("get question By Id", getDocumentRequest(), getDocumentResponse()));
-    }
-
-    @Test
     @DisplayName("작성자가 작성한 모든 question을 조회하는가")
     void successGetAllByWriterId() throws Exception {
         StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
@@ -76,7 +57,32 @@ class QuestionQueryControllerTest extends RestDocumentTest {
         perform.andDo(print())
                 .andDo(
                         document(
-                                "get question list By writer id",
+                                "get question list by writer id",
+                                getDocumentRequest(),
+                                getDocumentResponse()));
+    }
+
+    @Test
+    @DisplayName("question-id로 question을 조회하는가")
+    void successGetById() throws Exception {
+        StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
+        // given
+        Long id = 1L;
+        when(questionQueryService.findById(any()))
+                .thenReturn(
+                        new QuestionResponse(2L, "제목", "내용", 5L, List.of("태그1", "태그2"), writer));
+        // when
+        ResultActions perform =
+                mockMvc.perform(RestDocumentationRequestBuilders.get("/questions/{id}", id));
+
+        // then
+        perform.andExpect(status().isOk());
+
+        // docs
+        perform.andDo(print())
+                .andDo(
+                        document(
+                                "get question by question id",
                                 getDocumentRequest(),
                                 getDocumentResponse()));
     }
