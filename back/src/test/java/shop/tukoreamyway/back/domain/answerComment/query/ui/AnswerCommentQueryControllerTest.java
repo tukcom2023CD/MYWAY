@@ -68,9 +68,7 @@ class AnswerCommentQueryControllerTest extends RestDocumentTest {
                                 new AnswerCommentResponse(3L, "내용2", 6L, writer)));
         // when
         ResultActions perform =
-                mockMvc.perform(
-                        RestDocumentationRequestBuilders.get(
-                                "/answer-comments/{id}", id));
+                mockMvc.perform(RestDocumentationRequestBuilders.get("/answer-comments/{id}", id));
 
         // then
         perform.andExpect(status().isOk());
