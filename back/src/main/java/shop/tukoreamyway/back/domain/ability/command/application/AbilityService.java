@@ -19,6 +19,9 @@ public class AbilityService {
     public IdResponse<Long> create(final AbilityRequest dto) {
         Staff receiver = staffLoader.getEntity(dto.getReceiverId());
         Staff grantor = null;
+        if(dto.getGrantorId() != null) {
+            staffLoader.getEntity(dto.getGrantorId());
+        }
         final Ability ability = abilityRepository.save(abilityMapper.toEntity(dto, receiver, grantor));
         return new IdResponse<>(ability.getId());
     }
