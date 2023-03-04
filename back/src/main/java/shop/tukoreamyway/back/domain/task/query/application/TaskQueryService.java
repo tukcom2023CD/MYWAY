@@ -3,7 +3,7 @@ package shop.tukoreamyway.back.domain.task.query.application;
 import lombok.RequiredArgsConstructor;
 
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
-import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
+import shop.tukoreamyway.back.domain.staff.query.application.StaffLoader;
 import shop.tukoreamyway.back.domain.task.dto.MyTaskCondition;
 import shop.tukoreamyway.back.domain.task.dto.TaskResponse;
 import shop.tukoreamyway.back.domain.task.dto.TaskSearchCondition;
@@ -22,7 +22,7 @@ import javax.persistence.EntityNotFoundException;
 public class TaskQueryService implements EntityLoader<Task, Long> {
     private final TaskQueryRepository taskQueryRepository;
     private final TaskMapper taskMapper;
-    private final StaffQueryService staffQueryService;
+    private final StaffLoader staffLoader;
 
     public List<TaskSummary> findAllByCondition(final TaskSearchCondition condition) {
         return taskQueryRepository.findAllByCondition(condition).stream()
@@ -39,7 +39,7 @@ public class TaskQueryService implements EntityLoader<Task, Long> {
     }
 
     public List<TaskSummary> findAllMyTask(final MyTaskCondition condition) {
-        final Staff activeStaff = staffQueryService.getActiveStaff(condition.getTeamId());
+        final Staff activeStaff = staffLoader.getActiveStaff(condition.getTeamId());
         return findAllByCondition(condition.toSearchCondition(activeStaff.getId()));
     }
 }

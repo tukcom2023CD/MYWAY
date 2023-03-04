@@ -23,8 +23,6 @@ import shop.tukoreamyway.back.domain.staff.dto.StaffSummary;
 import shop.tukoreamyway.back.support.docs.RestDocumentTest;
 import shop.tukoreamyway.back.support.fixture.staff.StaffSummaryFixture;
 
-import java.util.List;
-
 @WebMvcTest(AnswerCommentQueryController.class)
 @DisplayName("AnswerCommentQueryController에서")
 class AnswerCommentQueryControllerTest extends RestDocumentTest {
@@ -62,10 +60,8 @@ class AnswerCommentQueryControllerTest extends RestDocumentTest {
         // given
         Long id = 1L;
         when(answerCommentQueryService.findById(any()))
-                .thenReturn(
-                        List.of(
-                                new AnswerCommentResponse(2L, "내용1", 5L, writer),
-                                new AnswerCommentResponse(3L, "내용2", 6L, writer)));
+                .thenReturn(new AnswerCommentResponse(2L, "내용1", 5L, writer));
+
         // when
         ResultActions perform =
                 mockMvc.perform(RestDocumentationRequestBuilders.get("/answer-comments/{id}", id));
