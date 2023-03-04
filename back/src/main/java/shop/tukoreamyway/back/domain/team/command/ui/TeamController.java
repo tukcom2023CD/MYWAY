@@ -22,7 +22,7 @@ public class TeamController {
     private final TeamService teamService;
 
     @PostMapping
-    public ResponseEntity<IdResponse<Long>> createTeam(@RequestBody @Valid TeamRequest dto) {
+    public ResponseEntity<IdResponse<Long>> createTeam(@RequestBody @Valid final TeamRequest dto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(teamService.create(dto));
     }
 }

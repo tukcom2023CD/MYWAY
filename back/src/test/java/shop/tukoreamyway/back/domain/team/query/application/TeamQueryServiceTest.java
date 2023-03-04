@@ -34,7 +34,8 @@ class TeamQueryServiceTest extends LoginTest {
             // when
             Team result = teamQueryService.getEntity(team.getId());
             // then
-            assertThat(result).isEqualTo(team);
+            assertThat(result.getName()).isEqualTo(team.getName());
+            assertThat(result.getIndustryGroup()).isEqualTo(team.getIndustryGroup());
         }
 
         @Test

@@ -1,0 +1,18 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+= CREW-SHIP API
+include::ability.adoc[]
+include::answer.adoc[]
+include::answercomment.adoc[]
+include::member.adoc[]
+include::project.adoc[]
+include::question.adoc[]
+include::sprint.adoc[]
+include::staff.adoc[]
+include::task.adoc[]
+include::team.adoc[]

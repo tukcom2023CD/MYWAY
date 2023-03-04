@@ -50,7 +50,7 @@ spring:
           kakao:
             client-id: 7029b0d7943efeee68a5f2d0ec6c50a6
             client-name: Kakao
-            redirect-uri: "{baseUrl}/{action}/oauth2/code/{registrationId}"
+            redirect-uri:  "{baseUrl}/{action}/oauth2/code/{registrationId}"
             client-authentication-method: POST
             authorization-grant-type: authorization_code
             scope: profile_nickname, profile_image, account_email

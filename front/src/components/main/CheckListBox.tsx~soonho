@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import CheckList from '../frames/CheckList';
 
-function CheckList() {
-  const [isChecked, setIsChecked] = useState(false);
-  const checking = {
-    color: 'black',
+function CheckListBox() {
+  const [countList, setCountList] = useState([]);
+
+  const onAddCheckList = () => {
+    const countArr: any = [...countList];
+    let counter: number = countArr.slice(-1)[0];
+    counter += 1;
+    countArr.push(counter);
+    setCountList(countArr);
   };
 
   return (
@@ -12,6 +18,7 @@ function CheckList() {
         <p className='mr-auto text-[20px] font-bold'>일일체크리스트</p>
         <button
           type='button'
+          onClick={onAddCheckList}
           className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white'
         >
           <p className='flex justfiy-center items-center text-[24px]'>+</p>
@@ -40,4 +47,4 @@ function CheckList() {
   );
 }
 
-export default CheckList;
+export default CheckListBox;

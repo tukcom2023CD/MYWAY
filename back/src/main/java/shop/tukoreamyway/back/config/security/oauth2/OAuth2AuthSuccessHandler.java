@@ -1,5 +1,7 @@
 package shop.tukoreamyway.back.config.security.oauth2;
 
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
@@ -9,6 +11,7 @@ import shop.tukoreamyway.back.config.security.jwt.JwtSetupService;
 
 import java.io.IOException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,24 +21,19 @@ import javax.servlet.http.HttpServletResponse;
  * @author Hyeonjun Park
  */
 @Component
+@RequiredArgsConstructor
 public class OAuth2AuthSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final JwtSetupService jwtSetupService;
 
-    private final String redirectUrl;
-
-    public OAuth2AuthSuccessHandler(
-            JwtSetupService jwtSetupService, @Value("${client.url}") String redirectUrl) {
-        this.jwtSetupService = jwtSetupService;
-        this.redirectUrl = redirectUrl;
-    }
+    @Value("${client.url}")
+    private String clientUrl;
 
     @Override
     public void onAuthenticationSuccess(
             HttpServletRequest request, HttpServletResponse response, Authentication authentication)
-            throws IOException {
-
+            throws IOException, ServletException {
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
         jwtSetupService.addJwtTokensInCookie(response, loginUser);
-        response.sendRedirect(redirectUrl);
+        getRedirectStrategy().sendRedirect(request, response, clientUrl);
     }
 }

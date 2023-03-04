@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import SideGraph from './SideGraph';
 import menu from '../../images/menu.png';
 import dashboard from '../../images/dashboard.png';
 import project from '../../images/project.png';
-import dailyscrum from '../../images/dailyscrum.png';
-import members from '../../images/members.png';
+import sprint from '../../images/members.png';
 import graph from '../../images/graph.png';
 
 function Sidebar() {
@@ -58,28 +58,14 @@ function Sidebar() {
                 <NavLink
                   className='flex items-center p-2 space-x-3 rounded-xl'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/DailyScrum'
+                  to='/Sprint'
                 >
                   <img
                     className='w-[24px] h-[24px]'
                     alt='dashboardicon'
-                    src={dailyscrum}
+                    src={sprint}
                   />
-                  <span>DailyScrum</span>
-                </NavLink>
-              </li>
-              <li className='rounded-sm'>
-                <NavLink
-                  className='flex items-center p-2 space-x-3 rounded-xl'
-                  style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/Members'
-                >
-                  <img
-                    className='w-[24px] h-[24px]'
-                    alt='dashboardicon'
-                    src={members}
-                  />
-                  <span>Members</span>
+                  <span>Sprint</span>
                 </NavLink>
               </li>
               <li className='rounded-sm'>
@@ -96,8 +82,25 @@ function Sidebar() {
                   <span>Graph</span>
                 </NavLink>
               </li>
+              <li className='rounded-sm'>
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/Login'
+                >
+                  <img
+                    className='w-[24px] h-[24px]'
+                    alt='dashboardicon'
+                    src={graph}
+                  />
+                  <span>Login</span>
+                </NavLink>
+              </li>
             </ul>
           </div>
+        </div>
+        <div className='mt-auto mb-[100px]'>
+          <SideGraph />
         </div>
       </div>
     </div>

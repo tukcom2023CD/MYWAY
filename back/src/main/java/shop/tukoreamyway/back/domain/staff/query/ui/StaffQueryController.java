@@ -21,13 +21,13 @@ public class StaffQueryController {
 
     @GetMapping(value = "apply", params = "team-id")
     public ResponseEntity<List<StaffResponse>> getApply(
-            @RequestParam(name = "team-id") Long teamId) {
+            @RequestParam(name = "team-id") final Long teamId) {
         return ResponseEntity.ok(staffQueryService.findAllApplyByTeamId(teamId));
     }
 
     @GetMapping(params = "team-id")
     public ResponseEntity<List<StaffResponse>> getAllByTeamId(
-            @RequestParam(name = "team-id") Long teamId) {
+            @RequestParam(name = "team-id") final Long teamId) {
         return ResponseEntity.ok(staffQueryService.findAllTeamStaff(teamId));
     }
 

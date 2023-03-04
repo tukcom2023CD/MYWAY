@@ -2,7 +2,7 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://223.255.205.62:30507/api/v1/",
+  "proxy": "http://223.255.205.62:30123",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -11,9 +11,12 @@
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
+    "axios": "^1.3.3",
+    "env-cmd": "^10.1.0",
     "react": "^18.2.0",
     "react-calendar": "^4.0.0",
     "react-dom": "^18.2.0",
+    "react-donut-chart": "^1.3.3",
     "react-icons": "^4.7.1",
     "react-minimal-pie-chart": "^8.4.0",
     "react-router-dom": "^6.6.1",
@@ -21,8 +24,7 @@
     "recharts": "^2.4.1",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.9.4",
-    "web-vitals": "^2.1.4",
-    "env-cmd": "^10.1.0"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

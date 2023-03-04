@@ -12,11 +12,11 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 public class AbilityResponse {
-    private Long id;
-    private String category;
-    private StaffSummary receiver;
-    private Long point;
-    private LocalDateTime grantedAt;
-    private String grantLocation;
-    private StaffSummary grantor;
+    private final Long id;
+    private final String category;
+    private final StaffSummary receiver;
+    private final Long point;
+    private final LocalDateTime grantedAt;
+    private final String grantLocation;
+    private final StaffSummary grantor;
 }

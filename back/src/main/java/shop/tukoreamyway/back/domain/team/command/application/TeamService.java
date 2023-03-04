@@ -8,8 +8,8 @@ import shop.tukoreamyway.back.domain.staff.command.application.StaffService;
 import shop.tukoreamyway.back.domain.team.dto.TeamRequest;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.domain.team.mapper.TeamMapper;
-import shop.tukoreamyway.back.global.CommandService;
 import shop.tukoreamyway.back.global.IdResponse;
+import shop.tukoreamyway.back.global.service.CommandService;
 
 @CommandService
 @RequiredArgsConstructor
@@ -19,9 +19,9 @@ public class TeamService {
     private final StaffService staffService;
     private final AuthService authService;
 
-    public IdResponse<Long> create(TeamRequest dto) {
-        Member loginUser = authService.getLoginUserEntity();
-        Team team = teamRepository.save(teamMapper.toEntity(dto, loginUser));
+    public IdResponse<Long> create(final TeamRequest dto) {
+        final Member loginUser = authService.getLoginUserEntity();
+        final Team team = teamRepository.save(teamMapper.toEntity(dto, loginUser));
         staffService.createProjectLeaderStaff(team);
         return new IdResponse<>(team.getId());
     }
