@@ -21,8 +21,10 @@ public class AbilityService {
 
     public IdResponse<Long> create(final AbilityRequest dto) {
         final Staff receiver = staffLoader.getEntity(dto.getReceiverId());
-        final Staff grantor = Optional.ofNullable(dto.getGrantorId()).map(staffLoader::getEntity).orElse(null);
-        final Ability ability = abilityRepository.save(abilityMapper.toEntity(dto, receiver, grantor));
+        final Staff grantor =
+                Optional.ofNullable(dto.getGrantorId()).map(staffLoader::getEntity).orElse(null);
+        final Ability ability =
+                abilityRepository.save(abilityMapper.toEntity(dto, receiver, grantor));
         return new IdResponse<>(ability.getId());
     }
 }
