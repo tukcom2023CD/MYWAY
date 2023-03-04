@@ -24,7 +24,7 @@ public class AnswerCommentQueryController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AnswerCommentResponse> findAnswerCommentById(@PathVariable Long id) {
+    public ResponseEntity<AnswerCommentResponse> findById(@PathVariable Long id) {
         return ResponseEntity.ok(answerCommentQueryService.findById(id));
     }
 }
