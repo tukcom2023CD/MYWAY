@@ -39,7 +39,7 @@ public class AnswerService {
     public void deleteById(Long id) {
         answerRepository.deleteById(id);
     }
-    
+
     private Answer getEntity(final Long id) {
         return answerQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
