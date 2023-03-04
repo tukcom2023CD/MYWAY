@@ -8,7 +8,7 @@ import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
-import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
+import shop.tukoreamyway.back.domain.staff.query.application.StaffLoader;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
@@ -21,13 +21,13 @@ import javax.persistence.EntityNotFoundException;
 public class QuestionService {
     private final QuestionRepository questionRepository;
     private final EntityLoader<Team, Long> teamLoader;
-    private final StaffQueryService staffQueryService;
+    private final StaffLoader staffLoader;
     private final QuestionQueryRepository questionQueryRepository;
     private final QuestionMapper questionMapper;
 
     public IdResponse<Long> create(final QuestionRequest dto) {
         final Team team = teamLoader.getEntity(dto.getTeamId());
-        final Staff staff = staffQueryService.getActiveStaff(dto.getTeamId());
+        final Staff staff = staffLoader.getActiveStaff(dto.getTeamId());
         final Question question =
                 questionRepository.save(questionMapper.toEntity(dto, team, staff));
         return new IdResponse<>(question.getId());
