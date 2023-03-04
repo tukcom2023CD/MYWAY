@@ -37,6 +37,10 @@ public class AnswerCommentService {
         getEntity(id).update(dto.getContent());
     }
 
+    public void deleteById(Long id) {
+        answerCommentRepository.deleteById(id);
+    }
+
     private AnswerComment getEntity(final Long id) {
         return answerCommentQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }

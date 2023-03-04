@@ -31,4 +31,10 @@ public class AnswerCommentController {
         answerCommentService.update(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<IdResponse<Long>> deleteById(@PathVariable Long id) {
+        answerCommentService.deleteById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }

@@ -36,6 +36,10 @@ public class AnswerService {
         getEntity(id).update(dto.getContent());
     }
 
+    public void deleteById(Long id) {
+        answerRepository.deleteById(id);
+    }
+
     private Answer getEntity(final Long id) {
         return answerQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }

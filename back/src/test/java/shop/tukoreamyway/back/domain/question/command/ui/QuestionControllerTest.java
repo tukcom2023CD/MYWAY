@@ -86,8 +86,7 @@ class QuestionControllerTest extends RestDocumentTest {
         // when
 
         ResultActions perform =
-                mockMvc.perform(
-                        RestDocumentationRequestBuilders.delete("/questions/{questionId}", 5L));
+                mockMvc.perform(RestDocumentationRequestBuilders.delete("/questions/{id}", 5L));
         // then
         perform.andExpect(status().isNoContent());
 

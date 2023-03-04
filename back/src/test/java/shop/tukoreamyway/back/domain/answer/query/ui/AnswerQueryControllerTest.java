@@ -1,5 +1,6 @@
 package shop.tukoreamyway.back.domain.answer.query.ui;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.get;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
 import org.springframework.test.web.servlet.ResultActions;
 
 import shop.tukoreamyway.back.domain.answer.dto.AnswerResponse;
@@ -53,24 +55,22 @@ class AnswerQueryControllerTest extends RestDocumentTest {
     }
 
     @Test
-    @DisplayName("answer-id를 통한 상세 조회를 수행하는가")
+    @DisplayName("id를 통한 상세 조회를 수행하는가")
     void successGetById() throws Exception {
-
-        // given
         StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
-        when(answerQueryService.findById(1L)).thenReturn(new AnswerResponse(3L, "d", 3L, writer));
+        // given
+        Long id = 1L;
+        when(answerQueryService.findById(any()))
+                .thenReturn(new AnswerResponse(2L, "내용", 5L, writer));
         // when
-        ResultActions perform = mockMvc.perform(get("/answers").param("question-id", "7"));
+        ResultActions perform =
+                mockMvc.perform(RestDocumentationRequestBuilders.get("/answers/{id}", id));
 
         // then
         perform.andExpect(status().isOk());
 
         // docs
         perform.andDo(print())
-                .andDo(
-                        document(
-                                "get answer by answer id",
-                                getDocumentRequest(),
-                                getDocumentResponse()));
+                .andDo(document("get answer by id", getDocumentRequest(), getDocumentResponse()));
     }
 }
