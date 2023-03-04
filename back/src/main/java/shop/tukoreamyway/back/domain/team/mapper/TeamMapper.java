@@ -11,5 +11,6 @@ import shop.tukoreamyway.back.domain.team.entity.Team;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface TeamMapper {
     @Mapping(target = "name", source = "dto.name")
+    @Mapping(target = "leader", source = "leader")
     Team toEntity(TeamRequest dto, Member leader);
 }

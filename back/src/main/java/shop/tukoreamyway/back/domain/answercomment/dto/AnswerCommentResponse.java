@@ -1,17 +1,17 @@
 package shop.tukoreamyway.back.domain.answercomment.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import shop.tukoreamyway.back.domain.staff.dto.StaffSummary;
 
 @Getter
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
 public class AnswerCommentResponse {
-    private Long id;
-    private String content;
-    private Long answerId;
-    private StaffSummary writer;
+    private final Long id;
+    private final String content;
+    private final Long answerId;
+    private final StaffSummary writer;
 }

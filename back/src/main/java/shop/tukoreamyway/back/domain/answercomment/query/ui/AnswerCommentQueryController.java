@@ -19,12 +19,12 @@ public class AnswerCommentQueryController {
 
     @GetMapping
     public ResponseEntity<List<AnswerCommentResponse>> findAllByAnswerId(
-            @RequestParam Long answerId) {
+            @RequestParam final Long answerId) {
         return ResponseEntity.ok(answerCommentQueryService.findAllByAnswerId(answerId));
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<AnswerCommentResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<AnswerCommentResponse> findById(@PathVariable final Long id) {
         return ResponseEntity.ok(answerCommentQueryService.findById(id));
     }
 }

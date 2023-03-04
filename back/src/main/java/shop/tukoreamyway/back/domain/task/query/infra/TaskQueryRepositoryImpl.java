@@ -23,12 +23,12 @@ public class TaskQueryRepositoryImpl implements TaskQueryRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public List<Task> findAllByCondition(TaskSearchCondition condition) {
+    public List<Task> findAllByCondition(final TaskSearchCondition condition) {
         return jpaQueryFactory.selectFrom(task).where(generateWhereQuery(condition)).fetch();
     }
 
-    private Predicate[] generateWhereQuery(TaskSearchCondition condition) {
-        List<Predicate> predicates = new ArrayList<>();
+    private Predicate[] generateWhereQuery(final TaskSearchCondition condition) {
+        final List<Predicate> predicates = new ArrayList<>();
         Optional.ofNullable(condition.getStatus())
                 .ifPresent(status -> predicates.add(task.status.eq(status)));
         Optional.ofNullable(condition.getCategory())

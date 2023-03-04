@@ -18,12 +18,12 @@ public class QuestionQueryController {
 
     @GetMapping
     public ResponseEntity<List<QuestionResponse>> getAllByWriterId(
-            @RequestParam("writer-id") Long writerId) {
+            @RequestParam("writer-id") final Long writerId) {
         return ResponseEntity.ok(questionQueryService.findAllByWriterId(writerId));
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<QuestionResponse> getQuestionById(@PathVariable Long id) {
+    public ResponseEntity<QuestionResponse> getQuestionById(@PathVariable final Long id) {
         return ResponseEntity.ok(questionQueryService.findById(id));
     }
 }

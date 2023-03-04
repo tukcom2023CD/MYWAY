@@ -10,7 +10,8 @@ import shop.tukoreamyway.back.domain.task.dto.TaskSearchCondition;
 import shop.tukoreamyway.back.domain.task.dto.TaskSummary;
 import shop.tukoreamyway.back.domain.task.entity.Task;
 import shop.tukoreamyway.back.domain.task.mapper.TaskMapper;
-import shop.tukoreamyway.back.global.QueryService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
+import shop.tukoreamyway.back.global.service.QueryService;
 
 import java.util.List;
 
@@ -18,27 +19,27 @@ import javax.persistence.EntityNotFoundException;
 
 @QueryService
 @RequiredArgsConstructor
-public class TaskQueryService {
+public class TaskQueryService implements EntityLoader<Task, Long> {
     private final TaskQueryRepository taskQueryRepository;
     private final TaskMapper taskMapper;
     private final StaffQueryService staffQueryService;
 
-    public List<TaskSummary> findAllByCondition(TaskSearchCondition condition) {
+    public List<TaskSummary> findAllByCondition(final TaskSearchCondition condition) {
         return taskQueryRepository.findAllByCondition(condition).stream()
                 .map(taskMapper::toSummary)
                 .toList();
     }
 
-    public TaskResponse findById(Long id) {
+    public TaskResponse findById(final Long id) {
         return taskMapper.toResponse(getEntity(id));
     }
 
-    public Task getEntity(Long id) {
+    public Task getEntity(final Long id) {
         return taskQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public List<TaskSummary> findAllMyTask(MyTaskCondition condition) {
-        Staff activeStaff = staffQueryService.getActiveStaff(condition.getTeamId());
+    public List<TaskSummary> findAllMyTask(final MyTaskCondition condition) {
+        final Staff activeStaff = staffQueryService.getActiveStaff(condition.getTeamId());
         return findAllByCondition(condition.toSearchCondition(activeStaff.getId()));
     }
 }

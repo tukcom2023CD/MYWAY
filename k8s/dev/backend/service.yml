@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: crewship-backend-dev
+  name: crewship-backend-dev-np
 spec:
   type: NodePort
   ports:
@@ -13,3 +13,18 @@ spec:
     app: crewship-backend-dev
     component: crewship-backend-dev
     tier: back
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crewship-backend-dev
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: crewship-backend-dev
+    component: crewship-backend-dev
+    tier: back
+  clusterIP: None

@@ -38,17 +38,25 @@ class QuestionQueryControllerTest extends RestDocumentTest {
         Long id = 1L;
         when(questionQueryService.findById(any()))
                 .thenReturn(
-                        new QuestionResponse(2L, "제목", "내용", 5L, List.of("태그1", "태그2"), writer));
+                        new QuestionResponse(
+                                2L, "제목", "내용", 5L, List.of("태그1", "태그2"), writer)
+                );
         // when
         ResultActions perform =
-                mockMvc.perform(RestDocumentationRequestBuilders.get("/questions/{id}", id));
+                mockMvc.perform(
+                        RestDocumentationRequestBuilders.get(
+                                "/questions/{id}", id));
 
         // then
         perform.andExpect(status().isOk());
 
         // docs
         perform.andDo(print())
-                .andDo(document("get question By id", getDocumentRequest(), getDocumentResponse()));
+                .andDo(
+                        document(
+                                "get question By id",
+                                getDocumentRequest(),
+                                getDocumentResponse()));
     }
 
     @Test

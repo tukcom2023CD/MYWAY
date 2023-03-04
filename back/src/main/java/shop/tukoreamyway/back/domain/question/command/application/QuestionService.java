@@ -10,9 +10,9 @@ import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRep
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.domain.team.entity.Team;
-import shop.tukoreamyway.back.domain.team.query.application.TeamQueryService;
-import shop.tukoreamyway.back.global.CommandService;
 import shop.tukoreamyway.back.global.IdResponse;
+import shop.tukoreamyway.back.global.service.CommandService;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import javax.persistence.EntityNotFoundException;
 
@@ -20,27 +20,28 @@ import javax.persistence.EntityNotFoundException;
 @RequiredArgsConstructor
 public class QuestionService {
     private final QuestionRepository questionRepository;
-    private final TeamQueryService teamQueryService;
+    private final EntityLoader<Team, Long> teamLoader;
     private final StaffQueryService staffQueryService;
     private final QuestionQueryRepository questionQueryRepository;
     private final QuestionMapper questionMapper;
 
-    public IdResponse<Long> create(QuestionRequest dto) {
-        Team team = teamQueryService.getEntity(dto.getTeamId());
-        Staff staff = staffQueryService.getActiveStaff(dto.getTeamId());
-        Question question = questionRepository.save(questionMapper.toEntity(dto, team, staff));
+    public IdResponse<Long> create(final QuestionRequest dto) {
+        final Team team = teamLoader.getEntity(dto.getTeamId());
+        final Staff staff = staffQueryService.getActiveStaff(dto.getTeamId());
+        final Question question =
+                questionRepository.save(questionMapper.toEntity(dto, team, staff));
         return new IdResponse<>(question.getId());
     }
 
-    public void update(Long id, UpdateQuestionRequest dto) {
+    public void update(final Long id, final UpdateQuestionRequest dto) {
         getEntity(id).update(dto.getContent());
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(final Long id) {
         questionRepository.deleteById(id);
     }
 
-    private Question getEntity(Long id) {
+    private Question getEntity(final Long id) {
         return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

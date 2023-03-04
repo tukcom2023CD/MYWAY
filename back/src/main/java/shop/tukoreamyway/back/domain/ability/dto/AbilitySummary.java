@@ -13,6 +13,6 @@ import java.util.Map;
 @Builder
 @AllArgsConstructor
 public class AbilitySummary {
-    private StaffSummary receiver;
-    Map<AbilityCategory, Long> points;
+    private final StaffSummary receiver;
+    private final Map<AbilityCategory, Long> points;
 }

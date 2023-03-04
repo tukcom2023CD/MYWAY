@@ -17,5 +17,6 @@ public interface AnswerCommentMapper {
     @Mapping(target = "answer", source = "answer")
     AnswerComment toEntity(AnswerCommentRequest dto, Answer answer, Staff writer);
 
+    @Mapping(target = "answerId", source = "entity.answer.id")
     AnswerCommentResponse toResponse(AnswerComment entity);
 }

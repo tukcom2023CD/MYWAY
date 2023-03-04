@@ -22,7 +22,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public List<Staff> findAllByTeamIdApplyFilter(Long teamId) {
+    public List<Staff> findAllByTeamIdApplyFilter(final Long teamId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)
@@ -39,7 +39,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     }
 
     @Override
-    public List<Staff> findAllByMemberIdInviteFilter(UUID memberId) {
+    public List<Staff> findAllByMemberIdInviteFilter(final UUID memberId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)
@@ -56,7 +56,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     }
 
     @Override
-    public List<Staff> findAllActiveStaffByTeamId(Long teamId) {
+    public List<Staff> findAllActiveStaffByTeamId(final Long teamId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)
@@ -73,7 +73,7 @@ public class StaffQueryRepositoryImpl implements StaffQueryRepositoryCustom {
     }
 
     @Override
-    public List<Staff> findAllActiveStaffByMemberId(UUID memberId) {
+    public List<Staff> findAllActiveStaffByMemberId(final UUID memberId) {
         return jpaQueryFactory
                 .selectFrom(staff)
                 .join(staff.team, team)

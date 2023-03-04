@@ -6,5 +6,5 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class IdResponse<T> {
-    private T id;
+    private final T id;
 }

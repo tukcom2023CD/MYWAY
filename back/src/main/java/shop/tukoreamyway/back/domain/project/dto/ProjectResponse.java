@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 public class ProjectResponse {
-    private Long id;
-    private String name;
-    private LocalDateTime startAt;
-    private LocalDateTime endAt;
-    private TeamSummary team;
-    private Integer sprintDays;
-    private StaffSummary manager;
+    private final Long id;
+    private final String name;
+    private final LocalDateTime startAt;
+    private final LocalDateTime endAt;
+    private final TeamSummary team;
+    private final Integer sprintDays;
+    private final StaffSummary manager;
 }

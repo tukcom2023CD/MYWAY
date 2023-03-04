@@ -21,27 +21,27 @@ public class StaffController {
     private final StaffService staffService;
 
     @PostMapping("invite")
-    public ResponseEntity<Void> invite(@RequestBody @Valid InviteRequest dto) {
+    public ResponseEntity<Void> invite(@RequestBody @Valid final InviteRequest dto) {
         staffService.invite(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("apply")
-    public ResponseEntity<Void> apply(@RequestBody @Valid ApplyRequest dto) {
+    public ResponseEntity<Void> apply(@RequestBody @Valid final ApplyRequest dto) {
         staffService.apply(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @PostMapping("{id}/accept-invite")
     public ResponseEntity<Void> acceptInvite(
-            @PathVariable Long id, @RequestBody @Valid AcceptInviteRequest dto) {
+            @PathVariable Long id, @RequestBody @Valid final AcceptInviteRequest dto) {
         staffService.acceptInvite(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
     @PostMapping("{id}/accept-apply")
     public ResponseEntity<Void> acceptApply(
-            @PathVariable Long id, @RequestBody @Valid AcceptApplyRequest dto) {
+            @PathVariable Long id, @RequestBody @Valid final AcceptApplyRequest dto) {
         staffService.acceptApply(id, dto);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
