@@ -71,6 +71,10 @@ class AnswerQueryControllerTest extends RestDocumentTest {
 
         // docs
         perform.andDo(print())
-                .andDo(document("get answer By id", getDocumentRequest(), getDocumentResponse()));
+                .andDo(
+                        document(
+                                "get answer by id",
+                                getDocumentRequest(),
+                                getDocumentResponse()));
     }
 }

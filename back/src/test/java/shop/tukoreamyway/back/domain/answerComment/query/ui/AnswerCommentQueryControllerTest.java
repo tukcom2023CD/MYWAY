@@ -32,8 +32,8 @@ class AnswerCommentQueryControllerTest extends RestDocumentTest {
     @MockBean private AnswerCommentQueryService answerCommentQueryService;
 
     @Test
-    @DisplayName("answer-comment id로 answer-comment를 조회하는가")
-    void successGetById() throws Exception {
+    @DisplayName("answer에 있는 모든 answer-comment를 조회하는가")
+    void successGetAllByWriterId() throws Exception {
         StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
         // given
         Long id = 1L;
@@ -50,17 +50,18 @@ class AnswerCommentQueryControllerTest extends RestDocumentTest {
         perform.andDo(print())
                 .andDo(
                         document(
-                                "get answer-comment By id",
+                                "get answer-comment list by answer-id",
                                 getDocumentRequest(),
                                 getDocumentResponse()));
     }
 
     @Test
-    @DisplayName("answer에 있는 모든 answer-comment를 조회하는가")
-    void successGetAllByWriterId() throws Exception {
+    @DisplayName("answer-comment id로 answer-comment를 조회하는가")
+    void successGetById() throws Exception {
         StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
         // given
-        when(answerCommentQueryService.findAllByAnswerId(any()))
+        Long id = 1L;
+        when(answerCommentQueryService.findById(any()))
                 .thenReturn(
                         List.of(
                                 new AnswerCommentResponse(2L, "내용1", 5L, writer),
@@ -68,8 +69,8 @@ class AnswerCommentQueryControllerTest extends RestDocumentTest {
         // when
         ResultActions perform =
                 mockMvc.perform(
-                        RestDocumentationRequestBuilders.get("/answer-comments")
-                                .param("answerId", "5"));
+                        RestDocumentationRequestBuilders.get(
+                                "/answer-comments/{id}", id));
 
         // then
         perform.andExpect(status().isOk());
@@ -78,7 +79,7 @@ class AnswerCommentQueryControllerTest extends RestDocumentTest {
         perform.andDo(print())
                 .andDo(
                         document(
-                                "get answer-comment list By answer id",
+                                "get answer-comment by id",
                                 getDocumentRequest(),
                                 getDocumentResponse()));
     }

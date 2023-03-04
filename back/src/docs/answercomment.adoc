@@ -4,16 +4,19 @@
 :toc: left
 :toclevels: 4
 
-== AnswerComment command
-=== answerComment 생성
-operation::create answerComment[snippets='http-request,http-response']
+== answer-comment command
+=== answer-comment 생성
+operation::create answer-comment[snippets='http-request,http-response']
 
-=== answerComment 수정
-operation::update answerComment[snippets='http-request,http-response']
+=== answer-comment 수정
+operation::update answer-comment[snippets='http-request,http-response']
 
-== AnswerComment query
-=== answer id를 통한 조회
-operation::get answerComment list by answer id[snippets='http-request,http-response']
+=== answer-comment 삭제
+operation::delete question[snippets='http-request,http-response']
 
-=== answerComment id를 통한 상세조회
-operation::get answerComment by answerComment id[snippets='http-request,http-response']
+== answer-comment query
+=== answer id를 통한 요약조회
+operation::get answer-comment list by answer id[snippets='http-request,http-response']
+
+=== answer-comment id를 통한 상세조회
+operation::get answer-comment by id[snippets='http-request,http-response']

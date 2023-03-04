@@ -4,15 +4,18 @@
 :toc: left
 :toclevels: 4
 
-== Answer command
+== answer command
 === answer 생성
 operation::create answer[snippets='http-request,http-response']
 
 === answer 수정
 operation::update answer[snippets='http-request,http-response']
 
-== Answer query
-=== question id를 통한 조회
+=== answer 삭제
+operation::delete answer[snippets='http-request,http-response']
+
+== answer query
+=== question id를 통한 요약조회
 operation::get answer by question id[snippets='http-request,http-response']
 
 === answer id를 통한 상세조회
