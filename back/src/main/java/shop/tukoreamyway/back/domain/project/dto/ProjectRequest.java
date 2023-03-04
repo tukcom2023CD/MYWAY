@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
@@ -17,6 +16,6 @@ public class ProjectRequest {
     @NotNull private LocalDateTime startAt;
     private LocalDateTime endAt;
     @NotNull private Long teamId;
-    private Integer sprintDays = 7;
+    @NotNull private Integer sprintDays;
     @NotNull private Long managerId;
 }
