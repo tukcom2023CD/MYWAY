@@ -35,6 +35,7 @@ public class AnswerService {
     public void update(Long id, UpdateAnswerRequest dto) {
         getEntity(id).update(dto.getContent());
     }
+
     public void deleteById(Long id) {
         answerRepository.deleteById(id);
     }

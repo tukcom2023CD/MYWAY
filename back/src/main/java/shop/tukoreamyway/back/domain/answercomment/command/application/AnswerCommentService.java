@@ -36,6 +36,7 @@ public class AnswerCommentService {
     public void update(Long id, UpdateAnswerCommentRequest dto) {
         getEntity(id).update(dto.getContent());
     }
+
     public void deleteById(Long id) {
         answerCommentRepository.deleteById(id);
     }
