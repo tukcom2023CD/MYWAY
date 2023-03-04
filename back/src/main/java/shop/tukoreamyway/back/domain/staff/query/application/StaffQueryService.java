@@ -1,21 +1,20 @@
 package shop.tukoreamyway.back.domain.staff.query.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.member.query.application.AuthService;
 import shop.tukoreamyway.back.domain.staff.dto.StaffResponse;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.mapper.StaffMapper;
+import shop.tukoreamyway.back.global.service.EntityLoader;
 import shop.tukoreamyway.back.global.service.QueryService;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.UUID;
 
-import javax.persistence.EntityNotFoundException;
-
 @QueryService
 @RequiredArgsConstructor
-public class StaffQueryService {
+public class StaffQueryService implements StaffLoader, EntityLoader<Staff, Long> {
     private final StaffQueryRepository staffQueryRepository;
     private final AuthService authService;
     private final StaffMapper staffMapper;
