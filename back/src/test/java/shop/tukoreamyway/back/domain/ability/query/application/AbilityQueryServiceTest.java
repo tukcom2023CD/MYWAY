@@ -1,16 +1,14 @@
 package shop.tukoreamyway.back.domain.ability.query.application;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 
 import java.util.EnumMap;
 import java.util.Map;
 
+import static org.assertj.core.api.Assertions.assertThat;
 class AbilityQueryServiceTest {
 
     @Nested
@@ -27,4 +25,5 @@ class AbilityQueryServiceTest {
             assertThat(value).isNull();
         }
     }
+
 }
