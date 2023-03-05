@@ -34,10 +34,10 @@ public class QuestionService {
 
     public IdResponse<Long> create(final QuestionRequest dto) {
         final Team team = teamLoader.getEntity(dto.getTeamId());
-        final Staff staff = staffLoader.getActiveStaff(dto.getTeamId());
+        final Staff writer = staffLoader.getActiveStaff(dto.getTeamId());
         final Question question =
-                questionRepository.save(questionMapper.toEntity(dto, team, staff));
-        abilityService.create(new AbilityRequest(AbilityCategory.COMMUNICATION, staff.getId(), question.getContributePoint(),
+                questionRepository.save(questionMapper.toEntity(dto, team, writer));
+        abilityService.create(new AbilityRequest(AbilityCategory.COMMUNICATION, writer.getId(), 10L,
                 LocalDateTime.now(),
                 GrantLocation.WRITE_QUESTION,
                 null));

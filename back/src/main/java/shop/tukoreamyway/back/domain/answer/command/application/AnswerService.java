@@ -2,6 +2,10 @@ package shop.tukoreamyway.back.domain.answer.command.application;
 
 import lombok.RequiredArgsConstructor;
 
+import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
+import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
+import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
+import shop.tukoreamyway.back.domain.ability.entity.GrantLocation;
 import shop.tukoreamyway.back.domain.answer.dto.AnswerRequest;
 import shop.tukoreamyway.back.domain.answer.dto.UpdateAnswerRequest;
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
@@ -15,6 +19,7 @@ import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 
 @CommandService
 @RequiredArgsConstructor
@@ -24,11 +29,16 @@ public class AnswerService {
     private final EntityLoader<Question, Long> questionEntityQueryService;
     private final AnswerQueryRepository answerQueryRepository;
     private final AnswerMapper answerMapper;
+    private final AbilityService abilityService;
 
     public IdResponse<Long> create(final AnswerRequest dto) {
         final Question question = questionEntityQueryService.getEntity(dto.getQuestionId());
         final Staff writer = staffLoader.getActiveStaff(question.getTeamId());
         final Answer answer = answerRepository.save(answerMapper.toEntity(dto, question, writer));
+        abilityService.create(new AbilityRequest(AbilityCategory.COMMUNICATION, writer.getId(), 10L,
+                LocalDateTime.now(),
+                GrantLocation.WRITE_QUESTION,
+                null));
         return new IdResponse<>(answer.getId());
     }
 
