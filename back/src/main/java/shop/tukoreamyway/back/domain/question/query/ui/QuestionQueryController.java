@@ -31,5 +31,6 @@ public class QuestionQueryController {
     public ResponseEntity<List<QuestionResponse>> getAllByTeamId(
             @RequestParam("team-id") final Long teamId) {
         return ResponseEntity.ok(questionQueryService.findAllByTeamId(teamId));
+
     }
 }
