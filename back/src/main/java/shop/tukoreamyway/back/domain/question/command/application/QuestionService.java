@@ -37,10 +37,14 @@ public class QuestionService {
         final Staff writer = staffLoader.getActiveStaff(dto.getTeamId());
         final Question question =
                 questionRepository.save(questionMapper.toEntity(dto, team, writer));
-        abilityService.create(new AbilityRequest(AbilityCategory.COMMUNICATION, writer.getId(), 10L,
-                LocalDateTime.now(),
-                GrantLocation.WRITE_QUESTION,
-                null));
+        abilityService.create(
+                new AbilityRequest(
+                        AbilityCategory.COMMUNICATION,
+                        writer.getId(),
+                        10L,
+                        LocalDateTime.now(),
+                        GrantLocation.WRITE_QUESTION,
+                        null));
         return new IdResponse<>(question.getId());
     }
 

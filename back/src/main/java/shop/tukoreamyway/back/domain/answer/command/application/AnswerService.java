@@ -18,8 +18,9 @@ import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
+
+import javax.persistence.EntityNotFoundException;
 
 @CommandService
 @RequiredArgsConstructor
@@ -35,10 +36,14 @@ public class AnswerService {
         final Question question = questionEntityQueryService.getEntity(dto.getQuestionId());
         final Staff writer = staffLoader.getActiveStaff(question.getTeamId());
         final Answer answer = answerRepository.save(answerMapper.toEntity(dto, question, writer));
-        abilityService.create(new AbilityRequest(AbilityCategory.COMMUNICATION, writer.getId(), 10L,
-                LocalDateTime.now(),
-                GrantLocation.WRITE_QUESTION,
-                null));
+        abilityService.create(
+                new AbilityRequest(
+                        AbilityCategory.COMMUNICATION,
+                        writer.getId(),
+                        10L,
+                        LocalDateTime.now(),
+                        GrantLocation.WRITE_QUESTION,
+                        null));
         return new IdResponse<>(answer.getId());
     }
 
