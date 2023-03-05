@@ -27,9 +27,6 @@ public class Question {
     private Staff writer;
 
     @Column(nullable = false)
-    private Long contributePoint;
-
-    @Column(nullable = false)
     private Long teamId;
 
     @OneToMany(mappedBy = "question")
