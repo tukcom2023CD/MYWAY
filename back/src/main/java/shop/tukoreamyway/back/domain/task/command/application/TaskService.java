@@ -1,7 +1,10 @@
 package shop.tukoreamyway.back.domain.task.command.application;
 
 import lombok.RequiredArgsConstructor;
-
+import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
+import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
+import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
+import shop.tukoreamyway.back.domain.ability.entity.GrantLocation;
 import shop.tukoreamyway.back.domain.sprint.entity.Sprint;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffLoader;
@@ -16,9 +19,9 @@ import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
-import java.util.Optional;
-
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 @CommandService
 @RequiredArgsConstructor
@@ -29,6 +32,7 @@ public class TaskService {
     private final StaffLoader staffLoader;
     private final EntityLoader<Sprint, Long> sprintLoader;
     private final TaskMapper taskMapper;
+    private final AbilityService abilityService;
 
     public IdResponse<Long> create(final TaskRequest dto) {
         final Staff player =
@@ -59,9 +63,16 @@ public class TaskService {
     }
 
     public void updateStatus(Long id, UpdateTaskStatusRequest dto) {
-        getEntity(id).updateStatus(dto.getStatus());
+        Task task = getEntity(id);
+        task.updateStatus(dto.getStatus());
         if (dto.getStatus().equals(TaskStatus.COMPLETE)) {
-            // Ability 부여 TODO
+            abilityService.create(
+                    new AbilityRequest(AbilityCategory.DEVELOPMENT,
+                            task.getPlayer().getId(),
+                            task.getContributePoint(),
+                            LocalDateTime.now(),
+                            GrantLocation.DO_TASK,
+                            null));
         }
     }
 }
