@@ -80,11 +80,7 @@ class QuestionQueryControllerTest extends RestDocumentTest {
 
         // docs
         perform.andDo(print())
-                .andDo(
-                        document(
-                                "get question by id",
-                                getDocumentRequest(),
-                                getDocumentResponse()));
+                .andDo(document("get question by id", getDocumentRequest(), getDocumentResponse()));
     }
 
     @Test
