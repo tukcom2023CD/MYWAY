@@ -26,7 +26,7 @@ public class Task {
     private TaskStatus status = TaskStatus.READY;
 
     @Column(nullable = false)
-    private Integer contributePoint;
+    private Long contributePoint;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -48,7 +48,7 @@ public class Task {
             String summary,
             String description,
             AbilityCategory category,
-            Integer contributePoint,
+            Long contributePoint,
             Sprint sprint,
             Staff player,
             Staff reviewer) {

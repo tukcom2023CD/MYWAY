@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.member.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.config.security.oauth2.OAuth2Request;
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.member.entity.OAuth2Info;
