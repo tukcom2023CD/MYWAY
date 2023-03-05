@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.task.command.application;
 
 import lombok.RequiredArgsConstructor;
+
 import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
@@ -19,9 +20,10 @@ import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 @CommandService
 @RequiredArgsConstructor
@@ -67,7 +69,8 @@ public class TaskService {
         task.updateStatus(dto.getStatus());
         if (dto.getStatus().equals(TaskStatus.COMPLETE)) {
             abilityService.create(
-                    new AbilityRequest(AbilityCategory.DEVELOPMENT,
+                    new AbilityRequest(
+                            AbilityCategory.DEVELOPMENT,
                             task.getPlayer().getId(),
                             task.getContributePoint(),
                             LocalDateTime.now(),
