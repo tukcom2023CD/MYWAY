@@ -48,7 +48,7 @@ class AnswerCommentQueryControllerTest extends RestDocumentTest {
         perform.andDo(print())
                 .andDo(
                         document(
-                                "get answer-comment list by answer-id",
+                                "get answer-comment list by answer id",
                                 getDocumentRequest(),
                                 getDocumentResponse()));
     }

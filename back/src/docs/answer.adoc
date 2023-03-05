@@ -19,4 +19,4 @@ operation::delete answer[snippets='http-request,http-response']
 operation::get answer by question id[snippets='http-request,http-response']
 
 === answer id를 통한 상세조회
-operation::get answer by answer id[snippets='http-request,http-response']
+operation::get answer by id[snippets='http-request,http-response']

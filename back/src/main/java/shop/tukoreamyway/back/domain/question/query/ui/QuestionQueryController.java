@@ -16,7 +16,7 @@ import java.util.List;
 public class QuestionQueryController {
     private final QuestionQueryService questionQueryService;
 
-    @GetMapping
+    @GetMapping(params = "writer-id")
     public ResponseEntity<List<QuestionResponse>> getAllByWriterId(
             @RequestParam("writer-id") final Long writerId) {
         return ResponseEntity.ok(questionQueryService.findAllByWriterId(writerId));
@@ -25,5 +25,11 @@ public class QuestionQueryController {
     @GetMapping("{id}")
     public ResponseEntity<QuestionResponse> getQuestionById(@PathVariable final Long id) {
         return ResponseEntity.ok(questionQueryService.findById(id));
+    }
+
+    @GetMapping(params = "team-id")
+    public ResponseEntity<List<QuestionResponse>> getAllByTeamId(
+            @RequestParam("team-id") final Long teamId) {
+        return ResponseEntity.ok(questionQueryService.findAllByTeamId(teamId));
     }
 }
