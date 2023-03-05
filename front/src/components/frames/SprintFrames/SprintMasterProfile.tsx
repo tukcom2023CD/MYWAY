@@ -1,6 +1,6 @@
 import React from 'react';
-import DropDown from './DropDown';
-import sprint from '../../images/members.png';
+import DropDown from '../DropDown';
+import sprint from '../../../images/members.png';
 
 function SprintMasterProfile() {
   return (

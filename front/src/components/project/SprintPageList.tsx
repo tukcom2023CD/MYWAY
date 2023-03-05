@@ -1,6 +1,6 @@
 import React from 'react';
-import Sprints from '../frames/Sprint';
-import SprintDetail from '../frames/SprintDetail';
+import Sprints from '../frames/SprintFrames/Sprint';
+import SprintDetail from '../frames/SprintFrames/SprintDetail';
 
 function SprintPageList() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import SprintProgress from './SprintProgress';
-import SprintMemberNum from './SprintMemberNum';
+import SprintProgress from './SprintFrames/SprintProgress';
+import SprintMemberNum from './SprintFrames/SprintMemberNum';
 import Member from '../../images/members.png';
 
 function Popup() {

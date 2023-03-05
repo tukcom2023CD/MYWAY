@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from '../../components/frames/Sidebar';
+import Menu from '../../components/frames/Side/Sidebar';
 import Profile from '../../components/frames/Profile';
 import ProjectCheckList from '../../components/main/ProjectCheckList';
 import SprintList from '../../components/project/SprintList';

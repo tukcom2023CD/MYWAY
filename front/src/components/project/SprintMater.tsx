@@ -1,5 +1,5 @@
 import React from 'react';
-import Sprint from '../frames/SprintMasterProfile';
+import Sprint from '../frames/SprintFrames/SprintMasterProfile';
 
 function SprintMater() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import SprintMaster from './SprintMater';
-import Sprints from '../frames/Sprint';
+import Sprints from '../frames/SprintFrames/Sprint';
 
 function SprintList() {
   return (

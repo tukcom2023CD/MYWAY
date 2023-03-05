@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from '../../components/frames/Sidebar';
+import Menu from '../../components/frames/Side/Sidebar';
 
 function MemberPage() {
   return (

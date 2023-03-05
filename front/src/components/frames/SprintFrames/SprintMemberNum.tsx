@@ -1,5 +1,5 @@
 import React from 'react';
-import Member from '../../images/members.png';
+import Member from '../../../images/members.png';
 
 function SprintMemberNum() {
   return (

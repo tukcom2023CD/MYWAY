@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SideGraph from './SideGraph';
-import menu from '../../images/menu.png';
-import dashboard from '../../images/dashboard.png';
-import project from '../../images/project.png';
-import sprint from '../../images/members.png';
-import graph from '../../images/graph.png';
+import menu from '../../../images/menu.png';
+import dashboard from '../../../images/dashboard.png';
+import project from '../../../images/project.png';
+import sprint from '../../../images/members.png';
+import graph from '../../../images/graph.png';
 
 function Sidebar() {
   const activeStyle = {
