@@ -8,5 +8,7 @@ import java.util.Optional;
 public interface QuestionQueryRepository {
     List<Question> findAllByWriterId(Long writerId);
 
+    List<Question> findAllByTeamId(Long writerId);
+
     Optional<Question> findById(Long id);
 }

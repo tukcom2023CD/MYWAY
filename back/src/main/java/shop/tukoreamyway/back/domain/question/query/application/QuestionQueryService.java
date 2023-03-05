@@ -32,6 +32,11 @@ public class QuestionQueryService implements EntityLoader<Question, Long> {
         return questionMapper.toResponse(question);
     }
 
+    public List<QuestionResponse> findAllByTeamId(final Long teamId) {
+        final List<Question> questions = questionQueryRepository.findAllByTeamId(teamId);
+        return mapToList(questions);
+    }
+
     private List<QuestionResponse> mapToList(List<Question> questions) {
         return questions.stream().map(questionMapper::toResponse).toList();
     }

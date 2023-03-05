@@ -80,9 +80,37 @@ class QuestionQueryControllerTest extends RestDocumentTest {
 
         // docs
         perform.andDo(print())
+                .andDo(document("get question by id", getDocumentRequest(), getDocumentResponse()));
+    }
+
+    @Test
+    @DisplayName("작성자가 작성한 모든 question을 조회하는가")
+    void successGetAllByTeamId() throws Exception {
+        StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
+        // given
+        when(questionQueryService.findAllByTeamId(any()))
+                .thenReturn(
+                        List.of(
+                                new QuestionResponse(
+                                        2L, "제목", "내용", 5L, List.of("태그1", "태그2"), writer),
+                                new QuestionResponse(
+                                        3L, "제목", "내용", 5L, List.of("태그1", "태그2"), writer),
+                                new QuestionResponse(
+                                        4L, "제목", "내용", 5L, List.of("태그1", "태그2"), writer)));
+        // when
+        ResultActions perform =
+                mockMvc.perform(
+                        RestDocumentationRequestBuilders.get("/questions")
+                                .param("team-id", writer.getId().toString()));
+
+        // then
+        perform.andExpect(status().isOk());
+
+        // docs
+        perform.andDo(print())
                 .andDo(
                         document(
-                                "get question by question id",
+                                "get question list by team id",
                                 getDocumentRequest(),
                                 getDocumentResponse()));
     }
