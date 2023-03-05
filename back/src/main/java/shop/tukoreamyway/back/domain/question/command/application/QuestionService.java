@@ -2,6 +2,10 @@ package shop.tukoreamyway.back.domain.question.command.application;
 
 import lombok.RequiredArgsConstructor;
 
+import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
+import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
+import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
+import shop.tukoreamyway.back.domain.ability.entity.GrantLocation;
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
@@ -9,12 +13,14 @@ import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffLoader;
+import shop.tukoreamyway.back.domain.task.entity.Task;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 
 @CommandService
 @RequiredArgsConstructor
@@ -24,12 +30,17 @@ public class QuestionService {
     private final StaffLoader staffLoader;
     private final QuestionQueryRepository questionQueryRepository;
     private final QuestionMapper questionMapper;
+    private final AbilityService abilityService;
 
     public IdResponse<Long> create(final QuestionRequest dto) {
         final Team team = teamLoader.getEntity(dto.getTeamId());
         final Staff staff = staffLoader.getActiveStaff(dto.getTeamId());
         final Question question =
                 questionRepository.save(questionMapper.toEntity(dto, team, staff));
+        abilityService.create(new AbilityRequest(AbilityCategory.COMMUNICATION, staff.getId(), question.getContributePoint(),
+                LocalDateTime.now(),
+                GrantLocation.WRITE_QUESTION,
+                null));
         return new IdResponse<>(question.getId());
     }
 
