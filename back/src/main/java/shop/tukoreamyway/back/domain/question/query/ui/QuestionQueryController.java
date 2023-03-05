@@ -29,7 +29,7 @@ public class QuestionQueryController {
 
     @GetMapping(params = "team-id")
     public ResponseEntity<List<QuestionResponse>> getAllByTeamId(
-            @RequestParam("team-id") final Long writerId) {
-        return ResponseEntity.ok(questionQueryService.findAllByTeamId(writerId));
+            @RequestParam("team-id") final Long teamId) {
+        return ResponseEntity.ok(questionQueryService.findAllByTeamId(teamId));
     }
 }

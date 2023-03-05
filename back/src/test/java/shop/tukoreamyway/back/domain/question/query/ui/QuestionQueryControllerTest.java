@@ -84,8 +84,8 @@ class QuestionQueryControllerTest extends RestDocumentTest {
     }
 
     @Test
-    @DisplayName("작성자가 작성한 모든 question을 조회하는가")
-    void successGetAllByTeamId() throws Exception {
+    @DisplayName("team-id로 question을 조회하는가")
+    void successGetByTeamId() throws Exception {
         StaffSummary writer = StaffSummaryFixture.CAPTAIN.toDto();
         // given
         when(questionQueryService.findAllByTeamId(any()))
