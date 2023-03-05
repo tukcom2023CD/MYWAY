@@ -13,14 +13,14 @@ import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.staff.query.application.StaffLoader;
-import shop.tukoreamyway.back.domain.task.entity.Task;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
+
+import javax.persistence.EntityNotFoundException;
 
 @CommandService
 @RequiredArgsConstructor
@@ -37,10 +37,14 @@ public class QuestionService {
         final Staff staff = staffLoader.getActiveStaff(dto.getTeamId());
         final Question question =
                 questionRepository.save(questionMapper.toEntity(dto, team, staff));
-        abilityService.create(new AbilityRequest(AbilityCategory.COMMUNICATION, staff.getId(), question.getContributePoint(),
-                LocalDateTime.now(),
-                GrantLocation.WRITE_QUESTION,
-                null));
+        abilityService.create(
+                new AbilityRequest(
+                        AbilityCategory.COMMUNICATION,
+                        staff.getId(),
+                        question.getContributePoint(),
+                        LocalDateTime.now(),
+                        GrantLocation.WRITE_QUESTION,
+                        null));
         return new IdResponse<>(question.getId());
     }
 
