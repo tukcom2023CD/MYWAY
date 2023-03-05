@@ -16,7 +16,10 @@ operation::delete question[snippets='http-request,http-response']
 
 == Question query
 === writer id를 통한 요약조회
-operation::get question list By writer id[snippets='http-request,http-response']
+operation::get question list by writer id[snippets='http-request,http-response']
 
 === question id를 통한 상세조회
 operation::get question by id[snippets='http-request,http-response']
+
+=== team id를 통한 요약조회
+operation::get question list by team id[snippets='http-request,http-response']
