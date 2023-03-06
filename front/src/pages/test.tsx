@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from '../components/frames/Side/Sidebar';
-import Popup from '../components/frames/Popup';
+import Popup from '../components/Popup/SprintPopup';
 
 function Test() {
   return (
