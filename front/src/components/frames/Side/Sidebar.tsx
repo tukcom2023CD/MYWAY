@@ -30,7 +30,7 @@ function Sidebar() {
                 <NavLink
                   className='flex items-center p-2 space-x-3 rounded-xl'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/'
+                  to='/DashBoard'
                 >
                   <img
                     className='w-[24px] h-[24px]'
