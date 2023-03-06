@@ -1,30 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import Members from '../frames/Member';
 
 function MemberList() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [ScrollY, setScrollY] = useState(0);
-  const [ScrollActive, setScrollActive] = useState(false);
-
-  function logit() {
-    setScrollY(scrollRef.current!.scrollTop);
-    if (scrollRef.current!.scrollTop > 30) {
-      setScrollActive(true);
-    } else {
-      setScrollActive(false);
-    }
-  }
-
-  useEffect(() => {
-    function watchScroll() {
-      scrollRef.current!.addEventListener('scroll', logit);
-    }
-    watchScroll();
-    return () => {
-      scrollRef.current!.removeEventListener('scroll', logit);
-    };
-  });
-
   return (
     <div className='flex flex-col justify-center items-right p-1 bg-white w-[500px] h-[420px] rounded-[30px]'>
       <div className='flex justify-center items-bottom w-[500px] h-[50px] p-6 mb-3'>
