@@ -6,7 +6,7 @@ import WelcomeSprint from '../../components/frames/Welcome/WelcomeSprint';
 
 function WelcomePage() {
   return (
-    <div className='bg-gradient-to-r from-green-400 to-blue-500'>
+    <div className='bg-gradient-to-r from-[#c3efc0] to-[#8ad3f0]'>
       <Header />
       <WelcomeStart />
       <WelcomeProject />
