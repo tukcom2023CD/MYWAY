@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import welcometest from '../../../images/welcometest.png';
+import monitortest from '../../../images/monitortest.png';
 
 function WelcomeStart() {
   return (
@@ -27,7 +27,7 @@ function WelcomeStart() {
         <img
           className='w-[646px] h-[512px]'
           alt='welcometest'
-          src={welcometest}
+          src={monitortest}
         />
       </div>
     </div>
