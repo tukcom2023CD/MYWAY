@@ -17,6 +17,7 @@ function Teams() {
   useEffect(() => {
     axios.get('staffs/myteam').then((response) => {
       setTeamData(response.data);
+      console.log(response);
     });
   }, []);
 
