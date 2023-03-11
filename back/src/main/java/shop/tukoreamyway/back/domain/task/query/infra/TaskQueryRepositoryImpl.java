@@ -1,9 +1,15 @@
 package shop.tukoreamyway.back.domain.task.query.infra;
 
+import static shop.tukoreamyway.back.domain.sprint.entity.QSprint.sprint;
+import static shop.tukoreamyway.back.domain.task.entity.QTask.task;
+
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Repository;
+
 import shop.tukoreamyway.back.domain.task.dto.TaskSearchCondition;
 import shop.tukoreamyway.back.domain.task.entity.Task;
 import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepositoryCustom;
@@ -11,9 +17,6 @@ import shop.tukoreamyway.back.domain.task.query.application.TaskQueryRepositoryC
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static shop.tukoreamyway.back.domain.sprint.entity.QSprint.sprint;
-import static shop.tukoreamyway.back.domain.task.entity.QTask.task;
 
 @Repository
 @RequiredArgsConstructor
@@ -25,7 +28,8 @@ public class TaskQueryRepositoryImpl implements TaskQueryRepositoryCustom {
         return jpaQueryFactory
                 .selectFrom(task)
                 .where(generateWhereQuery(condition))
-                .leftJoin(task.sprint, sprint).fetchJoin()
+                .leftJoin(task.sprint, sprint)
+                .fetchJoin()
                 .fetch();
     }
 
