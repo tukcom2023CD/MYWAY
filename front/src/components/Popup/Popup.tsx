@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { PropsWithChildren } from 'react';
+import React, { useState, useEffect, PropsWithChildren } from 'react';
+import axios from 'axios';
 
 interface PopupDefaultType {
   onClickTogglePopup: () => void;
@@ -11,46 +12,59 @@ function TeamPopup({
   onClickTogglePopup,
   onClosePopup,
 }: PropsWithChildren<PopupDefaultType>) {
+  const [name, setName] = useState();
+  const [industryGroup, setIndustryGroup] = useState();
+
+  const teamData = {
+    name: `${name}`,
+    industryGroup: `${industryGroup}`,
+  };
+
+  const handleSubmit = useEffect(() => {
+    axios
+      .post(`projects`, teamData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName((e.target as any).value);
+    setIndustryGroup((e.target as any).value);
+  };
+
   return (
     <div className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'>
       <div>
         <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'>
-          <p className='font-bold text-[25px] p-7'>스프린트 생성</p>
+          <p className='font-bold text-[25px] p-7'>팀 생성</p>
           <div className='mb-4 w-[430px]'>
             <p className='font-bold text-[20px]'>제목</p>
             <input
               className='text-[20px] w-[430px] border-b-2'
+              onChange={handleInputChange}
               placeholder='제목을 입력해주세요.'
             />
           </div>
-          <div className='flex flex-col mb-4 w-[430px]'>
-            <p className='font-bold text-[20px] mb-2'>멤버</p>
-            <button
-              type='button'
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px] mb-2'
-            >
-              <p className='flex justfiy-center items-center text-[24px]'>+</p>
-              멤버 추가
-            </button>
+          <div className='mb-4 w-[430px]'>
+            <p className='font-bold text-[20px]'>부서명</p>
             <input
-              className='text-[20px] border-b-2 whitespace-pre-wrap mb-2'
-              placeholder='멤버1'
-            />
-            <input
-              className='text-[20px] border-b-2 whitespace-pre-wrap mb-2'
-              placeholder='멤버2'
-            />
-          </div>
-          <div className='mb-4 overflow-x-auto'>
-            <p className='font-bold text-[20px]'>내용</p>
-            <input
-              className='text-[20px] w-[430px] border-b-2 whitespace-pre-wrap'
-              placeholder='내용을 입력해주세요.'
+              className='text-[20px] w-[430px] border-b-2'
+              onChange={handleInputChange}
+              placeholder='부서명을 입력하세요.'
             />
           </div>
           <div className='flex space-x-2'>
             <button
               type='button'
+              onClick={() => handleSubmit}
               className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
             >
               생성하기
