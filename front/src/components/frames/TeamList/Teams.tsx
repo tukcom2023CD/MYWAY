@@ -15,15 +15,21 @@ function Teams() {
   const [teamData, setTeamData] = useState<TeamData[] | null>();
 
   useEffect(() => {
-    axios.get('staffs/myteam').then((response) => {
+    axios.get('projects?team-id=7').then((response) => {
       setTeamData(response.data);
       console.log(response);
     });
   }, []);
 
   return (
-    <div className='border flex justify-start items-center w-[500px] h-[50px]'>
-      {teamData ? teamData.map((team) => <p>{team.name}</p>) : null}
+    <div className='w-[500px] h-[50px]'>
+      {teamData
+        ? teamData.map((team) => (
+            <div className='border flex justify-start items-center w-[500px] h-[50px]'>
+              {team.name}
+            </div>
+          ))
+        : null}
     </div>
   );
 }

@@ -25,7 +25,7 @@ function TeamPopup({
 
   const handleSubmit = useEffect(() => {
     axios
-      .post(`projects`, teamData, {
+      .post(`teams`, teamData, {
         headers: {
           'Content-Type': 'application/json',
         },
