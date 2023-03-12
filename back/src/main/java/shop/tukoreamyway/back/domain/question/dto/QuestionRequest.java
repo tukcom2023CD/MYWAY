@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 public class QuestionRequest {
     private String title;
-    private Long writerId;
     private String content;
     private Long teamId;
     private List<String> tags = new ArrayList<>();
