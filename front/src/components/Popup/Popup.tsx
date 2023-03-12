@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState, useEffect, PropsWithChildren } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 interface PopupDefaultType {
@@ -20,6 +21,8 @@ function TeamPopup({
     industryGroup: `${industryGroup}`,
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = useEffect(() => {
     axios
       .post(`projects`, teamData, {
@@ -29,6 +32,7 @@ function TeamPopup({
       })
       .then((response) => {
         console.log(response);
+        navigate('/TeamList');
       })
       .catch((error) => {
         console.log(error);
