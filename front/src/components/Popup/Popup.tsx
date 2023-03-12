@@ -23,19 +23,22 @@ function TeamPopup({
 
   const navigate = useNavigate();
 
-  const handleSubmit = axios
-    .post('teams', teamData, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-    .then((response) => {
-      console.log(response);
-      navigate('/TeamList');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  const handleSubmit = useEffect(() => {
+    axios
+      .post(`teams`, {
+        teamData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        navigate('/TeamList');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div>
