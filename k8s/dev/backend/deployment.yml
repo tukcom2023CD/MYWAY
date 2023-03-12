@@ -110,4 +110,4 @@ spec:
                   name: crewship-server-secret-dev
                   key: client.host
             - name: CLIENT_ENDPOINT
-              value: DashBoard
+              value: TeamList
