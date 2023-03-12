@@ -1,9 +1,14 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
@@ -17,9 +22,6 @@ import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
 import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
 
 @EnableDataBaseTest
 @DisplayName("QuestionService에서")
