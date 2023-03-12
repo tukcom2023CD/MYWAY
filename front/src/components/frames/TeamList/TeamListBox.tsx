@@ -36,7 +36,9 @@ function TeamListBox() {
       <div className='border flex flex-col mb-5 w-full h-[500px] rounded-[30px] shadow-md overflow-y-auto'>
         <Teams />
       </div>
-      {isOpenPopup && <Popup onClickTogglePopup={openPopup} />}
+      {isOpenPopup && (
+        <Popup onClickTogglePopup={openPopup} onClosePopup={closePopup} />
+      )}
       <button
         type='button'
         onClick={openPopup}
