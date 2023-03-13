@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
+import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.command.application.StaffRepository;
@@ -53,7 +54,54 @@ class QuestionServiceTest extends LoginTest {
             assertThat(question.getTitle()).isEqualTo(req.getTitle());
             assertThat(question.getWriter()).isEqualTo(staff);
             assertThat(question.getContent()).isEqualTo(req.getContent());
-            assertThat(question.getTags()).isEmpty(); // TODO tags 불러오기
+            assertThat(question.getTags()).isEmpty(); // Todo : tags 불러오기
+        }
+    }
+
+    @Nested
+    @DisplayName("update 호출 시")
+    class CallUpdate {
+        @Test
+        @DisplayName("수정을 수행하는가")
+        @UseSampleData
+        void successUpdate() throws Exception {
+            // given
+            List<String> tags = List.of("커뮤니케이션", "개발");
+            Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
+            Staff staff = staffRepository.save(new Staff(team, loginUser));
+            QuestionRequest req = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
+            // when
+            IdResponse<Long> longIdResponse = questionService.create(req);
+
+            UpdateQuestionRequest updateQuestionRequest = new UpdateQuestionRequest("변경된 내용");
+            questionService.update(longIdResponse.getId(), updateQuestionRequest);
+
+            // then
+            assertThat(longIdResponse).isNotNull();
+            Question question = questionQueryRepository.findById(longIdResponse.getId()).get();
+            assertThat(question.getContent()).isEqualTo(updateQuestionRequest.getContent());
+        }
+    }
+
+    @Nested
+    @DisplayName("update 호출 시")
+    class CallDelete {
+        @Test
+        @DisplayName("삭제를 수행하는가")
+        @UseSampleData
+        void successDelete() throws Exception {
+            // given
+            List<String> tags = List.of("커뮤니케이션", "개발");
+            Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
+            Staff staff = staffRepository.save(new Staff(team, loginUser));
+            QuestionRequest req = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
+            // when
+            IdResponse<Long> longIdResponse = questionService.create(req);
+
+            questionService.deleteById(longIdResponse.getId());
+
+            // then
+            assertThat(questionQueryRepository.findById(longIdResponse.getId())).isEmpty();
         }
     }
 }
