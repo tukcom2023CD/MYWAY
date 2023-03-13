@@ -38,7 +38,7 @@ class QuestionControllerTest extends RestDocumentTest {
     void successCreate() throws Exception {
         // given
         List<String> tags = List.of("커뮤니케이션", "개발");
-        QuestionRequest req = new QuestionRequest("이거 어케함?", 2L, "아무튼 알려줘 벅벅", 2L, tags);
+        QuestionRequest req = new QuestionRequest("이거 어케함?", "아무튼 알려줘 벅벅", 2L, tags);
         when(questionService.create(any())).thenReturn(new IdResponse<>(5L));
 
         // when
