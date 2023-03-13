@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from '../../components/frames/Sidebar';
+import Menu from '../../components/frames/Side/Sidebar';
 import Profile from '../../components/frames/Profile';
 import CheckList from '../../components/main/CheckListBox';
 import Progress from '../../components/main/ProjectProgress';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SideGraph from './SideGraph';
-import menu from '../../images/menu.png';
-import dashboard from '../../images/dashboard.png';
-import project from '../../images/project.png';
-import sprint from '../../images/members.png';
-import graph from '../../images/graph.png';
+import menu from '../../../images/menu.png';
+import dashboard from '../../../images/dashboard.png';
+import project from '../../../images/project.png';
+import sprint from '../../../images/members.png';
+import graph from '../../../images/graph.png';
 
 function Sidebar() {
   const activeStyle = {
@@ -30,7 +30,7 @@ function Sidebar() {
                 <NavLink
                   className='flex items-center p-2 space-x-3 rounded-xl'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/'
+                  to='/DashBoard'
                 >
                   <img
                     className='w-[24px] h-[24px]'
@@ -94,6 +94,20 @@ function Sidebar() {
                     src={graph}
                   />
                   <span>Login</span>
+                </NavLink>
+              </li>
+              <li className='rounded-sm'>
+                <NavLink
+                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  style={({ isActive }) => (isActive ? activeStyle : {})}
+                  to='/Test'
+                >
+                  <img
+                    className='w-[24px] h-[24px]'
+                    alt='dashboardicon'
+                    src={graph}
+                  />
+                  <span>Test</span>
                 </NavLink>
               </li>
             </ul>

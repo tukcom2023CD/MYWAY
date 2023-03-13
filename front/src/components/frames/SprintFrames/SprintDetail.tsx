@@ -1,11 +1,11 @@
 import React from 'react';
 import SprintProgress from './SprintProgress';
 import SprintMemberNum from './SprintMemberNum';
-import Member from '../../images/members.png';
+import Member from '../../../images/members.png';
 
-function Sprint() {
+function SprintDetail() {
   return (
-    <div className='flex justify-center items-center space-x-5 w-[440px] h-[60px] mb-2 bg-[#DBDBDB] rounded-[20px]'>
+    <div className='flex justify-center items-center space-x-5 w-[440px] h-[400px] mb-2 bg-[#DBDBDB] rounded-[20px]'>
       <div className='flex justify-center items-center'>스프린트 이름</div>
       <div className='flex justify-center items-center'>
         <img
@@ -23,4 +23,4 @@ function Sprint() {
   );
 }
 
-export default Sprint;
+export default SprintDetail;

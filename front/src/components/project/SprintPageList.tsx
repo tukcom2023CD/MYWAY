@@ -1,6 +1,6 @@
 import React from 'react';
-import Sprints from '../frames/Sprint';
-import SprintDetail from '../frames/SprintDetail';
+import Sprints from '../frames/SprintFrames/Sprint';
+import SprintDetail from '../frames/SprintFrames/SprintDetail';
 
 function SprintPageList() {
   return (
@@ -15,7 +15,7 @@ function SprintPageList() {
           스프린트 추가
         </button>
       </div>
-      <div className='border flex flex-col justify-center items-center w-[500px] h-[600px] overflow-y-auto overflow-x-hidden'>
+      <div className='flex flex-col justify-center items-center w-[500px] h-[600px] overflow-y-auto overflow-x-hidden'>
         <Sprints />
         <SprintDetail />
         <Sprints />

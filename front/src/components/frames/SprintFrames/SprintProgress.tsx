@@ -1,5 +1,5 @@
 import React from 'react';
-import MiniChart from '../../images/minichart.png';
+import MiniChart from '../../../images/minichart.png';
 
 function SprintProgress() {
   return (

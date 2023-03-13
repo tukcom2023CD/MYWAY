@@ -8,8 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
-import Menu from '../../components/frames/Sidebar';
-import TaskList from '../../components/graph/TaskList';
+import Menu from '../../components/frames/Side/Sidebar';
 import TaskImg from '../../images/project.png';
 
 const data = [

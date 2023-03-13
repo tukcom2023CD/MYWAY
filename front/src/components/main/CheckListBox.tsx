@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import CheckList from '../frames/CheckList';
 
 function CheckListBox() {
   const [countList, setCountList] = useState([]);

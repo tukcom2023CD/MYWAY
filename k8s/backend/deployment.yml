@@ -112,3 +112,5 @@ spec:
                 secretKeyRef:
                   name: crewship-server-secret
                   key: client.url
+            - name: CLIENT_ENDPOINT
+              value: TeamList

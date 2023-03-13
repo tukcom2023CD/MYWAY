@@ -1,5 +1,6 @@
 package shop.tukoreamyway.back.domain.task.query.infra;
 
+import static shop.tukoreamyway.back.domain.sprint.entity.QSprint.sprint;
 import static shop.tukoreamyway.back.domain.task.entity.QTask.task;
 
 import com.querydsl.core.types.Predicate;
@@ -24,7 +25,12 @@ public class TaskQueryRepositoryImpl implements TaskQueryRepositoryCustom {
 
     @Override
     public List<Task> findAllByCondition(final TaskSearchCondition condition) {
-        return jpaQueryFactory.selectFrom(task).where(generateWhereQuery(condition)).fetch();
+        return jpaQueryFactory
+                .selectFrom(task)
+                .where(generateWhereQuery(condition))
+                .leftJoin(task.sprint, sprint)
+                .fetchJoin()
+                .fetch();
     }
 
     private Predicate[] generateWhereQuery(final TaskSearchCondition condition) {
