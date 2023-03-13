@@ -57,9 +57,6 @@ public class QuestionService {
     }
 
     private Question getEntity(final Long id) {
-        return questionQueryRepository
-                .findById(id)
-                .orElseThrow(
-                        () -> new EntityNotFoundException("Question not found with id: " + id));
+        return questionQueryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }
