@@ -9,7 +9,7 @@ interface PopupDefaultType {
   onClosePopup: () => void;
 }
 
-function TeamPopup({
+function Popup({
   onClickTogglePopup,
   onClosePopup,
 }: PropsWithChildren<PopupDefaultType>) {
@@ -93,4 +93,4 @@ function TeamPopup({
   );
 }
 
-export default TeamPopup;
+export default Popup;
