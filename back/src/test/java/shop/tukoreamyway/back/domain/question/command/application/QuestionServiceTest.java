@@ -43,17 +43,17 @@ class QuestionServiceTest extends LoginTest {
             List<String> tags = List.of("커뮤니케이션", "개발");
             Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
             Staff staff = staffRepository.save(new Staff(team, loginUser));
-            QuestionRequest req = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
+            QuestionRequest questionRequest = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
             // when
-            IdResponse<Long> longIdResponse = questionService.create(req);
+            IdResponse<Long> longIdResponse = questionService.create(questionRequest);
 
             // then
             assertThat(longIdResponse).isNotNull();
             Question question = questionQueryRepository.findById(longIdResponse.getId()).get();
             assertThat(question.getTeamId()).isEqualTo(TEAM1.getId());
-            assertThat(question.getTitle()).isEqualTo(req.getTitle());
+            assertThat(question.getTitle()).isEqualTo(questionRequest.getTitle());
             assertThat(question.getWriter()).isEqualTo(staff);
-            assertThat(question.getContent()).isEqualTo(req.getContent());
+            assertThat(question.getContent()).isEqualTo(questionRequest.getContent());
             assertThat(question.getTags()).isEmpty(); // Todo : tags 불러오기
         }
     }
@@ -69,9 +69,9 @@ class QuestionServiceTest extends LoginTest {
             List<String> tags = List.of("커뮤니케이션", "개발");
             Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
             Staff staff = staffRepository.save(new Staff(team, loginUser));
-            QuestionRequest req = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
+            QuestionRequest questionRequest = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
             // when
-            IdResponse<Long> longIdResponse = questionService.create(req);
+            IdResponse<Long> longIdResponse = questionService.create(questionRequest);
 
             UpdateQuestionRequest updateQuestionRequest = new UpdateQuestionRequest("변경된 내용");
             questionService.update(longIdResponse.getId(), updateQuestionRequest);
@@ -84,7 +84,7 @@ class QuestionServiceTest extends LoginTest {
     }
 
     @Nested
-    @DisplayName("update 호출 시")
+    @DisplayName("delete 호출 시")
     class CallDelete {
         @Test
         @DisplayName("삭제를 수행하는가")
@@ -94,9 +94,9 @@ class QuestionServiceTest extends LoginTest {
             List<String> tags = List.of("커뮤니케이션", "개발");
             Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
             Staff staff = staffRepository.save(new Staff(team, loginUser));
-            QuestionRequest req = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
+            QuestionRequest questionRequest = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
             // when
-            IdResponse<Long> longIdResponse = questionService.create(req);
+            IdResponse<Long> longIdResponse = questionService.create(questionRequest);
 
             questionService.deleteById(longIdResponse.getId());
 
