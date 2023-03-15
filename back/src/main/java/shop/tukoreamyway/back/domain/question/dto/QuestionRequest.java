@@ -12,7 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 public class QuestionRequest {
     private String title;
-    private Long writerId;
     private String content;
     private Long teamId;
     private List<String> tags = new ArrayList<>();

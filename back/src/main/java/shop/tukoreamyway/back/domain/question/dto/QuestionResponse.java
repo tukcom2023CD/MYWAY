@@ -1,6 +1,7 @@
 package shop.tukoreamyway.back.domain.question.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 
 import shop.tukoreamyway.back.domain.staff.dto.StaffSummary;
@@ -8,6 +9,7 @@ import shop.tukoreamyway.back.domain.staff.dto.StaffSummary;
 import java.util.List;
 
 @Getter
+@Builder
 @AllArgsConstructor
 public class QuestionResponse {
     private final Long id;
