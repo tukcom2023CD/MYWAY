@@ -1,12 +1,16 @@
 package shop.tukoreamyway.back.domain.answerComment.command.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import shop.tukoreamyway.back.domain.answer.command.application.AnswerService;
 import shop.tukoreamyway.back.domain.answer.dto.AnswerRequest;
-import shop.tukoreamyway.back.domain.answer.dto.UpdateAnswerRequest;
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
 import shop.tukoreamyway.back.domain.answer.query.application.AnswerQueryRepository;
 import shop.tukoreamyway.back.domain.answercomment.command.application.AnswerCommentService;
@@ -16,7 +20,6 @@ import shop.tukoreamyway.back.domain.answercomment.entity.AnswerComment;
 import shop.tukoreamyway.back.domain.answercomment.query.application.AnswerCommentQueryRepository;
 import shop.tukoreamyway.back.domain.question.command.application.QuestionService;
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
-import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.command.application.StaffRepository;
@@ -29,9 +32,6 @@ import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
 import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import java.util.List;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
 
 @EnableDataBaseTest
 @DisplayName("AnswerCommentService에서")
@@ -59,19 +59,25 @@ public class AnswerCommentServiceTest extends LoginTest {
             staffRepository.save(new Staff(team, loginUser));
             QuestionRequest questionRequest = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
             IdResponse<Long> questionLongIdResponse = questionService.create(questionRequest);
-            Question question = questionQueryRepository.findById(questionLongIdResponse.getId()).get();
+            Question question =
+                    questionQueryRepository.findById(questionLongIdResponse.getId()).get();
 
             AnswerRequest answerRequest = new AnswerRequest("내용", question.getId());
             IdResponse<Long> answerLongIdResponse = answerService.create(answerRequest);
             Answer answer = answerQueryRepository.findById(answerLongIdResponse.getId()).get();
 
             // when
-            AnswerCommentRequest answerCommentRequest = new AnswerCommentRequest("내용", answer.getId());
-            IdResponse<Long> answerCommentLongIdResponse = answerCommentService.create(answerCommentRequest);
+            AnswerCommentRequest answerCommentRequest =
+                    new AnswerCommentRequest("내용", answer.getId());
+            IdResponse<Long> answerCommentLongIdResponse =
+                    answerCommentService.create(answerCommentRequest);
 
             // then
             assertThat(answerCommentLongIdResponse).isNotNull();
-            AnswerComment answerComment = answerCommentQueryRepository.findById(answerCommentLongIdResponse.getId()).get();
+            AnswerComment answerComment =
+                    answerCommentQueryRepository
+                            .findById(answerCommentLongIdResponse.getId())
+                            .get();
             assertThat(answerComment.getContent()).isEqualTo(answerCommentRequest.getContent());
 
             // 아래 부분에서 오류 발생
@@ -92,23 +98,32 @@ public class AnswerCommentServiceTest extends LoginTest {
             staffRepository.save(new Staff(team, loginUser));
             QuestionRequest questionRequest = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
             IdResponse<Long> questionLongIdResponse = questionService.create(questionRequest);
-            Question question = questionQueryRepository.findById(questionLongIdResponse.getId()).get();
+            Question question =
+                    questionQueryRepository.findById(questionLongIdResponse.getId()).get();
 
             AnswerRequest answerRequest = new AnswerRequest("내용", question.getId());
             IdResponse<Long> answerLongIdResponse = answerService.create(answerRequest);
             Answer answer = answerQueryRepository.findById(answerLongIdResponse.getId()).get();
 
-            AnswerCommentRequest answerCommentRequest = new AnswerCommentRequest("내용", answer.getId());
-            IdResponse<Long> answerCommentLongIdResponse = answerCommentService.create(answerCommentRequest);
+            AnswerCommentRequest answerCommentRequest =
+                    new AnswerCommentRequest("내용", answer.getId());
+            IdResponse<Long> answerCommentLongIdResponse =
+                    answerCommentService.create(answerCommentRequest);
 
             // when
-            UpdateAnswerCommentRequest updateAnswerCommentRequest = new UpdateAnswerCommentRequest("변경된 내용");
-            answerCommentService.update(answerCommentLongIdResponse.getId(), updateAnswerCommentRequest);
-            AnswerComment answerComment = answerCommentQueryRepository.findById(answerCommentLongIdResponse.getId()).get();
+            UpdateAnswerCommentRequest updateAnswerCommentRequest =
+                    new UpdateAnswerCommentRequest("변경된 내용");
+            answerCommentService.update(
+                    answerCommentLongIdResponse.getId(), updateAnswerCommentRequest);
+            AnswerComment answerComment =
+                    answerCommentQueryRepository
+                            .findById(answerCommentLongIdResponse.getId())
+                            .get();
 
             // then
             assertThat(answerCommentLongIdResponse).isNotNull();
-            assertThat(answerComment.getContent()).isEqualTo(updateAnswerCommentRequest.getContent());
+            assertThat(answerComment.getContent())
+                    .isEqualTo(updateAnswerCommentRequest.getContent());
         }
     }
 
@@ -125,22 +140,29 @@ public class AnswerCommentServiceTest extends LoginTest {
             staffRepository.save(new Staff(team, loginUser));
             QuestionRequest questionRequest = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
             IdResponse<Long> questionLongIdResponse = questionService.create(questionRequest);
-            Question question = questionQueryRepository.findById(questionLongIdResponse.getId()).get();
+            Question question =
+                    questionQueryRepository.findById(questionLongIdResponse.getId()).get();
 
             AnswerRequest answerRequest = new AnswerRequest("내용", question.getId());
             IdResponse<Long> answerLongIdResponse = answerService.create(answerRequest);
             Answer answer = answerQueryRepository.findById(answerLongIdResponse.getId()).get();
 
-            AnswerCommentRequest answerCommentRequest = new AnswerCommentRequest("내용", answer.getId());
-            IdResponse<Long> answerCommentLongIdResponse = answerCommentService.create(answerCommentRequest);
-            AnswerComment answerComment = answerCommentQueryRepository.findById(answerCommentLongIdResponse.getId()).get();
+            AnswerCommentRequest answerCommentRequest =
+                    new AnswerCommentRequest("내용", answer.getId());
+            IdResponse<Long> answerCommentLongIdResponse =
+                    answerCommentService.create(answerCommentRequest);
+            AnswerComment answerComment =
+                    answerCommentQueryRepository
+                            .findById(answerCommentLongIdResponse.getId())
+                            .get();
 
             // when
             // 아래 부분에서 오류 발생
             answerCommentService.deleteById(answerCommentLongIdResponse.getId());
 
             // then;
-            assertThat(answerCommentQueryRepository.findById(answerCommentLongIdResponse.getId())).isEmpty();
+            assertThat(answerCommentQueryRepository.findById(answerCommentLongIdResponse.getId()))
+                    .isEmpty();
         }
     }
 }
