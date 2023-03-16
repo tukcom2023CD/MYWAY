@@ -5,8 +5,12 @@ import axios from 'axios';
 
 function TeamPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [name, setName] = useState();
-  const [industryGroup, setIndustryGroup] = useState();
+  const [data, setData] = useState({
+    name: '',
+    industryGroup: '',
+  });
+  // const [name, setName] = useState();
+  // const [industryGroup, setIndustryGroup] = useState();
 
   function openModal() {
     setIsOpen(true);
@@ -16,28 +20,42 @@ function TeamPopup() {
     setIsOpen(false);
   }
 
-  const teamData = {
-    name: `${name}`,
-    industryGroup: `${industryGroup}`,
+  const handleChange = (e: any) => {
+    const { value } = e.target;
+    setData({
+      ...data,
+      [e.target.name]: value,
+    });
   };
 
   const navigate = useNavigate();
 
-  const handleSubmit = useEffect(() => {
-    axios
-      .post(`teams`, teamData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        navigate('/TeamList');
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const teamData = {
+      name: data.name,
+      industryGroup: data.industryGroup,
+    };
+    axios.post(`teams`, teamData).then((response) => {
+      console.log(response.status, response.data.token);
+    });
+  };
+
+  // const handleSubmit = useEffect(() => {
+  //   axios
+  //     .post(`teams`, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //       navigate('/TeamList');
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   return (
     <div>
@@ -60,22 +78,22 @@ function TeamPopup() {
               <p className='font-bold text-[20px]'>제목</p>
               <input
                 className='text-[20px] w-[430px] border-b-2'
-                onChange={(e) => setName((e.target as any).value)}
                 placeholder='제목을 입력해주세요.'
+                onChange={handleChange}
               />
             </div>
             <div className='mb-4 w-[430px]'>
               <p className='font-bold text-[20px]'>부서명</p>
               <input
                 className='text-[20px] w-[430px] border-b-2'
-                onChange={(e) => setIndustryGroup((e.target as any).value)}
                 placeholder='부서명을 입력하세요.'
+                onChange={handleChange}
               />
             </div>
             <div className='flex space-x-2'>
               <button
                 type='button'
-                onClick={() => handleSubmit}
+                onClick={handleSubmit}
                 className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
               >
                 생성하기
