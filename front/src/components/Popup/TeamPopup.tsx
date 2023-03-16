@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
@@ -9,8 +9,6 @@ function TeamPopup() {
     name: '',
     industryGroup: '',
   });
-  // const [name, setName] = useState();
-  // const [industryGroup, setIndustryGroup] = useState();
 
   function openModal() {
     setIsOpen(true);
@@ -42,22 +40,6 @@ function TeamPopup() {
     });
   };
 
-  // const handleSubmit = useEffect(() => {
-  //   axios
-  //     .post(`teams`, {
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //       navigate('/TeamList');
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
-
   return (
     <div>
       <button
@@ -70,14 +52,14 @@ function TeamPopup() {
       <Modal
         isOpen={modalIsOpen}
         className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
-        contentLabel='Example Modal'
       >
-        <div>
+        <form onSubmit={handleSubmit}>
           <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'>
             <p className='font-bold text-[25px] p-7'>팀 생성</p>
             <div className='mb-4 w-[430px]'>
               <p className='font-bold text-[20px]'>제목</p>
               <input
+                id='name'
                 className='text-[20px] w-[430px] border-b-2'
                 placeholder='제목을 입력해주세요.'
                 onChange={handleChange}
@@ -86,6 +68,7 @@ function TeamPopup() {
             <div className='mb-4 w-[430px]'>
               <p className='font-bold text-[20px]'>부서명</p>
               <input
+                id='industryGroup'
                 className='text-[20px] w-[430px] border-b-2'
                 placeholder='부서명을 입력하세요.'
                 onChange={handleChange}
@@ -93,8 +76,7 @@ function TeamPopup() {
             </div>
             <div className='flex space-x-2'>
               <button
-                type='button'
-                onClick={handleSubmit}
+                type='submit'
                 className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
               >
                 생성하기
@@ -108,7 +90,7 @@ function TeamPopup() {
               </button>
             </div>
           </div>
-        </div>
+        </form>
       </Modal>
     </div>
   );
