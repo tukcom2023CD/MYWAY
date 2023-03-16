@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.answercomment.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
@@ -18,9 +17,8 @@ import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 
 @CommandService
 @RequiredArgsConstructor
@@ -52,7 +50,7 @@ public class AnswerCommentService {
         getEntity(id).update(dto.getContent());
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(final Long id) {
         answerCommentRepository.deleteById(id);
     }
 

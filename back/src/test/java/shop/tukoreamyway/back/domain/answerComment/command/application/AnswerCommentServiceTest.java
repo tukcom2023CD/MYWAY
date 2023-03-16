@@ -1,14 +1,10 @@
 package shop.tukoreamyway.back.domain.answerComment.command.application;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
-
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import shop.tukoreamyway.back.domain.answer.command.application.AnswerService;
 import shop.tukoreamyway.back.domain.answer.dto.AnswerRequest;
 import shop.tukoreamyway.back.domain.answer.entity.Answer;
@@ -33,7 +29,11 @@ import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
+
 @EnableDataBaseTest
+@Slf4j
 @DisplayName("AnswerCommentService에서")
 public class AnswerCommentServiceTest extends LoginTest {
 
@@ -81,7 +81,7 @@ public class AnswerCommentServiceTest extends LoginTest {
             assertThat(answerComment.getContent()).isEqualTo(answerCommentRequest.getContent());
 
             // 아래 부분에서 오류 발생
-            assertThat(answerComment.getAnswer()).isEqualTo(answer.getId());
+            assertThat(answerComment.getAnswer()).isEqualTo(answer);
         }
     }
 
@@ -158,6 +158,8 @@ public class AnswerCommentServiceTest extends LoginTest {
 
             // when
             // 아래 부분에서 오류 발생
+            log.info("{}", answerComment.getId());
+            log.info("{}", answerCommentLongIdResponse.getId());
             answerCommentService.deleteById(answerCommentLongIdResponse.getId());
 
             // then;
