@@ -52,7 +52,7 @@ public class AnswerCommentService {
         getEntity(id).update(dto.getContent());
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(final Long id) {
         answerCommentRepository.deleteById(id);
     }
 
