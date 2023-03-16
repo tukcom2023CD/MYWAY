@@ -37,6 +37,7 @@ function TeamPopup() {
       industryGroup: data.industryGroup,
     };
     axios.post(`teams`, teamData).then((response) => {
+      navigate('/TeamList');
       console.log(response.status, response.data.token);
     });
   };
