@@ -13,7 +13,6 @@ import SprintMake from './pages/sprint/SprintMake';
 import Task from './pages/project/Task';
 import Members from './pages/member/MemberPage';
 import Graph from './pages/graph/Graph';
-import Test from './pages/test';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
@@ -38,8 +37,6 @@ function App() {
         <Route path='/Members' element={<Members />} />
         {/** 성과분석 결과 페이지 */}
         <Route path='/Graph' element={<Graph />} />
-        {/** 컴포넌트 테스트 페이지 */}
-        <Route path='/Test' element={<Test />} />
       </Routes>
     </BrowserRouter>
   );

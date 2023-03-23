@@ -46,7 +46,13 @@
     "react/prop-types": 0,
     "no-empty-pattern": 0,
     "no-alert": 0,
-    "react-hooks/exhaustive-deps": 0
+    "react-hooks/exhaustive-deps": 0,
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelAttributes": ["htmlFor"]
+      }
+    ]
   },
   "settings": {
     "import/parsers": {
