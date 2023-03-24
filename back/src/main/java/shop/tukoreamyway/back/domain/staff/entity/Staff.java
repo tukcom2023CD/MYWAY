@@ -3,13 +3,11 @@ package shop.tukoreamyway.back.domain.staff.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 
-import java.util.UUID;
-
 import javax.persistence.*;
+import java.util.UUID;
 
 @Getter
 @Entity
@@ -35,7 +33,7 @@ public class Staff {
     private Boolean isAcceptTeam = false;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, name = "ranks")
+    @Column(nullable = false)
     private Rank rank = Rank.CLERK;
 
     public Staff(Team team, Member member) {
