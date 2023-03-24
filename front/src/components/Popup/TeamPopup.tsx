@@ -1,20 +1,20 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState, useEffect, PropsWithChildren } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Modal from 'react-modal';
 import axios from 'axios';
 
-interface PopupDefaultType {
-  onClickTogglePopup: () => void;
-  onClosePopup: () => void;
-}
-
-function Popup({
-  onClickTogglePopup,
-  onClosePopup,
-}: PropsWithChildren<PopupDefaultType>) {
+function TeamPopup() {
+  const [modalIsOpen, setIsOpen] = useState(false);
   const [name, setName] = useState();
   const [industryGroup, setIndustryGroup] = useState();
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const teamData = {
     name: `${name}`,
@@ -41,16 +41,18 @@ function Popup({
 
   return (
     <div>
-      <div
-        onClick={(e: React.MouseEvent) => {
-          e.preventDefault();
-
-          if (onClickTogglePopup) {
-            onClickTogglePopup();
-          }
-        }}
-      />
-      <div className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'>
+      <button
+        type='button'
+        className='flex justify-center items-center ml-auto w-[100px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+        onClick={openModal}
+      >
+        팀 생성하기
+      </button>
+      <Modal
+        isOpen={modalIsOpen}
+        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
+        contentLabel='Example Modal'
+      >
         <div>
           <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'>
             <p className='font-bold text-[25px] p-7'>팀 생성</p>
@@ -80,7 +82,7 @@ function Popup({
               </button>
               <button
                 type='button'
-                onClick={onClosePopup}
+                onClick={closeModal}
                 className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
               >
                 닫기
@@ -88,9 +90,9 @@ function Popup({
             </div>
           </div>
         </div>
-      </div>
+      </Modal>
     </div>
   );
 }
 
-export default Popup;
+export default TeamPopup;
