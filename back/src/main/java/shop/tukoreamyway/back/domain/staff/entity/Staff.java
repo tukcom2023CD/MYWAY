@@ -3,11 +3,13 @@ package shop.tukoreamyway.back.domain.staff.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 
-import javax.persistence.*;
 import java.util.UUID;
+
+import javax.persistence.*;
 
 @Getter
 @Entity
