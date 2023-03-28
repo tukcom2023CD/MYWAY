@@ -5,7 +5,6 @@ import WelcomePage from './pages/main/WelcomePage';
 import TeamList from './pages/main/TeamList';
 import DashBoard from './pages/main/DashBoard';
 import Login from './pages/main/Login';
-import Register from './pages/main/Register';
 import Project from './pages/project/Project';
 import ProjectMake from './pages/project/ProjectMake';
 import Sprint from './pages/sprint/Sprint';
@@ -28,7 +27,6 @@ function App() {
         <Route path='/TeamList' element={<TeamList />} />
         <Route path='/DashBoard' element={<DashBoard />} />
         <Route path='/Login' element={<Login />} />
-        <Route path='/Register' element={<Register />} />
         {/** 프로젝트 페이지 */}
         <Route path='/Project' element={<Project />} />
         <Route path='/ProjectMake' element={<ProjectMake />} />
