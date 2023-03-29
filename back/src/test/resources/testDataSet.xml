@@ -15,11 +15,11 @@
 
 <!--    <question/>-->
 
-    <staff id="400001" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭1" is_accept_member="1" is_accept_team="1" rank="CLERK"/>
-    <staff id="400002" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭2" is_accept_member="1" is_accept_team="1" rank="CLERK"/>
-    <staff id="400003" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭3" is_accept_member="1" is_accept_team="1" rank="CLERK"/>
-    <staff id="400004" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭4" is_accept_member="1" is_accept_team="1" rank="CLERK"/>
-    <staff id="400005" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭5" is_accept_member="1" is_accept_team="1" rank="CLERK"/>
+    <staff id="400001" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭1" is_accept_member="1" is_accept_team="1" staff_rank="CLERK"/>
+    <staff id="400002" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭2" is_accept_member="1" is_accept_team="1" staff_rank="CLERK"/>
+    <staff id="400003" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭3" is_accept_member="1" is_accept_team="1" staff_rank="CLERK"/>
+    <staff id="400004" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭4" is_accept_member="1" is_accept_team="1" staff_rank="CLERK"/>
+    <staff id="400005" team_id="500001" member_id="uuid'791ae85a-d8d0-11e2-8c43-50e549c9b677'" nickname="스탭5" is_accept_member="1" is_accept_team="1" staff_rank="CLERK"/>
     <project id="700001" name="프로젝트1" start_at="2023-02-20 10:55:59.123456" end_at="2023-07-20 10:55:59.123456" team_id="500001" sprint_days="7" manager_id="400003"/>
     <sprint id="600001" project_id="700001" team_id="500001" round="1" start_date="2023-02-20" end_date="2023-03-20" leader_id="400001"/>
     <task id="50001" summary="요약1" description="상세1" status="READY" contribute_point="50" category="DEVELOPMENT" sprint_id="600001" player_id="400002"/>
