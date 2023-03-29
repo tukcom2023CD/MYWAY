@@ -7,11 +7,8 @@ import org.mapstruct.MappingConstants;
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.QuestionResponse;
 import shop.tukoreamyway.back.domain.question.entity.Question;
-import shop.tukoreamyway.back.domain.question.entity.Tag;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 import shop.tukoreamyway.back.domain.team.entity.Team;
-
-import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface QuestionMapper {

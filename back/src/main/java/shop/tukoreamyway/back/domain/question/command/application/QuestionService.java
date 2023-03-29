@@ -4,13 +4,11 @@ import lombok.RequiredArgsConstructor;
 
 import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
-import shop.tukoreamyway.back.domain.ability.entity.Ability;
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
 import shop.tukoreamyway.back.domain.ability.entity.GrantLocation;
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
-import shop.tukoreamyway.back.domain.question.entity.Tag;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
@@ -19,14 +17,10 @@ import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
-import shop.tukoreamyway.back.domain.question.entity.Tag;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.persistence.EntityNotFoundException;
-
-import static org.yaml.snakeyaml.tokens.Token.ID.Tag;
 
 @CommandService
 @RequiredArgsConstructor
