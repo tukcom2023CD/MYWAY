@@ -2,7 +2,7 @@ package shop.tukoreamyway.back.domain.staff.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import shop.tukoreamyway.back.domain.member.entity.Member;
 import shop.tukoreamyway.back.domain.team.entity.Team;
@@ -13,7 +13,7 @@ import javax.persistence.*;
 
 @Getter
 @Entity
-@RequiredArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Staff {
     @Id @GeneratedValue private Long id;
 
@@ -35,6 +35,7 @@ public class Staff {
     private Boolean isAcceptTeam = false;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Rank rank = Rank.CLERK;
 
     public Staff(Team team, Member member) {
