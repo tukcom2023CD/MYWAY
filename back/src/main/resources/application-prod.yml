@@ -16,12 +16,12 @@ spring:
         driver-class-name: com.mysql.cj.jdbc.Driver
         jdbc-url: jdbc:mysql://${DATABASE_SLAVE_URL}/${DATABASE_SLAVE_SCHEMA}?serverTimezone=Asia/Seoul
   jpa:
-    show-sql: true
+    show-sql: false
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
+        format_sql: false
 
   flyway:
     enabled: true
