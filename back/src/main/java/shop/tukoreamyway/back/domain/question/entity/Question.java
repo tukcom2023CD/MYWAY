@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Entity
@@ -22,6 +24,9 @@ public class Question {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "writer_id", nullable = false)
     private Staff writer;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question", cascade = CascadeType.REMOVE)
+    private final List<QuestionTag> tags = new ArrayList<>();
 
     @Column(nullable = false)
     private Long teamId;

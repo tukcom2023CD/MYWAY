@@ -12,6 +12,7 @@ import shop.tukoreamyway.back.domain.team.entity.Team;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface QuestionMapper {
+    @Mapping(target = "tags", ignore = true)
     Question toEntity(QuestionRequest dto, Team team, Staff writer);
 
     @Mapping(target = "tags", ignore = true)
