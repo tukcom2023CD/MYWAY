@@ -3,12 +3,10 @@ package shop.tukoreamyway.back.domain.ability.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -35,7 +33,7 @@ public class Ability {
     private GrantLocation grantLocation;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "grantor_id", nullable = false)
+    @JoinColumn(name = "grantor_id")
     private Staff grantor;
 
     public Ability(

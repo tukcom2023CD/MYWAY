@@ -3,11 +3,7 @@ package shop.tukoreamyway.back.domain.question.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.*;
 
@@ -28,9 +24,6 @@ public class Question {
 
     @Column(nullable = false)
     private Long teamId;
-
-    @OneToMany(mappedBy = "question")
-    private List<QuestionTag> tags = new ArrayList<>();
 
     public Question(String title, String content, Staff writer, Long teamId) {
         this.title = title;

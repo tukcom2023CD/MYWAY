@@ -1,9 +1,7 @@
 package shop.tukoreamyway.back.domain.ability.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
-
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
 import shop.tukoreamyway.back.domain.ability.dto.AbilityResponse;
 import shop.tukoreamyway.back.domain.ability.dto.AbilitySummary;
@@ -15,10 +13,6 @@ import java.util.Map;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface AbilityMapper {
-    @Mapping(target = "receiver", ignore = true)
-    @Mapping(target = "grantor", ignore = true)
-    Ability toEntity(AbilityRequest dto);
-
     Ability toEntity(AbilityRequest dto, Staff receiver, Staff grantor);
 
     AbilityResponse toResponse(Ability entity);

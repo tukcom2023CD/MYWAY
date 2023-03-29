@@ -1,20 +1,18 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
-
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.command.application.StaffRepository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
+import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryRepository;
+import shop.tukoreamyway.back.domain.staff.query.application.StaffQueryService;
 import shop.tukoreamyway.back.domain.team.entity.Team;
 import shop.tukoreamyway.back.domain.team.query.application.TeamQueryRepository;
 import shop.tukoreamyway.back.global.IdResponse;
@@ -24,12 +22,19 @@ import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
+
+@Slf4j
 @EnableDataBaseTest
 @DisplayName("QuestionService에서")
 class QuestionServiceTest extends LoginTest {
     @Autowired private QuestionService questionService;
     @Autowired private QuestionQueryRepository questionQueryRepository;
     @Autowired private StaffRepository staffRepository;
+    @Autowired private StaffQueryRepository staffQueryRepository;
+    @Autowired
+    private StaffQueryService staffQueryService;
     @Autowired private TeamQueryRepository teamRepository;
 
     @Nested
@@ -38,7 +43,7 @@ class QuestionServiceTest extends LoginTest {
         @Test
         @DisplayName("저장을 수행하는가")
         @UseSampleData
-        void successSave() throws Exception {
+        void successSave() {
             // given
             List<String> tags = List.of("커뮤니케이션", "개발");
             Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
@@ -54,7 +59,8 @@ class QuestionServiceTest extends LoginTest {
             assertThat(question.getTitle()).isEqualTo(questionRequest.getTitle());
             assertThat(question.getWriter()).isEqualTo(staff);
             assertThat(question.getContent()).isEqualTo(questionRequest.getContent());
-            assertThat(question.getTags()).isEmpty(); // Todo : tags 불러오기
+
+            log.info("{}", "수행 완료!");
         }
     }
 
@@ -64,7 +70,7 @@ class QuestionServiceTest extends LoginTest {
         @Test
         @DisplayName("수정을 수행하는가")
         @UseSampleData
-        void successUpdate() throws Exception {
+        void successUpdate() {
             // given
             List<String> tags = List.of("커뮤니케이션", "개발");
             Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
@@ -89,7 +95,7 @@ class QuestionServiceTest extends LoginTest {
         @Test
         @DisplayName("삭제를 수행하는가")
         @UseSampleData
-        void successDelete() throws Exception {
+        void successDelete() {
             // given
             List<String> tags = List.of("커뮤니케이션", "개발");
             Team team = teamRepository.findById(TEAM1.getId()).orElseThrow();
