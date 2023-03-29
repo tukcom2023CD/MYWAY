@@ -35,7 +35,7 @@ public class Ability {
     private GrantLocation grantLocation;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "grantor_id", nullable = false)
+    @JoinColumn(name = "grantor_id")
     private Staff grantor;
 
     public Ability(

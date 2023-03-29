@@ -1,7 +1,6 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
 import lombok.RequiredArgsConstructor;
-
 import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
@@ -18,9 +17,8 @@ import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
 
 @CommandService
 @RequiredArgsConstructor
@@ -31,6 +29,7 @@ public class QuestionService {
     private final QuestionQueryRepository questionQueryRepository;
     private final QuestionMapper questionMapper;
     private final AbilityService abilityService;
+    private final QuestionTagGenerator questionTagGenerator;
 
     public IdResponse<Long> create(final QuestionRequest dto) {
         final Team team = teamLoader.getEntity(dto.getTeamId());
@@ -45,6 +44,7 @@ public class QuestionService {
                         LocalDateTime.now(),
                         GrantLocation.WRITE_QUESTION,
                         null));
+        questionTagGenerator.generate(question, dto.getTags());
         return new IdResponse<>(question.getId());
     }
 
