@@ -1,16 +1,10 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
-
 import lombok.extern.slf4j.Slf4j;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
@@ -27,6 +21,9 @@ import shop.tukoreamyway.back.support.database.EnableDataBaseTest;
 import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
 
 @Slf4j
 @EnableDataBaseTest
@@ -53,16 +50,18 @@ class QuestionServiceTest extends LoginTest {
             QuestionRequest questionRequest = new QuestionRequest("제목", "내용", TEAM1.getId(), tags);
             // when
             IdResponse<Long> longIdResponse = questionService.create(questionRequest);
+            
+            
 
             // then
             assertThat(longIdResponse).isNotNull();
             Question question = questionQueryRepository.findById(longIdResponse.getId()).get();
+            question.getTags().forEach(i -> log.info("{}", i.getTag().getName()));
+            assertThat(question.getTags()).isNotEmpty();
             assertThat(question.getTeamId()).isEqualTo(TEAM1.getId());
             assertThat(question.getTitle()).isEqualTo(questionRequest.getTitle());
             assertThat(question.getWriter()).isEqualTo(staff);
             assertThat(question.getContent()).isEqualTo(questionRequest.getContent());
-
-            log.info("{}", "수행 완료!");
         }
     }
 
