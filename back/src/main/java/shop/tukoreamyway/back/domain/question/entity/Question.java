@@ -6,9 +6,10 @@ import lombok.NoArgsConstructor;
 
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.*;
 
 @Getter
 @Entity
