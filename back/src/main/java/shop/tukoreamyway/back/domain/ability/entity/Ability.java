@@ -3,10 +3,12 @@ package shop.tukoreamyway.back.domain.ability.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
+
+import javax.persistence.*;
 
 @Getter
 @Entity

@@ -1,10 +1,16 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
@@ -22,9 +28,6 @@ import shop.tukoreamyway.back.support.database.UseSampleData;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static shop.tukoreamyway.back.support.database.SampleDataLongTypeId.TEAM1;
-
 @Slf4j
 @EnableDataBaseTest
 @DisplayName("QuestionService에서")
@@ -33,8 +36,7 @@ class QuestionServiceTest extends LoginTest {
     @Autowired private QuestionQueryRepository questionQueryRepository;
     @Autowired private StaffRepository staffRepository;
     @Autowired private StaffQueryRepository staffQueryRepository;
-    @Autowired
-    private StaffQueryService staffQueryService;
+    @Autowired private StaffQueryService staffQueryService;
     @Autowired private TeamQueryRepository teamRepository;
 
     @Nested

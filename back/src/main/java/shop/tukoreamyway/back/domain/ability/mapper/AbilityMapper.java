@@ -2,6 +2,7 @@ package shop.tukoreamyway.back.domain.ability.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
+
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
 import shop.tukoreamyway.back.domain.ability.dto.AbilityResponse;
 import shop.tukoreamyway.back.domain.ability.dto.AbilitySummary;

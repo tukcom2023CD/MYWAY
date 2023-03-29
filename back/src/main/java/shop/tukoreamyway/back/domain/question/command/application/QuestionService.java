@@ -1,7 +1,7 @@
 package shop.tukoreamyway.back.domain.question.command.application;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+
 import shop.tukoreamyway.back.domain.ability.command.application.AbilityService;
 import shop.tukoreamyway.back.domain.ability.dto.AbilityRequest;
 import shop.tukoreamyway.back.domain.ability.entity.AbilityCategory;
@@ -18,7 +18,6 @@ import shop.tukoreamyway.back.global.IdResponse;
 import shop.tukoreamyway.back.global.service.CommandService;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 
-import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 
 import javax.persistence.EntityNotFoundException;
@@ -49,7 +48,7 @@ public class QuestionService {
                         null));
         List<QuestionTag> generate = questionTagGenerator.generate(question, dto.getTags());
         generate.forEach(i -> log.info("{}", i.getTag().getName()));
-        
+
         return new IdResponse<>(question.getId());
     }
 

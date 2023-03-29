@@ -3,6 +3,7 @@ package shop.tukoreamyway.back.domain.question.entity;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
 
 import javax.persistence.*;
