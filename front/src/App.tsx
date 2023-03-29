@@ -15,6 +15,7 @@ import Members from './pages/member/MemberPage';
 import Graph from './pages/graph/Graph';
 import Agora from './pages/agora/Agora';
 import AgoraMake from './pages/agora/AgoraMake';
+import Analysis from './pages/anaylsis/Analysis';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
@@ -43,6 +44,8 @@ function App() {
         {/** 아고래 페이지 */}
         <Route path='/Agora' element={<Agora />} />
         <Route path='/AgoraMake' element={<AgoraMake />} />
+        {/** 분석 페이지 */}
+        <Route path='/Analysis' element={<Analysis />} />
       </Routes>
     </BrowserRouter>
   );

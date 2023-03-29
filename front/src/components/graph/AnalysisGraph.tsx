@@ -40,7 +40,7 @@ const data = [
   },
 ];
 
-function Analysis() {
+function AnalysisGraph() {
   return (
     <div className='bg-white w-[500px] h-[260px] rounded-[30px]'>
       <div className='flex flex-col items-center p-4 mt-2'>
@@ -77,4 +77,4 @@ function Analysis() {
   );
 }
 
-export default Analysis;
+export default AnalysisGraph;
