@@ -9,7 +9,6 @@ import shop.tukoreamyway.back.domain.ability.entity.GrantLocation;
 import shop.tukoreamyway.back.domain.question.dto.QuestionRequest;
 import shop.tukoreamyway.back.domain.question.dto.UpdateQuestionRequest;
 import shop.tukoreamyway.back.domain.question.entity.Question;
-import shop.tukoreamyway.back.domain.question.entity.QuestionTag;
 import shop.tukoreamyway.back.domain.question.mapper.QuestionMapper;
 import shop.tukoreamyway.back.domain.question.query.application.QuestionQueryRepository;
 import shop.tukoreamyway.back.domain.staff.entity.Staff;
@@ -21,9 +20,9 @@ import shop.tukoreamyway.back.global.service.EntityLoader;
 
 import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
-import java.util.List;
 
-@Slf4j
+import javax.persistence.EntityNotFoundException;
+
 @CommandService
 @RequiredArgsConstructor
 public class QuestionService {
