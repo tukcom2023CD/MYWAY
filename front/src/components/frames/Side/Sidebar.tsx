@@ -100,14 +100,14 @@ function Sidebar() {
                 <NavLink
                   className='flex items-center p-2 space-x-3 rounded-xl'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/Test'
+                  to='/Analysis'
                 >
                   <img
                     className='w-[24px] h-[24px]'
                     alt='dashboardicon'
                     src={graph}
                   />
-                  <span>Test</span>
+                  <span>Analysis</span>
                 </NavLink>
               </li>
             </ul>
