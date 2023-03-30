@@ -4,7 +4,6 @@ import Profile from '../../components/frames/Profile';
 import CheckList from '../../components/main/CheckListBox';
 import Progress from '../../components/main/ProjectProgress';
 import Contribution from '../../components/main/ProjectContribution';
-import Schedule from '../../components/project/Schedule';
 
 function MainPage() {
   return (
@@ -18,7 +17,6 @@ function MainPage() {
             <Progress />
             <Contribution />
           </div>
-          <Schedule />
         </div>
       </div>
     </div>
