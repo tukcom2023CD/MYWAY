@@ -45,6 +45,8 @@ function LogsList(props: Props) {
       <h3 className='title-4'>{title}</h3>
       <div className='event-logs-wrapper fullwidth'>
         <div className='content'>{logsTemplate}</div>
+        <div className='content'>{logsTemplate}</div>
+        <div className='content'>{logsTemplate}</div>
       </div>
     </>
   );

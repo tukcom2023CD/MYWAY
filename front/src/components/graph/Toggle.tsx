@@ -39,13 +39,4 @@ export default class ToggleButton extends React.Component<IProps, IState> {
       isChecked: newState,
     });
   };
-
-  // render() (
-  //         <div className="toggle-button noselect" id="id" onClick={this.onToggleSwitchClicked}>
-  //             <input className="button-checkbox" id="labelOn" type="checkbox" checked={this.state.isChecked} readOnly/>
-  //             <label className="button-checkbox-label">
-  //                 <span className="on">{this.state.isChecked ? this.labelChecked: this.labelUnChecked}</span>
-  //             </label>
-  //         </div>
-  //     )
 }
