@@ -18,15 +18,6 @@ export default function TopMenu() {
         <ul className='mainnav'>
           <li>
             <a
-              href='https://www.flexmonster.com/doc/integration-with-react/?r=rm_react'
-              target='blank'
-              rel='noopener noreferrer'
-            >
-              Integration with React
-            </a>
-          </li>
-          <li>
-            <a
               href='https://www.flexmonster.com/doc/?r=rm_react'
               target='blank'
               rel='noopener noreferrer'

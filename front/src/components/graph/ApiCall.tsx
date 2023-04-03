@@ -82,11 +82,11 @@ class UsingAPICalls extends React.Component<any, {}> {
             labelChecked='Grid'
             labelUnChecked='Column chart'
           />
-          <ToggleSwitch
+          {/* <ToggleSwitch
             triggerFunction={this.controllInteractiveness}
             labelChecked='Interactive'
             labelUnChecked='Read-only'
-          />
+          /> */}
         </div>
 
         <FlexmonsterReact.Pivot

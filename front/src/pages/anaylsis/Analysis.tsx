@@ -14,8 +14,8 @@ function Analysis() {
         <div className='flex justify-center items-center m-auto'>
           <AnalysisGraph />
           <Chart
-            labelChecked=''
-            labelUnChecked=''
+            labelChecked='checked'
+            labelUnChecked='unchecked'
             triggerFunction={function (): void {
               throw new Error('Function not implemented.');
             }}
