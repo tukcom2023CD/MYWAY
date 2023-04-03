@@ -56,22 +56,14 @@ export default class CustomizingGrid extends React.Component<any, {}> {
         <h1 className='page-title'>Customizing the grid</h1>
 
         <div className='description-blocks first-description-block'>
-          <p>
-            Style the grid by adding links, applying custom CSS, or formatting
-            the cells. Check our docs for details:{' '}
-            <a
-              href='https://www.flexmonster.com/doc/customizing-grid/?r=rm_react'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='title-link'
-            >
-              Customizing the grid
-            </a>
-            .
-          </p>
-          <p>
-            In this demo, the <strong>Price</strong> measure is customized.
-          </p>
+          <a
+            href='https://www.flexmonster.com/doc/customizing-grid/?r=rm_react'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='title-link'
+          >
+            Customizing the grid
+          </a>
         </div>
 
         <FlexmonsterReact.Pivot
