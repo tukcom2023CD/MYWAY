@@ -5,7 +5,6 @@ import * as FlexmonsterReact from 'react-flexmonster';
 import 'flexmonster';
 
 import 'flexmonster/lib/flexmonster.highcharts.js';
-import * as Highcharts from './WithHighChart';
 
 class WithHighcharts extends React.Component<any, {}> {
   private pivotRef: React.RefObject<FlexmonsterReact.Pivot> =
@@ -30,10 +29,10 @@ class WithHighcharts extends React.Component<any, {}> {
         type: 'spline',
       },
       (data: any) => {
-        Highcharts.chart('highcharts-container', data);
+        // Highcharts.chart('highcharts-container', data);
       },
       (data: any) => {
-        Highcharts.chart('highcharts-container', data);
+        // Highcharts.chart('highcharts-container', data);
       }
     );
   };
@@ -84,3 +83,6 @@ class WithHighcharts extends React.Component<any, {}> {
 }
 
 export default WithHighcharts;
+export function chart(arg0: string, data: any) {
+  throw new Error('Function not implemented.');
+}
