@@ -28,10 +28,10 @@ class WithHighcharts extends React.Component<any, {}> {
       {
         type: 'spline',
       },
-      (data: any) => {
+      () => {
         // Highcharts.chart('highcharts-container', data);
       },
-      (data: any) => {
+      () => {
         // Highcharts.chart('highcharts-container', data);
       }
     );
