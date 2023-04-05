@@ -39,6 +39,14 @@ function TeamPopup() {
       });
   }, []);
 
+  const onSubmit = useEffect(() => {
+    axios.post(`teams`, teamData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  });
+
   return (
     <div>
       <button
