@@ -83,7 +83,7 @@ function TeamPopup() {
             <div className='flex space-x-2'>
               <button
                 type='button'
-                onClick={() => handleSubmit}
+                onClick={() => onSubmit}
                 className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
               >
                 생성하기
