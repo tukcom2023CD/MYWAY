@@ -17,6 +17,9 @@ function MainPage() {
             <Progress />
             <Contribution />
           </div>
+          <div className='flex flex-col justify-center items-center m-auto bg-white w-[500px] h-[420px] rounded-[30px]'>
+            blank
+          </div>
         </div>
       </div>
     </div>
