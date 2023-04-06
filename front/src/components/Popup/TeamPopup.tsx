@@ -20,20 +20,15 @@ function TeamPopup() {
 
   const navigate = useNavigate();
 
-  const handleChange = (e: {
-    target: {
-      team: any;
-      value: any;
-    };
-  }) => {
-    const { value } = e.target;
+  const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { value, name } = e.currentTarget;
     setData({
       ...data,
-      [e.target.team]: value,
+      [name]: value,
     });
   };
 
-  const onSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const teamData = {
       name: data.name,
@@ -59,7 +54,7 @@ function TeamPopup() {
         contentLabel='Test Modal'
       >
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
         >
           <label htmlFor='name'>
@@ -68,7 +63,6 @@ function TeamPopup() {
               <input
                 className='text-[20px] w-[430px] border-b-2'
                 name='name'
-                value={data.name}
                 onChange={() => handleChange}
                 placeholder='제목을 입력해주세요.'
               />
@@ -80,7 +74,6 @@ function TeamPopup() {
               <input
                 className='text-[20px] w-[430px] border-b-2'
                 name='industryGroup'
-                value={data.industryGroup}
                 onChange={() => handleChange}
                 placeholder='부서명을 입력하세요.'
               />
