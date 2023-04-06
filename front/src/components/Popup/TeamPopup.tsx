@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import axios from 'axios';
 
@@ -18,10 +17,8 @@ function TeamPopup() {
     setIsOpen(false);
   }
 
-  const navigate = useNavigate();
-
-  const handleChange = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { value, name } = e.currentTarget;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
     setData({
       ...data,
       [name]: value,
@@ -57,27 +54,33 @@ function TeamPopup() {
           onSubmit={handleSubmit}
           className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
         >
-          <label htmlFor='name'>
-            <div className='mb-4 w-[430px]'>
-              <p className='font-bold text-[20px]'>제목</p>
-              <input
-                className='text-[20px] w-[430px] border-b-2'
-                name='name'
-                onChange={() => handleChange}
-                placeholder='제목을 입력해주세요.'
-              />
-            </div>
+          <label
+            htmlFor='name'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            제목
+            <input
+              className='text-[20px] w-[430px] border-b-2'
+              name='name'
+              type='name'
+              value={data.name}
+              onChange={handleChange}
+              placeholder='제목을 입력해주세요.'
+            />
           </label>
-          <label htmlFor='industryGroup'>
-            <div className='mb-4 w-[430px]'>
-              <p className='font-bold text-[20px]'>부서명</p>
-              <input
-                className='text-[20px] w-[430px] border-b-2'
-                name='industryGroup'
-                onChange={() => handleChange}
-                placeholder='부서명을 입력하세요.'
-              />
-            </div>
+          <label
+            htmlFor='industryGroup'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            부서명
+            <input
+              className='text-[20px] w-[430px] border-b-2'
+              name='industryGroup'
+              type='industryGroup'
+              value={data.industryGroup}
+              onChange={handleChange}
+              placeholder='부서명을 입력하세요.'
+            />
           </label>
           <div className='flex space-x-2'>
             <button
