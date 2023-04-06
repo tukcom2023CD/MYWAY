@@ -39,13 +39,13 @@ function TeamPopup() {
       });
   }, []);
 
-  const onSubmit = useEffect(() => {
-    axios.post(`teams`, teamData, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  });
+  // const onSubmit = useEffect(() => {
+  //   axios.post(`teams`, teamData, {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  // });
 
   return (
     <div>
@@ -68,7 +68,7 @@ function TeamPopup() {
               <p className='font-bold text-[20px]'>제목</p>
               <input
                 className='text-[20px] w-[430px] border-b-2'
-                onChange={(e) => setName((e.target as any).value)}
+                onChange={() => setName}
                 placeholder='제목을 입력해주세요.'
               />
             </div>
@@ -76,14 +76,14 @@ function TeamPopup() {
               <p className='font-bold text-[20px]'>부서명</p>
               <input
                 className='text-[20px] w-[430px] border-b-2'
-                onChange={(e) => setIndustryGroup((e.target as any).value)}
+                onChange={() => setIndustryGroup}
                 placeholder='부서명을 입력하세요.'
               />
             </div>
             <div className='flex space-x-2'>
               <button
                 type='button'
-                onClick={() => onSubmit}
+                onClick={() => handleSubmit}
                 className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
               >
                 생성하기
