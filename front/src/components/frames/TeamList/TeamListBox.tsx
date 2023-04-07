@@ -1,6 +1,9 @@
 import React from 'react';
 import Teams from './Teams';
 import TeamPopup from '../../Popup/TeamPopup';
+import FixProfile from './FixProfile';
+import InviteList from './InviteList';
+import InviteApprove from './InviteApprove';
 
 function TeamListBox() {
   return (
@@ -10,6 +13,11 @@ function TeamListBox() {
         <Teams />
       </div>
       <TeamPopup />
+      <div className='flex flex-col mr-auto items-center space-y-2'>
+        <FixProfile />
+        <InviteList />
+        <InviteApprove />
+      </div>
     </div>
   );
 }
