@@ -33,6 +33,7 @@ function TeamPopup() {
     };
     axios.post(`teams`, teamData).then((response) => {
       console.log(response.status, response.data);
+      window.location.replace('/TeamList');
     });
   };
 
