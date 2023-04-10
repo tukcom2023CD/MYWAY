@@ -26,7 +26,7 @@ function InviteList() {
 
   useEffect(() => {
     axios
-      .get<List[]>(`staffs/apply?team-id=7`)
+      .get<List[]>(`staffs/invite`)
       .then((response) => setInviteList(response.data))
       .catch((error) => console.log(error));
   }, []);
