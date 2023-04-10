@@ -15,7 +15,7 @@ function Teams() {
   const [teamData, setTeamData] = useState<TeamData[] | null>();
 
   useEffect(() => {
-    axios.get('projects?team-id=7').then((response) => {
+    axios.get(`staffs/myteam`).then((response) => {
       setTeamData(response.data);
       console.log(response);
     });
