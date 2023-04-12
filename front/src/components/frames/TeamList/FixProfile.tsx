@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import Profile from '../../../images/members.png';
 
 function FixProfile() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -31,24 +32,17 @@ function FixProfile() {
             htmlFor='name'
             className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            제목
+            <img
+              className='w-[24px] h-[24px]'
+              alt='dashboardicon'
+              src={Profile}
+            />
+            프로필
             <input
               className='text-[20px] w-[430px] border-b-2'
               name='name'
               type='name'
               placeholder='제목을 입력해주세요.'
-            />
-          </label>
-          <label
-            htmlFor='industryGroup'
-            className='mb-4 w-[430px] font-bold text-[20px]'
-          >
-            부서명
-            <input
-              className='text-[20px] w-[430px] border-b-2'
-              name='industryGroup'
-              type='industryGroup'
-              placeholder='부서명을 입력하세요.'
             />
           </label>
           <div className='flex space-x-2'>
