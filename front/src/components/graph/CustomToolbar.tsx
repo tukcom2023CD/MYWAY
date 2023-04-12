@@ -47,18 +47,8 @@ export default class CustomizingToolbar extends React.Component<any, {}> {
         <div className='description-blocks first-description-block'>
           <p>You can add, remove, and update the Toolbar tabs.</p>
           <p>
-            In this demo, we’ve removed all the tabs and added a custom{' '}
+            In this demo, we’ve removed all the tabs and added a custom
             <strong>New Tab</strong>. See our docs to learn more about the
-            Toolbar and its customization:{' '}
-            {/* <a
-              href='https://www.flexmonster.com/doc/customizing-toolbar/?r=rm_react'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='title-link'
-            >
-              Customizing the Toolbar
-            </a> */}
-            .
           </p>
         </div>
 
