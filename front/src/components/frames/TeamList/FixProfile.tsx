@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { useCookie } from '../Cookie/useCookie';
 import Profile from '../../../images/members.png';
 
 function FixProfile() {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [name, setName] = useCookie('name', '');
+
+  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setName(e.target.value);
+  }
 
   function openModal() {
     setIsOpen(true);
@@ -32,19 +38,16 @@ function FixProfile() {
             htmlFor='name'
             className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            <img
-              className='w-[24px] h-[24px]'
-              alt='dashboardicon'
-              src={Profile}
-            />
-            프로필
+            Name:
             <input
               className='text-[20px] w-[430px] border-b-2'
-              name='name'
-              type='name'
-              placeholder='제목을 입력해주세요.'
+              type='text'
+              value={name}
+              onChange={handleNameChange}
+              placeholder='닉네임을 입력해주세요.'
             />
           </label>
+          <p className='text-[20px] w-[430px] border-b-2'>{name}</p>
           <div className='flex space-x-2'>
             <button
               type='submit'
