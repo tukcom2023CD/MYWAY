@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useCookie } from '../Cookie/useCookie';
-import Profile from '../../../images/members.png';
 
 function FixProfile() {
   const [modalIsOpen, setIsOpen] = useState(false);
