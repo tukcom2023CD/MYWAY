@@ -51,8 +51,10 @@ function InviteApprove() {
             <ul>
               {accept.map((list) => (
                 <li className='text-[20px] w-[430px] border-2' key={list.id}>
+                  {list.name}
                   {list.nickname}
                   {list.rank}
+                  {list.industryGroup}
                 </li>
               ))}
             </ul>
