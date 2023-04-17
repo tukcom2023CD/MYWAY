@@ -47,7 +47,7 @@ function InviteApprove() {
       >
         <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'>
           <div className='mb-4 w-[430px] font-bold text-[20px]'>
-            초대온 목록
+            승인 대기 목록
             <ul>
               {accept.map((list) => (
                 <li className='text-[20px] w-[430px] border-2' key={list.id}>
@@ -55,6 +55,8 @@ function InviteApprove() {
                   {list.nickname}
                   {list.rank}
                   {list.industryGroup}
+                  {list.isAcceptMember}
+                  {list.isAcceptTeam}
                 </li>
               ))}
             </ul>
