@@ -60,6 +60,12 @@ function InviteApprove() {
                 </li>
               ))}
             </ul>
+            <button
+              type='submit'
+              className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+            >
+              승인
+            </button>
           </div>
           <div className='flex space-x-2'>
             <button
