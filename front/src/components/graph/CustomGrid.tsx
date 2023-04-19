@@ -17,38 +17,38 @@ export default class CustomizingGrid extends React.Component<any, {}> {
     this.flexmonster = this.pivotRef.current!.flexmonster;
   }
 
-  customizeCellFunction = (
-    cell: Flexmonster.CellBuilder,
-    data: Flexmonster.CellData
-  ) => {
-    if (data.measure && data.measure.uniqueName === 'Price') {
-      const backgroundColor = '#00A45A';
-      const textShadowColor = '#095231';
-      const borderColor = '#009552';
-      cell.style = {
-        ...cell.style,
-        'background-color': backgroundColor,
-        color: 'white',
-        'font-weight': 'bold',
-        'text-shadow': `0px 2px 3px ${textShadowColor}`,
-        'border-bottom': `1px solid ${borderColor}`,
-        'border-right': `1px solid ${borderColor}`,
-      };
-    }
-  };
+  // customizeCellFunction = (
+  //   cell: Flexmonster.CellBuilder,
+  //   data: Flexmonster.CellData
+  // ) => {
+  //   if (data.measure && data.measure.uniqueName === 'Price') {
+  //     const backgroundColor = '#00A45A';
+  //     const textShadowColor = '#095231';
+  //     const borderColor = '#009552';
+  //     cell.style = {
+  //       ...cell.style,
+  //       'background-color': backgroundColor,
+  //       color: 'white',
+  //       'font-weight': 'bold',
+  //       'text-shadow': `0px 2px 3px ${textShadowColor}`,
+  //       'border-bottom': `1px solid ${borderColor}`,
+  //       'border-right': `1px solid ${borderColor}`,
+  //     };
+  //   }
+  // };
 
-  controllCustomization = (isCustomized: boolean) => {
-    isCustomized ? this.applyCustomization() : this.removeCustomization();
-  };
+  // controllCustomization = (isCustomized: boolean) => {
+  //   isCustomized ? this.applyCustomization() : this.removeCustomization();
+  // };
 
-  removeCustomization = () => {
-    this.flexmonster.customizeCell(null as any);
-  };
+  // removeCustomization = () => {
+  //   this.flexmonster.customizeCell(null as any);
+  // };
 
-  applyCustomization = () => {
-    // running grid customization using "customizeCellFunction"
-    this.flexmonster.customizeCell(this.customizeCellFunction);
-  };
+  // applyCustomization = () => {
+  //   // running grid customization using "customizeCellFunction"
+  //   this.flexmonster.customizeCell(this.customizeCellFunction);
+  // };
 
   render() {
     return (
@@ -77,9 +77,9 @@ export default class CustomizingGrid extends React.Component<any, {}> {
           }}
           width='100%'
           height={600}
-          report='https://cdn.flexmonster.com/github/customizing-grid-report.json'
-          customizeCell={this.customizeCellFunction}
-          // licenseKey="XXXX-XXXX-XXXX-XXXX-XXXX"
+          // report='https://cdn.flexmonster.com/github/customizing-grid-report.json'
+          // customizeCell={this.customizeCellFunction}
+          // // licenseKey="XXXX-XXXX-XXXX-XXXX-XXXX"
         />
       </>
     );

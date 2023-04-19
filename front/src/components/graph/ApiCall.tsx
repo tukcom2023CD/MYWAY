@@ -76,19 +76,19 @@ class UsingAPICalls extends React.Component<any, {}> {
           </p>
         </div>
 
-        <div className='description-blocks'>
+        {/* <div className='description-blocks'>
           <ToggleSwitch
             triggerFunction={this.controllGridCharts}
             labelChecked='Grid'
             labelUnChecked='Column chart'
-          />
-          {/* <ToggleSwitch
+          /> */}
+        {/* <ToggleSwitch
             triggerFunction={this.controllInteractiveness}
             labelChecked='Interactive'
             labelUnChecked='Read-only'
           /> */}
-        </div>
-
+        {/* </div> */}
+        {/* 
         <FlexmonsterReact.Pivot
           ref={this.pivotRef}
           toolbar
@@ -103,7 +103,7 @@ class UsingAPICalls extends React.Component<any, {}> {
           componentFolder='https://cdn.flexmonster.com/'
           report='https://cdn.flexmonster.com/github/demo-report.json'
           // licenseKey="XXXX-XXXX-XXXX-XXXX-XXXX"
-        />
+        /> */}
       </>
     );
   }
