@@ -27,6 +27,8 @@ function Teams() {
         ? teamData.map((team) => (
             <div className='border flex justify-start items-center w-[500px] h-[50px]'>
               {team.name}
+              {team.nickname}
+              {team.industryGroup}
             </div>
           ))
         : null}
