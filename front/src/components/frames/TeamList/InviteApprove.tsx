@@ -55,8 +55,6 @@ function InviteApprove() {
                   {list.nickname}
                   {list.rank}
                   {list.industryGroup}
-                  {list.isAcceptMember}
-                  {list.isAcceptTeam}
                 </li>
               ))}
             </ul>

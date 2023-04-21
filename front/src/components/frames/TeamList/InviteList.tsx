@@ -55,6 +55,8 @@ function InviteList() {
                   {list.nickname}
                   {list.rank}
                   {list.industryGroup}
+                  {list.isAcceptMember}
+                  {list.isAcceptTeam}
                 </li>
               ))}
             </ul>
