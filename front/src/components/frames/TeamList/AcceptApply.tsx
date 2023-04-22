@@ -12,9 +12,16 @@ interface List {
   industryGroup: string;
 }
 
+interface PostAcceptApply {
+  rank: string;
+}
+
 function InviteApprove() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [accept, setAccept] = useState<List[]>([]);
+  const [acceptApply, setAcceptApply] = useState<PostAcceptApply>({
+    rank: '',
+  });
 
   function openModal() {
     setIsOpen(true);
@@ -31,6 +38,16 @@ function InviteApprove() {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('staffs/1/accept-apply', acceptApply);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <button
@@ -46,7 +63,10 @@ function InviteApprove() {
         contentLabel='Test Modal'
       >
         <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'>
-          <div className='mb-4 w-[430px] font-bold text-[20px]'>
+          <form
+            onSubmit={handleSubmit}
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
             승인 대기 목록
             <ul>
               {accept.map((list) => (
@@ -62,9 +82,15 @@ function InviteApprove() {
               type='submit'
               className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
             >
-              승인
+              수락
             </button>
-          </div>
+            <button
+              type='button'
+              className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#f32861] text-white text-[12px]'
+            >
+              거절
+            </button>
+          </form>
           <div className='flex space-x-2'>
             <button
               type='button'

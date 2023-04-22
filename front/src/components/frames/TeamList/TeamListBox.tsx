@@ -2,8 +2,8 @@ import React from 'react';
 import Teams from './Teams';
 import TeamPopup from '../../Popup/TeamPopup';
 import FixProfile from './FixProfile';
-import InviteList from './InviteList';
-import InviteApprove from './InviteApprove';
+import InviteList from './AcceptInvite';
+import InviteApprove from './AcceptApply';
 
 function TeamListBox() {
   return (

@@ -12,14 +12,14 @@ interface List {
   industryGroup: string;
 }
 
-interface PostAccept {
+interface PostAcceptInvite {
   nickname: string;
 }
 
 function InviteList() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [inviteList, setInviteList] = useState<List[]>([]);
-  const [accept, setAccept] = useState<PostAccept>({
+  const [accept, setAccept] = useState<PostAcceptInvite>({
     nickname: '',
   });
 
