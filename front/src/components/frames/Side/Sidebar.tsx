@@ -67,7 +67,7 @@ function Sidebar() {
                     alt='agoraIcon'
                     src={agora}
                   />
-                  <span>Analysis</span>
+                  <span>Agora</span>
                 </NavLink>
               </li>
               <li className='rounded-sm'>
