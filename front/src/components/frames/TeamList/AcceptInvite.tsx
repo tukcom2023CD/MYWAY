@@ -71,12 +71,7 @@ function InviteList() {
             <ul>
               {inviteList.map((list) => (
                 <li className='text-[20px] w-[430px] border-2' key={list.id}>
-                  {list.name}
                   {list.nickname}
-                  {list.rank}
-                  {list.industryGroup}
-                  {list.isAcceptMember}
-                  {list.isAcceptTeam}
                   <button
                     type='submit'
                     className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'

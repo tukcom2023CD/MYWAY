@@ -71,25 +71,22 @@ function InviteApprove() {
             <ul>
               {accept.map((list) => (
                 <li className='text-[20px] w-[430px] border-2' key={list.id}>
-                  {list.name}
-                  {list.nickname}
                   {list.rank}
-                  {list.industryGroup}
+                  <button
+                    type='submit'
+                    className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+                  >
+                    수락
+                  </button>
+                  <button
+                    type='button'
+                    className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#f32861] text-white text-[12px]'
+                  >
+                    거절
+                  </button>
                 </li>
               ))}
             </ul>
-            <button
-              type='submit'
-              className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
-            >
-              수락
-            </button>
-            <button
-              type='button'
-              className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#f32861] text-white text-[12px]'
-            >
-              거절
-            </button>
           </form>
           <div className='flex space-x-2'>
             <button
