@@ -12,9 +12,16 @@ interface List {
   industryGroup: string;
 }
 
+interface PostAccept {
+  nickname: string;
+}
+
 function InviteList() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [inviteList, setInviteList] = useState<List[]>([]);
+  const [accept, setAccept] = useState<PostAccept>({
+    nickname: '',
+  });
 
   function openModal() {
     setIsOpen(true);
@@ -31,6 +38,16 @@ function InviteList() {
       .catch((error) => console.log(error));
   }, []);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('staffs/1/accept-invite', accept);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div>
       <button
@@ -46,7 +63,10 @@ function InviteList() {
         contentLabel='Test Modal'
       >
         <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'>
-          <div className='mb-4 w-[430px] font-bold text-[20px]'>
+          <form
+            onSubmit={handleSubmit}
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
             초대온 목록
             <ul>
               {inviteList.map((list) => (
@@ -57,10 +77,22 @@ function InviteList() {
                   {list.industryGroup}
                   {list.isAcceptMember}
                   {list.isAcceptTeam}
+                  <button
+                    type='submit'
+                    className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+                  >
+                    수락
+                  </button>
+                  <button
+                    type='button'
+                    className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#f32861] text-white text-[12px]'
+                  >
+                    거절
+                  </button>
                 </li>
               ))}
             </ul>
-          </div>
+          </form>
           <div className='flex space-x-2'>
             <button
               type='button'
