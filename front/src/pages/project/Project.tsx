@@ -1,7 +1,6 @@
 import React from 'react';
 import Menu from '../../components/frames/Side/Sidebar';
 import Profile from '../../components/frames/Side/Profile';
-import ProjectCheckList from '../../components/main/ProjectCheckList';
 import SprintList from '../../components/project/SprintList';
 import MemberList from '../../components/project/MemberList';
 
@@ -11,7 +10,6 @@ function Project() {
       <Menu />
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px]'>
         <Profile />
-        <ProjectCheckList />
         <div className='flex justify-center items-center m-auto'>
           <SprintList />
           <MemberList />
