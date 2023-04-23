@@ -16,12 +16,12 @@ public class QuestionTagGenerator {
     private final TagGenerator tagGenerator;
     private final QuestionTagRepository questionTagRepository;
 
-    public List<QuestionTag> generate(final Question question, final List<String> tags) {
-        List<Tag> tagList = tagGenerator.generate(tags);
-        return tagList.stream().map(tag -> save(question, tag)).toList();
+    public void generate(final Question question, final List<String> tags) {
+        tagGenerator.generate(tags).forEach(tag -> save(question, tag));
     }
 
-    private QuestionTag save(Question question, Tag tag) {
-        return questionTagRepository.save(new QuestionTag(question, tag));
+    private void save(Question question, Tag tag) {
+        QuestionTag questionTag = questionTagRepository.save(new QuestionTag(question, tag));
+        question.addTag(questionTag);
     }
 }

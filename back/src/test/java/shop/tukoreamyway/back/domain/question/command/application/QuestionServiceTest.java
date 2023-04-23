@@ -57,12 +57,12 @@ class QuestionServiceTest extends LoginTest {
             // then
             assertThat(longIdResponse).isNotNull();
             Question question = questionQueryRepository.findById(longIdResponse.getId()).get();
+            question.getTags().forEach(i -> log.info("{}", i.getTag().getName()));
+            assertThat(question.getTags()).isNotEmpty();
             assertThat(question.getTeamId()).isEqualTo(TEAM1.getId());
             assertThat(question.getTitle()).isEqualTo(questionRequest.getTitle());
             assertThat(question.getWriter()).isEqualTo(staff);
             assertThat(question.getContent()).isEqualTo(questionRequest.getContent());
-
-            log.info("{}", "수행 완료!");
         }
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from '../../components/frames/Side/Sidebar';
-import Profile from '../../components/frames/Profile';
+import Profile from '../../components/frames/Side/Profile';
 import SprintPageList from '../../components/project/SprintPageList';
 import TaskList from '../../components/project/TaskList';
 import MemberList from '../../components/project/MemberList';

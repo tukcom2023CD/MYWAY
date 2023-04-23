@@ -1,45 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function CheckListBox() {
-  const [countList, setCountList] = useState([]);
-
-  const onAddCheckList = () => {
-    const countArr: any = [...countList];
-    let counter: number = countArr.slice(-1)[0];
-    counter += 1;
-    countArr.push(counter);
-    setCountList(countArr);
-  };
-
   return (
-    <div className='flex flex-col justify-center items-center mt-[30px] bg-white rounded-[30px] w-[1024px] h-[250px]'>
-      <div className='flex justify-center items-center w-[960px] h-[50px] p-3 mb-3'>
-        <p className='mr-auto text-[20px] font-bold'>일일체크리스트</p>
-        <button
-          type='button'
-          onClick={onAddCheckList}
-          className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white'
-        >
-          <p className='flex justfiy-center items-center text-[24px]'>+</p>
-          일정 추가
-        </button>
-      </div>
-      <div className='grid grid-cols-2 items-center justify-center ml-[20px] w-[960px] h-[150px] overflow-y-auto'>
-        <div className='bg-[#DBDBDB] flex justfiy-center items-center w-[460px] h-[40px] p-3 mb-[20px] rounded-[30px] text-[#8C8C8C]'>
-          <input type='checkbox' checked className='default:ring-1 mr-1' />
-          완료된 항목
-        </div>
-        <div className='bg-[#DBDBDB] flex justfiy-center items-center w-[460px] h-[40px] p-3 mb-[20px] rounded-[30px] text-[#8C8C8C]'>
-          <input type='checkbox' className='default:ring-1 mr-1' />
-          미완료된 항목
-        </div>
-        <div className='bg-[#DBDBDB] flex justfiy-center items-center w-[460px] h-[40px] p-3 mb-[20px] rounded-[30px] text-[#8C8C8C]'>
-          <input type='checkbox' className='default:ring-1 mr-1' />
-          미완료된 항목
-        </div>
-        <div className='bg-[#DBDBDB] flex justfiy-center items-center w-[460px] h-[40px] p-3 mb-[20px] rounded-[30px] text-[#8C8C8C]'>
-          <input type='checkbox' className='default:ring-1 mr-1' />
-          미완료된 항목
+    <div className='bg-white w-[450px] h-[400px] rounded-[30px]'>
+      <div className='flex flex-col items-center p-4 mt-2'>
+        <p className='ml-3 mr-auto text-[20px] font-bold'>진행사항 알리미</p>
+        <div className='flex m-auto w-[400px] h-[320px] bg-gray-50 overflow-auto'>
+          <ul className='p-6 list-disc space-y-5'>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항1</li>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항2</li>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항3</li>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항4</li>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항5</li>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항6</li>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항7</li>
+            <li className='mr-auto w-[300px] text-[20px]'>진행사항8</li>
+          </ul>
         </div>
       </div>
     </div>

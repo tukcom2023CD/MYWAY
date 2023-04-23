@@ -42,7 +42,7 @@ const data = [
 
 function ProjectContribution() {
   return (
-    <div className='bg-white w-[500px] h-[260px] rounded-[30px]'>
+    <div className='bg-white w-[450px] h-[300px] rounded-[30px]'>
       <div className='flex flex-col items-center p-4 mt-2'>
         <p className='ml-3 mr-auto text-[20px] font-bold'>프로젝트 기여도</p>
         <div className='flex m-auto w-[450px] h-[200px]'>
@@ -60,16 +60,6 @@ function ProjectContribution() {
                 />
               </RadarChart>
             </ResponsiveContainer>
-          </div>
-          <div className='flex flex-col m-auto w-[220px] h-[200px] p-3'>
-            <div className='mr-3 text-[30px] font-bold mb-[10px]'>36%</div>
-            <div className='flex flex-col items-left justify-center font-extralight overflow-y-auto'>
-              <p>태스크1</p>
-              <p>태스크2</p>
-              <p>태스크3</p>
-              <p>태스크4</p>
-              <p>태스크5</p>
-            </div>
           </div>
         </div>
       </div>

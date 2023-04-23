@@ -39,6 +39,10 @@ public class Question {
         this.teamId = teamId;
     }
 
+    public void addTag(QuestionTag tag) {
+        tags.add(tag);
+    }
+
     public void update(String content) {
         this.content = content;
     }

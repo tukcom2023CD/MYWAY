@@ -5,7 +5,7 @@ import CheckList from '../../components/main/CheckListBox';
 import Progress from '../../components/main/ProjectProgress';
 import Contribution from '../../components/main/ProjectContribution';
 
-function MainPage() {
+function Analysis() {
   return (
     <div className='flex m-auto w-[1440px] h-[960px] bg-[#D8F1FF]'>
       <Menu />
@@ -25,4 +25,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default Analysis;

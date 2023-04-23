@@ -2,11 +2,24 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
 
-function TeamPopup() {
+interface Project {
+  name: string;
+  startAt: string;
+  endAt: string;
+  teamId: string;
+  sprintDays: string;
+  managerId: string;
+}
+
+function ProjectPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState({
+  const [data, setData] = useState<Project>({
     name: '',
-    industryGroup: '',
+    startAt: '',
+    endAt: '',
+    teamId: '',
+    sprintDays: '',
+    managerId: '',
   });
 
   function openModal() {
@@ -27,11 +40,7 @@ function TeamPopup() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const teamData = {
-      name: data.name,
-      industryGroup: data.industryGroup,
-    };
-    axios.post(`teams`, teamData).then((response) => {
+    axios.post(`projects`, data).then((response) => {
       console.log(response.status, response.data);
       window.location.replace('/TeamList');
     });
@@ -41,10 +50,10 @@ function TeamPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[100px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
         onClick={openModal}
       >
-        팀 생성하기
+        프로젝트 생성하기
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -69,20 +78,6 @@ function TeamPopup() {
               placeholder='제목을 입력해주세요.'
             />
           </label>
-          <label
-            htmlFor='industryGroup'
-            className='mb-4 w-[430px] font-bold text-[20px]'
-          >
-            부서명
-            <input
-              className='text-[20px] w-[430px] border-b-2'
-              name='industryGroup'
-              type='industryGroup'
-              value={data.industryGroup}
-              onChange={handleChange}
-              placeholder='부서명을 입력하세요.'
-            />
-          </label>
           <div className='flex space-x-2'>
             <button
               type='submit'
@@ -104,4 +99,4 @@ function TeamPopup() {
   );
 }
 
-export default TeamPopup;
+export default ProjectPopup;

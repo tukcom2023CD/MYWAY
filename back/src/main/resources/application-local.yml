@@ -5,16 +5,26 @@ server:
 spring:
   datasource:
     hikari:
+#      master:
+#        username: sa
+#        password:
+#        driver-class-name: org.h2.Driver
+#        jdbc-url: jdbc:h2:mem:test
+#      slave:
+#        username: sa
+#        password:
+#        driver-class-name: org.h2.Driver
+#        jdbc-url: jdbc:h2:mem:test
       master:
-        username: sa
-        password:
-        driver-class-name: org.h2.Driver
-        jdbc-url: jdbc:h2:mem:test
+        username: root
+        password: 1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost/crewship?serverTimezone=Asia/Seoul
       slave:
-        username: sa
-        password:
-        driver-class-name: org.h2.Driver
-        jdbc-url: jdbc:h2:mem:test
+        username: root
+        password: 1234
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost/crewship?serverTimezone=Asia/Seoul
   jpa:
     show-sql: true
     hibernate:

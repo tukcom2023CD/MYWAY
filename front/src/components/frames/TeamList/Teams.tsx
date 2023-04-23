@@ -15,7 +15,7 @@ function Teams() {
   const [teamData, setTeamData] = useState<TeamData[] | null>();
 
   useEffect(() => {
-    axios.get('projects?team-id=7').then((response) => {
+    axios.get(`staffs/myteam`).then((response) => {
       setTeamData(response.data);
       console.log(response);
     });
@@ -27,6 +27,8 @@ function Teams() {
         ? teamData.map((team) => (
             <div className='border flex justify-start items-center w-[500px] h-[50px]'>
               {team.name}
+              {team.nickname}
+              {team.industryGroup}
             </div>
           ))
         : null}

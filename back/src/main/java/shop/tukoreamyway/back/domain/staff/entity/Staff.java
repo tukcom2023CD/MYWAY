@@ -35,7 +35,7 @@ public class Staff {
     private Boolean isAcceptTeam = false;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(nullable = false, name = "staff_rank")
     private Rank rank = Rank.CLERK;
 
     public Staff(Team team, Member member) {
