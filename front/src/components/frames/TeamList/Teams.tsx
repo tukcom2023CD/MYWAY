@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export type TeamData = {
+interface TeamData {
   id: number;
   nickname: string;
   rank: string;
@@ -9,17 +9,24 @@ export type TeamData = {
   isAcceptTeam: boolean;
   name: string;
   industryGroup: string;
-};
+}
 
 function Teams() {
   const [teamData, setTeamData] = useState<TeamData[] | null>();
 
   useEffect(() => {
-    axios.get(`staffs/myteam`).then((response) => {
-      setTeamData(response.data);
-      console.log(response);
-    });
+    getTeamData();
   }, []);
+
+  const getTeamData = async () => {
+    try {
+      const response = await axios.get<TeamData[]>('staffs/myteam');
+      setTeamData(response.data);
+      console.log(response.data[0]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className='w-[500px] h-[50px]'>
