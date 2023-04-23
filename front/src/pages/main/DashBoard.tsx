@@ -11,7 +11,7 @@ function MainPage() {
       <Menu />
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px]'>
         <div className='flex'>
-          <Calendar />
+          {/* <Calendar /> */}
           <CheckList />
         </div>
         <div className='flex justify-center items-center m-auto'>
