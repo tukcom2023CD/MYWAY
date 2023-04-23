@@ -20,7 +20,7 @@ function Teams() {
 
   const getTeamData = async () => {
     try {
-      const response = await axios.get<TeamData[]>('staffs/myteam');
+      const response = await axios.get<TeamData[]>('staffs/myteam?id=1');
       setTeamData(response.data);
       console.log(response);
     } catch (error) {

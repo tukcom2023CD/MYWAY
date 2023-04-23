@@ -37,7 +37,7 @@ function InviteList() {
 
   const getList = async () => {
     try {
-      const response = await axios.get<List[]>('staffs/invite');
+      const response = await axios.get<List[]>('staffs/invite?id=1');
       setInviteList(response.data);
       console.log(response.data);
     } catch (error) {
