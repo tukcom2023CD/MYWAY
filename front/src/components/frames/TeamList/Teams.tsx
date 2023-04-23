@@ -15,16 +15,16 @@ function Teams() {
   const [teamData, setTeamData] = useState<TeamData[] | null>();
 
   useEffect(() => {
-    axios
-      .get<{ teamData: TeamData[] }>('staffs/myteam')
-      .then((response) => {
-        setTeamData(response.data.teamData);
-        console.log(response.data.teamData);
-      })
-      .catch((error) => {
+    async function fetchData(): Promise<void> {
+      try {
+        const response = await axios.get<TeamData[]>('staffs/myteam');
+        setTeamData(response.data);
+      } catch (error) {
         console.log(error);
-      });
-  });
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <ul className='w-[500px] h-[50px]'>
@@ -32,11 +32,9 @@ function Teams() {
         ? teamData.map((team) => (
             <li
               className='border flex space-x-2 justify-start items-center w-[500px] h-[50px]'
-              key={team.id}
+              key={team.name}
             >
               {team.name}
-              {team.nickname}
-              {team.industryGroup}
             </li>
           ))
         : null}

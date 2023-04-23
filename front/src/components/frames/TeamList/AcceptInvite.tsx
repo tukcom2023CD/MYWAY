@@ -32,16 +32,16 @@ function InviteList() {
   }
 
   useEffect(() => {
-    axios
-      .get<{ inviteList: List[] }>('staffs/myteam')
-      .then((response) => {
-        setInviteList(response.data.inviteList);
-        console.log(response.data.inviteList);
-      })
-      .catch((error) => {
+    async function fetchData(): Promise<void> {
+      try {
+        const response = await axios.get<List[]>('staffs/invite');
+        setInviteList(response.data);
+      } catch (error) {
         console.log(error);
-      });
-  });
+      }
+    }
+    fetchData();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,11 +77,9 @@ function InviteList() {
               {inviteList.map((list) => (
                 <li
                   className='flex space-x-2 text-[20px] w-[430px] border-2'
-                  key={list.id}
+                  key={list.name}
                 >
                   {list.name}
-                  {list.rank}
-                  {list.nickname}
                   <button
                     type='submit'
                     className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
