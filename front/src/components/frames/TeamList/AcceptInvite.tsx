@@ -76,8 +76,11 @@ function InviteList() {
           >
             초대온 목록
             <ul>
-              {inviteList.map((list: List) => (
-                <li className='flex space-x-2 text-[20px] w-[430px] border-2'>
+              {inviteList.map((list) => (
+                <li
+                  className='flex space-x-2 text-[20px] w-[430px] border-2'
+                  key={list.id}
+                >
                   {list.name}
                   {list.rank}
                   {list.nickname}
