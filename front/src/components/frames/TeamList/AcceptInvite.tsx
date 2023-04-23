@@ -33,10 +33,10 @@ function InviteList() {
 
   useEffect(() => {
     axios
-      .get<{ teamData: List[] }>('staffs/myteam')
+      .get<{ inviteList: List[] }>('staffs/myteam')
       .then((response) => {
-        setInviteList(response.data.teamData);
-        console.log(response.data.teamData);
+        setInviteList(response.data.inviteList);
+        console.log(response.data.inviteList);
       })
       .catch((error) => {
         console.log(error);
