@@ -32,11 +32,17 @@ function InviteList() {
   }
 
   useEffect(() => {
-    axios
-      .get<List[]>(`staffs/invite`)
-      .then((response) => setInviteList(response.data))
-      .catch((error) => console.log(error));
+    getList();
   }, []);
+
+  const getList = async () => {
+    try {
+      const response = await axios.get<List[]>('staffs/invite');
+      setInviteList(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
