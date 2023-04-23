@@ -31,11 +31,8 @@ function Teams() {
   return (
     <ul className='w-[500px] h-[50px]'>
       {teamData
-        ? teamData.map((team) => (
-            <li
-              className='border flex space-x-2 justify-start items-center w-[500px] h-[50px]'
-              key={team.id}
-            >
+        ? teamData.map((team: TeamData) => (
+            <li className='border flex space-x-2 justify-start items-center w-[500px] h-[50px]'>
               {team.name}
               {team.nickname}
               {team.industryGroup}
