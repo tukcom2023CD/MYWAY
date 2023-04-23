@@ -8,8 +8,9 @@ import shop.tukoreamyway.back.domain.sprint.mapper.SprintMapper;
 import shop.tukoreamyway.back.global.service.EntityLoader;
 import shop.tukoreamyway.back.global.service.QueryService;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
+
+import javax.persistence.EntityNotFoundException;
 
 @QueryService
 @RequiredArgsConstructor
@@ -22,6 +23,8 @@ public class SprintQueryService implements EntityLoader<Sprint, Long> {
     }
 
     public List<SprintResponse> findAllByProjectId(final Long projectId) {
-        return sprintQueryRepository.findAllByProjectId(projectId).stream().map(sprintMapper::toResponse).toList();
+        return sprintQueryRepository.findAllByProjectId(projectId).stream()
+                .map(sprintMapper::toResponse)
+                .toList();
     }
 }

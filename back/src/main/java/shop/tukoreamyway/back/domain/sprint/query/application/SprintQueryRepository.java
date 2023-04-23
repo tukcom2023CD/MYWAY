@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface SprintQueryRepository {
     Optional<Sprint> findById(Long id);
+
     List<Sprint> findAllByProjectId(Long projectId);
 }
