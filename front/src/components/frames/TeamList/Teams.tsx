@@ -19,6 +19,7 @@ function Teams() {
       .get<{ teamData: TeamData[] }>('staffs/myteam')
       .then((response) => {
         setTeamData(response.data.teamData);
+        console.log(response.data.teamData);
       })
       .catch((error) => {
         console.log(error);
