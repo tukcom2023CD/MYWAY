@@ -22,24 +22,27 @@ function Teams() {
     try {
       const response = await axios.get<TeamData[]>('staffs/myteam');
       setTeamData(response.data);
-      console.log(response.data[0]);
+      console.log(response);
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <div className='w-[500px] h-[50px]'>
+    <ul className='w-[500px] h-[50px]'>
       {teamData
         ? teamData.map((team) => (
-            <div className='border flex justify-start items-center w-[500px] h-[50px]'>
+            <li
+              className='border flex space-x-2 justify-start items-center w-[500px] h-[50px]'
+              key={team.id}
+            >
               {team.name}
               {team.nickname}
               {team.industryGroup}
-            </div>
+            </li>
           ))
         : null}
-    </div>
+    </ul>
   );
 }
 
