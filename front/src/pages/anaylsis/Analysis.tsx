@@ -1,6 +1,6 @@
 import React from 'react';
 import Menu from '../../components/frames/Side/Sidebar';
-import Calendar from '../../components/main/Daily';
+import Calendar from '../../components/main/DailyCalendar';
 import CheckList from '../../components/main/CheckListBox';
 import Progress from '../../components/main/ProjectProgress';
 import Contribution from '../../components/main/ProjectContribution';

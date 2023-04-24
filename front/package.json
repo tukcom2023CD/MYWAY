@@ -16,6 +16,7 @@
     "js-cookie": "^3.0.1",
     "plotly.js": "^2.20.0",
     "react": "^18.2.0",
+    "react-big-calendar": "^1.6.9",
     "react-calendar": "^4.2.1",
     "react-cookie": "^4.1.1",
     "react-datepicker": "^4.10.0",
@@ -64,6 +65,7 @@
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.3",
+    "@types/react-big-calendar": "^1.6.3",
     "@types/react-calendar": "^3.9.0",
     "@types/react-datepicker": "^4.10.0",
     "@types/react-modal": "^3.13.1",
