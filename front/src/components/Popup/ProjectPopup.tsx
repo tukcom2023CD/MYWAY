@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
+import DatePicker from '../frames/DateRangePicker';
 
 interface Project {
   name: string;
@@ -76,6 +77,27 @@ function ProjectPopup() {
               value={data.name}
               onChange={handleChange}
               placeholder='제목을 입력해주세요.'
+            />
+          </label>
+          <label
+            htmlFor='name'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            기간
+            <DatePicker />
+          </label>
+          <label
+            htmlFor='sprintDays'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            스프린트 주기
+            <input
+              className='text-[20px] w-[430px] border-b-2'
+              name='name'
+              type='name'
+              value={data.sprintDays}
+              onChange={handleChange}
+              placeholder='스프린트 주기를 입력해주세요.'
             />
           </label>
           <div className='flex space-x-2'>
