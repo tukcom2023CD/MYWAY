@@ -19,6 +19,7 @@ function Teams() {
       try {
         const response = await axios.get<TeamData[]>('staffs/myteam');
         setTeamData(response.data);
+        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
