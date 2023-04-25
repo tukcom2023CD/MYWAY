@@ -1,33 +1,24 @@
 import React from 'react';
 import Menu from '../../components/frames/Side/Sidebar';
-import PivotChart from '../../components/graph/PivotChart';
+import PivotLineChart from '../../components/graph/PivotChart';
 
-const chartData = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-  datasets: [
-    {
-      label: 'Sales',
-      data: [65, 59, 80, 81, 56, 55, 40],
-      fill: false,
-      backgroundColor: 'rgba(75,192,192,0.4)',
-      borderColor: 'rgba(75,192,192,1)',
-      tension: 0.1,
-    },
-  ],
-};
-
-const chartOptions = {
-  responsive: true,
-  maintainAspectRatio: false,
-};
+const data = [
+  { x: 1, y: 10 },
+  { x: 2, y: 20 },
+  { x: 3, y: 30 },
+  { x: 4, y: 40 },
+  { x: 5, y: 50 },
+];
 
 function Analysis() {
   return (
     <div className='flex m-auto w-[1440px] h-[960px] bg-[#D8F1FF]'>
       <Menu />
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px]'>
-        <div className='w-full h-64'>
-          <PivotChart data={chartData} options={chartOptions} />
+        <div className='flex justify-center items-center m-auto bg-white w-[800px] h-[500px] rounded-[30px]'>
+          <div className='flex justify-center items-center m-auto w-full h-64'>
+            <PivotLineChart data={data} />
+          </div>
         </div>
       </div>
     </div>
