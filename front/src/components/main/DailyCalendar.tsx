@@ -7,12 +7,12 @@ const localizer = momentLocalizer(moment);
 
 const events = [
   {
-    title: 'Event 1',
+    title: '진행사항 1',
     start: new Date('2023-04-24T10:00:00Z'),
     end: new Date('2023-04-24T12:00:00Z'),
   },
   {
-    title: 'Event 2',
+    title: '진행사항 2',
     start: new Date('2023-04-26T12:00:00Z'),
     end: new Date('2023-04-26T14:00:00Z'),
   },

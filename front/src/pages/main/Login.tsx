@@ -10,7 +10,7 @@ function Login() {
   const KAKAO = `${baseUrl}auth/login/kakao`;
 
   return (
-    <div className='flex flex-col justify-center items-center m-auto w-[1440px] h-[960px] bg-[#31373b]'>
+    <div className='flex flex-col justify-center items-center m-auto w-[1440px] h-[100vh] bg-[#31373b]'>
       <div className='flex justify-center items-center mb-[600px] w-[500px] h-[150px] text-[50pt] font-bold text-white'>
         CreWship
       </div>
