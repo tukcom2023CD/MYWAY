@@ -66,7 +66,7 @@ function Project() {
                   <NavLink
                     className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
                     style={({ isActive }) => (isActive ? activeStyle : {})}
-                    to='/dashboard'
+                    to='/sprint'
                   >
                     <img
                       className='w-[24px] h-[24px]'
