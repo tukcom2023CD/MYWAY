@@ -32,7 +32,7 @@ function Sprint() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<SprintData[]>('projects?team-id=1');
+        const response = await axios.get<SprintData[]>('sprints?team-id=1');
         setSprintData(response.data);
         console.log(response.data);
       } catch (error) {
