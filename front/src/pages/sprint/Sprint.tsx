@@ -56,6 +56,66 @@ function Sprint() {
           <p className='text-[20px] font-bold'>스프린트 리스트</p>
         </div>
         <ul className='p-5 space-y-3 mb-[50px] w-[950px] h-[650px] bg-gray-200 overflow-auto'>
+          <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'>
+            스프린트1
+            <div className='ml-5'>스프린트 주기 : 4.27~5.1</div>
+            <NavLink
+              className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+              to='/task'
+            >
+              <img
+                className='w-[24px] h-[24px]'
+                alt='agoraIcon'
+                src={moveImg}
+              />
+            </NavLink>
+          </li>
+          <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'>
+            스프린트2
+            <div className='ml-5'>스프린트 주기 : 5.2~5.6</div>
+            <NavLink
+              className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+              to='/task'
+            >
+              <img
+                className='w-[24px] h-[24px]'
+                alt='agoraIcon'
+                src={moveImg}
+              />
+            </NavLink>
+          </li>
+          <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'>
+            스프린트3
+            <div className='ml-5'>스프린트 주기 : 5.8~5.12</div>
+            <NavLink
+              className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+              to='/task'
+            >
+              <img
+                className='w-[24px] h-[24px]'
+                alt='agoraIcon'
+                src={moveImg}
+              />
+            </NavLink>
+          </li>
+          <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'>
+            스프린트4
+            <div className='ml-5'>스프린트 주기 : 5.13~5.15</div>
+            <NavLink
+              className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+              to='/task'
+            >
+              <img
+                className='w-[24px] h-[24px]'
+                alt='agoraIcon'
+                src={moveImg}
+              />
+            </NavLink>
+          </li>
           {sprintData
             ? sprintData.map((sprintData) => (
                 <li

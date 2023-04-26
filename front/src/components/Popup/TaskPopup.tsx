@@ -5,23 +5,25 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 interface Project {
-  name: string;
-  startAt: string;
-  endAt: string;
-  sprintDays: string;
-  teamId: string;
-  managerId: string;
+  summary: string;
+  description: string;
+  contributePoint: string;
+  category: string;
+  sprintId: string;
+  playerId: string;
+  reviewerId: string;
 }
 
 function TaskPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [data, setData] = useState<Project>({
-    name: '',
-    startAt: '',
-    endAt: '',
-    sprintDays: '',
-    teamId: '',
-    managerId: '',
+    summary: '',
+    description: '',
+    contributePoint: '',
+    category: '',
+    sprintId: '',
+    playerId: '',
+    reviewerId: '',
   });
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
@@ -59,17 +61,18 @@ function TaskPopup() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const projectData = {
-      name: data.name,
-      startAt: startDate,
-      endAt: endDate,
-      sprintDays: data.sprintDays,
-      teamId: 1,
-      managerId: 2,
+    const taskData = {
+      summary: data.summary,
+      description: data.description,
+      contributePoint: data.contributePoint,
+      category: data.category,
+      sprintId: 5,
+      playerId: 5,
+      reviewerId: 5,
     };
-    axios.post('projects', projectData).then((response) => {
+    axios.post('tasks', taskData).then((response) => {
       console.log(response.status, response.data);
-      window.location.replace('/Project');
+      window.location.replace('/Task1');
     });
   };
 
@@ -92,56 +95,59 @@ function TaskPopup() {
           className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
         >
           <label
-            htmlFor='name'
+            htmlFor='summary'
             className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            제목
+            요약
             <input
               className='text-[20px] w-[430px] border-b-2'
-              name='name'
-              type='name'
-              value={data.name}
+              name='summary'
+              type='summary'
+              value={data.summary}
               onChange={handleChange}
-              placeholder='제목을 입력해주세요.'
+              placeholder='테스크 요약 내용을 입력해주세요.'
             />
           </label>
           <label
-            htmlFor='startDate'
+            htmlFor='description'
             className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            Start Date:
-            <DatePicker
-              selected={startDate}
-              onChange={handleStartDateChange}
-              dateFormat='yyyy-MM-dd'
-              className='border-2'
-            />
-          </label>
-          <label
-            htmlFor='endDate'
-            className='mb-4 w-[430px] font-bold text-[20px]'
-          >
-            End Date:
-            <DatePicker
-              selected={endDate}
-              onChange={handleEndDateChange}
-              dateFormat='yyyy-MM-dd'
-              minDate={startDate}
-              className='border-2'
-            />
-          </label>
-          <label
-            htmlFor='sprintDays'
-            className='mb-4 w-[430px] font-bold text-[20px]'
-          >
-            스프린트 주기
+            설명
             <input
               className='text-[20px] w-[430px] border-b-2'
-              name='sprintDays'
-              type='sprintDays'
-              value={data.sprintDays}
+              name='description'
+              type='description'
+              value={data.description}
               onChange={handleChange}
-              placeholder='스프린트 주기를 입력해주세요.'
+              placeholder='테스크 설명을 입력해주세요.'
+            />
+          </label>
+          <label
+            htmlFor='contributePoint'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            기여도 점수
+            <input
+              className='text-[20px] w-[430px] border-b-2'
+              name='contributePoint'
+              type='contributePoint'
+              value={data.contributePoint}
+              onChange={handleChange}
+              placeholder='기여도 점수를 입력해주세요.'
+            />
+          </label>
+          <label
+            htmlFor='category'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            카테고리
+            <input
+              className='text-[20px] w-[430px] border-b-2'
+              name='category'
+              type='category'
+              value={data.category}
+              onChange={handleChange}
+              placeholder='카테고리를 입력해주세요.'
             />
           </label>
           <div className='flex space-x-2'>

@@ -10,7 +10,7 @@ import ProjectMake from './pages/project/ProjectMake';
 import Sprint from './pages/sprint/Sprint';
 import SprintMake from './pages/sprint/SprintMake';
 import Task from './pages/task/Task';
-import TaskMake from './pages/task/TaskMake';
+import Task1 from './pages/task/TaskMake';
 import Members from './pages/member/MemberPage';
 import Graph from './pages/graph/Graph';
 import Agora from './pages/agora/Agora';
@@ -36,7 +36,7 @@ function App() {
         <Route path='/SprintMake' element={<SprintMake />} />
         {/** 테스크 페이지 */}
         <Route path='/Task' element={<Task />} />
-        <Route path='/TaskMake' element={<TaskMake />} />
+        <Route path='/TaskMake' element={<Task1 />} />
         {/** 멤버 페이지 */}
         <Route path='/Members' element={<Members />} />
         {/** 성과분석 결과 페이지 */}
