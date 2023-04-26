@@ -20,8 +20,8 @@ function ProjectPopup() {
     startAt: '',
     endAt: '',
     sprintDays: '',
-    teamId: '1',
-    managerId: '19e7a027-1d22-4b9a-9d4a-0a24c79e0ad8',
+    teamId: '',
+    managerId: '',
   });
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
@@ -64,10 +64,10 @@ function ProjectPopup() {
       startAt: startDate,
       endAt: endDate,
       sprintDays: data.sprintDays,
-      teamId: data.teamId,
-      managerId: data.managerId,
+      teamId: 1,
+      managerId: 2,
     };
-    axios.post(`projects`, projectData).then((response) => {
+    axios.post('projects', projectData).then((response) => {
       console.log(response.status, response.data);
       window.location.replace('/Project');
     });
