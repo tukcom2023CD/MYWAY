@@ -131,8 +131,8 @@ function ProjectPopup() {
             스프린트 주기
             <input
               className='text-[20px] w-[430px] border-b-2'
-              name='name'
-              type='name'
+              name='sprintDays'
+              type='sprintDays'
               value={data.sprintDays}
               onChange={handleChange}
               placeholder='스프린트 주기를 입력해주세요.'
