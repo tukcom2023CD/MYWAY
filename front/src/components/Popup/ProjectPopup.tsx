@@ -9,6 +9,8 @@ interface Project {
   startAt: string;
   endAt: string;
   sprintDays: string;
+  teamId: string;
+  managerId: string;
 }
 
 function ProjectPopup() {
@@ -18,6 +20,8 @@ function ProjectPopup() {
     startAt: '',
     endAt: '',
     sprintDays: '',
+    teamId: '1',
+    managerId: '19e7a027-1d22-4b9a-9d4a-0a24c79e0ad8',
   });
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
@@ -60,6 +64,8 @@ function ProjectPopup() {
       startAt: startDate,
       endAt: endDate,
       sprintDays: data.sprintDays,
+      teamId: data.teamId,
+      managerId: data.managerId,
     };
     axios.post(`projects`, projectData).then((response) => {
       console.log(response.status, response.data);
