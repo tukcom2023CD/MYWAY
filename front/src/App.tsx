@@ -45,7 +45,7 @@ function App() {
         <Route path='/Graph' element={<Graph />} />
         {/** 아고래 페이지 */}
         <Route path='/Agora' element={<Agora />} />
-        <Route path='/AgoraMake' element={<AgoraMake />} />
+        <Route path='/Agora1' element={<AgoraMake />} />
         {/** 분석 페이지 */}
         <Route path='/Analysis' element={<Analysis />} />
       </Routes>

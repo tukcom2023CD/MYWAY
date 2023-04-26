@@ -60,7 +60,7 @@ function Sidebar() {
                 <NavLink
                   className='flex items-center p-2 space-x-3 rounded-xl'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/Agora'
+                  to='/Agora1'
                 >
                   <img
                     className='w-[24px] h-[24px]'
@@ -74,7 +74,7 @@ function Sidebar() {
                 <NavLink
                   className='flex items-center p-2 space-x-3 rounded-xl'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
-                  to='/Analysis'
+                  to='/Graph'
                 >
                   <img
                     className='w-[24px] h-[24px]'
