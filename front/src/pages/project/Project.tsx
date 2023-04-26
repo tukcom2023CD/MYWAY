@@ -33,7 +33,7 @@ function Project() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<ProjectData[]>('projects');
+        const response = await axios.get<ProjectData[]>('projects?team-id=1');
         setProjectData(response.data);
         console.log(response.data);
       } catch (error) {
