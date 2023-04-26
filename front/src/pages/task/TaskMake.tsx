@@ -53,16 +53,16 @@ function Task() {
         <ul className='grid grid-cols-3 gap-4 p-5 mb-[50px] w-[950px] h-[650px] bg-gray-200 overflow-auto'>
           <li className='flex flex-col justify-center items-center bg-white w-[300px] h-[300px] rounded-[50px] space-y-2'>
             <div className='w-full flex justify-center items-center text-[30px]'>
-              요약
+              테스트 테스크
             </div>
             <div className='w-full flex justify-start items-center text-[15px] ml-5'>
-              설명
+              테스트 테스크입니다.
             </div>
             <div className='w-full flex justify-start items-center text-[15px] ml-5'>
-              점수
+              점수 : 50
             </div>
             <div className='w-full flex justify-start items-center text-[15px] ml-5'>
-              카테고리
+              카테고리 : 개발
             </div>
             <Dropdown />
           </li>

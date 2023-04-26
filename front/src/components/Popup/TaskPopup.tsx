@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
 
-interface Project {
+interface Task {
   summary: string;
   description: string;
   contributePoint: string;
@@ -16,7 +14,7 @@ interface Project {
 
 function TaskPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState<Project>({
+  const [data, setData] = useState<Task>({
     summary: '',
     description: '',
     contributePoint: '',
@@ -25,8 +23,6 @@ function TaskPopup() {
     playerId: '',
     reviewerId: '',
   });
-  const [startDate, setStartDate] = useState<Date | null>(null);
-  const [endDate, setEndDate] = useState<Date | null>(null);
 
   function openModal() {
     setIsOpen(true);
@@ -35,21 +31,6 @@ function TaskPopup() {
   function closeModal() {
     setIsOpen(false);
   }
-
-  const handleStartDateChange = (date: Date | null) => {
-    setStartDate(date);
-    if (endDate && date && endDate < date) {
-      setEndDate(date);
-    }
-  };
-
-  const handleEndDateChange = (date: Date | null) => {
-    if (startDate && date && startDate < date) {
-      setEndDate(date);
-    } else {
-      setEndDate(startDate);
-    }
-  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -66,9 +47,9 @@ function TaskPopup() {
       description: data.description,
       contributePoint: data.contributePoint,
       category: data.category,
-      sprintId: 5,
-      playerId: 5,
-      reviewerId: 5,
+      sprintId: 1,
+      playerId: 2,
+      reviewerId: 3,
     };
     axios.post('tasks', taskData).then((response) => {
       console.log(response.status, response.data);

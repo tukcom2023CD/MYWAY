@@ -116,7 +116,7 @@ function Sprint() {
               />
             </NavLink>
           </li>
-          {sprintData
+          {/* {sprintData
             ? sprintData.map((sprintData) => (
                 <li
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
@@ -136,7 +136,7 @@ function Sprint() {
                   </NavLink>
                 </li>
               ))
-            : null}
+            : null} */}
         </ul>
       </div>
     </div>

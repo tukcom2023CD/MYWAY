@@ -51,22 +51,7 @@ function Task() {
           <TaskPopup />
         </div>
         <ul className='grid grid-cols-3 gap-4 p-5 mb-[50px] w-[950px] h-[650px] bg-gray-200 overflow-auto'>
-          <li className='flex flex-col justify-center items-center bg-white w-[300px] h-[300px] rounded-[50px] space-y-2'>
-            <div className='w-full flex justify-center items-center text-[30px]'>
-              요약
-            </div>
-            <div className='w-full flex justify-start items-center text-[15px] ml-5'>
-              설명
-            </div>
-            <div className='w-full flex justify-start items-center text-[15px] ml-5'>
-              점수
-            </div>
-            <div className='w-full flex justify-start items-center text-[15px] ml-5'>
-              카테고리
-            </div>
-            <Dropdown />
-          </li>
-          {sprintData
+          {/* {sprintData
             ? sprintData.map((sprintData) => (
                 <li
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
@@ -75,7 +60,7 @@ function Task() {
                   {sprintData.name}
                 </li>
               ))
-            : null}
+            : null} */}
         </ul>
       </div>
     </div>

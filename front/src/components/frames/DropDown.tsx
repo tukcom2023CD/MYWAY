@@ -35,7 +35,7 @@ function DropDown() {
     <div className='flex justify-center items-center mr-auto h-[20px] ml-2'>
       <button
         type='button'
-        className='ml-auto w-[60px] h-[30px] rounded-[30px] mr-5'
+        className='ml-auto w-[60px] h-[30px] rounded-[30px]'
         onClick={onToggle}
       >
         진행상황
@@ -87,7 +87,7 @@ function DropDown() {
           )}
           {!isOpen && selectedOption && (
             <li className='flex justify-center items-center font-[12pt]'>
-              {selectedOption}
+              : {selectedOption}
             </li>
           )}
         </ul>

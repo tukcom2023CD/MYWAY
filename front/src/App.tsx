@@ -36,7 +36,7 @@ function App() {
         <Route path='/SprintMake' element={<SprintMake />} />
         {/** 테스크 페이지 */}
         <Route path='/Task' element={<Task />} />
-        <Route path='/TaskMake' element={<Task1 />} />
+        <Route path='/Task1' element={<Task1 />} />
         {/** 멤버 페이지 */}
         <Route path='/Members' element={<Members />} />
         {/** 성과분석 결과 페이지 */}
