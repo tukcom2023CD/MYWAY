@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
-import DatePicker from '../frames/DateRangePicker';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 interface Project {
   name: string;
   startAt: string;
   endAt: string;
-  teamId: string;
   sprintDays: string;
-  managerId: string;
 }
 
 function ProjectPopup() {
@@ -18,10 +17,10 @@ function ProjectPopup() {
     name: '',
     startAt: '',
     endAt: '',
-    teamId: '',
     sprintDays: '',
-    managerId: '',
   });
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
 
   function openModal() {
     setIsOpen(true);
@@ -30,6 +29,21 @@ function ProjectPopup() {
   function closeModal() {
     setIsOpen(false);
   }
+
+  const handleStartDateChange = (date: Date | null) => {
+    setStartDate(date);
+    if (endDate && date && endDate < date) {
+      setEndDate(date);
+    }
+  };
+
+  const handleEndDateChange = (date: Date | null) => {
+    if (startDate && date && startDate < date) {
+      setEndDate(date);
+    } else {
+      setEndDate(startDate);
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -41,9 +55,15 @@ function ProjectPopup() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios.post(`projects`, data).then((response) => {
+    const projectData = {
+      name: data.name,
+      startAt: startDate,
+      endAt: endDate,
+      sprintDays: data.sprintDays,
+    };
+    axios.post(`projects`, projectData).then((response) => {
       console.log(response.status, response.data);
-      window.location.replace('/TeamList');
+      window.location.replace('/Project');
     });
   };
 
@@ -80,11 +100,29 @@ function ProjectPopup() {
             />
           </label>
           <label
-            htmlFor='name'
+            htmlFor='startDate'
             className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            기간
-            <DatePicker />
+            Start Date:
+            <DatePicker
+              selected={startDate}
+              onChange={handleStartDateChange}
+              dateFormat='yyyy-MM-dd'
+              className='border-2'
+            />
+          </label>
+          <label
+            htmlFor='endDate'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            End Date:
+            <DatePicker
+              selected={endDate}
+              onChange={handleEndDateChange}
+              dateFormat='yyyy-MM-dd'
+              minDate={startDate}
+              className='border-2'
+            />
           </label>
           <label
             htmlFor='sprintDays'
