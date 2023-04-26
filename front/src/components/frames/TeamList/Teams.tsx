@@ -28,18 +28,20 @@ function Teams() {
   }, []);
 
   return (
-    <ul className='w-[500px] h-[50px]'>
-      {teamData
-        ? teamData.map((team) => (
-            <li
-              className='border flex space-x-2 justify-start items-center w-[500px] h-[50px]'
-              key={team.name}
-            >
-              {team.name}
-            </li>
-          ))
-        : null}
-    </ul>
+    <div>
+      <ul className='w-[500px] h-[50px]'>
+        {teamData
+          ? teamData.map((team) => (
+              <li
+                className='border flex space-x-2 justify-start items-center w-[500px] h-[50px]'
+                key={team.name}
+              >
+                {team.name}
+              </li>
+            ))
+          : null}
+      </ul>
+    </div>
   );
 }
 
