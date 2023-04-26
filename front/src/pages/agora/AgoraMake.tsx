@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import moveImg from '../../images/login.png';
-import Menu from '../../components/frames/Side/Sidebar';
+import Menu from '../../components/frames/Side/Sidebar2';
 import AgoraPopup from '../../components/frames/Agora/AgoraPopup';
 import AgoraDetail from '../../components/frames/Agora/AgoraDetail';
 
