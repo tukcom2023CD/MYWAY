@@ -13,7 +13,9 @@ function ProjectProgress() {
   return (
     <div className='bg-white w-[550px] h-[300px] rounded-[30px] mb-[20px]'>
       <div className='flex flex-col items-center p-4 mt-2'>
-        <p className='ml-3 mr-auto text-[20px] font-bold'>프로젝트 진행도</p>
+        <p className='ml-3 mr-auto text-[20px] font-bold'>
+          (예시)프로젝트 진행도
+        </p>
         <div className='flex'>
           <div className='flex justify-center items-center text-[30px] font-bold'>
             45%

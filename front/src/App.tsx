@@ -4,6 +4,7 @@ import axios from 'axios';
 import WelcomePage from './pages/main/WelcomePage';
 import TeamList from './pages/main/TeamList';
 import DashBoard from './pages/main/DashBoard';
+import DashBoard1 from './pages/main/DashBoard1';
 import Login from './pages/main/Login';
 import Project from './pages/project/Project';
 import ProjectMake from './pages/project/ProjectMake';
@@ -27,6 +28,7 @@ function App() {
         <Route path='/' element={<WelcomePage />} />
         <Route path='/TeamList' element={<TeamList />} />
         <Route path='/DashBoard' element={<DashBoard />} />
+        <Route path='/DashBoard1' element={<DashBoard1 />} />
         <Route path='/Login' element={<Login />} />
         {/** 프로젝트 페이지 */}
         <Route path='/Project' element={<Project />} />
