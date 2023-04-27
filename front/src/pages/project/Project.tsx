@@ -47,6 +47,12 @@ function Project() {
     background: '#D8F1FF',
   };
 
+  const handleNavLinkCLick = () => {
+    setTimeout(() => {
+      window.location.replace('/sprint');
+    }, 3000);
+  };
+
   return (
     <div className='flex m-auto w-[1440px] h-[100vh] bg-[#D8F1FF]'>
       <Menu />
@@ -64,6 +70,7 @@ function Project() {
                 >
                   {projectData.name}
                   <NavLink
+                    onClick={handleNavLinkCLick}
                     className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
                     style={({ isActive }) => (isActive ? activeStyle : {})}
                     to='/sprint'
