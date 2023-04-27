@@ -61,7 +61,7 @@ function TaskPopup() {
   const handleNavLinkCLick = () => {
     setTimeout(() => {
       window.location.replace('/task1');
-    }, 2000);
+    }, 3000);
   };
 
   return (
@@ -140,7 +140,7 @@ function TaskPopup() {
           </label>
           <div className='flex space-x-2'>
             <NavLink
-              to='/task1'
+              to='/task'
               onClick={handleNavLinkCLick}
               className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
             >
