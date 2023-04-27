@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import monitortest from '../../../images/monitortest.png';
+import demoStart from '../../../images/demoStart.png';
 
 function WelcomeStart() {
   return (
@@ -23,11 +24,16 @@ function WelcomeStart() {
           </NavLink>
         </div>
       </div>
-      <div className='flex flex-col justify-end items-center m-auto w-[50vw] h-[92vh]'>
+      <div className='flex flex-col justify-end items-center m-auto w-[50vw] h-[92vh] relative'>
         <img
-          className='w-[646px] h-[512px]'
+          className='absolute w-[646px] h-[512px] z-10'
           alt='welcometest'
           src={monitortest}
+        />
+        <img
+          className='absolute w-[586px] h-[332px] z-20 mb-[150px]'
+          alt='demoStart'
+          src={demoStart}
         />
       </div>
     </div>
