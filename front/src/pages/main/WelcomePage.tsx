@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../components/frames/Welcome/Header';
+import Header from '../../components/frames/Header/WelcomeHeader';
 import WelcomeStart from '../../components/frames/Welcome/WelcomeStart';
 import WelcomeProject from '../../components/frames/Welcome/WelcomeProject';
 import WelcomeSprint from '../../components/frames/Welcome/WelcomeSprint';

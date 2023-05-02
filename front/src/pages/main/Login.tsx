@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginHeader from '../../components/frames/Login/LoginHeader';
+import LoginHeader from '../../components/frames/Header/LoginHeader';
 import Kakao from '../../images/kakaoIcon.png';
 import Naver from '../../images/naverIcon.png';
 import Google from '../../images/googleIcon.png';
