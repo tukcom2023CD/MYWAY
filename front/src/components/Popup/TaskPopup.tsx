@@ -41,22 +41,22 @@ function TaskPopup() {
     });
   };
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const taskData = {
-  //     summary: data.summary,
-  //     description: data.description,
-  //     contributePoint: data.contributePoint,
-  //     category: data.category,
-  //     sprintId: 1,
-  //     playerId: 2,
-  //     reviewerId: 3,
-  //   };
-  //   axios.post('tasks', taskData).then((response) => {
-  //     console.log(response.status, response.data);
-  //     window.location.replace('/Task1');
-  //   });
-  // };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const taskData = {
+      summary: data.summary,
+      description: data.description,
+      contributePoint: data.contributePoint,
+      category: data.category,
+      sprintId: 1,
+      playerId: 2,
+      reviewerId: 3,
+    };
+    axios.post('tasks', taskData).then((response) => {
+      console.log(response.status, response.data);
+      window.location.replace('/Task1');
+    });
+  };
 
   const handleNavLinkCLick = () => {
     setTimeout(() => {
@@ -75,11 +75,11 @@ function TaskPopup() {
       </button>
       <Modal
         isOpen={modalIsOpen}
-        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
+        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#404040]'
         contentLabel='Test Modal'
       >
         <form
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
         >
           <label

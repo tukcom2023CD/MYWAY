@@ -84,7 +84,7 @@ function ProjectPopup() {
       </button>
       <Modal
         isOpen={modalIsOpen}
-        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
+        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#404040]'
         contentLabel='Test Modal'
       >
         <form
