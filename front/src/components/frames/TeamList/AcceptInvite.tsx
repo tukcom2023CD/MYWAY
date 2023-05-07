@@ -32,10 +32,15 @@ function InviteList() {
   }
 
   useEffect(() => {
-    axios
-      .get<List[]>(`staffs/invite`)
-      .then((response) => setInviteList(response.data))
-      .catch((error) => console.log(error));
+    async function fetchData(): Promise<void> {
+      try {
+        const response = await axios.get<List[]>('staffs/invite');
+        setInviteList(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -70,8 +75,11 @@ function InviteList() {
             초대온 목록
             <ul>
               {inviteList.map((list) => (
-                <li className='text-[20px] w-[430px] border-2' key={list.id}>
-                  {list.nickname}
+                <li
+                  className='flex space-x-2 text-[20px] w-[430px] border-2'
+                  key={list.name}
+                >
+                  {list.name}
                   <button
                     type='submit'
                     className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'

@@ -44,7 +44,9 @@ function ProjectContribution() {
   return (
     <div className='bg-white w-[450px] h-[300px] rounded-[30px]'>
       <div className='flex flex-col items-center p-4 mt-2'>
-        <p className='ml-3 mr-auto text-[20px] font-bold'>프로젝트 기여도</p>
+        <p className='ml-3 mr-auto text-[20px] font-bold'>
+          (예시)프로젝트 기여도
+        </p>
         <div className='flex m-auto w-[450px] h-[200px]'>
           <div className='m-auto w-[300px] h-[200px]'>
             <ResponsiveContainer width='100%' height='100%'>

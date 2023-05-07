@@ -58,7 +58,7 @@ function Sidebar() {
               </li>
               <li className='rounded-sm'>
                 <NavLink
-                  className='flex items-center p-2 space-x-3 rounded-xl'
+                  className='flex items-center p-2 space-x-3 rounded-xl  bg-[#D8F1FF]'
                   style={({ isActive }) => (isActive ? activeStyle : {})}
                   to='/Agora'
                 >

@@ -24,6 +24,7 @@
     }
   },
   "rules": {
+    "react/function-component-definition": "off",
     "linebreak-style": 0,
     "import/no-dynamic-require": 0,
     "import/no-unresolved": 0,
