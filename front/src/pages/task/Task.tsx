@@ -32,7 +32,7 @@ function Task() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<SprintData[]>('sprints?team-id=123');
+        const response = await axios.get<SprintData[]>('tasks/1');
         setSprintData(response.data);
         console.log(response.data);
       } catch (error) {
