@@ -16,24 +16,44 @@ interface Team {
   industryGroup: string;
 }
 
-interface SprintData {
+interface Sprint {
   id: number;
   name: string;
   startAt: string;
   endAt: string;
-  sprintDays: string;
-  manager: Manager;
   team: Team;
+  sprintDays: number;
+  manager: Manager;
+}
+
+interface Leader {
+  id: number;
+  nickname: string;
+  rank: string;
+}
+
+interface TaskData {
+  id: number;
+  summary: string;
+  description: string;
+  status: string;
+  contributePoint: number;
+  category: string;
+  sprint: Sprint;
+  round: number;
+  startDate: string;
+  endData: string;
+  leader: Leader;
 }
 
 function Task() {
-  const [sprintData, setSprintData] = useState<SprintData[]>();
+  const [taskData, setTaskData] = useState<TaskData[]>();
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<SprintData[]>('tasks/1');
-        setSprintData(response.data);
+        const response = await axios.get<TaskData[]>('tasks/1');
+        setTaskData(response.data);
         console.log(response.data);
       } catch (error) {
         console.log(error);
@@ -51,13 +71,17 @@ function Task() {
           <TaskPopup />
         </div>
         <ul className='grid grid-cols-3 gap-4 p-5 mb-[50px] w-[950px] h-[650px] bg-gray-200 overflow-auto'>
-          {sprintData
-            ? sprintData.map((sprintData) => (
+          {taskData
+            ? taskData.map((taskData) => (
                 <li
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
-                  key={sprintData.id}
+                  key={taskData.id}
                 >
-                  {sprintData.name}
+                  {taskData.summary}
+                  {taskData.description}
+                  {taskData.status}
+                  {taskData.contributePoint}
+                  {taskData.category}
                 </li>
               ))
             : null}
