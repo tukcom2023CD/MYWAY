@@ -15,7 +15,7 @@ function Sidebar() {
 
   return (
     <div className='flex drop-shadow-xl'>
-      <div className='flex flex-col items-center h-screen p-5 bg-white shadow w-60'>
+      <div className='flex flex-col items-center h-screen p-5 bg-[#404040] shadow w-60'>
         <div className='space-y-3'>
           <div className='flex items-center'>
             <img
@@ -39,7 +39,7 @@ function Sidebar() {
                     alt='dashboardIcon'
                     src={dashboard}
                   />
-                  <span>DashBoard</span>
+                  <span className='text-white'>DashBoard</span>
                 </NavLink>
               </li>
               <li className='rounded-sm'>
@@ -53,7 +53,7 @@ function Sidebar() {
                     alt='projectIcon'
                     src={project}
                   />
-                  <span>Project</span>
+                  <span className='text-white'>Project</span>
                 </NavLink>
               </li>
               <li className='rounded-sm'>
@@ -67,7 +67,7 @@ function Sidebar() {
                     alt='agoraIcon'
                     src={agora}
                   />
-                  <span>Agora</span>
+                  <span className='text-white'>Agora</span>
                 </NavLink>
               </li>
               <li className='rounded-sm'>
@@ -81,7 +81,7 @@ function Sidebar() {
                     alt='analysisIcon'
                     src={anaylsis}
                   />
-                  <span>Analysis</span>
+                  <span className='text-white'>Analysis</span>
                 </NavLink>
               </li>
             </ul>

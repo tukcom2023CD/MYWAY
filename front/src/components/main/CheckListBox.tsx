@@ -3,9 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 function CheckListBox() {
   return (
-    <div className='bg-white w-[450px] h-[400px] rounded-[30px]'>
+    <div className='bg-white w-[450px] h-[400px]'>
       <div className='flex flex-col items-center p-4 mt-2'>
-        <p className='ml-3 mr-auto text-[20px] font-bold'>진행사항 알리미</p>
+        <p className='ml-3 mr-auto text-[20px] font-bold bg-[#d4d4d4]'>
+          진행사항 알리미
+        </p>
         <div className='flex m-auto w-[400px] h-[320px] bg-gray-50 overflow-auto'>
           <ul className='p-6 list-disc space-y-5'>
             <li className='mr-auto w-[300px] text-[20px] flex flex-col'>

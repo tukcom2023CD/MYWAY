@@ -11,9 +11,9 @@ const colors = ['#0088FE', '#868484'];
 
 function ProjectProgress() {
   return (
-    <div className='bg-white w-[550px] h-[300px] rounded-[30px] mb-[20px]'>
+    <div className='bg-white w-[550px] h-[300px] mb-[20px]'>
       <div className='flex flex-col items-center p-4 mt-2'>
-        <p className='ml-3 mr-auto text-[20px] font-bold'>
+        <p className='ml-3 mr-auto text-[20px] font-bold bg-[#d4d4d4]'>
           (예시)프로젝트 진행도
         </p>
         <div className='flex'>

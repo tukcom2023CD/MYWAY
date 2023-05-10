@@ -6,7 +6,9 @@ function SprintPageList() {
   return (
     <div className='flex flex-col justify-center items-right mr-[24px] bg-white w-[500px] h-[700px] rounded-[30px]'>
       <div className='flex justify-center items-center w-[500px] h-[50px] p-6 mb-3'>
-        <p className='mr-auto p-2 text-[24px] font-bold'>스프린트</p>
+        <p className='mr-auto p-2 text-[24px] font-bold bg-[#d4d4d4]'>
+          스프린트
+        </p>
         <button
           type='button'
           className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
