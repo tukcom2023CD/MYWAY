@@ -62,7 +62,7 @@ function InviteApprove() {
         className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
         contentLabel='Test Modal'
       >
-        <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'>
+        <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[40px]'>
           <form
             onSubmit={handleSubmit}
             className='mb-4 w-[430px] font-bold text-[20px]'
@@ -80,7 +80,7 @@ function InviteApprove() {
                   </button>
                   <button
                     type='button'
-                    className='flex justify-center items-center w-[50px] h-[40px] rounded-[30px] bg-[#f32861] text-white text-[12px]'
+                    className='flex justify-center items-center w-[50px] h-[40px] rounded-[40px] bg-[#f32861] text-white text-[12px]'
                   >
                     거절
                   </button>
@@ -92,7 +92,7 @@ function InviteApprove() {
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[40px] bg-[#0075FF] text-white text-[12px]'
             >
               닫기
             </button>
