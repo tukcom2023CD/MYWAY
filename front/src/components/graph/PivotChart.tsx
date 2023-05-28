@@ -13,6 +13,8 @@ const PivotLineChart: FunctionComponent<PivotLineChartProps> = ({ data }) => {
     const margin = { top: 20, right: 20, bottom: 30, left: 50 };
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
+    const xWidth = 700 - margin.left - margin.bottom;
+    const yHeight = 500 - margin.right - margin.top;
 
     // SVG 요소를 생성하고 크기를 설정합니다.
     const svg = d3
