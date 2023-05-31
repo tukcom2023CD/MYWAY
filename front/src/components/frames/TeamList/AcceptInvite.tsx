@@ -34,7 +34,7 @@ interface Receiver {
 function InviteList() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [inviteList, setInviteList] = useState<List[]>([]);
-  const [accept] = useState<PostAcceptInvite>({
+  const [accept, setAccept] = useState<PostAcceptInvite>({
     nickname: '',
   });
 

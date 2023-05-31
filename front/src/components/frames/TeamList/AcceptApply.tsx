@@ -19,7 +19,7 @@ interface PostAcceptApply {
 function InviteApprove() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [accept, setAccept] = useState<List[]>([]);
-  const [acceptApply] = useState<PostAcceptApply>({
+  const [acceptApply, setAcceptApply] = useState<PostAcceptApply>({
     rank: '',
   });
 
