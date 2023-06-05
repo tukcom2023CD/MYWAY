@@ -24,7 +24,7 @@ function DateRangePicker() {
   return (
     <div>
       <div>
-        <label htmlFor='startDate'>Start Date: </label>
+        <label htmlFor='startDate'>시작: </label>
         <DatePicker
           selected={startDate}
           onChange={handleStartDateChange}
@@ -33,7 +33,7 @@ function DateRangePicker() {
         />
       </div>
       <div>
-        <label htmlFor='endDate'>End Date: </label>
+        <label htmlFor='endDate'>종료: </label>
         <DatePicker
           selected={endDate}
           onChange={handleEndDateChange}

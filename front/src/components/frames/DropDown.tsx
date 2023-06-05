@@ -53,7 +53,7 @@ function DropDown() {
                   setIsSelected3(false);
                 }}
               >
-                대기
+                할 일
               </li>
               <li
                 className={liStyle2}
