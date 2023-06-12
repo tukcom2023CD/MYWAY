@@ -42,7 +42,7 @@ function Popup() {
         <p className='font-bold text-[20px] mb-2'>멤버</p>
         <button
           type='button'
-          className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px] mb-2'
+          className='flex justify-center items-center w-[110px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px] mb-2'
         >
           <p className='flex justfiy-center items-center text-[24px]'>+</p>
           멤버 추가
@@ -59,7 +59,7 @@ function Popup() {
       <div className='mb-4 overflow-x-auto'>
         <p className='font-bold text-[20px]'>내용</p>
         <input
-          className='text-[20px] w-[430px] border-b-2 whitespace-pre-wrap'
+          className='text-[24px] w-[430px] border-b-2 whitespace-pre-wrap'
           placeholder='내용을 입력해주세요.'
         />
       </div>
