@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Profile from './Profile';
 import LogoWhite from '../Header/LogoWhite';
+import FixProfile from '../TeamList/FixProfile';
 import menu from '../../../images/menu.png';
 import dashboard from '../../../images/dashboard.png';
 import project from '../../../images/project.png';
@@ -11,7 +12,7 @@ import logout from '../../../images/login.png';
 
 function Sidebar() {
   const activeStyle = {
-    background: '#737171',
+    background: '#6A6A6A',
     color: '#4DBFFF',
   };
 
@@ -27,7 +28,10 @@ function Sidebar() {
             />
             <LogoWhite />
           </div>
-          <Profile />
+          <div className='flex justify-evenly items-center'>
+            <Profile />
+            <FixProfile />
+          </div>
           <div className='flex-1'>
             <ul className='pt-2 pb-4 space-y-1 text-sm'>
               <li className='rounded-sm'>

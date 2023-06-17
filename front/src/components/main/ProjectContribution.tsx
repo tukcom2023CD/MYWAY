@@ -6,6 +6,7 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from 'recharts';
+import refresh from '../../images/refresh.png';
 
 const data = [
   {
@@ -42,27 +43,30 @@ const data = [
 
 function ProjectContribution() {
   return (
-    <div className='bg-white w-[450px] h-[300px]'>
-      <div className='flex flex-col items-center p-4 mt-2'>
-        <p className='ml-3 mr-auto text-[20px] font-bold bg-[#d4d4d4]'>
-          (예시)프로젝트 기여도
-        </p>
-        <div className='flex m-auto w-[450px] h-[200px]'>
-          <div className='m-auto w-[300px] h-[200px]'>
-            <ResponsiveContainer width='100%' height='100%'>
-              <RadarChart cx='50%' cy='50%' outerRadius='80%' data={data}>
-                <PolarGrid />
-                <PolarAngleAxis dataKey='subject' />
-                <Radar
-                  name='Mike'
-                  dataKey='A'
-                  stroke='#8884d8'
-                  fill='#8884d8'
-                  fillOpacity={0.6}
-                />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
+    <div className='flex flex-col bg-white w-[500px] h-[400px] border'>
+      <div className='flex justify-between items-center p-5 h-[50px] bg-[#6A6A6A]'>
+        <p className='text-white text-md font-bold'>(예시)프로젝트 기여도</p>
+        <img
+          className='w-[24px] h-[24px] bg-[#EAEAEA] rounded-[5px]'
+          alt='refresh'
+          src={refresh}
+        />
+      </div>
+      <div className='flex m-auto w-[450px] h-[200px]'>
+        <div className='m-auto w-[300px] h-[200px]'>
+          <ResponsiveContainer width='100%' height='100%'>
+            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={data}>
+              <PolarGrid />
+              <PolarAngleAxis dataKey='subject' />
+              <Radar
+                name='Mike'
+                dataKey='A'
+                stroke='#8884d8'
+                fill='#8884d8'
+                fillOpacity={0.6}
+              />
+            </RadarChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </div>
