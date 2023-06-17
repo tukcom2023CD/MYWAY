@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Profile from './Profile';
+import LogoWhite from '../Header/LogoWhite';
 import menu from '../../../images/menu.png';
 import dashboard from '../../../images/dashboard.png';
 import project from '../../../images/project.png';
@@ -10,20 +11,21 @@ import logout from '../../../images/login.png';
 
 function Sidebar() {
   const activeStyle = {
-    background: '#D8F1FF',
+    background: '#737171',
+    color: '#4DBFFF',
   };
 
   return (
     <div className='flex drop-shadow-xl'>
       <div className='flex flex-col items-center h-screen p-5 bg-[#404040] shadow w-60'>
         <div className='space-y-3'>
-          <div className='flex items-center'>
+          <div className='flex justify-center items-center'>
             <img
               className='w-[24px] h-[24px] mr-[10px]'
               alt='dashboardicon'
               src={menu}
             />
-            <h2 className='text-[#2093D3] text-xl font-bold'>CreWship</h2>
+            <LogoWhite />
           </div>
           <Profile />
           <div className='flex-1'>

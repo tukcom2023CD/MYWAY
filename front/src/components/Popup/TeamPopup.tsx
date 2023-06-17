@@ -7,6 +7,9 @@ function TeamPopup() {
   const [data, setData] = useState({
     name: '',
     industryGroup: '',
+    sprintDays: '',
+    startAt: '',
+    endAt: '',
   });
 
   function openModal() {
@@ -30,6 +33,9 @@ function TeamPopup() {
     const teamData = {
       name: data.name,
       industryGroup: data.industryGroup,
+      sprintDays: data.sprintDays,
+      startAt: data.startAt,
+      endAt: data.endAt,
     };
     axios.post(`teams`, teamData).then((response) => {
       console.log(response.status, response.data);
@@ -41,10 +47,10 @@ function TeamPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[100px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[35px] rounded-[10px] bg-[#0182CA] font-bold text-white'
         onClick={openModal}
       >
-        팀 생성하기
+        + 프로젝트 생성
       </button>
       <Modal
         isOpen={modalIsOpen}
@@ -53,7 +59,7 @@ function TeamPopup() {
       >
         <form
           onSubmit={handleSubmit}
-          className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
+          className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[15px]'
         >
           <label
             htmlFor='name'
