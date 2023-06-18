@@ -54,7 +54,7 @@ function Project() {
   };
 
   return (
-    <div className='flex m-auto w-[1440px] h-[100vh] bg-[#D8F1FF]'>
+    <div className='flex m-auto w-[1440px] h-[100vh]'>
       <Menu />
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[10px] border'>
         <div className='flex justify-between items-center w-full p-5 h-[50px] bg-[#6A6A6A]'>

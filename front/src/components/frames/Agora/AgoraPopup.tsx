@@ -41,22 +41,22 @@ function AgoraPopup() {
     });
   };
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const taskData = {
-  //     summary: data.summary,
-  //     description: data.description,
-  //     contributePoint: data.contributePoint,
-  //     category: data.category,
-  //     sprintId: 1,
-  //     playerId: 2,
-  //     reviewerId: 3,
-  //   };
-  //   axios.post('tasks', taskData).then((response) => {
-  //     console.log(response.status, response.data);
-  //     window.location.replace('/Task1');
-  //   });
-  // };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const taskData = {
+      summary: data.summary,
+      description: data.description,
+      contributePoint: data.contributePoint,
+      category: data.category,
+      sprintId: 1,
+      playerId: 2,
+      reviewerId: 3,
+    };
+    axios.post('tasks', taskData).then((response) => {
+      console.log(response.status, response.data);
+      window.location.replace('/Task1');
+    });
+  };
 
   const handleNavLinkCLick = () => {
     setTimeout(() => {
@@ -68,7 +68,7 @@ function AgoraPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
         onClick={openModal}
       >
         질문하기
@@ -79,7 +79,7 @@ function AgoraPopup() {
         contentLabel='Test Modal'
       >
         <form
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className='border flex flex-col justify-center items-center m-auto bg-white w-[700px] h-[600px] rounded-[30px]'
         >
           <label
@@ -128,14 +128,14 @@ function AgoraPopup() {
             <NavLink
               to='/agora'
               onClick={handleNavLinkCLick}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               생성하기
             </NavLink>
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               닫기
             </button>
