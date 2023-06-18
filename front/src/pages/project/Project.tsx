@@ -61,30 +61,32 @@ function Project() {
           <p className='text-white text-md font-bold'>프로젝트 리스트</p>
           <ProjectPopup />
         </div>
-        <ul className='p-5 w-[950px] h-[650px] border overflow-auto'>
-          {projectData
-            ? projectData.map((projectData) => (
-                <li
-                  className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
-                  key={projectData.id}
-                >
-                  {projectData.name}
-                  <NavLink
-                    onClick={handleNavLinkCLick}
-                    className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
-                    style={({ isActive }) => (isActive ? activeStyle : {})}
-                    to='/sprint'
+        <div className='border mt-8'>
+          <ul className='p-5 w-[950px] h-[650px] overflow-auto'>
+            {projectData
+              ? projectData.map((projectData) => (
+                  <li
+                    className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
+                    key={projectData.id}
                   >
-                    <img
-                      className='w-[24px] h-[24px]'
-                      alt='agoraIcon'
-                      src={moveImg}
-                    />
-                  </NavLink>
-                </li>
-              ))
-            : null}
-        </ul>
+                    {projectData.name}
+                    <NavLink
+                      onClick={handleNavLinkCLick}
+                      className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+                      style={({ isActive }) => (isActive ? activeStyle : {})}
+                      to='/sprint'
+                    >
+                      <img
+                        className='w-[24px] h-[24px]'
+                        alt='agoraIcon'
+                        src={moveImg}
+                      />
+                    </NavLink>
+                  </li>
+                ))
+              : null}
+          </ul>
+        </div>
       </div>
     </div>
   );
