@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useCookie } from '../Cookie/useCookie';
+import rightArrow from '../../../images/rightarrow.png';
 
 function FixProfile() {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -22,10 +23,10 @@ function FixProfile() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center w-[30px] h-[30px] bg-[#6A6A6A] rounded-[5px] text-white'
         onClick={openModal}
       >
-        내 정보 수정
+        <img className='w-[15px] h-[15px]' alt='fixProfile' src={rightArrow} />
       </button>
       <Modal
         isOpen={modalIsOpen}

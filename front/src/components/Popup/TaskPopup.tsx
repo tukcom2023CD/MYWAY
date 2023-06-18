@@ -41,22 +41,22 @@ function TaskPopup() {
     });
   };
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const taskData = {
-  //     summary: data.summary,
-  //     description: data.description,
-  //     contributePoint: data.contributePoint,
-  //     category: data.category,
-  //     sprintId: 1,
-  //     playerId: 2,
-  //     reviewerId: 3,
-  //   };
-  //   axios.post('tasks', taskData).then((response) => {
-  //     console.log(response.status, response.data);
-  //     window.location.replace('/Task1');
-  //   });
-  // };
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const taskData = {
+      summary: data.summary,
+      description: data.description,
+      contributePoint: data.contributePoint,
+      category: data.category,
+      sprintId: 1,
+      playerId: 2,
+      reviewerId: 3,
+    };
+    axios.post('tasks', taskData).then((response) => {
+      console.log(response.status, response.data);
+      window.location.replace('/Task1');
+    });
+  };
 
   const handleNavLinkCLick = () => {
     setTimeout(() => {
@@ -68,18 +68,18 @@ function TaskPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
         onClick={openModal}
       >
         테스크 생성하기
       </button>
       <Modal
         isOpen={modalIsOpen}
-        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
+        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#404040]'
         contentLabel='Test Modal'
       >
         <form
-          // onSubmit={handleSubmit}
+          onSubmit={handleSubmit}
           className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
         >
           <label
@@ -142,14 +142,14 @@ function TaskPopup() {
             <NavLink
               to='/task'
               onClick={handleNavLinkCLick}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               생성하기
             </NavLink>
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               닫기
             </button>

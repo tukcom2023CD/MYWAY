@@ -13,7 +13,7 @@ interface Task {
   reviewerId: string;
 }
 
-function AgoraPopup() {
+function TaskPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [data, setData] = useState<Task>({
     summary: '',
@@ -60,82 +60,96 @@ function AgoraPopup() {
 
   const handleNavLinkCLick = () => {
     setTimeout(() => {
-      window.location.replace('/agora1');
-    }, 2000);
+      window.location.replace('/task1');
+    }, 3000);
   };
 
   return (
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
         onClick={openModal}
       >
-        질문하기
+        테스크 생성하기
       </button>
       <Modal
         isOpen={modalIsOpen}
-        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
+        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#404040]'
         contentLabel='Test Modal'
       >
         <form
           onSubmit={handleSubmit}
-          className='border flex flex-col justify-center items-center m-auto bg-white w-[700px] h-[600px] rounded-[30px]'
+          className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
         >
           <label
             htmlFor='summary'
-            className='mb-4 w-[600px] font-bold text-[20px]'
+            className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            제목
+            요약
             <input
-              className='text-[20px] w-[600px] border-b-2'
+              className='text-[20px] w-[430px] border-b-2'
               name='summary'
               type='summary'
               value={data.summary}
               onChange={handleChange}
-              placeholder='제목을 입력해주세요.'
+              placeholder='테스크 요약 내용을 입력해주세요.'
             />
           </label>
           <label
             htmlFor='description'
-            className='mb-4 w-[600px] font-bold text-[20px]'
+            className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            카테고리
+            설명
             <input
-              className='text-[20px] w-[600px] border-b-2'
+              className='text-[20px] w-[430px] border-b-2'
               name='description'
               type='description'
               value={data.description}
               onChange={handleChange}
-              placeholder='카테고리를 입력해주세요.'
+              placeholder='테스크 설명을 입력해주세요.'
+            />
+          </label>
+          <label
+            htmlFor='contributePoint'
+            className='mb-4 w-[430px] font-bold text-[20px]'
+          >
+            기여도 점수
+            <input
+              className='text-[20px] w-[430px] border-b-2'
+              name='contributePoint'
+              type='contributePoint'
+              value={data.contributePoint}
+              onChange={handleChange}
+              placeholder='기여도 점수를 입력해주세요.'
             />
           </label>
           <label
             htmlFor='category'
-            className='mb-4 w-[600px] font-bold text-[20px]'
+            className='mb-4 w-[430px] font-bold text-[20px]'
           >
-            내용
+            카테고리
             <input
-              className='text-[20px] w-[600px] h-[200px] border-b-2'
+              className='text-[20px] w-[430px] border-b-2'
               name='category'
               type='category'
               value={data.category}
               onChange={handleChange}
-              placeholder='질문내용을 입력해주세요.'
+              placeholder='카테고리를 입력해주세요.'
             />
           </label>
           <div className='flex space-x-2'>
             <NavLink
-              to='/agora'
+              to='/task'
               onClick={handleNavLinkCLick}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
             >
               생성하기
             </NavLink>
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
             >
               닫기
             </button>
@@ -146,4 +160,4 @@ function AgoraPopup() {
   );
 }
 
-export default AgoraPopup;
+export default TaskPopup;

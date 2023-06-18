@@ -77,19 +77,19 @@ function ProjectPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
         onClick={openModal}
       >
         프로젝트 생성하기
       </button>
       <Modal
         isOpen={modalIsOpen}
-        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[rgba(0,0,0,0.2)]'
+        className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#404040]'
         contentLabel='Test Modal'
       >
         <form
           onSubmit={handleSubmit}
-          className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[30px]'
+          className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[10px]'
         >
           <label
             htmlFor='name'
@@ -147,14 +147,14 @@ function ProjectPopup() {
           <div className='flex space-x-2'>
             <button
               type='submit'
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               생성하기
             </button>
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               닫기
             </button>

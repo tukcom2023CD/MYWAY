@@ -16,6 +16,21 @@ interface PostAcceptInvite {
   nickname: string;
 }
 
+interface Points {
+  COMMUNICATION: number;
+  CRISIS_RESPONSE: number;
+  DEVELOPMENT: number;
+  REFACTORING: number;
+  PLANNING: number;
+}
+
+interface Receiver {
+  id: number;
+  nickname: string;
+  rank: string;
+  points: Points;
+}
+
 function InviteList() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [inviteList, setInviteList] = useState<List[]>([]);
