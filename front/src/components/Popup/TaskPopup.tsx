@@ -54,7 +54,7 @@ function TaskPopup() {
     };
     axios.post('tasks', taskData).then((response) => {
       console.log(response.status, response.data);
-      window.location.replace('/Task1');
+      window.location.replace('/Task');
     });
   };
 
