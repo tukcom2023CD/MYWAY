@@ -59,9 +59,7 @@ function TaskPopup() {
   };
 
   const handleNavLinkCLick = () => {
-    setTimeout(() => {
-      window.location.replace('/task1');
-    }, 3000);
+    window.location.replace('/task');
   };
 
   return (

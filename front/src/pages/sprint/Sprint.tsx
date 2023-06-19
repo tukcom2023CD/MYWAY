@@ -59,11 +59,11 @@ function Sprint() {
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
                   key={sprintData.id}
                 >
-                  <div className='flex justify-evenly'>
+                  <div className='flex space-x-3'>
                     <div>스프린트{sprintData.round}</div>
-                    {sprintData.leader.nickname}
-                    {sprintData.leader.rank}
-                    {sprintData.project.spirntDays}
+                    <div>{sprintData.leader.nickname}</div>
+                    <div>{sprintData.leader.rank}</div>
+                    <div>{sprintData.project.spirntDays}</div>
                   </div>
                   <NavLink
                     className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
