@@ -4,46 +4,40 @@ import Menu from '../../components/frames/Side/Sidebar';
 import TaskPopup from '../../components/Popup/TaskPopup';
 import Dropdown from '../../components/frames/DropDown';
 
-interface Manager {
-  id: number;
-  nickname: string;
-  rank: string;
-}
+// interface Manager {
+//   id: number;
+//   nickname: string;
+//   rank: string;
+// }
 
-interface Team {
-  id: number;
-  name: string;
-  industryGroup: string;
-}
+// interface Team {
+//   id: number;
+//   name: string;
+//   industryGroup: string;
+// }
 
-interface Sprint {
-  id: number;
-  name: string;
-  startAt: string;
-  endAt: string;
-  team: Team;
-  sprintDays: number;
-  manager: Manager;
-}
+// interface Sprint {
+//   id: number;
+//   name: string;
+//   startAt: string;
+//   endAt: string;
+//   team: Team;
+//   sprintDays: number;
+//   manager: Manager;
+// }
 
-interface Leader {
-  id: number;
-  nickname: string;
-  rank: string;
-}
+// interface Leader {
+//   id: number;
+//   nickname: string;
+//   rank: string;
+// }
 
 interface TaskData {
   id: number;
   summary: string;
   description: string;
-  status: string;
   contributePoint: number;
   category: string;
-  sprint: Sprint;
-  round: number;
-  startDate: string;
-  endData: string;
-  leader: Leader;
 }
 
 function Task() {
@@ -52,7 +46,7 @@ function Task() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<TaskData[]>('tasks');
+        const response = await axios.get<TaskData[]>('tasks/1');
         setTaskData(response.data);
         console.log(response.data, response.status);
       } catch (error) {
@@ -79,7 +73,6 @@ function Task() {
                 >
                   {taskData.summary}
                   {taskData.description}
-                  {taskData.status}
                   {taskData.contributePoint}
                   {taskData.category}
                 </li>

@@ -134,7 +134,7 @@ function TaskPopup() {
           </label>
           <div className='flex space-x-2'>
             <NavLink
-              to='/task'
+              to='/Task'
               className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               생성하기
