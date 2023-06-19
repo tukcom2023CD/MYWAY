@@ -47,10 +47,6 @@ function Project() {
     background: '#D8F1FF',
   };
 
-  const handleNavLinkCLick = () => {
-    window.location.replace('/sprint');
-  };
-
   return (
     <div className='flex m-auto w-[1440px] h-[100vh]'>
       <Menu />
@@ -69,7 +65,6 @@ function Project() {
                   >
                     {projectData.name}
                     <NavLink
-                      onClick={handleNavLinkCLick}
                       className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
                       style={({ isActive }) => (isActive ? activeStyle : {})}
                       to='/sprint'

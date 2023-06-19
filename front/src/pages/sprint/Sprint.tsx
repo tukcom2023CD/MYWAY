@@ -4,26 +4,25 @@ import { NavLink } from 'react-router-dom';
 import moveImg from '../../images/login.png';
 import Menu from '../../components/frames/Side/Sidebar';
 
-interface Manager {
+interface Leader {
   id: number;
   nickname: string;
   rank: string;
 }
 
-interface Team {
-  id: number;
-  name: string;
-  industryGroup: string;
-}
-
-interface SprintData {
+interface Project {
   id: number;
   name: string;
   startAt: string;
   endAt: string;
-  sprintDays: string;
-  manager: Manager;
-  team: Team;
+  spirntDays: string;
+}
+
+interface SprintData {
+  id: number;
+  round: number;
+  leader: Leader;
+  project: Project;
 }
 
 function Sprint() {
@@ -60,11 +59,16 @@ function Sprint() {
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
                   key={sprintData.id}
                 >
-                  {sprintData.name}
+                  <div className='flex space-x-2'>
+                    <div>스프린트{sprintData.round}</div>
+                    {sprintData.leader.nickname}
+                    {sprintData.leader.rank}
+                    {sprintData.project.spirntDays}
+                  </div>
                   <NavLink
                     className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
                     style={({ isActive }) => (isActive ? activeStyle : {})}
-                    to='/sprint'
+                    to='/task'
                   >
                     <img
                       className='w-[24px] h-[24px]'
