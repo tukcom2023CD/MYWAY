@@ -67,7 +67,7 @@ function Task() {
       <Menu />
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[10px] border'>
         <div className='flex justify-between items-center w-full p-5 h-[50px] bg-[#6A6A6A]'>
-          <p className='text-[20px] font-bold'>테스크 리스트</p>
+          <p className='text-white text-md font-bold'>테스크 리스트</p>
           <TaskPopup />
         </div>
         <ul className='grid grid-cols-3 gap-4 p-5 mb-[50px] w-[950px] h-[650px] bg-white overflow-auto'>
