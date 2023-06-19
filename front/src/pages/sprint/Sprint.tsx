@@ -34,7 +34,7 @@ function Sprint() {
       try {
         const response = await axios.get<SprintData[]>('sprints?project-id=3');
         setSprintData(response.data);
-        console.log(response.data);
+        console.log(response.data, response.status);
       } catch (error) {
         console.log(error);
       }

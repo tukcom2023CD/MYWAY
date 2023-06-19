@@ -48,9 +48,7 @@ function Project() {
   };
 
   const handleNavLinkCLick = () => {
-    setTimeout(() => {
-      window.location.replace('/sprint');
-    }, 3000);
+    window.location.replace('/sprint');
   };
 
   return (
