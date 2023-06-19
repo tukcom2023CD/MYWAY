@@ -56,10 +56,10 @@ function Sprint() {
           {sprintData
             ? sprintData.map((sprintData) => (
                 <li
-                  className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
+                  className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
                   key={sprintData.id}
                 >
-                  <div className='flex space-x-2'>
+                  <div className='flex justify-evenly'>
                     <div>스프린트{sprintData.round}</div>
                     {sprintData.leader.nickname}
                     {sprintData.leader.rank}

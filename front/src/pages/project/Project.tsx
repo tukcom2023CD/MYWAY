@@ -60,7 +60,7 @@ function Project() {
             {projectData
               ? projectData.map((projectData) => (
                   <li
-                    className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border'
+                    className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
                     key={projectData.id}
                   >
                     {projectData.name}
