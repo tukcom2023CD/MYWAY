@@ -59,7 +59,7 @@ function Sprint() {
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
                   key={sprintData.id}
                 >
-                  <div className='flex space-x-3'>
+                  <div className='flex space-x-3 border'>
                     <div>스프린트{sprintData.round}</div>
                     <div>{sprintData.leader.nickname}</div>
                     <div>{sprintData.leader.rank}</div>

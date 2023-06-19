@@ -54,7 +54,7 @@ function Task() {
       try {
         const response = await axios.get<TaskData[]>('tasks');
         setTaskData(response.data);
-        console.log(response.data);
+        console.log(response.data, response.status);
       } catch (error) {
         console.log(error);
       }
