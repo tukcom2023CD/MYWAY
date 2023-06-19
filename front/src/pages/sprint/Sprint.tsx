@@ -49,13 +49,13 @@ function Sprint() {
   };
 
   return (
-    <div className='flex m-auto w-[1440px] h-[100vh] bg-[#D8F1FF]'>
+    <div className='flex m-auto w-[1440px] h-[100vh]'>
       <Menu />
-      <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[50px]'>
-        <div className='flex p-7 justify-center items-center mr-auto ml-5'>
-          <p className='text-[20px] font-bold'>스프린트 리스트</p>
+      <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[10px] border'>
+        <div className='flex justify-between items-center w-full p-5 h-[50px] bg-[#6A6A6A]'>
+          <p className='text-white text-md font-bold'>스프린트 리스트</p>
         </div>
-        <ul className='p-5 space-y-3 mb-[50px] w-[950px] h-[650px] bg-gray-200 overflow-auto'>
+        <ul className='p-5 space-y-3 mb-[50px] w-[950px] h-[650px] bg-white overflow-auto'>
           {sprintData
             ? sprintData.map((sprintData) => (
                 <li
@@ -64,7 +64,7 @@ function Sprint() {
                 >
                   {sprintData.name}
                   <NavLink
-                    className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+                    className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
                     style={({ isActive }) => (isActive ? activeStyle : {})}
                     to='/sprint'
                   >

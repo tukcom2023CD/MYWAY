@@ -66,13 +66,13 @@ function Project() {
             {projectData
               ? projectData.map((projectData) => (
                   <li
-                    className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
+                    className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border'
                     key={projectData.id}
                   >
                     {projectData.name}
                     <NavLink
                       onClick={handleNavLinkCLick}
-                      className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+                      className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
                       style={({ isActive }) => (isActive ? activeStyle : {})}
                       to='/sprint'
                     >
