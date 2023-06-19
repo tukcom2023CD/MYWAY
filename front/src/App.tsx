@@ -6,9 +6,7 @@ import TeamList from './pages/main/TeamList';
 import DashBoard from './pages/main/DashBoard';
 import Login from './pages/main/Login';
 import Project from './pages/project/Project';
-import ProjectMake from './pages/project/ProjectMake';
 import Sprint from './pages/sprint/Sprint';
-import SprintMake from './pages/sprint/SprintMake';
 import Task from './pages/task/Task';
 import Members from './pages/member/MemberPage';
 import Graph from './pages/graph/Graph';
@@ -28,10 +26,8 @@ function App() {
         <Route path='/Login' element={<Login />} />
         {/** 프로젝트 페이지 */}
         <Route path='/Project' element={<Project />} />
-        <Route path='/ProjectMake' element={<ProjectMake />} />
         {/** 스프린트 페이지 */}
         <Route path='/Sprint' element={<Sprint />} />
-        <Route path='/SprintMake' element={<SprintMake />} />
         {/** 테스크 페이지 */}
         <Route path='/Task' element={<Task />} />
         {/** 멤버 페이지 */}

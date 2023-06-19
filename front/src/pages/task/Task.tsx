@@ -63,18 +63,18 @@ function Task() {
   }, []);
 
   return (
-    <div className='flex m-auto w-[1440px] h-[100vh] bg-[#D8F1FF]'>
+    <div className='flex m-auto w-[1440px] h-[100vh]'>
       <Menu />
-      <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[50px]'>
-        <div className='flex p-7 justify-center items-center space-x-[650px]'>
-          <p className='text-[20px] font-bold'>테스크 리스트</p>
+      <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[10px] border'>
+        <div className='flex justify-between items-center w-full p-5 h-[50px] bg-[#6A6A6A]'>
+          <p className='text-white text-md font-bold'>테스크 리스트</p>
           <TaskPopup />
         </div>
-        <ul className='grid grid-cols-3 gap-4 p-5 mb-[50px] w-[950px] h-[650px] bg-gray-200 overflow-auto'>
+        <ul className='grid grid-cols-3 gap-4 p-5 mb-[50px] w-[950px] h-[650px] bg-white overflow-auto'>
           {taskData
             ? taskData.map((taskData) => (
                 <li
-                  className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
+                  className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border'
                   key={taskData.id}
                 >
                   {taskData.summary}
