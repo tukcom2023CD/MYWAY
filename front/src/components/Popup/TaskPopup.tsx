@@ -47,9 +47,6 @@ function TaskPopup() {
       description: data.description,
       contributePoint: data.contributePoint,
       category: data.category,
-      sprintId: 1,
-      playerId: 2,
-      reviewerId: 3,
     };
     axios.post('tasks', taskData).then((response) => {
       console.log(response.status, response.data);

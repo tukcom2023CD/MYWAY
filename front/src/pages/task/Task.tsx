@@ -4,34 +4,6 @@ import Menu from '../../components/frames/Side/Sidebar';
 import TaskPopup from '../../components/Popup/TaskPopup';
 import Dropdown from '../../components/frames/DropDown';
 
-// interface Manager {
-//   id: number;
-//   nickname: string;
-//   rank: string;
-// }
-
-// interface Team {
-//   id: number;
-//   name: string;
-//   industryGroup: string;
-// }
-
-// interface Sprint {
-//   id: number;
-//   name: string;
-//   startAt: string;
-//   endAt: string;
-//   team: Team;
-//   sprintDays: number;
-//   manager: Manager;
-// }
-
-// interface Leader {
-//   id: number;
-//   nickname: string;
-//   rank: string;
-// }
-
 interface TaskData {
   id: number;
   summary: string;
