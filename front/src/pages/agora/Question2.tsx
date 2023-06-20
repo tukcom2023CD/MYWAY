@@ -23,7 +23,7 @@ interface Comment {
   writer: Writer;
 }
 
-function Question() {
+function Question2() {
   const [data, setData] = useState<Answer>({
     content: '',
     answerId: 1,
@@ -95,6 +95,7 @@ function Question() {
             <p>개발</p>
           </div>
           <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] h-[200px] border m-5 rounded-[15px]'>
+            <p className='mb-5'>요약 : 테스트 질문</p>
             <p>테스트 질문입니다.</p>
           </div>
           <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] w-[700px] h-[150px] border m-5 rounded-[15px]'>
@@ -110,7 +111,7 @@ function Question() {
               작성자 추가 질문 테스트입니다.
             </p>
           </div>
-          {/* <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] w-[700px] h-[150px] border ml-auto mr-5 mb-5 rounded-[15px]'>
+          <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] w-[700px] h-[150px] border ml-auto mr-5 mb-5 rounded-[15px]'>
             <div className='flex items-center'>
               <img
                 className='w-[24px] h-[24px] mr-2'
@@ -135,7 +136,7 @@ function Question() {
             <p className='flex bg-white p-2 mt-2 w-full h-full overflow-auto rounded-[15px] text-[15px]'>
               답변
             </p>
-          </div> */}
+          </div>
 
           <ul className='p-5 space-y-3 mb-[50px] w-[950px] h-[650px]'>
             {commentData
@@ -178,4 +179,4 @@ function Question() {
   );
 }
 
-export default Question;
+export default Question2;

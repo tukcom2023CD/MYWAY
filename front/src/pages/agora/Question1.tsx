@@ -23,7 +23,7 @@ interface Comment {
   writer: Writer;
 }
 
-function Question() {
+function Question1() {
   const [data, setData] = useState<Answer>({
     content: '',
     answerId: 1,
@@ -82,7 +82,7 @@ function Question() {
         </div>
         <div className='flex flex-col border mt-8 w-[950px] h-full m-5 overflow-y-auto'>
           <div className='flex justify-evenly h-[200px] border items-center'>
-            <p>테스트 질문</p>
+            <p>테스크 post 질문</p>
             <p className='flex'>
               <img
                 className='w-[24px] h-[24px] mr-2'
@@ -91,13 +91,18 @@ function Question() {
               />
               sample
             </p>
-            <p>2023.05.20</p>
+            <p>2023.05.26</p>
             <p>개발</p>
           </div>
           <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] h-[200px] border m-5 rounded-[15px]'>
-            <p>테스트 질문입니다.</p>
+            Question
+            <p className='flex bg-white rounded-[15px] w-full p-3 mt-2'>
+              task 생성시에 문서에 명시된것처럼 tasks/1로 post를 진행하는데
+              400에러가 발생했습니다. 제 입력값에 문제가 있는지 잘 모르겠는데
+              확인 부탁드립니다.
+            </p>
           </div>
-          <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] w-[700px] h-[150px] border m-5 rounded-[15px]'>
+          <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] w-[700px] border m-5 rounded-[15px]'>
             <div className='flex items-center'>
               <img
                 className='w-[24px] h-[24px] mr-2'
@@ -106,21 +111,12 @@ function Question() {
               />
               sample
             </div>
-            <p className='flex bg-white p-2 mt-2 w-full h-full overflow-auto rounded-[15px] text-[15px]'>
-              작성자 추가 질문 테스트입니다.
-            </p>
-          </div>
-          {/* <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] w-[700px] h-[150px] border ml-auto mr-5 mb-5 rounded-[15px]'>
-            <div className='flex items-center'>
-              <img
-                className='w-[24px] h-[24px] mr-2'
-                alt='agoraIcon'
-                src={profileImg}
-              />
-              답변자
-            </div>
-            <p className='flex bg-white p-2 mt-2 w-full h-full overflow-auto rounded-[15px] text-[15px]'>
-              답변
+            <p className='flex bg-white p-2 mt-2 w-full h-full rounded-[15px] text-[15px]'>
+              summary: string; description: string; contributePoint: string;
+              category: string; sprintId: number; playerId: number; reviewerId:
+              number;
+              <br />
+              위에 타입중에 문제가 있는 부분이 있나요?
             </p>
           </div>
           <div className='flex flex-col justify-start items-start p-5 text-xl bg-[#D4D4D4] w-[700px] h-[150px] border ml-auto mr-5 mb-5 rounded-[15px]'>
@@ -133,9 +129,10 @@ function Question() {
               답변자
             </div>
             <p className='flex bg-white p-2 mt-2 w-full h-full overflow-auto rounded-[15px] text-[15px]'>
-              답변
+              테스트 결과에는 이상이 없는데, contributePoint의 타입을 number로
+              바꿔서 다시 진행해보시면 될거 같습니다.
             </p>
-          </div> */}
+          </div>
 
           <ul className='p-5 space-y-3 mb-[50px] w-[950px] h-[650px]'>
             {commentData
@@ -178,4 +175,4 @@ function Question() {
   );
 }
 
-export default Question;
+export default Question1;
