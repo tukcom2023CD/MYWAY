@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 interface Agora {
   title: string;
   writerId: number;
   content: string;
-  teamId: string;
+  teamId: number;
   tags: string;
 }
 
@@ -17,7 +16,7 @@ function AgoraPopup() {
     title: '',
     writerId: 2,
     content: '',
-    teamId: '',
+    teamId: 1,
     tags: '',
   });
 
