@@ -52,12 +52,6 @@ function AgoraPopup() {
     });
   };
 
-  const handleNavLinkCLick = () => {
-    setTimeout(() => {
-      window.location.replace('/agora1');
-    }, 2000);
-  };
-
   return (
     <div>
       <button
@@ -121,7 +115,6 @@ function AgoraPopup() {
           <div className='flex space-x-2'>
             <NavLink
               to='/agora'
-              onClick={handleNavLinkCLick}
               className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               생성하기
