@@ -48,7 +48,7 @@ function TaskPopup() {
       contributePoint: data.contributePoint,
       category: data.category,
     };
-    axios.post('tasks', taskData).then((response) => {
+    axios.post('tasks/1', taskData).then((response) => {
       console.log(response.status, response.data);
       window.location.replace('/Task');
     });

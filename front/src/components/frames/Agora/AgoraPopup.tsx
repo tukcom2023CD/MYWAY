@@ -77,42 +77,42 @@ function AgoraPopup() {
           className='border flex flex-col justify-center items-center m-auto bg-white w-[700px] h-[600px] rounded-[15px]'
         >
           <label
-            htmlFor='summary'
+            htmlFor='title'
             className='mb-4 w-[600px] font-bold text-[20px]'
           >
             제목
             <input
               className='text-[20px] w-[600px] border-b-2'
-              name='summary'
-              type='summary'
+              name='title'
+              type='title'
               value={data.title}
               onChange={handleChange}
               placeholder='제목을 입력해주세요.'
             />
           </label>
           <label
-            htmlFor='description'
+            htmlFor='tags'
             className='mb-4 w-[600px] font-bold text-[20px]'
           >
             카테고리
             <input
               className='text-[20px] w-[600px] border-b-2'
-              name='description'
-              type='description'
+              name='tags'
+              type='tags'
               value={data.tags}
               onChange={handleChange}
               placeholder='카테고리를 입력해주세요.'
             />
           </label>
           <label
-            htmlFor='category'
+            htmlFor='content'
             className='mb-4 w-[600px] font-bold text-[20px]'
           >
             내용
             <input
               className='text-[20px] w-[600px] h-[200px] border-b-2'
-              name='category'
-              type='category'
+              name='content'
+              type='content'
               value={data.content}
               onChange={handleChange}
               placeholder='질문내용을 입력해주세요.'
