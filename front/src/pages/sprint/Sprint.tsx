@@ -3,6 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import moveImg from '../../images/login.png';
 import Menu from '../../components/frames/Side/Sidebar';
+import MiniChart from '../../images/minichart.png';
 
 interface Leader {
   id: number;
@@ -59,7 +60,14 @@ function Sprint() {
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
                   key={sprintData.id}
                 >
-                  스프린트{sprintData.round}
+                  스프린트{sprintData.round}(10days) |{' '}
+                  {sprintData.project.startAt}~{sprintData.project.endAt} |{' '}
+                  <img
+                    className='w-[15px] h-[15px]'
+                    alt='MiniChart'
+                    src={MiniChart}
+                  />
+                  | 100%
                   <NavLink
                     className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
                     style={({ isActive }) => (isActive ? activeStyle : {})}

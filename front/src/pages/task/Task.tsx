@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { DragDropContext } from 'react-beautiful-dnd';
 import Menu from '../../components/frames/Side/Sidebar';
 import TaskPopup from '../../components/Popup/TaskPopup';
 import Dropdown from '../../components/frames/DropDown';
+import DragDrop from './DragDrop';
 
 interface TaskData {
   id: number;
@@ -36,6 +38,7 @@ function Task() {
           <p className='text-white text-md font-bold'>테스크 리스트</p>
           <TaskPopup />
         </div>
+        <DragDrop />
         <ul className='grid grid-cols-3 gap-4 p-5 mb-[50px] w-[950px] h-[650px] bg-white overflow-auto'>
           {taskData
             ? taskData.map((taskData) => (
