@@ -58,12 +58,6 @@ function TaskPopup() {
     });
   };
 
-  const handleNavLinkCLick = () => {
-    setTimeout(() => {
-      window.location.replace('/task1');
-    }, 3000);
-  };
-
   return (
     <div>
       <button
@@ -140,8 +134,7 @@ function TaskPopup() {
           </label>
           <div className='flex space-x-2'>
             <NavLink
-              to='/task'
-              onClick={handleNavLinkCLick}
+              to='/Task'
               className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               생성하기
