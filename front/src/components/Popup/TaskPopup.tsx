@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 interface Task {
@@ -133,12 +132,12 @@ function TaskPopup() {
             />
           </label>
           <div className='flex space-x-2'>
-            <NavLink
-              to='/Task'
+            <button
+              type='submit'
               className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
             >
               생성하기
-            </NavLink>
+            </button>
             <button
               type='button'
               onClick={closeModal}

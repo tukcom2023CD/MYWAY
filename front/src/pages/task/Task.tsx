@@ -46,7 +46,7 @@ function Task() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<TaskData[]>('tasks/1');
+        const response = await axios.get<TaskData[]>('tasks');
         setTaskData(response.data);
         console.log(response.data, response.status);
       } catch (error) {
