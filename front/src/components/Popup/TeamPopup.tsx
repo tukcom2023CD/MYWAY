@@ -47,7 +47,7 @@ function TeamPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[35px] rounded-[10px] bg-[#0182CA] font-bold text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[35px] rounded-[10px] bg-[#4A4A4A] font-bold text-white'
         onClick={openModal}
       >
         + 프로젝트 생성

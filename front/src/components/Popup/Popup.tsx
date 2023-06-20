@@ -50,7 +50,7 @@ function Popup({
           }
         }}
       />
-      <div className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#404040]'>
+      <div className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#4A4A4A]'>
         <div>
           <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[10px]'>
             <p className='font-bold text-[25px] p-7'>팀 생성</p>

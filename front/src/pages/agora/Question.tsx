@@ -3,7 +3,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 import moveImg from '../../images/login.png';
 import Menu from '../../components/frames/Side/Sidebar';
-import ProjectPopup from '../../components/Popup/ProjectPopup';
+import AgoraPopup from '../../components/frames/Agora/AgoraPopup';
 
 interface Manager {
   id: number;
@@ -27,7 +27,7 @@ interface ProjectData {
   team: Team;
 }
 
-function Project() {
+function Agora() {
   const [projectData, setProjectData] = useState<ProjectData[]>();
 
   useEffect(() => {
@@ -52,20 +52,21 @@ function Project() {
       <Menu />
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[10px] border'>
         <div className='flex justify-between items-center w-full p-5 h-[50px] bg-[#6A6A6A]'>
-          <p className='text-white text-md font-bold'>프로젝트 리스트</p>
-          <ProjectPopup />
+          <p className='text-white text-md font-bold'>Agora 게시판</p>
+          <AgoraPopup />
         </div>
         <div className='border mt-8'>
-          <ul className='p-5 w-[950px] h-[650px] overflow-auto'>
+          {' '}
+          <ul className='p-5 space-y-3 mb-[50px] w-[950px] h-[650px] overflow-auto'>
             {projectData
               ? projectData.map((projectData) => (
                   <li
-                    className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
+                    className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white'
                     key={projectData.id}
                   >
                     {projectData.name}
                     <NavLink
-                      className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
+                      className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
                       style={({ isActive }) => (isActive ? activeStyle : {})}
                       to='/sprint'
                     >
@@ -85,4 +86,4 @@ function Project() {
   );
 }
 
-export default Project;
+export default Agora;

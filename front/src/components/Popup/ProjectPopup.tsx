@@ -77,7 +77,7 @@ function ProjectPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
         onClick={openModal}
       >
         프로젝트 생성하기

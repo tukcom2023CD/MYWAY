@@ -3,26 +3,22 @@ import Modal from 'react-modal';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
-interface Task {
-  summary: string;
-  description: string;
-  contributePoint: string;
-  category: string;
-  sprintId: string;
-  playerId: string;
-  reviewerId: string;
+interface Agora {
+  title: string;
+  writerId: number;
+  content: string;
+  teamId: string;
+  tags: string;
 }
 
 function AgoraPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [data, setData] = useState<Task>({
-    summary: '',
-    description: '',
-    contributePoint: '',
-    category: '',
-    sprintId: '',
-    playerId: '',
-    reviewerId: '',
+  const [data, setData] = useState<Agora>({
+    title: '',
+    writerId: 2,
+    content: '',
+    teamId: '',
+    tags: '',
   });
 
   function openModal() {
@@ -43,18 +39,16 @@ function AgoraPopup() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const taskData = {
-      summary: data.summary,
-      description: data.description,
-      contributePoint: data.contributePoint,
-      category: data.category,
-      sprintId: 1,
-      playerId: 2,
-      reviewerId: 3,
+    const agoraData = {
+      title: data.title,
+      writerId: data.writerId,
+      content: data.content,
+      teamId: data.teamId,
+      tags: data.tags,
     };
-    axios.post('tasks', taskData).then((response) => {
+    axios.post('questions', agoraData).then((response) => {
       console.log(response.status, response.data);
-      window.location.replace('/Task1');
+      window.location.replace('/Agora');
     });
   };
 
@@ -68,7 +62,7 @@ function AgoraPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
         onClick={openModal}
       >
         질문하기
@@ -80,7 +74,7 @@ function AgoraPopup() {
       >
         <form
           onSubmit={handleSubmit}
-          className='border flex flex-col justify-center items-center m-auto bg-white w-[700px] h-[600px] rounded-[30px]'
+          className='border flex flex-col justify-center items-center m-auto bg-white w-[700px] h-[600px] rounded-[15px]'
         >
           <label
             htmlFor='summary'
@@ -91,7 +85,7 @@ function AgoraPopup() {
               className='text-[20px] w-[600px] border-b-2'
               name='summary'
               type='summary'
-              value={data.summary}
+              value={data.title}
               onChange={handleChange}
               placeholder='제목을 입력해주세요.'
             />
@@ -105,7 +99,7 @@ function AgoraPopup() {
               className='text-[20px] w-[600px] border-b-2'
               name='description'
               type='description'
-              value={data.description}
+              value={data.tags}
               onChange={handleChange}
               placeholder='카테고리를 입력해주세요.'
             />
@@ -119,7 +113,7 @@ function AgoraPopup() {
               className='text-[20px] w-[600px] h-[200px] border-b-2'
               name='category'
               type='category'
-              value={data.category}
+              value={data.content}
               onChange={handleChange}
               placeholder='질문내용을 입력해주세요.'
             />

@@ -69,7 +69,7 @@ function Sprint() {
                   />
                   | 100%
                   <NavLink
-                    className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
+                    className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
                     style={({ isActive }) => (isActive ? activeStyle : {})}
                     to='/task'
                   >
