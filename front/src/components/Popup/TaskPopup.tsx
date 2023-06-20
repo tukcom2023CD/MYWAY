@@ -48,7 +48,7 @@ function TaskPopup() {
       contributePoint: data.contributePoint,
       category: data.category,
     };
-    axios.post('tasks/1', taskData).then((response) => {
+    axios.post('tasks', taskData).then((response) => {
       console.log(response.status, response.data);
       window.location.replace('/Task');
     });
@@ -131,14 +131,14 @@ function TaskPopup() {
           <div className='flex space-x-2'>
             <button
               type='submit'
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
             >
               생성하기
             </button>
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
             >
               닫기
             </button>

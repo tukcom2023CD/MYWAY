@@ -74,14 +74,14 @@ function Popup({
               <button
                 type='button'
                 onClick={() => handleSubmit}
-                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
               >
                 생성하기
               </button>
               <button
                 type='button'
                 onClick={onClosePopup}
-                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
               >
                 닫기
               </button>
