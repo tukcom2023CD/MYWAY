@@ -7,7 +7,7 @@ interface Agora {
   writerId: number;
   content: string;
   teamId: number;
-  tags: string;
+  tags: string[];
 }
 
 function AgoraPopup() {
@@ -17,7 +17,7 @@ function AgoraPopup() {
     writerId: 2,
     content: '',
     teamId: 1,
-    tags: '',
+    tags: [],
   });
 
   function openModal() {
