@@ -4,7 +4,9 @@ import axios from 'axios';
 
 interface Agora {
   title: string;
+  writerId: number;
   content: string;
+  teamId: number;
   tags: string[];
 }
 
@@ -12,7 +14,9 @@ function AgoraPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [data, setData] = useState<Agora>({
     title: '',
+    writerId: 2,
     content: '',
+    teamId: 2,
     tags: [],
   });
 

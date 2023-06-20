@@ -7,6 +7,9 @@ interface Task {
   description: string;
   contributePoint: string;
   category: string;
+  sprintId: number;
+  playerId: number;
+  reviewerId: number;
 }
 
 function TaskPopup() {
@@ -16,6 +19,9 @@ function TaskPopup() {
     description: '',
     contributePoint: '',
     category: '',
+    sprintId: 5,
+    playerId: 5,
+    reviewerId: 5,
   });
 
   function openModal() {
