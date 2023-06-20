@@ -4,9 +4,7 @@ import axios from 'axios';
 
 interface Agora {
   title: string;
-  writerId: number;
   content: string;
-  teamId: number;
   tags: string[];
 }
 
@@ -14,9 +12,7 @@ function AgoraPopup() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [data, setData] = useState<Agora>({
     title: '',
-    writerId: 2,
     content: '',
-    teamId: 1,
     tags: [],
   });
 
@@ -40,9 +36,7 @@ function AgoraPopup() {
     e.preventDefault();
     const agoraData = {
       title: data.title,
-      writerId: data.writerId,
       content: data.content,
-      teamId: data.teamId,
       tags: data.tags,
     };
     axios.post('questions', agoraData).then((response) => {
