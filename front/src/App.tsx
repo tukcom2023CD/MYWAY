@@ -14,7 +14,6 @@ import Agora from './pages/agora/Agora';
 import Question from './pages/agora/Question';
 import Question1 from './pages/agora/Question1';
 import Question2 from './pages/agora/Question2';
-import Analysis from './pages/anaylsis/Analysis';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
@@ -42,8 +41,6 @@ function App() {
         <Route path='/Question' element={<Question />} />
         <Route path='/Question1' element={<Question1 />} />
         <Route path='/Question2' element={<Question2 />} />
-        {/** 분석 페이지 */}
-        <Route path='/Analysis' element={<Analysis />} />
       </Routes>
     </BrowserRouter>
   );
