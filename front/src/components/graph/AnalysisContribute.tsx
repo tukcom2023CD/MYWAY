@@ -36,9 +36,9 @@ const data = [
   },
 ];
 
-function ProjectContribution() {
+function AnaylsisContribute() {
   return (
-    <div className='flex flex-col bg-white w-[500px] h-[400px] border'>
+    <div className='flex flex-col bg-white w-[1000px] h-[400px] border'>
       <div className='flex justify-between items-center p-5 h-[50px] bg-[#6A6A6A]'>
         <p className='text-white text-md font-bold'>프로젝트 기여도</p>
         <img
@@ -47,7 +47,7 @@ function ProjectContribution() {
           src={refresh}
         />
       </div>
-      <div className='flex m-auto w-[500px] h-[500px]'>
+      <div className='flex m-auto w-[1000px] h-[500px]'>
         {' '}
         {/* 부모 요소의 크기 조정 */}
         <div className='m-auto w-[500px] h-[300px]'>
@@ -67,9 +67,16 @@ function ProjectContribution() {
             </RadarChart>
           </ResponsiveContainer>
         </div>
+        <div className='flex flex-col justify-center items-start space-y-2 w-[400px] p-2 m-auto'>
+          <p>개발 : 630P</p>
+          <p>기획 : 300P</p>
+          <p>위기 대처 : 30P</p>
+          <p>커뮤니케이션 : 330P</p>
+          <p>리팩터링 : 240P</p>
+        </div>
       </div>
     </div>
   );
 }
 
-export default ProjectContribution;
+export default AnaylsisContribute;

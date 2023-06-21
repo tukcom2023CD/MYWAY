@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import { PieChart, Pie, Cell } from 'recharts';
+import { PieChart, Pie, Cell, Label } from 'recharts';
 import refresh from '../../images/refresh.png';
 
 const data = [
@@ -39,11 +39,20 @@ function ProjectProgress() {
                   fill={colors[index % colors.length]}
                 />
               ))}
+              <Label
+                value={`${data[0].value}%`}
+                position='top'
+                fill='#fff'
+                fontSize={18}
+                fontWeight='bold'
+              />
             </Pie>
           </PieChart>
-          <div className='flex flex-col w-[220px] h-[200px'>
-            <div className='flex justify-center items-center m-auto text-[30px] font-bold mb-[10px]'>
-              80%
+          <div className='flex flex-col w-[220px]'>
+            <div className='flex flex-col justify-center items-center m-auto text-[30px] font-bold mb-[10px] space-y-3'>
+              <p className='text-[18px]'>프로젝트명 : 졸업작품</p>
+              <p>진행률 : 80%</p>
+              <p className='text-sm'>2023-03-02~2023-06-28</p>
             </div>
           </div>
         </div>
