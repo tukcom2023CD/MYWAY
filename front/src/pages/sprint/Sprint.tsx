@@ -62,10 +62,14 @@ function Sprint() {
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
                   key={sprintData.id}
                 >
-                  스프린트{sprintData.round}(10days) | {sprintData.startDate}~
-                  {sprintData.endDate} |{' '}
+                  <div className='mr-5'>스프린트{sprintData.round}(10days)</div>
+                  |{' '}
+                  <div className='mr-5 ml-5'>
+                    {sprintData.startDate}~{sprintData.endDate}
+                  </div>{' '}
+                  |
                   <img
-                    className='w-[15px] h-[15px]'
+                    className='w-[15px] h-[15px] mr-5'
                     alt='MiniChart'
                     src={MiniChart}
                   />{' '}
@@ -76,7 +80,7 @@ function Sprint() {
                     to='/task'
                   >
                     <img
-                      className='w-[24px] h-[24px]'
+                      className='w-[24px] h-[24px] ml-5'
                       alt='agoraIcon'
                       src={moveImg}
                     />
@@ -84,6 +88,27 @@ function Sprint() {
                 </li>
               ))
             : null}
+          <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'>
+            <div className='mr-5'>스프린트12(10days)</div> |
+            <div className='mr-5 ml-5'>2023-06-19~2023-06-28 </div>|
+            <img
+              className='w-[15px] h-[15px] ml-5'
+              alt='MiniChart'
+              src={MiniChart}
+            />{' '}
+            67%
+            <NavLink
+              className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
+              style={({ isActive }) => (isActive ? activeStyle : {})}
+              to='/task'
+            >
+              <img
+                className='w-[24px] h-[24px]'
+                alt='agoraIcon'
+                src={moveImg}
+              />
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
