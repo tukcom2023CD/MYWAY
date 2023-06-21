@@ -1,57 +1,50 @@
-import React, { useState } from 'react';
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  DropResult,
-} from 'react-beautiful-dnd';
+import React from 'react';
+import { Draggable, DraggableProvided } from 'react-beautiful-dnd';
 
-const DragAndDrop = () => {
-  const [items, setItems] = useState([
-    { id: '1', content: '아이템 1' },
-    { id: '2', content: '아이템 2' },
-    { id: '3', content: '아이템 3' },
-  ]);
+interface Group {
+  id: string;
+  name: string;
+  items: {
+    id: string;
+    content: string;
+    name: string;
+    category: string;
+  }[];
+}
 
-  const onDragEnd = (result: DropResult) => {
-    if (!result.destination) return;
-
-    const newItems = Array.from(items);
-    const [reorderedItem] = newItems.splice(result.source.index, 1);
-    newItems.splice(result.destination.index, 0, reorderedItem);
-
-    setItems(newItems);
+interface DragDropProps {
+  group: Group;
+  items: {
+    id: string;
+    content: string;
+    name: string;
+    category: string;
+  }[];
+  provided: DraggableProvided;
+  item: {
+    id: string;
+    content: string;
+    name: string;
+    category: string;
   };
+}
 
-  return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId='items'>
-        {(provided) => (
-          <ul
-            {...provided.droppableProps}
-            ref={provided.innerRef}
-            className='space-y-2'
-          >
-            {items.map((item, index) => (
-              <Draggable key={item.id} draggableId={item.id} index={index}>
-                {(provided) => (
-                  <li
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    ref={provided.innerRef}
-                    className='bg-gray-200 p-2'
-                  >
-                    {item.content}
-                  </li>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </ul>
-        )}
-      </Droppable>
-    </DragDropContext>
-  );
-};
+const DragDrop: React.FC<DragDropProps> = ({
+  group,
+  items,
+  provided,
+  item,
+}) => (
+  <div
+    className='flex flex-col p-5 w-full h-[300px] rounded-[15px] mb-3 border'
+    ref={provided.innerRef}
+    {...provided.draggableProps}
+    {...provided.dragHandleProps}
+  >
+    {item.content}
+    {item.name}
+    {item.category}
+  </div>
+);
 
-export default DragAndDrop;
+export default DragDrop;
