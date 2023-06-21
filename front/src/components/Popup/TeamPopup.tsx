@@ -47,7 +47,7 @@ function TeamPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[35px] rounded-[10px] bg-[#0182CA] font-bold text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[35px] rounded-[10px] bg-[#4A4A4A] font-bold text-white'
         onClick={openModal}
       >
         + 프로젝트 생성
@@ -92,14 +92,14 @@ function TeamPopup() {
           <div className='flex space-x-2'>
             <button
               type='submit'
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#4A4A4A] text-white text-[12px]'
             >
               생성하기
             </button>
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#0075FF] text-white text-[12px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[30px] bg-[#4A4A4A] text-white text-[12px]'
             >
               닫기
             </button>

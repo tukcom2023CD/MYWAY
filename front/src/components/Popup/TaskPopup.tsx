@@ -7,9 +7,9 @@ interface Task {
   description: string;
   contributePoint: string;
   category: string;
-  sprintId: string;
-  playerId: string;
-  reviewerId: string;
+  sprintId: number;
+  playerId: number;
+  reviewerId: number;
 }
 
 function TaskPopup() {
@@ -19,9 +19,9 @@ function TaskPopup() {
     description: '',
     contributePoint: '',
     category: '',
-    sprintId: '',
-    playerId: '',
-    reviewerId: '',
+    sprintId: 5,
+    playerId: 5,
+    reviewerId: 5,
   });
 
   function openModal() {
@@ -58,7 +58,7 @@ function TaskPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
         onClick={openModal}
       >
         테스크 생성하기
@@ -131,14 +131,14 @@ function TaskPopup() {
           <div className='flex space-x-2'>
             <button
               type='submit'
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
             >
               생성하기
             </button>
             <button
               type='button'
               onClick={closeModal}
-              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+              className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
             >
               닫기
             </button>

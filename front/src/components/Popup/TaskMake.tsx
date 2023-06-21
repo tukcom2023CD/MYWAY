@@ -68,7 +68,7 @@ function TaskPopup() {
     <div>
       <button
         type='button'
-        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[999px] bg-[#1AAAFB] text-white'
+        className='flex justify-center items-center ml-auto w-[150px] h-[40px] rounded-[999px] bg-[#4A4A4A] text-white'
         onClick={openModal}
       >
         테스크 생성하기

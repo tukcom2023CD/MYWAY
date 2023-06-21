@@ -11,7 +11,7 @@ function TeamListBox() {
         <p className='font-bold text-[24px]'>진행중인 프로젝트</p>
         <TeamPopup />
       </div>
-      <div className='border flex flex-col mb-5 w-[500px] h-[500px] rounded-[30px] shadow-md overflow-y-auto'>
+      <div className='border flex flex-col mb-5 w-[500px] h-[500px] rounded-[15px] shadow-md overflow-y-auto'>
         <Teams />
       </div>
     </div>

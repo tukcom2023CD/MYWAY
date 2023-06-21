@@ -50,7 +50,7 @@ function Popup({
           }
         }}
       />
-      <div className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#404040]'>
+      <div className='w-[100vw] h-[100vh] flex justify-center items-center fixed bg-[#4A4A4A]'>
         <div>
           <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[10px]'>
             <p className='font-bold text-[25px] p-7'>팀 생성</p>
@@ -74,14 +74,14 @@ function Popup({
               <button
                 type='button'
                 onClick={() => handleSubmit}
-                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
               >
                 생성하기
               </button>
               <button
                 type='button'
                 onClick={onClosePopup}
-                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#0075FF] text-white text-[15px]'
+                className='flex justify-center items-center w-[100px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white text-[15px]'
               >
                 닫기
               </button>
