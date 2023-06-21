@@ -9,7 +9,9 @@ function Profile() {
         alt='ProfileImg'
         src={ProfileImg}
       />
-      <div className='flex justify-center items-center m-auto ml-1'>닉네임</div>
+      <div className='flex justify-center items-center m-auto ml-1 text-white'>
+        sample
+      </div>
     </div>
   );
 }

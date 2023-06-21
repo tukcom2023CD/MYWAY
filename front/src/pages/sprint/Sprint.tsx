@@ -24,6 +24,8 @@ interface SprintData {
   round: number;
   leader: Leader;
   project: Project;
+  startAt: string;
+  endAt: string;
 }
 
 function Sprint() {
@@ -60,8 +62,8 @@ function Sprint() {
                   className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'
                   key={sprintData.id}
                 >
-                  스프린트{sprintData.round}(10days) |{' '}
-                  {sprintData.project.startAt}~{sprintData.project.endAt} |{' '}
+                  스프린트{sprintData.round}(10days) | {sprintData.startAt}~
+                  {sprintData.endAt} |{' '}
                   <img
                     className='w-[15px] h-[15px]'
                     alt='MiniChart'
