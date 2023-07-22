@@ -126,7 +126,7 @@ function Question1() {
                 alt='agoraIcon'
                 src={profileImg}
               />
-              답변자
+              권순호
             </div>
             <p className='flex bg-white p-2 mt-2 w-full h-full overflow-auto rounded-[15px] text-[15px]'>
               테스트 결과에는 이상이 없는데, contributePoint의 타입을 number로
