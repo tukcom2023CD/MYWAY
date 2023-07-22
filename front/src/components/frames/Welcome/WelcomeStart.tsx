@@ -1,7 +1,7 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import monitortest from '../../../images/monitortest.png';
-import demoStart from '../../../images/demoStart.png';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import monitor from "../../../images/monitor.png";
+import Start from "../../../images/start.png";
 
 function WelcomeStart() {
   return (
@@ -9,11 +9,11 @@ function WelcomeStart() {
       <div className='flex flex-col justify-center items-center m-auto w-[50vw] h-[92vh]'>
         <div className='justify-start'>
           <p className='text-[30px] mb-10 font-bold whitespace-pre-line'>
-            기존의 성과 관리 제도를 대신 할{'\n'}애자일 성과분석 시스템
+            기존의 성과 관리 제도를 대신 할{"\n"}애자일 성과분석 시스템
           </p>
           <p className='text-[18px] mb-10 whitespace-pre-line'>
-            이슈 해결에 따른 기여 점수 부여를 통한{'\n'}개인 성과 정량화 및
-            모니터링 기능을 제공합니다.{'\n'}이를 통해 신뢰도 높은 인적
+            이슈 해결에 따른 기여 점수 부여를 통한{"\n"}개인 성과 정량화 및
+            모니터링 기능을 제공합니다.{"\n"}이를 통해 신뢰도 높은 인적
             의사결정을 할 수 있습니다.
           </p>
           <NavLink
@@ -26,14 +26,14 @@ function WelcomeStart() {
       </div>
       <div className='flex flex-col justify-end items-center m-auto w-[50vw] h-[92vh] relative'>
         <img
-          className='absolute w-[646px] h-[512px] z-10'
+          className='absolute w-[646px] h-[612px] z-10'
           alt='welcometest'
-          src={monitortest}
+          src={monitor}
         />
         <img
-          className='absolute w-[586px] h-[332px] z-20 mb-[150px]'
-          alt='demoStart'
-          src={demoStart}
+          className='absolute w-[600px] h-[352px] z-20 mb-[175px]'
+          alt='Start'
+          src={Start}
         />
       </div>
     </div>
