@@ -1,36 +1,36 @@
-import React from 'react';
+import React from "react";
 import {
   Radar,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
   ResponsiveContainer,
-} from 'recharts';
-import refresh from '../../images/refresh.png';
+} from "recharts";
+import refresh from "../../images/refresh.png";
 
 const data = [
   {
-    subject: '커뮤니케이션',
+    subject: "커뮤니케이션",
     A: 330,
     fullMark: 700,
   },
   {
-    subject: '위기 대처',
+    subject: "위기 대처",
     A: 30,
     fullMark: 700,
   },
   {
-    subject: '개발',
+    subject: "개발",
     A: 630,
     fullMark: 700,
   },
   {
-    subject: '리팩터링',
+    subject: "리팩터링",
     A: 240,
     fullMark: 700,
   },
   {
-    subject: '기획',
+    subject: "기획",
     A: 300,
     fullMark: 700,
   },
@@ -48,10 +48,10 @@ function ProjectContribution() {
         />
       </div>
       <div className='flex m-auto w-[500px] h-[500px]'>
-        {' '}
+        {" "}
         {/* 부모 요소의 크기 조정 */}
         <div className='m-auto w-[500px] h-[300px]'>
-          {' '}
+          {" "}
           {/* RadarChart 영역 */}
           <ResponsiveContainer width='100%' height='100%'>
             <RadarChart cx='50%' cy='50%' outerRadius='80%' data={data}>

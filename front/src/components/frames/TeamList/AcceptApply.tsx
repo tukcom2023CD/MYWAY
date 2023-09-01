@@ -1,6 +1,6 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import Modal from "react-modal";
 
 interface List {
   id: number;
@@ -20,7 +20,7 @@ function InviteApprove() {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [accept, setAccept] = useState<List[]>([]);
   const [acceptApply, setAcceptApply] = useState<PostAcceptApply>({
-    rank: '',
+    rank: "",
   });
 
   function openModal() {
@@ -41,7 +41,7 @@ function InviteApprove() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post('staffs/1/accept-apply', acceptApply);
+      const response = await axios.post("staffs/1/accept-apply", acceptApply);
       console.log(response.data);
     } catch (error) {
       console.error(error);
@@ -65,12 +65,12 @@ function InviteApprove() {
         <div className='border flex flex-col justify-center items-center m-auto bg-white w-[480px] h-[600px] rounded-[40px]'>
           <form
             onSubmit={handleSubmit}
-            className='mb-4 w-[430px] font-bold text-[20px]'
+            className='mb-4 w-[430px] font-bold text-[10px]'
           >
             승인 대기 목록
             <ul>
               {accept.map((list) => (
-                <li className='text-[20px] w-[430px] border-2' key={list.id}>
+                <li className='text-[10px] w-[430px] border-2' key={list.id}>
                   {list.rank}
                   <button
                     type='submit'
