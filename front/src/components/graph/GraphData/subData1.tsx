@@ -1,27 +1,27 @@
 const subData1 = [
   {
     subject: "커뮤니케이션",
-    A: 330,
+    A: 230,
     fullMark: 700,
   },
   {
     subject: "위기 대처",
-    A: 30,
+    A: 100,
     fullMark: 700,
   },
   {
     subject: "개발",
-    A: 630,
+    A: 690,
     fullMark: 700,
   },
   {
     subject: "리팩터링",
-    A: 240,
+    A: 150,
     fullMark: 700,
   },
   {
     subject: "기획",
-    A: 300,
+    A: 500,
     fullMark: 700,
   },
 ];
