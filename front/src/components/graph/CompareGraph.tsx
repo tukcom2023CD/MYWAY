@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-restricted-syntax */
@@ -19,6 +20,7 @@ type AverageData = {
     main: number;
     sub1: number;
     sub2: number;
+    average: number;
   };
 };
 
@@ -26,39 +28,25 @@ function calculateSubjectAverage(
   datasets: { subject: string; A: number; fullMark: number }[][],
   subject: string
 ) {
-  const sum = { main: 0, sub1: 0, sub2: 0 };
-  const count = { main: 0, sub1: 0, sub2: 0 };
+  let sum = 0;
+  let count = 0;
 
-  // Main data
-  const foundSubjectMain = datasets[0].find((item) => item.subject === subject);
-  if (foundSubjectMain) {
-    sum.main += foundSubjectMain.A;
-    count.main++;
+  for (const dataset of datasets) {
+    const foundSubject = dataset.find(
+      (item: { subject: any }) => item.subject === subject
+    );
+    if (foundSubject) {
+      sum += foundSubject.A;
+      count++;
+    }
   }
 
-  // Sub data 1
-  const foundSubjectSub1 = datasets[1].find((item) => item.subject === subject);
-  if (foundSubjectSub1) {
-    sum.sub1 += foundSubjectSub1.A;
-    count.sub1++;
-  }
-
-  // Sub data 2
-  const foundSubjectSub2 = datasets[2].find((item) => item.subject === subject);
-  if (foundSubjectSub2) {
-    sum.sub2 += foundSubjectSub2.A;
-    count.sub2++;
-  }
-
-  return {
-    main: count.main === 0 ? 0 : sum.main / count.main,
-    sub1: count.sub1 === 0 ? 0 : sum.sub1 / count.sub1,
-    sub2: count.sub2 === 0 ? 0 : sum.sub2 / count.sub2,
-  };
+  return count === 0 ? 0 : sum / count;
 }
 
 function CompareGraph() {
   const [averages, setAverages] = useState<AverageData>({});
+  const [chartData, setChartData] = useState<any[]>([]);
 
   useEffect(() => {
     const newAverages: AverageData = {};
@@ -67,61 +55,98 @@ function CompareGraph() {
         [mainData, subData1, subData2],
         item.subject
       );
-      newAverages[item.subject] = average;
+      newAverages[item.subject] = {
+        main: calculateSubjectAverage([mainData], item.subject),
+        sub1: calculateSubjectAverage([subData1], item.subject),
+        sub2: calculateSubjectAverage([subData2], item.subject),
+        average,
+      };
     }
     setAverages(newAverages);
+
+    const calculatedChartData = mainData.map((data) => ({
+      ...data,
+      average: newAverages[data.subject]?.average || 0,
+    }));
+    setChartData(calculatedChartData);
   }, []);
 
+  const getWarningMessage = () => {
+    const subjectsBelowAverage = Object.keys(averages).filter(
+      (subject) => averages[subject]?.main < averages[subject]?.average
+    );
+
+    if (subjectsBelowAverage.length === 0) return null;
+
+    const subjectsList = subjectsBelowAverage.join(", ");
+    return `해당 부분에 대한 보완이 필요\n -> ${subjectsList}`;
+  };
+
   return (
-    <div className='flex flex-col bg-white w-[500px] h-[400px] border'>
+    <div className='flex flex-col mt-[20px] bg-white w-[1000px] h-[400px] border'>
       <div className='flex justify-between items-center p-5 h-[50px] bg-[#6A6A6A]'>
-        <p className='text-white text-md font-bold'>기여도 비교분석</p>
+        <p className='text-white text-md font-bold'>프로젝트 기여도</p>
         <img
           className='w-[24px] h-[24px] bg-[#EAEAEA] rounded-[5px]'
           alt='refresh'
           src={refresh}
         />
       </div>
-      <div className='flex m-auto w-[500px] h-[500px]'>
-        {/* 부모 요소의 크기 조정 */}
-        <div className='m-auto w-[500px] h-[300px]'>
-          {/* RadarChart 영역 */}
+      <div className='flex justify-evenly itmes-center m-auto w-[1000px] h-[500px]'>
+        <div className='flex flex-col justify-center items-center w-[500px] h-[300px] m-auto'>
           <ResponsiveContainer width='100%' height='100%'>
-            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={mainData}>
+            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={chartData}>
               <PolarGrid />
               <PolarAngleAxis dataKey='subject' />
               <Radar
-                name='Mike'
+                name='Main'
                 dataKey='A'
                 stroke='#8884d8'
                 fill='#8884d8'
                 fillOpacity={0.6}
               />
+              <Radar
+                name='Average'
+                dataKey='average'
+                stroke='#82ca9d'
+                fill='#82ca9d'
+                fillOpacity={0.6}
+              />
             </RadarChart>
           </ResponsiveContainer>
-          <div className='text-center mt-4'>
-            <p>평균 기여도 (Subject-wise)</p>
-            {Object.keys(averages).map((subject) => (
-              <div key={subject}>
-                <p>{subject}</p>
-                <p>Main: {averages[subject]?.main.toFixed(2)}</p>
-                <p>Sub1: {averages[subject]?.sub1.toFixed(2)}</p>
-                <p>Sub2: {averages[subject]?.sub2.toFixed(2)}</p>
-
-                {/* MainData와 비교 로직 */}
-                <p>
-                  MainData 비교 결과:{" "}
-                  {averages[subject]?.main >
-                  Math.max(averages[subject]?.sub1, averages[subject]?.sub2)
-                    ? "가장 높음"
-                    : averages[subject]?.main <
-                      Math.min(averages[subject]?.sub1, averages[subject]?.sub2)
-                    ? "가장 낮음"
-                    : "중간"}
-                </p>
-              </div>
-            ))}
+          <div className='text-center flex justify-center'>
+            <div className='flex items-center'>
+              <div className='w-4 h-4 bg-[#8884d8] inline-block mr-2' />
+              <span>내 기여도</span>
+            </div>
+            <div className='flex items-center ml-4'>
+              <div className='w-4 h-4 bg-[#82ca9d] inline-block mr-2' />
+              <span>평균</span>
+            </div>
           </div>
+        </div>
+        <div className='flex flex-col justify-center items-start space-y-2 w-[400px] p-2 m-auto'>
+          <p>평균 기여도</p>
+          {Object.keys(averages).map((subject) => (
+            <div key={subject}>
+              <p>
+                {subject}
+                {` : `}
+                {averages[subject]?.main > averages[subject]?.average
+                  ? `평균보다 ${(
+                      averages[subject]?.main - averages[subject]?.average
+                    ).toFixed(0)}P 높음`
+                  : `평균보다 ${(
+                      averages[subject]?.average - averages[subject]?.main
+                    ).toFixed(0)}P 낮음`}
+              </p>
+            </div>
+          ))}
+          {getWarningMessage() && (
+            <p className='text-red-500' style={{ whiteSpace: "pre-line" }}>
+              {getWarningMessage()}
+            </p>
+          )}
         </div>
       </div>
     </div>

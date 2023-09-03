@@ -10,17 +10,6 @@ import {
 import refresh from "../../images/refresh.png";
 import mainData from "../graph/GraphData/mainData";
 
-function calculateAverage(dataset: string | any[], key: string | number) {
-  if (dataset.length === 0) return 0;
-
-  let sum = 0;
-  for (const data of dataset) {
-    sum += data[key];
-  }
-
-  return sum / dataset.length;
-}
-
 function ProjectContribution() {
   return (
     <div className='flex flex-col bg-white w-[500px] h-[400px] border'>

@@ -1,40 +1,13 @@
-import React from 'react';
+import React from "react";
 import {
   Radar,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
   ResponsiveContainer,
-} from 'recharts';
-import refresh from '../../images/refresh.png';
-
-const data = [
-  {
-    subject: '커뮤니케이션',
-    A: 330,
-    fullMark: 700,
-  },
-  {
-    subject: '위기 대처',
-    A: 30,
-    fullMark: 700,
-  },
-  {
-    subject: '개발',
-    A: 630,
-    fullMark: 700,
-  },
-  {
-    subject: '리팩터링',
-    A: 240,
-    fullMark: 700,
-  },
-  {
-    subject: '기획',
-    A: 300,
-    fullMark: 700,
-  },
-];
+} from "recharts";
+import refresh from "../../images/refresh.png";
+import mainData from "./GraphData/mainData";
 
 function AnaylsisContribute() {
   return (
@@ -48,13 +21,9 @@ function AnaylsisContribute() {
         />
       </div>
       <div className='flex m-auto w-[1000px] h-[500px]'>
-        {' '}
-        {/* 부모 요소의 크기 조정 */}
         <div className='m-auto w-[500px] h-[300px]'>
-          {' '}
-          {/* RadarChart 영역 */}
           <ResponsiveContainer width='100%' height='100%'>
-            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={data}>
+            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={mainData}>
               <PolarGrid />
               <PolarAngleAxis dataKey='subject' />
               <Radar
@@ -68,11 +37,11 @@ function AnaylsisContribute() {
           </ResponsiveContainer>
         </div>
         <div className='flex flex-col justify-center items-start space-y-2 w-[400px] p-2 m-auto'>
-          <p>개발 : 630P</p>
-          <p>기획 : 300P</p>
-          <p>위기 대처 : 30P</p>
-          <p>커뮤니케이션 : 330P</p>
-          <p>리팩터링 : 240P</p>
+          {mainData.map((item) => (
+            <p key={item.subject}>
+              {item.subject} : {item.A}P
+            </p>
+          ))}
         </div>
       </div>
     </div>
