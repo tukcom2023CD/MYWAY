@@ -1,7 +1,14 @@
-import React, { createContext, useState, useContext, useMemo } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useContext,
+  useMemo,
+} from "react";
 
 type User = {
   token: string;
+  nickname: string;
 };
 
 type UserContextType = [
@@ -11,7 +18,7 @@ type UserContextType = [
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export const useUser = () => {
+export const useUser = (): UserContextType => {
   const context = useContext(UserContext);
   if (!context) {
     throw new Error("useUser must be used within a UserProvider");
@@ -23,6 +30,16 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const isLoginSuccessful = true;
+
+    if (isLoginSuccessful) {
+      const token = "some_token";
+      const nickname = "최정훈";
+      setUser({ token, nickname });
+    }
+  }, []);
 
   const value = useMemo(() => [user, setUser] as UserContextType, [user]);
 
