@@ -1,7 +1,10 @@
-import React from 'react';
-import ProfileImg from '../../../images/members.png';
+import React from "react";
+import ProfileImg from "../../../images/members.png";
+import { useUser } from "../token/UserContext";
 
 function Profile() {
+  const [user] = useUser();
+
   return (
     <div className='flex justify-center items-center mr-auto w-[150px] h-[50px] rounded-[30px]'>
       <img
@@ -10,7 +13,7 @@ function Profile() {
         src={ProfileImg}
       />
       <div className='flex justify-center items-center m-auto ml-1 text-white'>
-        sample
+        {user ? user.nickname : "Guest"}
       </div>
     </div>
   );

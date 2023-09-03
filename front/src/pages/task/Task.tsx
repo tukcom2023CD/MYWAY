@@ -1,61 +1,60 @@
-import React, { useState } from 'react';
-import Menu from '../../components/frames/Side/Sidebar';
-import TaskPopup from '../../components/Popup/TaskPopup';
+import React, { useState } from "react";
+import Menu from "../../components/frames/Side/Sidebar";
+import TaskPopup from "../../components/Popup/TaskPopup";
 
 function Task() {
   const [groups, setGroups] = useState([
-    // 그룹과 아이템 데이터 초기화
     {
-      id: 'group-1',
-      name: '할 일',
+      id: "group-1",
+      name: "할 일",
       items: [
         {
-          id: 'item-1',
-          content: '다른 팀원이 생성한 프로젝트에 지원하는 기능',
-          name: '팀 지원 기능',
-          category: '개발',
+          id: "item-1",
+          content: "다른 팀원이 생성한 프로젝트에 지원하는 기능",
+          name: "팀 지원 기능",
+          category: "개발",
         },
       ],
     },
     {
-      id: 'group-2',
-      name: '진행중',
+      id: "group-2",
+      name: "진행중",
       items: [
         {
-          id: 'item-4',
-          content: '최종 데모 체크',
-          name: '최종 데모',
-          category: '개발, 커뮤니케이션',
+          id: "item-4",
+          content: "최종 데모 체크",
+          name: "최종 데모",
+          category: "개발, 커뮤니케이션",
         },
       ],
     },
     {
-      id: 'group-3',
-      name: '완료',
+      id: "group-3",
+      name: "완료",
       items: [
         {
-          id: 'item-6',
-          content: '아고라 질문 생성 기능',
-          name: 'Agora 질문',
-          category: '개발',
+          id: "item-6",
+          content: "아고라 질문 생성 기능",
+          name: "Agora 질문",
+          category: "개발",
         },
         {
-          id: 'item-7',
-          content: '아고라 답변 기능',
-          name: 'Agora 답변',
-          category: '개발',
+          id: "item-7",
+          content: "아고라 답변 기능",
+          name: "Agora 답변",
+          category: "개발",
         },
         {
-          id: 'item-8',
-          content: 'task page refactory',
-          name: 'task page',
-          category: '리팩토링',
+          id: "item-8",
+          content: "task page refactory",
+          name: "task page",
+          category: "리팩토링",
         },
         {
-          id: 'item-9',
-          content: 'pivot table 비교 기능',
-          name: 'pivot table 비교',
-          category: '개발',
+          id: "item-9",
+          content: "pivot table 비교 기능",
+          name: "pivot table 비교",
+          category: "개발",
         },
       ],
     },
@@ -66,8 +65,8 @@ function Task() {
     groupId: string,
     itemId: string
   ) => {
-    event.dataTransfer.setData('groupId', groupId);
-    event.dataTransfer.setData('itemId', itemId);
+    event.dataTransfer.setData("groupId", groupId);
+    event.dataTransfer.setData("itemId", itemId);
   };
 
   const onDragOver = (event: { preventDefault: () => void }) => {
@@ -78,8 +77,8 @@ function Task() {
     event: React.DragEvent<HTMLDivElement>,
     destinationGroupId: string
   ) => {
-    const groupId = event.dataTransfer.getData('groupId');
-    const itemId = event.dataTransfer.getData('itemId');
+    const groupId = event.dataTransfer.getData("groupId");
+    const itemId = event.dataTransfer.getData("itemId");
 
     const updatedGroups = groups.map((group) => {
       if (group.id === groupId) {
@@ -108,11 +107,11 @@ function Task() {
 
   const onDragEnter = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    event.currentTarget.classList.add('drag-over');
+    event.currentTarget.classList.add("drag-over");
   };
 
   const onDragLeave = (event: React.DragEvent<HTMLDivElement>) => {
-    event.currentTarget.classList.remove('drag-over');
+    event.currentTarget.classList.remove("drag-over");
   };
 
   return (
@@ -133,7 +132,7 @@ function Task() {
             >
               <div
                 className='flex text-xl font-bold border p-2 mb-3 w-full bg-white'
-                style={{ position: 'sticky', top: 0, zIndex: 999 }}
+                style={{ position: "sticky", top: 0, zIndex: 999 }}
               >
                 {group.name}
               </div>

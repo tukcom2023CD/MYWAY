@@ -1,14 +1,11 @@
 /* eslint-disable react/no-array-index-key */
-import React from 'react';
-import { PieChart, Pie, Cell, Label } from 'recharts';
-import refresh from '../../images/refresh.png';
+import React from "react";
+import { PieChart, Pie, Cell, Label } from "recharts";
+import refresh from "../../images/refresh.png";
 
-const data = [
-  { name: 'clear', value: 80 },
-  { name: 'rest', value: 20 },
-];
+const data = [{ name: "clear", value: 100 }];
 
-const colors = ['#0088FE', '#d4d4d4'];
+const colors = ["#0088FE", "#d4d4d4"];
 
 function ProjectProgress() {
   return (
@@ -51,7 +48,7 @@ function ProjectProgress() {
           <div className='flex flex-col w-[220px]'>
             <div className='flex flex-col justify-center items-center m-auto text-[30px] font-bold mb-[10px] space-y-3'>
               <p className='text-[18px]'>프로젝트명 : 졸업작품</p>
-              <p>진행률 : 80%</p>
+              <p>진행률 : 100%</p>
               <p className='text-sm'>2023-03-02~2023-06-28</p>
             </div>
           </div>

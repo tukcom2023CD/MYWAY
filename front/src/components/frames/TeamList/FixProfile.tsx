@@ -1,15 +1,9 @@
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import { useCookie } from '../Cookie/useCookie';
-import rightArrow from '../../../images/rightarrow.png';
+import React, { useState } from "react";
+import Modal from "react-modal";
+import rightArrow from "../../../images/rightarrow.png";
 
 function FixProfile() {
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [name, setName] = useCookie('name', '');
-
-  function handleNameChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setName(e.target.value);
-  }
 
   function openModal() {
     setIsOpen(true);
@@ -42,12 +36,10 @@ function FixProfile() {
             <input
               className='text-[20px] w-[430px] border-b-2'
               type='text'
-              value={name}
-              onChange={handleNameChange}
               placeholder='닉네임을 입력해주세요.'
             />
           </label>
-          <p className='text-[20px] w-[430px] border-b-2'>{name}</p>
+
           <div className='flex space-x-2'>
             <button
               type='submit'

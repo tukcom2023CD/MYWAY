@@ -1,8 +1,9 @@
-import React from 'react';
-import Menu from '../../components/frames/Side/Sidebar';
-import ProjectProgress from '../../components/main/ProjectProgress';
-import AnalysisContribute from '../../components/graph/AnalysisContribute';
-import profileImg from '../../images/members.png';
+import React from "react";
+import Menu from "../../components/frames/Side/Sidebar";
+import ProjectProgress from "../../components/main/ProjectProgress";
+import AnalysisContribute from "../../components/graph/AnalysisContribute";
+import CompareGraph from "../../components/graph/CompareGraph";
+import profileImg from "../../images/members.png";
 
 function Graph() {
   return (
@@ -11,7 +12,7 @@ function Graph() {
       <div className='flex flex-col justfiy-center items-center m-auto w-[1024px] h-[800px] bg-white rounded-[10px] border overflow-y-auto'>
         <div
           className='flex justify-between items-center w-full p-5 h-[50px] bg-[#6A6A6A]'
-          style={{ position: 'sticky', top: 0, zIndex: 999 }}
+          style={{ position: "sticky", top: 0, zIndex: 999 }}
         >
           <p className='text-white text-md font-bold'>프로젝트</p>
         </div>
@@ -40,6 +41,7 @@ function Graph() {
           <ProjectProgress />
         </div>
         <AnalysisContribute />
+        <CompareGraph />
       </div>
     </div>
   );
