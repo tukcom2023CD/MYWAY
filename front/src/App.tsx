@@ -20,12 +20,12 @@ axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
 
 function AppRoutes() {
-  // useUser 훅을 통해 현재 로그인한 사용자 정보를 가져옵니다.
   const [user] = useUser();
 
   if (user) {
     return (
       <Routes>
+        <Route path='/' element={<Navigate to='/TeamList' />} />
         <Route path='/TeamList' element={<TeamList />} />
         <Route path='/DashBoard' element={<DashBoard />} />
         <Route path='/Project' element={<Project />} />
