@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import axios from "axios";
-import { UserProvider } from "./components/frames/token/UserContext";
+import { UserProvider, useUser } from "./components/frames/token/UserContext";
 import WelcomePage from "./pages/main/WelcomePage";
 import TeamList from "./pages/main/TeamList";
 import DashBoard from "./pages/main/DashBoard";
@@ -18,32 +18,42 @@ import Question2 from "./pages/agora/Question2";
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
+
+function AppRoutes() {
+  const [user] = useUser();
+
+  if (user) {
+    return (
+      <Routes>
+        <Route path='/' element={<Navigate to='/TeamList' />} />
+        <Route path='/TeamList' element={<TeamList />} />
+        <Route path='/DashBoard' element={<DashBoard />} />
+        <Route path='/Project' element={<Project />} />
+        <Route path='/Sprint' element={<Sprint />} />
+        <Route path='/Task' element={<Task />} />
+        <Route path='/Members' element={<Members />} />
+        <Route path='/Graph' element={<Graph />} />
+        <Route path='/Agora' element={<Agora />} />
+        <Route path='/Question' element={<Question />} />
+        <Route path='/Question1' element={<Question1 />} />
+        <Route path='/Question2' element={<Question2 />} />
+      </Routes>
+    );
+  }
+  return (
+    <Routes>
+      <Route path='/' element={<WelcomePage />} />
+      <Route path='/Login' element={<Login />} />
+      <Route path='*' element={<Navigate to='/' />} />
+    </Routes>
+  );
+}
+
 function App() {
   return (
     <UserProvider>
       <BrowserRouter>
-        <Routes>
-          {/** 메인 페이지 및 로그인 페이지 */}
-          <Route path='/' element={<WelcomePage />} />
-          <Route path='/TeamList' element={<TeamList />} />
-          <Route path='/DashBoard' element={<DashBoard />} />
-          <Route path='/Login' element={<Login />} />
-          {/** 프로젝트 페이지 */}
-          <Route path='/Project' element={<Project />} />
-          {/** 스프린트 페이지 */}
-          <Route path='/Sprint' element={<Sprint />} />
-          {/** 테스크 페이지 */}
-          <Route path='/Task' element={<Task />} />
-          {/** 멤버 페이지 */}
-          <Route path='/Members' element={<Members />} />
-          {/** 성과분석 결과 페이지 */}
-          <Route path='/Graph' element={<Graph />} />
-          {/** 아고라 페이지 */}
-          <Route path='/Agora' element={<Agora />} />
-          <Route path='/Question' element={<Question />} />
-          <Route path='/Question1' element={<Question1 />} />
-          <Route path='/Question2' element={<Question2 />} />
-        </Routes>
+        <AppRoutes />
       </BrowserRouter>
     </UserProvider>
   );
