@@ -9,10 +9,12 @@ function TeamList() {
 
     if (isLoginSuccessful) {
       const newNickname = "최정훈";
-      setNickname(newNickname);
     }
-    console.log(setNickname);
   }, []);
+
+  useEffect(() => {
+    console.log("Changed nickname: ", nickname);
+  }, [nickname]);
 
   return (
     <div className='flex flex-col justify-center items-center m-auto w-[100vw] h-[100vh]'>
