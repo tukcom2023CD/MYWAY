@@ -7,9 +7,9 @@ function TeamList() {
 
   useEffect(() => {
     if (user) {
-      console.log("Changed nickname: ", user.nickname);
+      console.log("Changed nickname:", user.nickname);
     }
-  }, [user]);
+  }, [user?.nickname]);
 
   return (
     <div className='flex flex-col justify-center items-center m-auto w-[100vw] h-[100vh]'>
