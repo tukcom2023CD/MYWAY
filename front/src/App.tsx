@@ -1,7 +1,7 @@
 import React from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import axios from "axios";
-import { UserProvider, useUser } from "./components/frames/token/UserContext";
+import { UserProvider } from "./components/frames/token/UserContext";
 import WelcomePage from "./pages/main/WelcomePage";
 import TeamList from "./pages/main/TeamList";
 import DashBoard from "./pages/main/DashBoard";
@@ -20,32 +20,21 @@ axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
 
 function AppRoutes() {
-  const [user] = useUser();
-
   return (
     <Routes>
       <Route path='/Login' element={<Login />} />
-      {user && (
-        <>
-          <Route path='/TeamList' element={<TeamList />} />
-          <Route path='/DashBoard' element={<DashBoard />} />
-          <Route path='/Project' element={<Project />} />
-          <Route path='/Sprint' element={<Sprint />} />
-          <Route path='/Task' element={<Task />} />
-          <Route path='/Members' element={<Members />} />
-          <Route path='/Graph' element={<Graph />} />
-          <Route path='/Agora' element={<Agora />} />
-          <Route path='/Question' element={<Question />} />
-          <Route path='/Question1' element={<Question1 />} />
-          <Route path='/Question2' element={<Question2 />} />
-        </>
-      )}
-      {!user && (
-        <>
-          <Route path='/' element={<WelcomePage />} />
-          <Route path='*' element={<Navigate to='/' />} />
-        </>
-      )}
+      <Route path='/TeamList' element={<TeamList />} />
+      <Route path='/DashBoard' element={<DashBoard />} />
+      <Route path='/Project' element={<Project />} />
+      <Route path='/Sprint' element={<Sprint />} />
+      <Route path='/Task' element={<Task />} />
+      <Route path='/Members' element={<Members />} />
+      <Route path='/Graph' element={<Graph />} />
+      <Route path='/Agora' element={<Agora />} />
+      <Route path='/Question' element={<Question />} />
+      <Route path='/Question1' element={<Question1 />} />
+      <Route path='/Question2' element={<Question2 />} />
+      <Route path='/' element={<WelcomePage />} />
     </Routes>
   );
 }

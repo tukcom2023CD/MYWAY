@@ -45,20 +45,24 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
 
     if (token) {
       const storedNickname = localStorage.getItem("nickname");
+      const isNewUser = localStorage.getItem("isNewUser") === "true";
+
       if (storedNickname) {
-        setUser({ token, nickname: storedNickname, isNewUser: false });
+        setUser({ token, nickname: storedNickname, isNewUser });
       } else {
         setIsOpen(true);
         setUser({ token, nickname: "Guest", isNewUser: true });
+        localStorage.setItem("isNewUser", "true");
       }
     }
   }, []);
 
   const setNicknameAndHidePopup = (nickname: string) => {
     if (user) {
-      setUser({ ...user, nickname });
+      setUser({ ...user, nickname, isNewUser: false });
     }
     localStorage.setItem("nickname", nickname);
+    localStorage.setItem("isNewUser", "false");
     setIsOpen(false);
   };
 
