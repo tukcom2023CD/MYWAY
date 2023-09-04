@@ -19,42 +19,25 @@ import Question2 from "./pages/agora/Question2";
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 axios.defaults.withCredentials = true;
 
-function AppRoutes() {
-  const [user] = useUser();
-
-  if (user) {
-    return (
-      <Routes>
-        <Route path='/TeamList' element={<TeamList />} />
-        <Route path='/DashBoard' element={<DashBoard />} />
-        <Route path='/Project' element={<Project />} />
-        <Route path='/Sprint' element={<Sprint />} />
-        <Route path='/Task' element={<Task />} />
-        <Route path='/Members' element={<Members />} />
-        <Route path='/Graph' element={<Graph />} />
-        <Route path='/Agora' element={<Agora />} />
-        <Route path='/Question' element={<Question />} />
-        <Route path='/Question1' element={<Question1 />} />
-        <Route path='/Question2' element={<Question2 />} />
-        <Route path='/*' element={<Navigate to='/TeamList' />} />
-      </Routes>
-    );
-  }
-
-  return (
-    <Routes>
-      <Route path='/' element={<WelcomePage />} />
-      <Route path='/Login' element={<Login />} />
-      <Route path='/*' element={<Navigate to='/' />} />
-    </Routes>
-  );
-}
-
 function App() {
   return (
     <UserProvider>
       <BrowserRouter>
-        <AppRoutes />
+        <Routes>
+          <Route path='/' element={<WelcomePage />} />
+          <Route path='/Login' element={<Login />} />
+          <Route path='/TeamList' element={<TeamList />} />
+          <Route path='/DashBoard' element={<DashBoard />} />
+          <Route path='/Project' element={<Project />} />
+          <Route path='/Sprint' element={<Sprint />} />
+          <Route path='/Task' element={<Task />} />
+          <Route path='/Members' element={<Members />} />
+          <Route path='/Graph' element={<Graph />} />
+          <Route path='/Agora' element={<Agora />} />
+          <Route path='/Question' element={<Question />} />
+          <Route path='/Question1' element={<Question1 />} />
+          <Route path='/Question2' element={<Question2 />} />
+        </Routes>
       </BrowserRouter>
     </UserProvider>
   );

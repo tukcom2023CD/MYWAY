@@ -36,8 +36,10 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
 
   useEffect(() => {
-    console.log("Login successful: ", isLoginSuccessful);
-    console.log("Current user: ", user);
+    const loginSuccess = () => {
+      console.log("Logging in...");
+      setIsLoginSuccessful(true);
+    };
     if (isLoginSuccessful) {
       const token = "some_token";
       const storedNickname = localStorage.getItem("nickname");
@@ -49,7 +51,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
         setUser({ token, nickname: "Guest", isNewUser: true });
       }
     }
-  }, [isLoginSuccessful, user]);
+  }, [isLoginSuccessful]);
 
   const setNicknameAndHidePopup = (nickname: string) => {
     if (user) {
