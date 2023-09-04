@@ -33,13 +33,18 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [user, setUser] = useState<User | null>(null);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [isLoginSuccessful, setIsLoginSuccessful] = useState(true);
 
   useEffect(() => {
-    if (isLoginSuccessful) {
-      const token = "some_token";
-      const storedNickname = localStorage.getItem("nickname");
+    const fetchTokenFromCookie = () => {
+      const cookies = document.cookie.split("; ");
+      const tokenCookie = cookies.find((cookie) => cookie.startsWith("token="));
+      return tokenCookie ? tokenCookie.split("=")[1] : null;
+    };
 
+    const token = fetchTokenFromCookie();
+
+    if (token) {
+      const storedNickname = localStorage.getItem("nickname");
       if (storedNickname) {
         setUser({ token, nickname: storedNickname, isNewUser: false });
       } else {
@@ -47,7 +52,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
         setUser({ token, nickname: "Guest", isNewUser: true });
       }
     }
-  }, [isLoginSuccessful]);
+  }, []);
 
   const setNicknameAndHidePopup = (nickname: string) => {
     if (user) {
