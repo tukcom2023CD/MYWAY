@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { NavLink } from 'react-router-dom';
-import moveImg from '../../images/login.png';
-import Menu from '../../components/frames/Side/Sidebar';
-import MiniChart from '../../images/minichart.png';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
+import moveImg from "../../images/login.png";
+import Menu from "../../components/frames/Side/Sidebar";
+import MiniChart from "../../images/minichart.png";
 
 interface Leader {
   id: number;
@@ -34,7 +34,7 @@ function Sprint() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<SprintData[]>('sprints?project-id=3');
+        const response = await axios.get<SprintData[]>("sprints?project-id=3");
         setSprintData(response.data);
         console.log(response.data, response.status);
       } catch (error) {
@@ -45,7 +45,7 @@ function Sprint() {
   }, []);
 
   const activeStyle = {
-    background: '#D8F1FF',
+    background: "#D8F1FF",
   };
 
   return (
@@ -63,16 +63,16 @@ function Sprint() {
                   key={sprintData.id}
                 >
                   <div className='mr-5'>스프린트{sprintData.round}(10days)</div>
-                  |{' '}
+                  |{" "}
                   <div className='mr-5 ml-5'>
                     {sprintData.startDate}~{sprintData.endDate}
-                  </div>{' '}
+                  </div>{" "}
                   |
                   <img
                     className='w-[15px] h-[15px] mr-5'
                     alt='MiniChart'
                     src={MiniChart}
-                  />{' '}
+                  />{" "}
                   100%
                   <NavLink
                     className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
@@ -89,14 +89,14 @@ function Sprint() {
               ))
             : null}
           <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border p-2'>
-            <div className='mr-5'>스프린트12(10days)</div> |
-            <div className='mr-5 ml-5'>2023-06-19~2023-06-28 </div>|
+            <div className='mr-5'>예시 스프린트(10days)</div> |
+            <div className='mr-5 ml-5'>2023-09-01~2023-09-07 </div>|
             <img
               className='w-[15px] h-[15px] ml-5'
               alt='MiniChart'
               src={MiniChart}
-            />{' '}
-            67%
+            />{" "}
+            50%
             <NavLink
               className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
               style={({ isActive }) => (isActive ? activeStyle : {})}

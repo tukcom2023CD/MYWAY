@@ -1,7 +1,6 @@
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable no-nested-ternary */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-restricted-syntax */
+/* eslint-disable no-unsafe-optional-chaining */
 import React, { useState, useEffect } from "react";
 import {
   Radar,
@@ -10,6 +9,7 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+import { useUser } from "../frames/token/UserContext";
 import refresh from "../../images/refresh.png";
 import mainData from "./GraphData/mainData";
 import subData1 from "./GraphData/subData1";
@@ -48,15 +48,20 @@ function CompareGraph() {
   const [averages, setAverages] = useState<AverageData>({});
   const [chartData, setChartData] = useState<any[]>([]);
 
+  const [user] = useUser();
+  const currentNickname = user ? user.nickname : "Guest";
+
   useEffect(() => {
+    const activeData = currentNickname === "최정훈" ? mainData : subData1;
+
     const newAverages: AverageData = {};
-    for (const item of mainData) {
+    for (const item of activeData) {
       const average = calculateSubjectAverage(
         [mainData, subData1, subData2],
         item.subject
       );
       newAverages[item.subject] = {
-        main: calculateSubjectAverage([mainData], item.subject),
+        main: calculateSubjectAverage([activeData], item.subject),
         sub1: calculateSubjectAverage([subData1], item.subject),
         sub2: calculateSubjectAverage([subData2], item.subject),
         average,
@@ -64,12 +69,12 @@ function CompareGraph() {
     }
     setAverages(newAverages);
 
-    const calculatedChartData = mainData.map((data) => ({
+    const calculatedChartData = activeData.map((data) => ({
       ...data,
       average: newAverages[data.subject]?.average || 0,
     }));
     setChartData(calculatedChartData);
-  }, []);
+  }, [currentNickname]);
 
   const getWarningMessage = () => {
     const subjectsBelowAverage = Object.keys(averages).filter(
