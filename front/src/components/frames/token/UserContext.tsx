@@ -33,13 +33,9 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [user, setUser] = useState<User | null>(null);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
+  const [isLoginSuccessful, setIsLoginSuccessful] = useState(true);
 
   useEffect(() => {
-    const loginSuccess = () => {
-      console.log("Logging in...");
-      setIsLoginSuccessful(true);
-    };
     if (isLoginSuccessful) {
       const token = "some_token";
       const storedNickname = localStorage.getItem("nickname");
