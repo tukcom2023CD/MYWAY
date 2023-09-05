@@ -105,7 +105,7 @@ const eventStyleGetter = (
 
 const DailyCalendar: React.FC = () => {
   const [currentMonth, setCurrentMonth] = useState<Date>(
-    moment().subtract(1, "months").toDate() // 이전 달로 설정
+    moment().subtract(0, "months").toDate()
   );
 
   const handleNavigate = (date: Date) => {

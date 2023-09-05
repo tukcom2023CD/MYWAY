@@ -6,10 +6,17 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+import { useUser } from "../frames/token/UserContext";
 import refresh from "../../images/refresh.png";
 import mainData from "./GraphData/mainData";
+import subData1 from "./GraphData/subData1";
 
 function AnaylsisContribute() {
+  const [user] = useUser();
+  const currentNickname = user ? user.nickname : "Guest";
+
+  const activeData = currentNickname === "최정훈" ? mainData : subData1;
+
   return (
     <div className='flex flex-col bg-white w-[1000px] h-[400px] border'>
       <div className='flex justify-between items-center p-5 h-[50px] bg-[#6A6A6A]'>
@@ -23,7 +30,7 @@ function AnaylsisContribute() {
       <div className='flex m-auto w-[1000px] h-[500px]'>
         <div className='m-auto w-[500px] h-[300px]'>
           <ResponsiveContainer width='100%' height='100%'>
-            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={mainData}>
+            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={activeData}>
               <PolarGrid />
               <PolarAngleAxis dataKey='subject' />
               <Radar
@@ -37,7 +44,7 @@ function AnaylsisContribute() {
           </ResponsiveContainer>
         </div>
         <div className='flex flex-col justify-center items-start space-y-2 w-[400px] p-2 m-auto'>
-          {mainData.map((item) => (
+          {activeData.map((item) => (
             <p key={item.subject}>
               {item.subject} : {item.A}P
             </p>

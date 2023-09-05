@@ -1,19 +1,29 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Profile from './Profile';
-import LogoWhite from '../Header/LogoWhite';
-import FixProfile from '../TeamList/FixProfile';
-import menu from '../../../images/menu.png';
-import dashboard from '../../../images/dashboard.png';
-import project from '../../../images/project.png';
-import agora from '../../../images/dailyscrum.png';
-import anaylsis from '../../../images/graph.png';
-import logout from '../../../images/login.png';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import Profile from "./Profile";
+import LogoWhite from "../Header/LogoWhite";
+import FixProfile from "../TeamList/FixProfile";
+import menu from "../../../images/menu.png";
+import dashboard from "../../../images/dashboard.png";
+import project from "../../../images/project.png";
+import agora from "../../../images/dailyscrum.png";
+import anaylsis from "../../../images/graph.png";
+import logout from "../../../images/login.png";
 
 function Sidebar() {
+  const navigate = useNavigate();
+
   const activeStyle = {
-    background: '#6A6A6A',
-    color: '#4DBFFF',
+    background: "#6A6A6A",
+    color: "#4DBFFF",
+  };
+
+  const handleLogout = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    localStorage.removeItem("nickname");
+    navigate("/Login");
   };
 
   return (
@@ -93,7 +103,10 @@ function Sidebar() {
             </ul>
           </div>
         </div>
-        <div className='flex justify-center items-center bg-gray-300 w-[240px] h-[50px] mt-auto mb-[100px] text-[20px]'>
+        <div
+          className='flex justify-center items-center bg-gray-300 w-[240px] h-[50px] mt-auto mb-[100px] text-[20px]'
+          onClick={handleLogout}
+        >
           Logout
           <img
             className='w-[24px] h-[24px] ml-2'
