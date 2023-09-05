@@ -49,7 +49,7 @@ function CompareGraph() {
   const [chartData, setChartData] = useState<any[]>([]);
 
   const [user] = useUser();
-  const currentNickname = user ? user.nickname : "Guest";
+  const currentNickname = user ? user.nickname : "최정훈";
 
   useEffect(() => {
     const activeData = currentNickname === "최정훈" ? mainData : subData1;

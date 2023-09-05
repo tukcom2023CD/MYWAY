@@ -13,7 +13,7 @@ import subData1 from "./GraphData/subData1";
 
 function AnaylsisContribute() {
   const [user] = useUser();
-  const currentNickname = user ? user.nickname : "Guest";
+  const currentNickname = user ? user.nickname : "최정훈";
 
   const activeData = currentNickname === "최정훈" ? mainData : subData1;
 

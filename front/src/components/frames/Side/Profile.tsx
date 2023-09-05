@@ -13,7 +13,7 @@ function Profile() {
         src={ProfileImg}
       />
       <div className='flex justify-center items-center m-auto ml-1 text-white'>
-        {user ? user.nickname : "Guest"}
+        {user ? user.nickname : "최정훈"}
       </div>
     </div>
   );
