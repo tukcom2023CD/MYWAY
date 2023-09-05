@@ -21,6 +21,27 @@ type UserContextType = [
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
+interface Member {
+  id: number;
+  name: string;
+}
+
+interface Team {
+  id: number;
+  name: string;
+  industryGroup: string;
+}
+
+interface TeamData {
+  id: number;
+  rank: string;
+  isAcceptMember: boolean;
+  isAcceptTeam: boolean;
+  nickname: string;
+  member: Member;
+  team: Team;
+}
+
 export const useUser = (): UserContextType => {
   const context = useContext(UserContext);
   if (!context) {
@@ -33,7 +54,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [teamData, setTeamData] = useState(null);
+  const [teamData, setTeamData] = useState<TeamData[]>();
   const navigate = useNavigate();
 
   useEffect(() => {
