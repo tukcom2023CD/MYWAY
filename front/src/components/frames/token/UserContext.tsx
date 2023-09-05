@@ -6,6 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 type User = {
   token: string;
@@ -32,6 +33,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
+  const [teamData, setTeamData] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,18 +43,27 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
       return tokenCookie ? tokenCookie.split("=")[1] : null;
     };
 
+    const fetchTeamData = async () => {
+      try {
+        const response = await axios.get("staffs/myteam");
+        setTeamData(response.data);
+        if (response.data && response.data[0]?.nickname === "sample") {
+          navigate("/ChangeNickname");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     const token = fetchTokenFromCookie();
-    console.log("Token: ", token);
     const storedNickname = localStorage.getItem("nickname");
-    console.log("Stored Nickname: ", storedNickname);
 
     if (token) {
       if (storedNickname) {
         setUser({ token, nickname: storedNickname, isNewUser: false });
       } else {
-        console.log("Redirecting to /ChangeNickname");
         setUser({ token, nickname: "Guest", isNewUser: true });
-        navigate("/ChangeNickname");
+        fetchTeamData();
       }
     }
   }, [navigate]);
