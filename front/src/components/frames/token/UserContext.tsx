@@ -42,16 +42,13 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
     };
 
     const token = fetchTokenFromCookie();
+    const storedNickname = localStorage.getItem("nickname");
 
     if (token) {
-      const storedNickname = localStorage.getItem("nickname");
-      const isNewUser = localStorage.getItem("isNewUser") === "true";
-
       if (storedNickname) {
-        setUser({ token, nickname: storedNickname, isNewUser });
+        setUser({ token, nickname: storedNickname, isNewUser: false });
       } else {
         setUser({ token, nickname: "Guest", isNewUser: true });
-        localStorage.setItem("isNewUser", "true");
         navigate("/ChangeNickname");
       }
     }
