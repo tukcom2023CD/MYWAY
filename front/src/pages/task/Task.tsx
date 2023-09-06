@@ -17,14 +17,14 @@ function Task() {
           content: "최종 데모 영상 제출 14일까지",
           name: "최종 데모 영상 제출",
           category: "개발",
-          owner: "최정훈",
+          owner: "권순호",
         },
         {
           id: "item-2",
           content: "5차 발표 피드백 내용 수정",
           name: "5차 발표 피드백",
           category: "개발",
-          owner: "최정훈",
+          owner: "권순호",
         },
       ],
     },
@@ -37,14 +37,14 @@ function Task() {
           content: "5차 발표 데모",
           name: "5차 발표",
           category: "커뮤니케이션",
-          owner: "최정훈",
+          owner: "권순호",
         },
         {
           id: "item-6",
           content: "관리자 등급 이상만 수정 가능",
           name: "관리자 전용",
           category: "커뮤니케이션",
-          owner: "권순호",
+          owner: "최정훈",
         },
       ],
     },
@@ -57,14 +57,14 @@ function Task() {
           content: "5차 발표에 사용할 데모 기능 구현",
           name: "데모 기능 구현",
           category: "개발",
-          owner: "최정훈",
+          owner: "권순호",
         },
         {
           id: "item-5",
           content: "프론트 코드 리팩토링",
           name: "코드 리팩토링",
           category: "리팩토링",
-          owner: "최정훈",
+          owner: "권순호",
         },
       ],
     },
@@ -93,7 +93,7 @@ function Task() {
     itemId: string,
     itemOwner: string
   ) => {
-    if (currentNickname !== "최정훈" || currentNickname === itemOwner) {
+    if (currentNickname !== "권순호" || currentNickname === itemOwner) {
       if (groupId && itemId) {
         event.dataTransfer.setData("groupId", groupId);
         event.dataTransfer.setData("itemId", itemId);
