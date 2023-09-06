@@ -17,24 +17,39 @@ function Graph() {
           <p className='text-white text-md font-bold'>프로젝트</p>
         </div>
         <div className='flex mt-5 mb-3'>
-          <div className='flex flex-col justify-start items-start p-3 w-[300px] mr-[50px]'>
-            <p className='font-bold text-lg'>프로젝트 마스터</p>
-            <div className='flex justify-center items-start space-x-5'>
-              <div className='flex p-2 bg-[#d4d4d4] rounded-[20px]'>
-                <img
-                  className='w-[24px] h-[24px] mr-3 border-black border-2 rounded-full'
-                  alt='profileImg'
-                  src={profileImg}
-                />
-                sample
+          <div className='flex flex-col'>
+            <div className='flex flex-col justify-start items-start p-3 w-[300px] mr-[50px]'>
+              <p className='font-bold text-lg'>프로젝트 마스터</p>
+              <div className='flex justify-center items-start space-x-5 mt-2'>
+                <div className='flex p-2 bg-[#d4d4d4] rounded-[20px]'>
+                  <img
+                    className='w-[24px] h-[24px] mr-3 border-black border-2 rounded-full'
+                    alt='profileImg'
+                    src={profileImg}
+                  />
+                  최정훈
+                </div>
               </div>
-              <div className='flex p-2 bg-[#d4d4d4] rounded-[20px]'>
-                <img
-                  className='w-[24px] h-[24px] mr-3 border-black border-2 rounded-full'
-                  alt='profileImg'
-                  src={profileImg}
-                />
-                3명
+            </div>
+            <div className='flex flex-col justify-start items-start p-3 w-[300px] mr-[50px]'>
+              <p className='font-bold text-lg'>프로젝트 팀원</p>
+              <div className='flex flex-col justify-center items-start space-y-3 mt-2'>
+                <div className='flex  p-2 bg-[#d4d4d4] rounded-[20px]'>
+                  <img
+                    className='w-[24px] h-[24px] mr-3 border-black border-2 rounded-full'
+                    alt='profileImg'
+                    src={profileImg}
+                  />
+                  권순호
+                </div>
+                <div className='flex p-2 bg-[#d4d4d4] rounded-[20px]'>
+                  <img
+                    className='w-[24px] h-[24px] mr-3 border-black border-2 rounded-full'
+                    alt='profileImg'
+                    src={profileImg}
+                  />
+                  박현준
+                </div>
               </div>
             </div>
           </div>

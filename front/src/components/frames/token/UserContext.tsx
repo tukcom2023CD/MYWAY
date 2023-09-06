@@ -5,7 +5,6 @@ import React, {
   useContext,
   useMemo,
 } from "react";
-import { useNavigate } from "react-router-dom";
 
 type User = {
   token: string | null;
@@ -32,7 +31,6 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTokenFromCookie = () => {
@@ -47,7 +45,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
     if (storedNickname) {
       setUser({ token, nickname: storedNickname, isNewUser: false });
     }
-  }, [navigate]);
+  }, []);
 
   const value = useMemo(() => [user, setUser] as UserContextType, [user]);
 

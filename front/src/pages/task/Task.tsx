@@ -5,7 +5,7 @@ import TaskPopup from "../../components/Popup/TaskPopup";
 
 function Task() {
   const [user] = useUser();
-  const currentNickname = user ? user.nickname : "최정훈";
+  const currentNickname = user ? user.nickname : "권순호";
 
   const initialGroups = [
     {
