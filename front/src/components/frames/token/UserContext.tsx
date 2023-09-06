@@ -46,9 +46,6 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
 
     if (storedNickname) {
       setUser({ token, nickname: storedNickname, isNewUser: false });
-    } else if (token) {
-      setUser({ token, nickname: "Guest", isNewUser: true });
-      navigate("/ChangeNickname");
     }
   }, [navigate]);
 
