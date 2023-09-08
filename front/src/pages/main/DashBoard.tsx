@@ -1,9 +1,9 @@
-import React from 'react';
-import Menu from '../../components/frames/Side/Sidebar';
-import Calendar from '../../components/main/DailyCalendar';
-import CheckListBox from '../../components/main/CheckListBox';
-import Progress from '../../components/main/ProjectProgress';
-import Contribution from '../../components/main/ProjectContribution';
+import React from "react";
+import Menu from "../../components/frames/Side/Sidebar";
+import Calendar from "../../components/main/DailyCalendar";
+import CheckListBox from "../../components/main/CheckListBox";
+import Progress from "../../components/main/ProjectProgress";
+import Contribution from "../../components/main/ProjectContribution";
 
 function MainPage() {
   return (

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { NavLink } from 'react-router-dom';
-import moveImg from '../../images/login.png';
-import Menu from '../../components/frames/Side/Sidebar';
-import AgoraPopup from '../../components/frames/Agora/AgoraPopup';
-import profileImg from '../../images/members.png';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
+import moveImg from "../../images/login.png";
+import Menu from "../../components/frames/Side/Sidebar";
+import AgoraPopup from "../../components/frames/Agora/AgoraPopup";
+import profileImg from "../../images/members.png";
 
 interface Writer {
   id: number;
@@ -27,7 +27,7 @@ function Agora() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<AgoraData[]>('questions?writer-id=2');
+        const response = await axios.get<AgoraData[]>("questions?writer-id=2");
         setAgoraData(response.data);
         console.log(response.data, response.status);
       } catch (error) {
@@ -38,7 +38,7 @@ function Agora() {
   }, []);
 
   const activeStyle = {
-    background: '#D8F1FF',
+    background: "#D8F1FF",
   };
 
   return (
@@ -50,9 +50,9 @@ function Agora() {
           <AgoraPopup />
         </div>
         <div className='border mt-8'>
-          {' '}
+          {" "}
           <ul className='p-5 space-y-3 mb-[50px] w-[950px] h-[650px] overflow-auto'>
-            <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border'>
+            {/* <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border'>
               <div className='flex justify-between w-[500px]'>
                 <p>테스트 질문</p>
                 <p className='flex'>
@@ -61,7 +61,7 @@ function Agora() {
                     alt='agoraIcon'
                     src={profileImg}
                   />
-                  sample
+                  최정훈
                 </p>
                 <p>2023.05.20</p>
                 <p>개발</p>
@@ -77,17 +77,17 @@ function Agora() {
                   src={moveImg}
                 />
               </NavLink>
-            </li>
+            </li> */}
             <li className='flex justify-start pl-4 items-center m-auto w-[850px] h-[50px] bg-white border'>
               <div className='flex justify-between w-[500px]'>
-                <p>테스크 post 질문</p>
+                <p>post 질문</p>
                 <p className='flex'>
                   <img
                     className='w-[24px] h-[24px] mr-2'
                     alt='agoraIcon'
                     src={profileImg}
                   />
-                  sample
+                  최정훈
                 </p>
                 <p>2023.05.26</p>
                 <p>개발</p>

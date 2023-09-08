@@ -7,10 +7,17 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+import { useUser } from "../frames/token/UserContext";
 import refresh from "../../images/refresh.png";
 import mainData from "../graph/GraphData/mainData";
+import subData1 from "../graph/GraphData/subData1";
 
 function ProjectContribution() {
+  const [user] = useUser();
+  const currentNickname = user ? user.nickname : "권순호";
+
+  const activeData = currentNickname === "권순호" ? mainData : subData1;
+
   return (
     <div className='flex flex-col bg-white w-[500px] h-[400px] border'>
       <div className='flex justify-between items-center p-5 h-[50px] bg-[#6A6A6A]'>
@@ -22,11 +29,9 @@ function ProjectContribution() {
         />
       </div>
       <div className='flex m-auto w-[500px] h-[500px]'>
-        {/* 부모 요소의 크기 조정 */}
         <div className='m-auto w-[500px] h-[300px]'>
-          {/* RadarChart 영역 */}
           <ResponsiveContainer width='100%' height='100%'>
-            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={mainData}>
+            <RadarChart cx='50%' cy='50%' outerRadius='80%' data={activeData}>
               <PolarGrid />
               <PolarAngleAxis dataKey='subject' />
               <Radar

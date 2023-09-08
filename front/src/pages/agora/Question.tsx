@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { NavLink } from 'react-router-dom';
-import profileImg from '../../images/members.png';
-import backImg from '../../images/rightarrow.png';
-import Menu from '../../components/frames/Side/Sidebar';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
+import profileImg from "../../images/members.png";
+import backImg from "../../images/rightarrow.png";
+import Menu from "../../components/frames/Side/Sidebar";
 
 interface Answer {
   content: string;
@@ -25,7 +25,7 @@ interface Comment {
 
 function Question() {
   const [data, setData] = useState<Answer>({
-    content: '',
+    content: "",
     answerId: 1,
   });
 
@@ -42,9 +42,9 @@ function Question() {
     const answerData = {
       content: data.content,
     };
-    axios.post('answer-comments', answerData).then((response) => {
+    axios.post("answer-comments", answerData).then((response) => {
       console.log(response.status, response.data);
-      window.location.replace('/Question');
+      window.location.replace("/Question");
     });
   };
 
@@ -53,7 +53,7 @@ function Question() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<Comment[]>('answer-comment/1');
+        const response = await axios.get<Comment[]>("answer-comment/1");
         setCommentData(response.data);
         console.log(response.data);
       } catch (error) {
@@ -64,7 +64,7 @@ function Question() {
   }, []);
 
   const activeStyle = {
-    background: '#D8F1FF',
+    background: "#D8F1FF",
   };
 
   return (
@@ -89,7 +89,7 @@ function Question() {
                 alt='agoraIcon'
                 src={profileImg}
               />
-              sample
+              최정훈
             </p>
             <p>2023.05.20</p>
             <p>개발</p>
@@ -104,7 +104,7 @@ function Question() {
                 alt='agoraIcon'
                 src={profileImg}
               />
-              sample
+              최정훈
             </div>
             <p className='flex bg-white p-2 mt-2 w-full h-full overflow-auto rounded-[15px] text-[15px]'>
               작성자 추가 질문 테스트입니다.
