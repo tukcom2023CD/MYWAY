@@ -29,7 +29,7 @@ function App() {
           <Route path='/TeamList' element={<TeamList />} />
           <Route path='/DashBoard' element={<DashBoard />} />
           <Route path='/Project' element={<Project />} />
-          <Route path='/Sprint' element={<Sprint />} />
+          <Route path='/Sprint/:projectId' element={<Sprint />} />
           <Route path='/Task' element={<Task />} />
           <Route path='/Members' element={<Members />} />
           <Route path='/Graph' element={<Graph />} />
