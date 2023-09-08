@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import moveImg from "../../images/login.png";
 import Menu from "../../components/frames/Side/Sidebar";
 import MiniChart from "../../images/minichart.png";
@@ -30,11 +30,14 @@ interface SprintData {
 
 function Sprint() {
   const [sprintData, setSprintData] = useState<SprintData[]>();
+  const { projectId } = useParams<{ projectId: string }>();
 
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<SprintData[]>("sprints?project-id=2");
+        const response = await axios.get<SprintData[]>(
+          `sprints?project-id=${projectId}`
+        );
         setSprintData(response.data);
         console.log(response.data, response.status);
       } catch (error) {
@@ -42,7 +45,7 @@ function Sprint() {
       }
     }
     fetchData();
-  }, []);
+  }, [projectId]);
 
   const activeStyle = {
     background: "#D8F1FF",

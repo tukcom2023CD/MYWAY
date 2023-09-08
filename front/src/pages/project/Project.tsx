@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { NavLink } from 'react-router-dom';
-import moveImg from '../../images/login.png';
-import Menu from '../../components/frames/Side/Sidebar';
-import ProjectPopup from '../../components/Popup/ProjectPopup';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { NavLink } from "react-router-dom";
+import moveImg from "../../images/login.png";
+import Menu from "../../components/frames/Side/Sidebar";
+import ProjectPopup from "../../components/Popup/ProjectPopup";
 
 interface Manager {
   id: number;
@@ -33,7 +33,7 @@ function Project() {
   useEffect(() => {
     async function fetchData(): Promise<void> {
       try {
-        const response = await axios.get<ProjectData[]>('projects?team-id=1');
+        const response = await axios.get<ProjectData[]>("projects?team-id=1");
         setProjectData(response.data);
         console.log(response.data);
       } catch (error) {
@@ -44,7 +44,7 @@ function Project() {
   }, []);
 
   const activeStyle = {
-    background: '#D8F1FF',
+    background: "#D8F1FF",
   };
 
   return (
@@ -67,7 +67,7 @@ function Project() {
                     <NavLink
                       className='flex justify-center items-center ml-auto w-[60px] h-[40px] rounded-[10px] bg-[#4A4A4A] text-white'
                       style={({ isActive }) => (isActive ? activeStyle : {})}
-                      to='/sprint'
+                      to={`/sprint/${projectData.id}`}
                     >
                       <img
                         className='w-[24px] h-[24px]'
